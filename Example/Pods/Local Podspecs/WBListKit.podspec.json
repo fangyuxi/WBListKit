@@ -20,7 +20,7 @@
   },
   "requires_arc": true,
   "frameworks": "UIKit",
-  "source_files": "{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
+  "source_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
   "subspecs": [
     {
       "name": "TableView",
