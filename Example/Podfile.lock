@@ -22,6 +22,11 @@ PODS:
   - MJRefresh (3.1.12)
   - UITableView+FDTemplateLayoutCell (1.4)
   - WBListKit (0.1):
+    - WBListKit/CollectionView (= 0.1)
+    - WBListKit/TableView (= 0.1)
+  - WBListKit/CollectionView (0.1):
+    - UITableView+FDTemplateLayoutCell
+  - WBListKit/TableView (0.1):
     - UITableView+FDTemplateLayoutCell
 
 DEPENDENCIES:
@@ -41,7 +46,7 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
-  WBListKit: c8ffcc66565c4bc21380b749450eaca36e79cd61
+  WBListKit: b9cc6dd5ca6ec6bd154e301e1ee109f6189bc91c
 
 PODFILE CHECKSUM: c598c050998cf2f324262c8903d66b83e92529e0
 

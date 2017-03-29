@@ -1,8 +1,8 @@
 {
   "name": "WBListKit",
   "version": "0.1",
-  "summary": "A Wrapper of UICollectionView",
-  "description": "Esay and Quick to use UICollectionView to build list",
+  "summary": "A Wrapper of UICollectionView & UITableView",
+  "description": "Esay and Quick to use UICollectionView & UITableView to build list",
   "homepage": "https://github.com/fangyuxi/WBListKit",
   "license": {
     "type": "MIT",
@@ -18,12 +18,41 @@
   "platforms": {
     "ios": "7.0"
   },
-  "source_files": "WBListKit/Classes/**/*",
-  "public_header_files": "Pod/Classes/**/*.h",
+  "requires_arc": true,
   "frameworks": "UIKit",
-  "dependencies": {
-    "UITableView+FDTemplateLayoutCell": [
+  "source_files": "{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
+  "subspecs": [
+    {
+      "name": "TableView",
+      "source_files": [
+        "WBListKit/WBTableRow.{h,m}",
+        "WBListKit/WBTableSection.{h,m}",
+        "WBListKit/WBTableSectionMaker.{h,m}",
+        "WBListKit/WBTableSectionHeaderFooter.{h,m}",
+        "WBListKit/WBTableViewAdapter.{h,m}",
+        "WBListKit/WBTableViewDelegateProxy.{h,m}",
+        "WBListKit/{WBTableCellProtocal,WBTableHeaderFooterViewProtocal}.h"
+      ],
+      "dependencies": {
+        "UITableView+FDTemplateLayoutCell": [
 
-    ]
-  }
+        ]
+      }
+    },
+    {
+      "name": "CollectionView",
+      "source_files": [
+        "WBListKit/WBCollectionItem.{h,m}",
+        "WBListKit/WBCollectionSection.{h,m}",
+        "WBListKit/WBCollectionSectionMaker.{h,m}",
+        "WBListKit/WBCollectionViewAdapter.{h,m}",
+        "WBListKit/WBCollectionViewDelegateProxy.{h,m}"
+      ],
+      "dependencies": {
+        "UITableView+FDTemplateLayoutCell": [
+
+        ]
+      }
+    }
+  ]
 }
