@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
     s.name             = 'WBListKit'
     s.version          = '0.1'
-    s.summary          = 'A Wrapper of UICollectionView'
+    s.summary          = 'A Wrapper of UICollectionView & UITableView'
 
 
-    s.description      = 'Esay and Quick to use UICollectionView to build list'
+    s.description      = 'Esay and Quick to use UICollectionView & UITableView to build list'
 
     s.homepage         = 'https://github.com/fangyuxi/WBListKit'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
