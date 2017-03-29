@@ -1,0 +1,6 @@
+framework module WBListKit {
+  umbrella header "WBListKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,9 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/HYDBCache" "$PODS_CONFIGURATION_BUILD_DIR/HYNetworking" "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh" "$PODS_CONFIGURATION_BUILD_DIR/Masonry" "$PODS_CONFIGURATION_BUILD_DIR/UITableView+FDTemplateLayoutCell" "$PODS_CONFIGURATION_BUILD_DIR/WBListKit"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/HYDBCache/HYDBCache.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/HYNetworking/HYNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/WBListKit/WBListKit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "HYDBCache" -framework "HYNetworking" -framework "MJRefresh" -framework "Masonry" -framework "UITableView_FDTemplateLayoutCell" -framework "WBListKit"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods
