@@ -11,11 +11,11 @@
 
 #import "WBListReusableViewProtocol.h"
 
-@class WBListSectionHeaderFooter;
+@class WBTableSectionHeaderFooter;
 
 @protocol WBTableHeaderFooterViewProtocal <WBListReusableViewProtocol>
 
-@property (nonatomic, strong) WBListSectionHeaderFooter *headerFooter;
+@property (nonatomic, strong) WBTableSectionHeaderFooter *headerFooter;
 
 @end
 

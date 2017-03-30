@@ -26,7 +26,7 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 - (void)setAssociatedCellClass:(Class)associatedCellClass
 {
     NSString *className = NSStringFromClass(associatedCellClass);
-    WBListKitAssert([className hasSuffix:@"Cell"], [[NSString alloc] initWithFormat:@"%@ Must end with 'Cell' "]);
+    WBListKitAssert([className hasSuffix:@"Cell"], [[NSString alloc] initWithFormat:@"Cell Class Name Must end with 'Cell' "]);
     _associatedCellClass = associatedCellClass;
 }
 

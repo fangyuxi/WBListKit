@@ -158,15 +158,15 @@
     [self.sections removeObject:section];
 }
 - (void)deleteSectionAtIndex:(NSUInteger)index{
-    WBTableSection *section = [self sectionAtIndex:index];
-    if (section) {
-        [self deleteSection:section];
+    WBTableSectionMaker *maker = [self sectionAtIndex:index];
+    if (maker.section) {
+        [self deleteSection:maker.section];
     }
 }
 - (void)deleteSectionForIdentifier:(NSString *)identifier{
-    WBTableSection *section = [self sectionForIdentifier:identifier];
-    if (section) {
-        [self deleteSection:section];
+    WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
+    if (maker.section) {
+        [self deleteSection:maker.section];
     }
 }
 - (void)deleteAllSections{
@@ -193,7 +193,7 @@
     }
     row.indexPath = indexPath;
     cell.row = row;
-    if ([cell respondsToSelector:@selector(setActionDelegate)]) {
+    if ([cell respondsToSelector:@selector(setActionDelegate:)]) {
         cell.actionDelegate = self.actionDelegate;
     }
     [cell update];
@@ -251,7 +251,7 @@
     [self registeHeaderFooterIfNeededUseClass:header.associatedHeaderFooterClass];
     
     if (header.height == WBTableHeaderFooterHeightAutoLayout) {
-        WBTableSectionMaker *maker = [self sectionAtIndex:index];
+        WBTableSectionMaker *maker = [self sectionAtIndex:section];
         return [self heightForHeaderFooter:header inSectoin:maker.section];
     }
     if (header.calculateHeight) {
@@ -272,7 +272,7 @@
     [self registeHeaderFooterIfNeededUseClass:footer.associatedHeaderFooterClass];
     
     if (footer.height == WBTableHeaderFooterHeightAutoLayout) {
-        WBTableSectionMaker *maker = [self sectionAtIndex:index];
+        WBTableSectionMaker *maker = [self sectionAtIndex:section];
         return [self heightForHeaderFooter:footer inSectoin:maker.section];
     }
     if (footer.calculateHeight) {
@@ -296,10 +296,10 @@
     UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
     WBListKitAssert([headerView isKindOfClass:[UITableViewHeaderFooterView class]],@"header 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([headerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"header 必须遵守 WBListHeaderFooterViewProtocal 协议");
-    if ([headerView respondsToSelector:@selector(resetHeaderFooter)]) {
+    if ([headerView respondsToSelector:@selector(reset)]) {
         [headerView reset];
     }
-    if ([headerView respondsToSelector:@selector(setActionDelegate)]) {
+    if ([headerView respondsToSelector:@selector(setActionDelegate:)]) {
         headerView.actionDelegate = self.actionDelegate;
     }
     headerView.headerFooter = header;
@@ -320,10 +320,10 @@
     UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *footerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
     WBListKitAssert([footerView isKindOfClass:[UITableViewHeaderFooterView class]],@"footer 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([footerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"footer 必须遵守 WBListHeaderFooterViewProtocal 协议");
-    if ([footerView respondsToSelector:@selector(resetHeaderFooter)]) {
+    if ([footerView respondsToSelector:@selector(reset)]) {
         [footerView reset];
     }
-    if ([footerView respondsToSelector:@selector(setActionDelegate)]) {
+    if ([footerView respondsToSelector:@selector(setActionDelegate:)]) {
         footerView.actionDelegate = self.actionDelegate;
     }
     footerView.headerFooter = footer;
