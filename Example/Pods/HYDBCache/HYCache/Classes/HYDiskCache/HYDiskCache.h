@@ -45,8 +45,8 @@ typedef void (^HYDiskCacheObjectBlock) (HYDiskCache *cache, NSString *key, id __
 
 - (instancetype __nullable)initWithName:(NSString *)name;
 
-- (instancetype __nullable)initWithName:(NSString *)name
-            andDirectoryPath:(NSString *)directoryPath NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithName:(NSString *)name
+               directoryPath:(nullable NSString *)directoryPath NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *directoryPath;

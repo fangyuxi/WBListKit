@@ -19,17 +19,17 @@
 
 - (instancetype)initWithName:(NSString *)name
 {
-    return [self initWithName:name andDirectoryPath:nil];
+    return [self initWithName:name directoryPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
 }
 
-- (instancetype)initWithName:(NSString *)name
-            andDirectoryPath:(NSString *)directoryPath
+- (instancetype __nullable)initWithName:(NSString *)name
+                          directoryPath:(NSString *)directoryPath
 {
     self = [super init];
     if (self)
     {
         _memCache = [[HYMemoryCache alloc] initWithName:name];
-        _diskCache = [[HYDiskCache alloc] initWithName:name andDirectoryPath:directoryPath];
+        _diskCache = [[HYDiskCache alloc] initWithName:name directoryPath:directoryPath];
         
         if (!_memCache ||!_diskCache) {
             _memCache = nil;

@@ -249,17 +249,9 @@ inline NSArray * p_keySortedByInCacheDate(CFMutableDictionaryRef _objectDic);
 
 - (id __nullable )objectForKey:(id)key
 {
-#warning 暂时没有实现 即使对象存在，但是超出了maxAge没来得及清理，那么也是NO
     if (!key) return nil;
-//    lock();
-//    NSTimeInterval maxAge = _maxAge;
-//    unLock();
     
     _HYMemoryCacheItem *item = p_itemForKey(_objectDic, key);
-    
-    //NSTimeInterval now = [[NSDate new] timeIntervalSince1970];
-    
-    //即使对象存在，但是超出了maxAge没来得及清理，那么也是NO
     if (item != nil)
         return item->_object;
     return nil;

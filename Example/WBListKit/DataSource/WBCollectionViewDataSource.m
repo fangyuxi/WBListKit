@@ -42,10 +42,5 @@
     return _collectionViewAdapter;
 }
 
-- (void)setActionDelegate:(id<WBListActionToControllerProtocol>)actionDelegate{
-    _actionDelegate = actionDelegate;
-    //self.collectionViewAdapter.tableDelegate = _actionDelegate;
-}
-
 
 @end

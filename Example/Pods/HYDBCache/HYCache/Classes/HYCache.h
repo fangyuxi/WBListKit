@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return cache
  */
 - (instancetype __nullable)initWithName:(NSString *)name
-                       andDirectoryPath:(NSString *)directoryPath NS_DESIGNATED_INITIALIZER;
+                          directoryPath:(NSString *)directoryPath NS_DESIGNATED_INITIALIZER;
 
 /**
  同步获取

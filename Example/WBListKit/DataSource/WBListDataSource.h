@@ -38,7 +38,9 @@
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
 /**
- load data
+ load data 子类需要重写以下三个方法，在loadSource处理控制器发起的加载数据的请求
+           在loadMoreSource中处理控制器发起的加载更多的请求，在cancelLoad中
+           处理控制器发起的取消加载的请求
  */
 - (void)loadSource;
 - (void)loadMoreSource;

@@ -46,9 +46,4 @@
     return _tableViewAdapter;
 }
 
-//- (void)setActionDelegate:(id<WBListActionToControllerProtocol>)actionDelegate{
-//    _actionDelegate = actionDelegate;
-//    self.tableViewAdapter.tableDelegate = _actionDelegate;
-//}
-
 @end

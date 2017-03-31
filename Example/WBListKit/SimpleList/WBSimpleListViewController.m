@@ -11,7 +11,7 @@
 #import "WBSimpleListCell.h"
 #import "WBSimpleListAutoLayoutCell.h"
 
-@interface WBSimpleListViewController ()
+@interface WBSimpleListViewController ()<WBListActionToControllerProtocol>
 
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
 @property (nonatomic, strong) UITableView *tableView;
@@ -30,6 +30,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
+    self.adapter.actionDelegate = self;
     [self.adapter bindTableView:self.tableView];
     
     [self loadData];
@@ -47,7 +48,7 @@
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row);
+            maker.addRow(row).setIdentifier(@"FixedHeight");
         }
     }];
     
@@ -59,7 +60,7 @@
             row.height = WBListCellHeightAutoLayout;
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row);
+            maker.addRow(row).setIdentifier(@"AutoLayout");
         }
     }];
     
@@ -69,6 +70,15 @@
             [self.tableView reloadData];
         });
     });
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+- (void)actionFromReusableView:(UIView *)view
+                  withEventTag:(NSString *)tag
+           withParameterObject:(id)object{
 }
 
 

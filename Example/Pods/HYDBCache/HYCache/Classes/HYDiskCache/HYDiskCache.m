@@ -159,16 +159,16 @@ static int64_t _HYDiskSpaceFree()
 {
     @throw [NSException exceptionWithName:@"HYDiskCache Must Have A Name" reason:@"Call initWithName: instead." userInfo:nil];
     
-    return [self initWithName:@"" andDirectoryPath:@""];
+    return [self initWithName:@"" directoryPath:@""];
 }
 
 - (instancetype)initWithName:(NSString *)name
 {
-    return [self initWithName:name andDirectoryPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
+    return [self initWithName:name directoryPath:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
 }
 
 - (instancetype)initWithName:(NSString *)name
-            andDirectoryPath:(NSString *)directoryPath
+               directoryPath:(nullable NSString *)directoryPath
 {
     if (!name ||
         name.length == 0 ||
@@ -178,7 +178,7 @@ static int64_t _HYDiskSpaceFree()
         ![directoryPath isKindOfClass:[NSString class]])
     {
         @throw [NSException exceptionWithName:@"HYDiskCache Must Have A Name"
-                                       reason:@"The Name and DirectoryPath Could Not Be NIL Or Empty"
+                                       reason:@"The Name and DirectoryPath Could Not Be nil Or Empty"
                                      userInfo:nil];
         return nil;
     }

@@ -28,14 +28,14 @@
 #pragma mark bind unbind
 
 - (void)bindTableView:(UITableView *)tableView{
-    NSCAssert([tableView isKindOfClass:[UITableView class]], @"bindTableView 需要一个 UITableView实例");
+    WBListKitAssert([tableView isKindOfClass:[UITableView class]], @"bindTableView 需要一个 UITableView实例");
     [self unBindTableView];
     self.tableView = tableView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     if (self.actionDelegate || self.tableDataSource) {
-        [self updateTableProxy];
+        [self updateTableDelegateProxy];
     }
 }
 
@@ -57,6 +57,8 @@
             [cell reload];
         }
     }];
+    
+    //TO invoke header footer 'reload'
 }
 
 - (void)didDisappear{
@@ -69,6 +71,8 @@
             [cell cancel];
         }
     }];
+    
+    //TO invoke header footer 'cancel'
 }
 
 #pragma mark section operators
@@ -336,14 +340,14 @@
 - (void)setTableDataSource:(id<UITableViewDataSource>)tableDataSource {
     if (_tableDataSource != tableDataSource) {
         _tableDataSource = tableDataSource;
-        [self updateTableProxy];
+        [self updateTableDelegateProxy];
     }
 }
 
 - (void)setActionDelegate:(id<WBListActionToControllerProtocol>)actionDelegate{
     if (_actionDelegate != actionDelegate) {
         _actionDelegate = actionDelegate;
-        [self updateTableProxy];
+        [self updateTableDelegateProxy];
     }
 }
 
@@ -375,7 +379,7 @@
 
 #pragma mark private method
 
-- (void)updateTableProxy
+- (void)updateTableDelegateProxy
 {
     // there is a known bug with accessibility and using an NSProxy as the delegate that will cause EXC_BAD_ACCESS
     // when voiceover is enabled. it will hold an unsafe ref to the delegate

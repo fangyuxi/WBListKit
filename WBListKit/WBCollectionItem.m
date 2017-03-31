@@ -10,4 +10,11 @@
 
 @implementation WBCollectionItem
 
+- (void)setAssociatedCellClass:(Class)associatedCellClass
+{
+    NSString *className = NSStringFromClass(associatedCellClass);
+    WBListKitAssert([className hasSuffix:@"Cell"], [[NSString alloc] initWithFormat:@"Cell Class Name Must end with 'Cell' "]);
+    _associatedCellClass = associatedCellClass;
+}
+
 @end

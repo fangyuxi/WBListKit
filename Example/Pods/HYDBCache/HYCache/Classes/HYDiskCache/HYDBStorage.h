@@ -15,7 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
  
  使用我们自己编译的sqlite3库，要比苹果自带的快，同时也可进行源码级的优化
  
+ sqlite优化点
+ 
+ 关闭内存申请统计
+ sqlite3_config(SQLITE_CONFIG_MEMSTATUS, 0);
+ 尝试打开mmap
+ sqlite3_config(SQLITE_CONFIG_MMAP_SIZE, (SInt64)kSQLiteMMapSize, (SInt64)-1);
+ 多个线程可以共享connection
+ sqlite3_config(SQLITE_CONFIG_SINGLETHREAD);
+ 
  不支持后台操作，请在外部使用 'beginBackgroundTaskWithExpirationHandler:^{}'
+ 
+ 非线程安全，如果单独使用，请保证线程安全
  */
 
 @interface HYDBStorage : NSObject
