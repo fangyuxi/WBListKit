@@ -85,8 +85,11 @@
     }
     
     WBTableSection *section = [self.sections objectAtIndex:index];
-    WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-    return maker;
+    if (!section.maker) {
+        WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
+        section.maker = maker;
+    }
+    return section.maker;
 }
 
 - (WBTableSectionMaker *)sectionForIdentifier:(NSString *)identifier{
@@ -102,9 +105,14 @@
             stop = &b;
         }
     }];
-    
-    WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-    return maker;
+    if (!section) {
+        return nil;
+    }
+    if (!section.maker) {
+        WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
+        section.maker = maker;
+    }
+    return section.maker;
 }
 
 - (NSUInteger)indexOfSection:(WBTableSection *)section{
@@ -125,15 +133,19 @@
     
     WBTableSection *section = [[WBTableSection alloc] init];
     WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
+    section.maker = maker;
     [self.sections insertObject:maker.section atIndex:index];
     block(maker);
+    
+//    if (maker.animationUpdate) {
+//        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
+//    }
 }
 
 - (void)updateSection:(WBTableSection *)section
             useMaker:(void(^)(WBTableSectionMaker *maker))block
 {
-    WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-    block(maker);
+    block(section.maker);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
@@ -144,6 +156,10 @@
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
             block(maker);
         }];
+        
+//        if (maker.animationUpdate) {
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
+//        }
     }
 }
 
@@ -155,6 +171,11 @@
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
             block(maker);
         }];
+        
+//        NSUInteger index = [self indexOfSection:maker.section];
+//        if (maker.animationUpdate) {
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
+//        };
     }
 }
 
@@ -337,7 +358,7 @@
 
 #pragma mark setters
 
-- (void)setTableDataSource:(id<UITableViewDataSource>)tableDataSource {
+- (void)setTableDataSource:(id)tableDataSource {
     if (_tableDataSource != tableDataSource) {
         _tableDataSource = tableDataSource;
         [self updateTableDelegateProxy];

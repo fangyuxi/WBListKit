@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */; };
+		1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */; };
 		1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0151E840017001C02AD /* UIViewController+WBList.m */; };
 		1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */; };
 		1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */; };
@@ -61,6 +63,10 @@
 /* Begin PBXFileReference section */
 		01C39DECA6237ACF30C4D96B /* Pods-WBListKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Tests/Pods-WBListKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1363FF33A83E7E741116A44C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1E3E89CF1E8FBE1A003C8CD2 /* WBCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewController.h; sourceTree = "<group>"; };
+		1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewController.m; sourceTree = "<group>"; };
+		1E3E89D21E8FBE57003C8CD2 /* WBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewCell.h; sourceTree = "<group>"; };
+		1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewCell.m; sourceTree = "<group>"; };
 		1E4DD0141E840017001C02AD /* UIViewController+WBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBList.h"; sourceTree = "<group>"; };
 		1E4DD0151E840017001C02AD /* UIViewController+WBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBList.m"; sourceTree = "<group>"; };
 		1E4DD0171E84A5F3001C02AD /* WBListDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListDataSourceDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +168,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3E89CE1E8FBE07003C8CD2 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E89CF1E8FBE1A003C8CD2 /* WBCollectionViewController.h */,
+				1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */,
+				1E3E89D21E8FBE57003C8CD2 /* WBCollectionViewCell.h */,
+				1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		1E4DD0251E84EC64001C02AD /* MVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +322,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				1E3E89CE1E8FBE07003C8CD2 /* CollectionView */,
 				1EE3D77B1E8B89F1006D4B66 /* MultiDataSource */,
 				1E4DD0251E84EC64001C02AD /* MVC */,
 				1ED1F5A81E824A9400C0EF58 /* Swift */,
@@ -584,6 +602,7 @@
 				1ED1F58F1E81250A00C0EF58 /* WBReformerListCell.m in Sources */,
 				1ED1F59F1E81594000C0EF58 /* WBDemoFooterView.m in Sources */,
 				1ED1F58C1E8124F500C0EF58 /* WBReformerListViewController.m in Sources */,
+				1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */,
 				1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */,
 				1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */,
 				1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */,
@@ -594,6 +613,7 @@
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
+				1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
 				1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */,
 				1ED1F5A71E821C7F00C0EF58 /* WBListDataSource.m in Sources */,

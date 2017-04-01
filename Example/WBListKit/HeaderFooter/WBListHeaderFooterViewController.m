@@ -32,7 +32,9 @@
     self.adapter = [[WBTableViewAdapter alloc] init];
     [self.adapter bindTableView:self.tableView];
     
-    [self loadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadData];
+    });
 }
 
 - (void)loadData{
@@ -57,12 +59,12 @@
         maker.addRow(row).addFooter(footer).addHeader(header);
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.tableView reloadData];
-        });
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            [self.tableView reloadData];
+//        });
+//    });
 }
 
 @end

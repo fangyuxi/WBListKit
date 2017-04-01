@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
     s.subspec 'CollectionView' do |c|
         c.source_files =   'WBListKit/WBCollectionItem.{h,m}', 'WBListKit/WBCollectionSection.{h,m}',
                             'WBListKit/WBCollectionSectionMaker.{h,m}',
-                            'WBListKit/WBCollectionViewAdapter.{h,m}','WBListKit/WBCollectionViewDelegateProxy.{h,m}'
+'WBListKit/WBCollectionViewAdapter.{h,m}','WBListKit/WBCollectionViewDelegateProxy.{h,m}','WBListKit/WBCollectionSupplementaryItem.{h,m}','WBListKit/WBCollectionCellProtocol.h','WBListKit/WBCollectionSupplementaryViewProtocol.h'
 
         c.dependency 'UITableView+FDTemplateLayoutCell'
     end

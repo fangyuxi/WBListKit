@@ -10,7 +10,7 @@
 
 @interface WBTableSectionMaker ()
 
-@property (nonatomic, strong, readwrite) WBTableSection *section;
+@property (nonatomic, weak, readwrite) WBTableSection *section;
 
 @end
 
@@ -23,6 +23,8 @@
     }
     
     self = [super init];
+    self.animationType = UITableViewRowAnimationTop;
+    self.animationUpdate = YES;
     self.section = section;
     return self;
 }

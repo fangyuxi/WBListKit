@@ -12,10 +12,14 @@
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
 
+@class WBTableSectionMaker;
+
 NS_ASSUME_NONNULL_BEGIN
 
 WBListKit_SUBCLASSING_RESTRICTED
 @interface WBTableSection : NSObject
+
+@property (nonatomic, strong, nullable) WBTableSectionMaker *maker;
 
 /**
  此section的唯一标识符

@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  before use it, you must know why 
  */
-@property (nonatomic, weak) id<UITableViewDataSource> tableDataSource;
+@property (nonatomic, weak) id tableDataSource;
 
 /**
  look into WBListCell, adapter is a brige for actions transport from cell to controller

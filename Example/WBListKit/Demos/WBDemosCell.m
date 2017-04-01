@@ -39,7 +39,7 @@
 }
 
 - (void)update{
-    self.label.text = [self.row.data objectForKey:@"title"];
+    self.label.text = [(NSDictionary *)self.row.data objectForKey:@"title"];
 }
 
 @end

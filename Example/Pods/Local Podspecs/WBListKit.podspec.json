@@ -46,7 +46,10 @@
         "WBListKit/WBCollectionSection.{h,m}",
         "WBListKit/WBCollectionSectionMaker.{h,m}",
         "WBListKit/WBCollectionViewAdapter.{h,m}",
-        "WBListKit/WBCollectionViewDelegateProxy.{h,m}"
+        "WBListKit/WBCollectionViewDelegateProxy.{h,m}",
+        "WBListKit/WBCollectionSupplementaryItem.{h,m}",
+        "WBListKit/WBCollectionCellProtocol.h",
+        "WBListKit/WBCollectionSupplementaryViewProtocol.h"
       ],
       "dependencies": {
         "UITableView+FDTemplateLayoutCell": [

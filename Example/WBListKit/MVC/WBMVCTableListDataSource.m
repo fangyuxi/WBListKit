@@ -27,6 +27,7 @@
             [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
                 
                 maker.setIdentifier(@"fangyuxi");
+                maker.animationUpdate = YES;
                 for (NSInteger index = 0; index < 15; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.calculateHeight = ^CGFloat(WBTableRow *row){
@@ -59,6 +60,8 @@
             
             //追加数据 所以是update
             [self.tableViewAdapter updateSectionForIdentifier:@"fangyuxi" useMaker:^(WBTableSectionMaker * _Nonnull maker) {
+                
+                maker.animationUpdate = YES;
                 for (NSInteger index = 0; index < 15; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.calculateHeight = ^CGFloat(WBTableRow *row){

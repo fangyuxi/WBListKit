@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 WBListKit_SUBCLASSING_RESTRICTED
 @interface WBCollectionSectionMaker : NSObject
 
-@property (nonatomic, strong, readonly) WBCollectionSection *section;
+@property (nonatomic, weak, readonly) WBCollectionSection *section;
 
 
 /**

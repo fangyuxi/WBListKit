@@ -20,8 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 WBListKit_SUBCLASSING_RESTRICTED
 @interface  WBTableSectionMaker : NSObject
 
-@property (nonatomic, strong, readonly) WBTableSection *section;
+@property (nonatomic, weak, readonly) WBTableSection *section;
 
+@property (nonatomic, assign) BOOL animationUpdate;
+@property (nonatomic, assign) UITableViewRowAnimation animationType;
 
 /**
     创建SectionMaker
@@ -33,7 +35,6 @@ WBListKit_SUBCLASSING_RESTRICTED
 
 - (instancetype)init WBListKit_UNAVAILABLE("Must have a section");
 - (instancetype)new  WBListKit_UNAVAILABLE("Must have a section");
-
 
 /**
     链式语法的连词

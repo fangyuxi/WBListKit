@@ -17,8 +17,9 @@
 #import "WBListHeaderFooterViewController.h"
 #import "WBMVCViewController.h"
 #import "WBMultiSourceController.h"
+#import "WBCollectionViewController.h"
 
-@interface WBListKitDemosViewController ()<WBListActionToControllerProtocol, UITableViewDelegate>
+@interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
 @property (nonatomic, strong) UITableView *tableView;
 @end
@@ -37,8 +38,10 @@
     self.adapter = [[WBTableViewAdapter alloc] init];
     [self.adapter bindTableView:self.tableView];
     self.adapter.actionDelegate = self;
-    
-    [self loadData];
+    self.adapter.tableDataSource = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadData];
+    });
 }
 
 - (void)loadData{
@@ -62,9 +65,9 @@
         maker.addRows(rows).setIdentifier(@"DemoIdentifier");
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-           
+
             [self.tableView reloadData];
         });
     });
@@ -76,7 +79,8 @@
              @{@"title":@"FooterHeader List",@"class":[WBListHeaderFooterViewController class]},
              @{@"title":@"Swift Demos",@"class":[WBSwiftListViewController class]},
              @{@"title":@"MVC Demos",@"class":[WBMVCViewController class]},
-             @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]}
+             @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
+             @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]}
              ];
 }
 

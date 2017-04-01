@@ -60,7 +60,10 @@ static BOOL isInterceptedSelector(SEL sel) {
     if ([_tableDelegateTarget respondsToSelector:aSelector]) {
         return _tableDelegateTarget;
     }
-    return _tableDataSourceTarget;
+    if ([_tableDataSourceTarget respondsToSelector:aSelector]) {
+        return _tableDataSourceTarget;
+    }
+    return nil;
 }
 
 // handling unimplemented methods and nil target/interceptor

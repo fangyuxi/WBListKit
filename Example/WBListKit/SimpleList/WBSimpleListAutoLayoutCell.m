@@ -43,7 +43,7 @@
 }
 
 - (void)update{
-    self.label.text = [NSString stringWithFormat:@"SimpleList AutoLayout Cell Index : %@",[[self.row.data objectForKey:@"title"] stringValue]];
+    self.label.text = [NSString stringWithFormat:@"SimpleList AutoLayout Cell Index : %@",[[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue]];
 }
 
 

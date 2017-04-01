@@ -11,6 +11,8 @@
 #import "WBListKitMacros.h"
 #import "WBCollectionItem.h"
 
+@class WBCollectionSectionMaker;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -18,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 WBListKit_SUBCLASSING_RESTRICTED
 @interface WBCollectionSection : NSObject
+
+@property (nonatomic, strong, nullable) WBCollectionSectionMaker *maker;
 
 /**
  此section的唯一标识符

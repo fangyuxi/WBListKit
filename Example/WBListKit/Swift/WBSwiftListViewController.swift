@@ -34,7 +34,7 @@ class WBSwiftListViewController: UIViewController {
             for i in 1..<10{
                 let row: WBTableRow = WBTableRow();
                 row.height = 100.0;
-                row.associatedCellClass = WBSwiftListCell.self;
+                row.associatedCellClass = WBSwiftListCell.self
                 row.data = ["color":UIColor.clear, "index":i]
                 maker.addRow()(row)
             }

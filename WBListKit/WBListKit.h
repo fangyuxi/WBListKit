@@ -8,6 +8,11 @@
 
 #import "WBTableViewAdapter.h"
 #import "WBCollectionViewAdapter.h"
+
 #import "WBListDataReformerProtocol.h"
+
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
+
+#import "WBCollectionCellProtocol.h"
+#import "WBCollectionSupplementaryViewProtocol.h"

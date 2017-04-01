@@ -10,7 +10,7 @@
 
 @interface WBCollectionSectionMaker ()
 
-@property (nonatomic, strong, readwrite) WBCollectionSection *section;
+@property (nonatomic, weak, readwrite) WBCollectionSection *section;
 
 @end
 

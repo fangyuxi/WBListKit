@@ -22,7 +22,7 @@
  actionDelegate是从adapter中传到view中的实现了此协议的controller对象
 */
 
-@protocol WBListActionToControllerProtocol <NSObject,UITableViewDelegate,UICollectionViewDelegate>
+@protocol WBListActionToControllerProtocol <NSObject,UITableViewDelegate,UICollectionViewDelegateFlowLayout>
 @optional
 
 - (void)actionFromReusableView:(UIView *)view
