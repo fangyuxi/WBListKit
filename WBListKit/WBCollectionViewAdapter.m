@@ -228,11 +228,17 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     WBListKitAssertMainThread();
+    if ([self.collectionViewDataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
+        return [self.collectionViewDataSource numberOfSectionsInCollectionView:collectionView];
+    }
     return [self.sections count];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
+    if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
+        return [self.collectionViewDataSource collectionView:collectionView numberOfItemsInSection:section];
+    }
     WBCollectionSectionMaker *maker = [self sectionAtIndex:section];
     return maker.itemsCount;
 }
@@ -247,7 +253,15 @@
     
     //registe if needed
     [self registeCellIfNeededUseCellClass:cellClass];
-    UICollectionViewCell<WBCollectionCellProtocol> *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    // hook by
+    UICollectionViewCell<WBCollectionCellProtocol> *cell = nil;
+    if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:cellForItemAtIndexPath:)]) {
+        cell = [self.collectionViewDataSource collectionView:collectionView cellForItemAtIndexPath:indexPath];
+    }else{
+        cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    }
+
     WBListKitAssert([cell conformsToProtocol:@protocol(WBCollectionCellProtocol)],@"cell 必须遵守 WBCollectionCellProtocol 协议");
     if ([cell respondsToSelector:@selector(reset)]) {
         [cell reset];
@@ -273,7 +287,17 @@
     
     //registe if needed
     [self registeSupplementaryViewIfNeededUseClass:viewClass kind:item.elementKind];
-    UICollectionReusableView<WBCollectionSupplementaryViewProtocol> *view = [self.collectionView dequeueReusableSupplementaryViewOfKind:item.elementKind withReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    //hook by
+    UICollectionReusableView<WBCollectionSupplementaryViewProtocol> *view = nil;
+    if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:viewForSupplementaryElementOfKind:atIndexPath:)]) {
+        view = (UICollectionReusableView<WBCollectionSupplementaryViewProtocol> *)[self.collectionViewDataSource collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+    }else{
+        view = [self.collectionView dequeueReusableSupplementaryViewOfKind:item.elementKind
+                                                       withReuseIdentifier:identifier
+                                                              forIndexPath:indexPath];
+    }
+    WBListKitAssert([view isKindOfClass:[UICollectionReusableView class]],@"SupplementaryView 必须是 UICollectionReusableView的子类");
     WBListKitAssert([view conformsToProtocol:@protocol(WBCollectionSupplementaryViewProtocol)],@"SupplementaryView 必须遵守 WBCollectionSupplementaryViewProtocol 协议");
     if ([view respondsToSelector:@selector(reset)]) {
         [view reset];

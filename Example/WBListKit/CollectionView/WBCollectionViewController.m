@@ -32,6 +32,7 @@
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
     self.adapter.actionDelegate = self;
+    self.adapter.collectionViewDataSource = self;
     [self.adapter bindCollectionView:self.collectionView];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -81,12 +82,7 @@
         [weakSelf.adapter addSupplementaryItem:header indexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            [self.collectionView reloadData];
-        });
-    });
+    [self.collectionView reloadData];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView

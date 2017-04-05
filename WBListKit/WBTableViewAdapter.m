@@ -199,7 +199,13 @@
     //registe if needed
     [self registeCellIfNeededUseCellClass:cellClass];
     
-    UITableViewCell<WBTableCellProtocol> *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    //hook by
+    UITableViewCell<WBTableCellProtocol> *cell = nil;
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
+        return [self.tableDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    
+    cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     WBListKitAssert([cell conformsToProtocol:@protocol(WBTableCellProtocol)],@"cell 必须遵守 WBTableCellProtocol 协议");
     if ([cell respondsToSelector:@selector(reset)]) {
         [cell reset];
@@ -215,10 +221,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     WBListKitAssertMainThread();
+    if ([self.tableDataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        return [self.tableDataSource numberOfSectionsInTableView:tableView];
+    }
     return [self.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
+        return [self.tableDataSource tableView:tableView numberOfRowsInSection:section];
+    }
     WBTableSectionMaker *maker = [self sectionAtIndex:section];
     return maker.rowCount;
 }
@@ -233,6 +245,11 @@
     
     //registe if needed
     [self registeCellIfNeededUseCellClass:cellClass];
+    
+    // hook by
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        return [self.tableDataSource tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
 
     if (row.height == WBListCellHeightAutoLayout) {
         
@@ -263,6 +280,11 @@
     //registe if needed
     [self registeHeaderFooterIfNeededUseClass:header.associatedHeaderFooterClass];
     
+    // hook by
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+        return [self.tableDataSource tableView:tableView heightForHeaderInSection:section];
+    }
+    
     if (header.height == WBTableHeaderFooterHeightAutoLayout) {
         WBTableSectionMaker *maker = [self sectionAtIndex:section];
         return [self heightForHeaderFooter:header inSectoin:maker.section];
@@ -283,6 +305,11 @@
     
     //registe if needed
     [self registeHeaderFooterIfNeededUseClass:footer.associatedHeaderFooterClass];
+    
+    // hook by
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
+        return [self.tableDataSource tableView:tableView heightForFooterInSection:section];
+    }
     
     if (footer.height == WBTableHeaderFooterHeightAutoLayout) {
         WBTableSectionMaker *maker = [self sectionAtIndex:section];
