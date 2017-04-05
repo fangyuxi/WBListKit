@@ -210,9 +210,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    [self.collectionView registerClass:NSClassFromString(@"WBCollectionViewCell") forCellWithReuseIdentifier:@"WBCollectionViewCell"];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WBCollectionViewCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
 
 #pragma mark setters
 

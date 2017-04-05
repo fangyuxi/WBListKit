@@ -14,17 +14,22 @@
 
 @class WBTableSectionMaker;
 
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 WBListKit_SUBCLASSING_RESTRICTED
 @interface WBTableSection : NSObject
 
-@property (nonatomic, strong, nullable) WBTableSectionMaker *maker;
+/**
+ use a maker to config section
+ */
+@property (nonatomic, strong, nullable, readonly) WBTableSectionMaker *maker;
 
 /**
  此section的唯一标识符
  */
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy, readonly) NSString *identifier;
 
 /**
  行数
@@ -35,36 +40,14 @@ WBListKit_SUBCLASSING_RESTRICTED
 /**
  footer and header
  */
-@property (nonatomic, strong, nullable) WBTableSectionHeaderFooter *header;
-@property (nonatomic, strong, nullable) WBTableSectionHeaderFooter *footer;
+@property (nonatomic, strong, nullable, readonly) WBTableSectionHeaderFooter *header;
+@property (nonatomic, strong, nullable, readonly) WBTableSectionHeaderFooter *footer;
 
 /**
  gets
  */
-- (nullable __kindof WBTableRow *)rowAtIndex:(NSUInteger)index;
+- (nullable WBTableRow *)rowAtIndex:(NSUInteger)index;
 
-/**
- inserts
- */
-- (void)addRow:(__kindof WBTableRow *)row;
-- (void)addRows:(NSArray<__kindof WBTableRow *> *)rows;
-- (void)insertRow:(__kindof WBTableRow *)row
-          atIndex:(NSUInteger)index;
-
-/**
- delete
- */
-- (void)deleteRow:(__kindof WBTableRow *)row;
-- (void)deleteRowAtIndex:(NSUInteger)index;
-- (void)deleteAllRows;
-
-/**
- exchange replace
- */
-- (void)replaceRowAtIndex:(NSUInteger)index
-                   withRow:(__kindof WBTableRow *)row;
-- (void)exchangeRowAtIndex:(NSUInteger)index1
-                 withIndex:(NSInteger)index2;
 @end
 
 NS_ASSUME_NONNULL_END

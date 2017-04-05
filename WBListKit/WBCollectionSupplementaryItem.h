@@ -36,7 +36,7 @@ WBListKit_SUBCLASSING_RESTRICTED
 /**
  SupplementaryView's Kind String
  */
-@property (nonatomic, strong) NSString *kind;
+@property (nonatomic, strong) NSString *elementKind;
 
 @end
 

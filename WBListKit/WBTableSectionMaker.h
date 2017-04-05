@@ -22,8 +22,8 @@ WBListKit_SUBCLASSING_RESTRICTED
 
 @property (nonatomic, weak, readonly) WBTableSection *section;
 
-@property (nonatomic, assign) BOOL animationUpdate;
-@property (nonatomic, assign) UITableViewRowAnimation animationType;
+//@property (nonatomic, assign) BOOL animationUpdate;
+//@property (nonatomic, assign) UITableViewRowAnimation animationType;
 
 /**
     创建SectionMaker

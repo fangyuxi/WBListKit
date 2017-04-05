@@ -11,6 +11,7 @@
 #import "WBTableViewDelegateProxy.h"
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
+#import "WBTableSectionPrivate.h"
 
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 

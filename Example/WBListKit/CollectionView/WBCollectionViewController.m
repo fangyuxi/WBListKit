@@ -26,7 +26,8 @@
     self.view.backgroundColor = [UIColor redColor];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:[UICollectionViewFlowLayout new]];
-    [self.collectionView registerClass:[WBCollectionViewCell class] forCellWithReuseIdentifier:@"WBCollectionViewCell"];
+    [self.view addSubview:self.collectionView];
+    
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
     self.adapter.actionDelegate = self;
@@ -38,17 +39,18 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(100, 100);
+    return CGSizeMake(50* indexPath.item * 0.1, 100 );
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 10;
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //cell被电击后移动的动画
+    [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionTop];
 }
 
 - (void)loadData{
     
     [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
-        for (NSInteger index = 0; index < 5; ++index) {
+        for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
@@ -61,6 +63,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
 
             [self.collectionView reloadData];
+            [self.collectionView layoutIfNeeded];
+            
+            [self.collectionView performBatchUpdates:^{
+                
+                
+            } completion:^(BOOL finished) {
+                
+            }];
         });
     });
 }

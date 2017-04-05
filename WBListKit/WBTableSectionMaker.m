@@ -7,6 +7,7 @@
 //
 
 #import "WBTableSectionMaker.h"
+#import "WBTableSectionPrivate.h"
 
 @interface WBTableSectionMaker ()
 
@@ -23,8 +24,8 @@
     }
     
     self = [super init];
-    self.animationType = UITableViewRowAnimationTop;
-    self.animationUpdate = YES;
+//    self.animationType = UITableViewRowAnimationTop;
+//    self.animationUpdate = YES;
     self.section = section;
     return self;
 }

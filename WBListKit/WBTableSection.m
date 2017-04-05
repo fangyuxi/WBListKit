@@ -34,17 +34,17 @@
 /**
  inserts
  */
-- (void)addRow:(__kindof WBTableRow *)row
+- (void)addRow:(WBTableRow *)row
 {
     [self insertRow:row atIndex:self.rowCount];
 }
-- (void)addRows:(NSArray<__kindof WBTableRow *> *)rows
+- (void)addRows:(NSArray<WBTableRow *> *)rows
 {
     if (rows) {
         [self.rows addObjectsFromArray:rows];
     }
 }
-- (void)insertRow:(__kindof WBTableRow *)row
+- (void)insertRow:(WBTableRow *)row
           atIndex:(NSUInteger)index
 {
     if (row && index <= self.rows.count)
@@ -56,7 +56,7 @@
 /**
  delete
  */
-- (void)deleteRow:(__kindof WBTableRow *)row
+- (void)deleteRow:(WBTableRow *)row
 {
     [self.rows removeObject:row];
 }
@@ -76,7 +76,7 @@
  exchange replace
  */
 - (void)replaceRowAtIndex:(NSUInteger)index
-                  withRow:(__kindof WBTableRow *)row
+                  withRow:(WBTableRow *)row
 {
     if (row)
     {

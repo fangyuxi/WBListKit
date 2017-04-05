@@ -15,6 +15,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     self.contentView.backgroundColor = [UIColor blueColor];
+    self.backgroundView.backgroundColor = [UIColor blackColor];
     return self;
 }
 
