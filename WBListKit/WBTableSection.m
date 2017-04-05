@@ -19,6 +19,8 @@
 
 @implementation WBTableSection
 
+@synthesize rowCount = _rowCount;
+
 /**
  gets
  */
@@ -108,5 +110,26 @@
     return [self.rows count];
 }
 
+#pragma mark setter
+
+- (void)setMaker:(WBTableSectionMaker * _Nullable)maker{
+    _maker = maker;
+}
+
+- (void)setIdentifier:(NSString * _Nonnull)identifier{
+    _identifier = identifier;
+}
+
+- (void)setRowCount:(NSUInteger)rowCount{
+    _rowCount = rowCount;
+}
+
+- (void)setHeader:(WBTableSectionHeaderFooter * _Nullable)header{
+    _header = header;
+}
+
+- (void)setFooter:(WBTableSectionHeaderFooter * _Nullable)footer{
+    _footer = footer;
+}
 
 @end

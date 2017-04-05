@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "WBCollectionSectionMaker.h"
+#import "WBCollectionSupplementaryItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol WBListActionToControllerProtocol;
 
 @interface WBCollectionViewAdapter : NSObject
+
+
 
 /**
  bind UICollectionView
@@ -50,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
  inherits UICollectionViewDelegate Protolcol, contains All actions from cell
  */
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
+
+#pragma mark Section Model
 
 /**
  get section at index
@@ -119,12 +124,44 @@ NS_ASSUME_NONNULL_BEGIN
                           useMaker:(void(^)(WBCollectionSectionMaker *maker))block;
 
 /**
- 删除操作
+ 删除Section操作
  */
 - (void)deleteSection:(WBCollectionSection *)section;
 - (void)deleteSectionAtIndex:(NSUInteger)index;
 - (void)deleteSectionForIdentifier:(NSString *)identifier;
 - (void)deleteAllSections;
+
+#pragma mark Supplementary View Model
+
+/**
+ 添加增补视图的Model, indexPath 必须要和layout对象中配置过的SupplementaryView相匹配
+
+ @param item 'item'
+ @param indexPath 'indexPath'
+ */
+- (void)addSupplementaryItem:(WBCollectionSupplementaryItem *)item
+                   indexPath:(NSIndexPath *)indexPath;
+/**
+ 删除增补视图
+
+ @param indexPath 'indexPath'
+ */
+- (void)deleteSubpplementaryItemAtIndex:(NSIndexPath *)indexPath;
+
+
+/**
+ 获取增补视图
+
+ @param indexPath 'indexPath'
+ @return 'item'
+ */
+- (WBCollectionSupplementaryItem *)supplementaryItemAtIndexPath:(NSIndexPath *)indexPath;
+
+
+/**
+ 删除所有元素
+ */
+- (void)deleteAllElements;
 
 @end
 

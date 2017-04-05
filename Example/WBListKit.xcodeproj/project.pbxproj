@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */; };
 		1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */; };
+		1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */; };
 		1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0151E840017001C02AD /* UIViewController+WBList.m */; };
 		1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */; };
 		1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */; };
@@ -67,6 +68,8 @@
 		1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewController.m; sourceTree = "<group>"; };
 		1E3E89D21E8FBE57003C8CD2 /* WBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewCell.h; sourceTree = "<group>"; };
 		1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewCell.m; sourceTree = "<group>"; };
+		1E3E89DF1E94D000003C8CD2 /* WBCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionHeaderView.h; sourceTree = "<group>"; };
+		1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionHeaderView.m; sourceTree = "<group>"; };
 		1E4DD0141E840017001C02AD /* UIViewController+WBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBList.h"; sourceTree = "<group>"; };
 		1E4DD0151E840017001C02AD /* UIViewController+WBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBList.m"; sourceTree = "<group>"; };
 		1E4DD0171E84A5F3001C02AD /* WBListDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListDataSourceDelegate.h; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */,
 				1E3E89D21E8FBE57003C8CD2 /* WBCollectionViewCell.h */,
 				1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */,
+				1E3E89DF1E94D000003C8CD2 /* WBCollectionHeaderView.h */,
+				1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */,
 				1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */,
 				1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */,
+				1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */,
 				1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,

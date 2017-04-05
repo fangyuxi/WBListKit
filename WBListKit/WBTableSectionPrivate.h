@@ -8,6 +8,9 @@
 
 #ifndef WBTableSectionPrivate_h
 #define WBTableSectionPrivate_h
+
+NS_ASSUME_NONNULL_BEGIN
+
 @class WBTableSection;
 
 @interface WBTableSection ()
@@ -57,3 +60,5 @@
 @end
 
 #endif /* WBTableSectionPrivate_h */
+
+NS_ASSUME_NONNULL_END

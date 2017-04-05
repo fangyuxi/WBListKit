@@ -9,6 +9,7 @@
 #import "WBCollectionViewController.h"
 #import "WBListKit.h"
 #import "WBCollectionViewCell.h"
+#import "WBCollectionHeaderView.h"
 
 @interface WBCollectionViewController ()<WBListActionToControllerProtocol>
 
@@ -39,7 +40,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(50* indexPath.item * 0.1, 100 );
+    return CGSizeMake(50, 100 );
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -49,6 +50,7 @@
 
 - (void)loadData{
     
+    __weak typeof(self) weakSelf = self;
     [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
         for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
@@ -57,22 +59,41 @@
                          };
             maker.addItem(item).setIdentifier(@"FixedHeight");
         }
+        
+        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
+        header.associatedViewClass = [WBCollectionHeaderView class];
+        header.elementKind = UICollectionElementKindSectionHeader;
+        [weakSelf.adapter addSupplementaryItem:header indexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    }];
+    
+    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+        for (NSInteger index = 0; index < 100; ++index) {
+            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+            item.associatedCellClass = [WBCollectionViewCell class];
+            item.data = @{@"title":@(index)
+                          };
+            maker.addItem(item).setIdentifier(@"FixedHeight");
+        }
+        
+        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
+        header.associatedViewClass = [WBCollectionHeaderView class];
+        header.elementKind = UICollectionElementKindSectionHeader;
+        [weakSelf.adapter addSupplementaryItem:header indexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
 
             [self.collectionView reloadData];
-            [self.collectionView layoutIfNeeded];
-            
-            [self.collectionView performBatchUpdates:^{
-                
-                
-            } completion:^(BOOL finished) {
-                
-            }];
         });
     });
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+referenceSizeForHeaderInSection:(NSInteger)section{
+    
+    return CGSizeMake(320, 20);
 }
 
 @end

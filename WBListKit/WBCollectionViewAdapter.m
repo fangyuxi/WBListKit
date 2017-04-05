@@ -11,11 +11,17 @@
 #import "WBCollectionCellProtocol.h"
 #import "WBCollectionSupplementaryViewProtocol.h"
 
+#ifndef StringForIndexPath
+#define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-, -%ld", (long)v.section, (long)v.item]
+#endif
+
 @interface WBCollectionViewAdapter ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, weak, readwrite) UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *sections;
+@property (nonatomic, strong) NSMutableDictionary *supplementaryItems;
+
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedSupplementaryIdentifiers;
 
@@ -195,6 +201,28 @@
     [self.sections removeAllObjects];
 }
 
+- (void)addSupplementaryItem:(WBCollectionSupplementaryItem *)item
+                   indexPath:(NSIndexPath *)indexPath{
+    WBListKitParameterAssert(item);
+    WBListKitParameterAssert(indexPath);
+    [self.supplementaryItems setObject:item forKey:StringForIndexPath(indexPath)];
+}
+
+- (void)deleteSubpplementaryItemAtIndex:(NSIndexPath *)indexPath{
+    WBListKitParameterAssert(indexPath);
+    [self.supplementaryItems removeObjectForKey:StringForIndexPath(indexPath)];
+}
+
+- (WBCollectionSupplementaryItem *)supplementaryItemAtIndexPath:(NSIndexPath *)indexPath{
+    WBListKitParameterAssert(indexPath);
+    return [self.supplementaryItems objectForKey:StringForIndexPath(indexPath)];
+}
+
+- (void)deleteAllElements{
+    [self deleteAllSections];
+    self.supplementaryItems = nil;
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -210,14 +238,52 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self.collectionView registerClass:NSClassFromString(@"WBCollectionViewCell") forCellWithReuseIdentifier:@"WBCollectionViewCell"];
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WBCollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor blueColor];
+    WBCollectionSectionMaker *maker = [self sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = maker.itemAtIndex(indexPath.row);
+    Class cellClass = item.associatedCellClass;
+    NSString *identifier = NSStringFromClass(cellClass);
+    WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"item's associatedCellClass is nil");
+    
+    //registe if needed
+    [self registeCellIfNeededUseCellClass:cellClass];
+    UICollectionViewCell<WBCollectionCellProtocol> *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    WBListKitAssert([cell conformsToProtocol:@protocol(WBCollectionCellProtocol)],@"cell 必须遵守 WBCollectionCellProtocol 协议");
+    if ([cell respondsToSelector:@selector(reset)]) {
+        [cell reset];
+    }
+    item.indexPath = indexPath;
+    cell.item = item;
+    if ([cell respondsToSelector:@selector(setActionDelegate:)]) {
+        cell.actionDelegate = self.actionDelegate;
+    }
+    [cell update];
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath{
+    WBCollectionSupplementaryItem *item = [self.supplementaryItems objectForKey:StringForIndexPath(indexPath)];
+    WBListKitAssert(item,@"can't match indexpaths in 'viewForSupplementaryElementOfKind' and 'layout object' for supplementaryview");
+    Class viewClass = item.associatedViewClass;
+    WBListKitAssert(viewClass,@"WBCollectionSupplementaryItem must have a associatedViewClass");
+    NSString *identifier = NSStringFromClass(viewClass);
+    WBListKitAssert(item.elementKind,@"WBCollectionSupplementaryItem must have a elementKind");
+    
+    //registe if needed
+    [self registeSupplementaryViewIfNeededUseClass:viewClass kind:item.elementKind];
+    UICollectionReusableView<WBCollectionSupplementaryViewProtocol> *view = [self.collectionView dequeueReusableSupplementaryViewOfKind:item.elementKind withReuseIdentifier:identifier forIndexPath:indexPath];
+    WBListKitAssert([view conformsToProtocol:@protocol(WBCollectionSupplementaryViewProtocol)],@"SupplementaryView 必须遵守 WBCollectionSupplementaryViewProtocol 协议");
+    if ([view respondsToSelector:@selector(reset)]) {
+        [view reset];
+    }
+    item.indexPath = indexPath;
+    view.item = item;
+    if ([view respondsToSelector:@selector(setActionDelegate:)]) {
+        view.actionDelegate = self.actionDelegate;
+    }
+    [view update];
+    return view;
 }
 
 
@@ -263,6 +329,13 @@
     return _sections;
 }
 
+- (NSMutableDictionary *)supplementaryItems{
+    if (!_supplementaryItems) {
+        _supplementaryItems = [NSMutableDictionary dictionary];
+    }
+    return _supplementaryItems;
+}
+
 
 #pragma mark private method
 
@@ -280,5 +353,46 @@
     _collectionView.delegate = (id<UICollectionViewDelegate>)self.delegateProxy ?: self;
     _collectionView.dataSource = (id<UICollectionViewDataSource>)self.delegateProxy ?: self;
 }
+
+- (void)registeCellIfNeededUseCellClass:(Class)cellClass{
+    NSString *cellIdentifier = NSStringFromClass(cellClass);
+    
+    if ([self.registedCellIdentifiers containsObject:cellIdentifier]) {
+        return;
+    }
+
+    NSString *cellNibPath = [[NSBundle mainBundle] pathForResource:cellIdentifier ofType:@"nib"];
+    if (cellNibPath)
+    {
+        [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil]  forCellWithReuseIdentifier:cellIdentifier];
+        [self.registedCellIdentifiers addObject:cellIdentifier];
+    }
+    else
+    {
+        [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:cellIdentifier];
+        [self.registedCellIdentifiers addObject:cellIdentifier];
+    }
+}
+- (void)registeSupplementaryViewIfNeededUseClass:(Class)supplementaryViewClass kind:(NSString *)kind{
+    
+    NSString *identifier = NSStringFromClass(supplementaryViewClass);
+    
+    if ([self.registedSupplementaryIdentifiers containsObject:identifier]) {
+        return;
+    }
+
+    NSString *nibPath = [[NSBundle mainBundle] pathForResource:identifier ofType:@"nib"];
+    if (nibPath)
+    {
+        [self.collectionView registerNib:[UINib nibWithNibName:nibPath bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+        [self.registedSupplementaryIdentifiers addObject:identifier];
+    }
+    else
+    {
+        [self.collectionView registerClass:supplementaryViewClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+        [self.registedSupplementaryIdentifiers addObject:identifier];
+    }
+}
+
 
 @end

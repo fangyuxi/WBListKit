@@ -137,10 +137,6 @@
     section.maker = maker;
     [self.sections insertObject:maker.section atIndex:index];
     block(maker);
-    
-//    if (maker.animationUpdate) {
-//        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-//    }
 }
 
 - (void)updateSection:(WBTableSection *)section
@@ -157,10 +153,6 @@
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
             block(maker);
         }];
-        
-//        if (maker.animationUpdate) {
-//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-//        }
     }
 }
 
@@ -172,11 +164,6 @@
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
             block(maker);
         }];
-        
-//        NSUInteger index = [self indexOfSection:maker.section];
-//        if (maker.animationUpdate) {
-//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-//        };
     }
 }
 
