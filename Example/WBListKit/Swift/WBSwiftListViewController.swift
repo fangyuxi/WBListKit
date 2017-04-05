@@ -19,7 +19,6 @@ class WBSwiftListViewController: UIViewController {
         view.addSubview(tableView);
         adapter.bindTableView(tableView);
         self.loadData();
-        
     }
 
     override func viewDidLayoutSubviews() {

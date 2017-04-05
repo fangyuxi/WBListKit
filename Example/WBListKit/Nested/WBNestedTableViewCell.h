@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WBListKit.h"
 
-@interface WBNestedTableViewCell : UITableViewCell<WBTableCellProtocol>
+@interface WBNestedTableViewCell <Data> : UITableViewCell<WBTableCellProtocol>
+
 
 @end

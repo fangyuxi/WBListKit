@@ -10,6 +10,7 @@
 #import "WBCollectionViewDelegateProxy.h"
 #import "WBCollectionCellProtocol.h"
 #import "WBCollectionSupplementaryViewProtocol.h"
+#import "WBCollectionSectionPrivate.h"
 
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-, -%ld", (long)v.section, (long)v.item]

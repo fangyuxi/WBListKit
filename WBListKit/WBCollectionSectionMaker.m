@@ -7,6 +7,7 @@
 //
 
 #import "WBCollectionSectionMaker.h"
+#import "WBCollectionSectionPrivate.h"
 
 @interface WBCollectionSectionMaker ()
 

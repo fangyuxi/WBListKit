@@ -9,6 +9,7 @@
 #import "WBCollectionSection.h"
 
 @interface WBCollectionSection ()
+
 /**
  存放此section关联的items 类型为WBCollectionItem
  */
@@ -17,6 +18,8 @@
 @end
 
 @implementation WBCollectionSection
+
+@synthesize itemCount = _itemCount;
 
 /**
  gets
@@ -108,5 +111,18 @@
     return [self.items count];
 }
 
+#pragma mark setter
+
+- (void)setMaker:(WBCollectionSectionMaker * _Nullable)maker{
+    _maker = maker;
+}
+
+- (void)setIdentifier:(NSString * _Nonnull)identifier{
+    _identifier = identifier;
+}
+
+- (void)setItemCount:(NSUInteger)itemCount{
+    _itemCount = itemCount;
+}
 
 @end

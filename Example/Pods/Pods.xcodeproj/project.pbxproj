@@ -37,6 +37,7 @@
 		19EB4525B51CAF1551C8F88A0C8E1AD5 /* WBCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8508E40D6E6B4D85BACEEDE666408B5F /* WBCollectionItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E2A6D057E20BE8F5ED3E594F7B8C286 /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F48646A12D1B9B1E7B605311E838C39 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E3E89DE1E948C3F003C8CD2 /* WBTableSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E3E89DD1E948C3F003C8CD2 /* WBTableSectionPrivate.h */; };
+		1E3E89EE1E94F705003C8CD2 /* WBCollectionSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E3E89ED1E94F705003C8CD2 /* WBCollectionSectionPrivate.h */; };
 		1ED505CC385A149F4DF8F4B94BA4FC0B /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3642610BE851D8A1E7C19F0620E0CA50 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20C9741BDE9669756F0021A4537E4055 /* HYDBCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150288DDDDC6F472DEB4929884BF34F /* HYDBCache-dummy.m */; };
 		23EFB184AD12FB1014FFC765CE0D710A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A730CBA09505E23FEE19B87FB20FE4 /* Security.framework */; };
@@ -328,6 +329,7 @@
 		19D2D6D2228927D6856B7729DAA4FE47 /* WBListKitMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListKitMacros.h; sourceTree = "<group>"; };
 		1C6A2944B6EB40764645D3BCD7DF0E70 /* WBTableSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableSection.h; sourceTree = "<group>"; };
 		1E3E89DD1E948C3F003C8CD2 /* WBTableSectionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTableSectionPrivate.h; sourceTree = "<group>"; };
+		1E3E89ED1E94F705003C8CD2 /* WBCollectionSectionPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionSectionPrivate.h; sourceTree = "<group>"; };
 		1E48D18DEA498053FAC0A411E0C41B58 /* WBTableViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableViewAdapter.m; sourceTree = "<group>"; };
 		1E6015B32A28AACAB467B805BEB8AFE4 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		1F48646A12D1B9B1E7B605311E838C39 /* AFNetworking-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-umbrella.h"; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 				C69CFA650849F9F4B7AC0EAFCEFED8EC /* WBCollectionCellProtocol.h */,
 				8508E40D6E6B4D85BACEEDE666408B5F /* WBCollectionItem.h */,
 				ADBD77D80AFF08E494FF85B04FF7C88C /* WBCollectionItem.m */,
+				1E3E89ED1E94F705003C8CD2 /* WBCollectionSectionPrivate.h */,
 				BD5CDE25394F31A03501330E40AC59FB /* WBCollectionSection.h */,
 				B11E2466E89ED41A1E8621B3CF26D27E /* WBCollectionSection.m */,
 				178BD4CDD2584651F63F81FD8E4B8370 /* WBCollectionSectionMaker.h */,
@@ -1242,6 +1245,7 @@
 				15E6A51C18EC49F11EE22D9049A85748 /* WBTableRow.h in Headers */,
 				1537016568B703948B924998C9C86420 /* WBTableSection.h in Headers */,
 				582E111670F4DF532DBCD1AF7B2A0CB2 /* WBTableSectionHeaderFooter.h in Headers */,
+				1E3E89EE1E94F705003C8CD2 /* WBCollectionSectionPrivate.h in Headers */,
 				0724B43754465E0D339AE2DDB0336BC6 /* WBTableSectionMaker.h in Headers */,
 				0E9C6F7AB39475ABFEA253E1455256A6 /* WBTableViewAdapter.h in Headers */,
 				EF41E3D46EDE74EA0594DB13B3F0EDB5 /* WBTableViewDelegateProxy.h in Headers */,
