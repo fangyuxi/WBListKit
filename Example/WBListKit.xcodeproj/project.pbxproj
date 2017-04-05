@@ -10,6 +10,9 @@
 		1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */; };
 		1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */; };
 		1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */; };
+		1E3E89E61E94D6F1003C8CD2 /* WBNestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E51E94D6F1003C8CD2 /* WBNestedViewController.m */; };
+		1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E81E94D702003C8CD2 /* WBNestedTableViewCell.m */; };
+		1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89EB1E94D717003C8CD2 /* WBNestedCollectionViewCell.m */; };
 		1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0151E840017001C02AD /* UIViewController+WBList.m */; };
 		1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */; };
 		1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */; };
@@ -70,6 +73,12 @@
 		1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewCell.m; sourceTree = "<group>"; };
 		1E3E89DF1E94D000003C8CD2 /* WBCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionHeaderView.h; sourceTree = "<group>"; };
 		1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionHeaderView.m; sourceTree = "<group>"; };
+		1E3E89E41E94D6F1003C8CD2 /* WBNestedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNestedViewController.h; sourceTree = "<group>"; };
+		1E3E89E51E94D6F1003C8CD2 /* WBNestedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNestedViewController.m; sourceTree = "<group>"; };
+		1E3E89E71E94D702003C8CD2 /* WBNestedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNestedTableViewCell.h; sourceTree = "<group>"; };
+		1E3E89E81E94D702003C8CD2 /* WBNestedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNestedTableViewCell.m; sourceTree = "<group>"; };
+		1E3E89EA1E94D717003C8CD2 /* WBNestedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNestedCollectionViewCell.h; sourceTree = "<group>"; };
+		1E3E89EB1E94D717003C8CD2 /* WBNestedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNestedCollectionViewCell.m; sourceTree = "<group>"; };
 		1E4DD0141E840017001C02AD /* UIViewController+WBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBList.h"; sourceTree = "<group>"; };
 		1E4DD0151E840017001C02AD /* UIViewController+WBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBList.m"; sourceTree = "<group>"; };
 		1E4DD0171E84A5F3001C02AD /* WBListDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListDataSourceDelegate.h; sourceTree = "<group>"; };
@@ -182,6 +191,19 @@
 				1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		1E3E89E31E94D6D6003C8CD2 /* Nested */ = {
+			isa = PBXGroup;
+			children = (
+				1E3E89E41E94D6F1003C8CD2 /* WBNestedViewController.h */,
+				1E3E89E51E94D6F1003C8CD2 /* WBNestedViewController.m */,
+				1E3E89E71E94D702003C8CD2 /* WBNestedTableViewCell.h */,
+				1E3E89E81E94D702003C8CD2 /* WBNestedTableViewCell.m */,
+				1E3E89EA1E94D717003C8CD2 /* WBNestedCollectionViewCell.h */,
+				1E3E89EB1E94D717003C8CD2 /* WBNestedCollectionViewCell.m */,
+			);
+			path = Nested;
 			sourceTree = "<group>";
 		};
 		1E4DD0251E84EC64001C02AD /* MVC */ = {
@@ -327,6 +349,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				1E3E89E31E94D6D6003C8CD2 /* Nested */,
 				1E3E89CE1E8FBE07003C8CD2 /* CollectionView */,
 				1EE3D77B1E8B89F1006D4B66 /* MultiDataSource */,
 				1E4DD0251E84EC64001C02AD /* MVC */,
@@ -452,7 +475,9 @@
 				ORGANIZATIONNAME = "xcoder.fang@gmail.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
+						DevelopmentTeam = EJA352Y795;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -615,12 +640,15 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
 				1ED1F5921E81252100C0EF58 /* WBReformerListCellReformer.m in Sources */,
+				1E3E89E61E94D6F1003C8CD2 /* WBNestedViewController.m in Sources */,
 				1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */,
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
 				1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */,
+				1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
+				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
 				1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */,
 				1ED1F5A71E821C7F00C0EF58 /* WBListDataSource.m in Sources */,
 				1ED1F59C1E81592F00C0EF58 /* WBDemoHeaderView.m in Sources */,
@@ -770,13 +798,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = EJA352Y795;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WBListKit/WBListKit-Prefix.pch";
 				INFOPLIST_FILE = "WBListKit/WBListKit-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taofang.iphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f2397904-b66c-4479-94a1-677fc01c99bb";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_Taofang_iphone;
 				SWIFT_OBJC_BRIDGING_HEADER = "WBListKit/Swift/WBListKit_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -791,13 +822,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WBListKit/WBListKit-Prefix.pch";
 				INFOPLIST_FILE = "WBListKit/WBListKit-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.taofang.iphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WBListKit/Swift/WBListKit_Example-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

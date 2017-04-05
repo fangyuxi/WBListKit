@@ -13,7 +13,7 @@
 #import "MJRefresh.h"
 
 // notice !!! 请不要将UITableView和UICollectionView一起用，
-//            如果您的页面设计中存在两个列表，那么创建两个控制器
+//            如果您的页面设计中存在两个列表，那么创建两个子控制器
 //            可能是个更好的选择
 
 
