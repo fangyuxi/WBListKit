@@ -80,6 +80,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSUInteger)indexOfSection:(WBCollectionSection *)section;
 
 /**
+ 获取添加的SupplementaryViews的所在位置，通常在自定义布局的时候可以用到
+ 
+ @return 'indexpath of array'
+ */
+- (NSArray<NSIndexPath *> *)indexPathsForSupplementaryViews;
+
+/**
  append section
  
  @param block 'block'
@@ -156,7 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  @return 'item'
  */
 - (WBCollectionSupplementaryItem *)supplementaryItemAtIndexPath:(NSIndexPath *)indexPath;
-
 
 /**
  删除所有元素

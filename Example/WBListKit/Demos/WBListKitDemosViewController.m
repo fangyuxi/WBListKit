@@ -19,6 +19,7 @@
 #import "WBMultiSourceController.h"
 #import "WBCollectionViewController.h"
 #import "WBNestedViewController.h"
+#import "WBCustomLayoutViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -82,7 +83,8 @@
              @{@"title":@"MVC Demos",@"class":[WBMVCViewController class]},
              @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
-             @{@"title":@"Nested",@"class":[WBNestedViewController class]}
+             @{@"title":@"Nested",@"class":[WBNestedViewController class]},
+             @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]}
              ];
 }
 

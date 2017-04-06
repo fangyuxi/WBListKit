@@ -13,7 +13,7 @@
 #import "WBCollectionSectionPrivate.h"
 
 #ifndef StringForIndexPath
-#define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-, -%ld", (long)v.section, (long)v.item]
+#define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]
 #endif
 
 @interface WBCollectionViewAdapter ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -217,6 +217,21 @@
 - (WBCollectionSupplementaryItem *)supplementaryItemAtIndexPath:(NSIndexPath *)indexPath{
     WBListKitParameterAssert(indexPath);
     return [self.supplementaryItems objectForKey:StringForIndexPath(indexPath)];
+}
+
+- (NSArray<NSIndexPath *> *)indexPathsForSupplementaryViews{
+    NSArray *indexPathStrings = [self.supplementaryItems allKeys];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    [indexPathStrings enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        NSString *string = obj;
+        NSArray *subStrings = [string componentsSeparatedByString:@"-"];
+        if (subStrings.count == 2) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[subStrings[0] integerValue] inSection:[subStrings[1] integerValue]];
+            [indexPaths addObject:indexPath];
+        }
+    }];
+    return indexPaths;
 }
 
 - (void)deleteAllElements{

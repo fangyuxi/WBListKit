@@ -333,7 +333,13 @@
     //registe if needed
     [self registeHeaderFooterIfNeededUseClass:header.associatedHeaderFooterClass];
     
-    UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    //hook by
+    UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *headerView = nil;
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
+        return [self.tableDataSource tableView:tableView viewForHeaderInSection:section];
+    }
+    
+    headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
     WBListKitAssert([headerView isKindOfClass:[UITableViewHeaderFooterView class]],@"header 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([headerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"header 必须遵守 WBListHeaderFooterViewProtocal 协议");
     if ([headerView respondsToSelector:@selector(reset)]) {
@@ -357,7 +363,13 @@
     //registe if needed
     [self registeHeaderFooterIfNeededUseClass:footer.associatedHeaderFooterClass];
     
-    UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *footerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
+    //hook by
+    UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *footerView = nil;
+    if ([self.tableDataSource respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
+        return [self.tableDataSource tableView:tableView viewForFooterInSection:section];
+    }
+    
+    footerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
     WBListKitAssert([footerView isKindOfClass:[UITableViewHeaderFooterView class]],@"footer 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([footerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"footer 必须遵守 WBListHeaderFooterViewProtocal 协议");
     if ([footerView respondsToSelector:@selector(reset)]) {

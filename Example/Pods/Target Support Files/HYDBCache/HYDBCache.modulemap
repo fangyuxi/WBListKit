@@ -1,6 +1,0 @@
-framework module HYDBCache {
-  umbrella header "HYDBCache-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1A04FB1E96349800F4BDB8 /* WBCustomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A04FA1E96349800F4BDB8 /* WBCustomLayoutViewController.m */; };
+		1E1A04FE1E96360400F4BDB8 /* WBCustomSeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A04FD1E96360400F4BDB8 /* WBCustomSeparatorView.m */; };
 		1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */; };
 		1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89D31E8FBE57003C8CD2 /* WBCollectionViewCell.m */; };
 		1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E01E94D000003C8CD2 /* WBCollectionHeaderView.m */; };
@@ -17,6 +19,7 @@
 		1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */; };
 		1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */; };
 		1EA8B1001E8A299200D14C2B /* WBListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8B0FF1E8A299200D14C2B /* WBListController.m */; };
+		1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC603B71E9632DB00B0F53F /* JKSeparatorLayout.m */; };
 		1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0D8451E8B58BD00FA7A15 /* WBTableViewDataSource.m */; };
 		1ED0D8491E8B596600FA7A15 /* WBCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0D8481E8B596600FA7A15 /* WBCollectionViewDataSource.m */; };
 		1ED1F57C1E80FFD100C0EF58 /* WBDemosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5771E80FFD100C0EF58 /* WBDemosCell.m */; };
@@ -67,6 +70,10 @@
 /* Begin PBXFileReference section */
 		01C39DECA6237ACF30C4D96B /* Pods-WBListKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Tests/Pods-WBListKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1363FF33A83E7E741116A44C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1E1A04F91E96349800F4BDB8 /* WBCustomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCustomLayoutViewController.h; sourceTree = "<group>"; };
+		1E1A04FA1E96349800F4BDB8 /* WBCustomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCustomLayoutViewController.m; sourceTree = "<group>"; };
+		1E1A04FC1E96360400F4BDB8 /* WBCustomSeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCustomSeparatorView.h; sourceTree = "<group>"; };
+		1E1A04FD1E96360400F4BDB8 /* WBCustomSeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCustomSeparatorView.m; sourceTree = "<group>"; };
 		1E3E89CF1E8FBE1A003C8CD2 /* WBCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewController.h; sourceTree = "<group>"; };
 		1E3E89D01E8FBE1A003C8CD2 /* WBCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewController.m; sourceTree = "<group>"; };
 		1E3E89D21E8FBE57003C8CD2 /* WBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewCell.h; sourceTree = "<group>"; };
@@ -88,6 +95,8 @@
 		1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCViewController.m; sourceTree = "<group>"; };
 		1EA8B0FE1E8A299200D14C2B /* WBListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListController.h; sourceTree = "<group>"; };
 		1EA8B0FF1E8A299200D14C2B /* WBListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListController.m; sourceTree = "<group>"; };
+		1EC603B61E9632DB00B0F53F /* JKSeparatorLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKSeparatorLayout.h; sourceTree = "<group>"; };
+		1EC603B71E9632DB00B0F53F /* JKSeparatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSeparatorLayout.m; sourceTree = "<group>"; };
 		1ED0D8441E8B58BD00FA7A15 /* WBTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTableViewDataSource.h; sourceTree = "<group>"; };
 		1ED0D8451E8B58BD00FA7A15 /* WBTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTableViewDataSource.m; sourceTree = "<group>"; };
 		1ED0D8471E8B596600FA7A15 /* WBCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewDataSource.h; sourceTree = "<group>"; };
@@ -215,6 +224,19 @@
 				1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */,
 			);
 			path = MVC;
+			sourceTree = "<group>";
+		};
+		1EC603B51E9632DB00B0F53F /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1EC603B61E9632DB00B0F53F /* JKSeparatorLayout.h */,
+				1EC603B71E9632DB00B0F53F /* JKSeparatorLayout.m */,
+				1E1A04F91E96349800F4BDB8 /* WBCustomLayoutViewController.h */,
+				1E1A04FA1E96349800F4BDB8 /* WBCustomLayoutViewController.m */,
+				1E1A04FC1E96360400F4BDB8 /* WBCustomSeparatorView.h */,
+				1E1A04FD1E96360400F4BDB8 /* WBCustomSeparatorView.m */,
+			);
+			path = CustomLayout;
 			sourceTree = "<group>";
 		};
 		1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */ = {
@@ -349,6 +371,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				1EC603B51E9632DB00B0F53F /* CustomLayout */,
 				1E3E89E31E94D6D6003C8CD2 /* Nested */,
 				1E3E89CE1E8FBE07003C8CD2 /* CollectionView */,
 				1EE3D77B1E8B89F1006D4B66 /* MultiDataSource */,
@@ -471,7 +494,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WB;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "xcoder.fang@gmail.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -631,11 +654,13 @@
 				1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */,
 				1ED1F58F1E81250A00C0EF58 /* WBReformerListCell.m in Sources */,
 				1ED1F59F1E81594000C0EF58 /* WBDemoFooterView.m in Sources */,
+				1E1A04FE1E96360400F4BDB8 /* WBCustomSeparatorView.m in Sources */,
 				1ED1F58C1E8124F500C0EF58 /* WBReformerListViewController.m in Sources */,
 				1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */,
 				1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */,
 				1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */,
 				1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */,
+				1E1A04FB1E96349800F4BDB8 /* WBCustomLayoutViewController.m in Sources */,
 				1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
@@ -644,6 +669,7 @@
 				1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */,
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,
+				1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
 				1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */,
 				1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */,
@@ -787,6 +813,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_MODULE_NAME = OCAndSwift;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

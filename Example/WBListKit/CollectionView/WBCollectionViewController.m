@@ -40,13 +40,18 @@
     });
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(50, 100 );
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //cell被电击后移动的动画
-    [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionTop];
+    [collectionView selectItemAtIndexPath:indexPath
+                                 animated:YES
+                           scrollPosition:UICollectionViewScrollPositionTop];
 }
 
 - (void)loadData{
@@ -64,7 +69,9 @@
         WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
         header.associatedViewClass = [WBCollectionHeaderView class];
         header.elementKind = UICollectionElementKindSectionHeader;
-        [weakSelf.adapter addSupplementaryItem:header indexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+        [weakSelf.adapter addSupplementaryItem:header
+                                     indexPath:[NSIndexPath indexPathForItem:0
+                                                                   inSection:0]];
     }];
     
     [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
@@ -79,7 +86,9 @@
         WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
         header.associatedViewClass = [WBCollectionHeaderView class];
         header.elementKind = UICollectionElementKindSectionHeader;
-        [weakSelf.adapter addSupplementaryItem:header indexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
+        [weakSelf.adapter addSupplementaryItem:header
+                                     indexPath:[NSIndexPath indexPathForItem:0
+                                                                   inSection:1]];
     }];
     
     [self.collectionView reloadData];
