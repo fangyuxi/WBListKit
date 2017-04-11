@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ 演示自定义布局的用法
+ */
 @interface WBCustomLayoutViewController : UIViewController
 
 @end

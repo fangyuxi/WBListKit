@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ 演示在TableViewCell中如何嵌入UICollectionView
+ */
 @interface WBNestedViewController : UIViewController
 
 @end

@@ -62,7 +62,7 @@
         }
     }];
     
-    //TO invoke header footer 'reload'
+    //TODO invoke SupplementaryViews 'reload'
 }
 
 - (void)didDisappear{
@@ -76,7 +76,7 @@
         }
     }];
     
-    //TO invoke header footer 'cancel'
+    //TODO invoke SupplementaryViews 'cancel'
 }
 
 #pragma mark section operators
@@ -140,10 +140,6 @@
     section.maker = maker;
     [self.sections insertObject:maker.section atIndex:index];
     block(maker);
-    
-    //    if (maker.animationUpdate) {
-    //        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-    //    }
 }
 
 - (void)updateSection:(WBCollectionSection *)section
@@ -160,10 +156,6 @@
         [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
             block(maker);
         }];
-        
-        //        if (maker.animationUpdate) {
-        //            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-        //        }
     }
 }
 
@@ -175,11 +167,6 @@
         [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
             block(maker);
         }];
-        
-        //        NSUInteger index = [self indexOfSection:maker.section];
-        //        if (maker.animationUpdate) {
-        //            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:maker.animationType];
-        //        };
     }
 }
 
@@ -251,6 +238,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
+    WBListKitAssertMainThread();
     if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
         return [self.collectionViewDataSource collectionView:collectionView numberOfItemsInSection:section];
     }
@@ -260,6 +248,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    WBListKitAssertMainThread();
     WBCollectionSectionMaker *maker = [self sectionAtIndex:indexPath.section];
     WBCollectionItem *item = maker.itemAtIndex(indexPath.row);
     Class cellClass = item.associatedCellClass;
@@ -293,6 +282,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath{
+    WBListKitAssertMainThread();
     WBCollectionSupplementaryItem *item = [self.supplementaryItems objectForKey:StringForIndexPath(indexPath)];
     WBListKitAssert(item,@"can't match indexpaths in 'viewForSupplementaryElementOfKind' and 'layout object' for supplementaryview");
     Class viewClass = item.associatedViewClass;

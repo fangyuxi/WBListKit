@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ 最简单的业务层抽象实践 
+ */
 @interface WBMVCViewController : UIViewController
 
 @end

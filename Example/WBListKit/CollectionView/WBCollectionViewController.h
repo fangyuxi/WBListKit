@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+/**
+ 演示普通UICollectionView和UIColletionViewFlowLayout的用法
+ */
 @interface WBCollectionViewController : UIViewController
 
 @end

@@ -11,7 +11,7 @@ import WBListKit
 
 class WBSwiftListViewController: UIViewController {
 
-    let tableView: UITableView = UITableView(frame: .zero, style: UITableViewStyle.plain)
+    let tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
     let adapter: WBTableViewAdapter = WBTableViewAdapter();
     
     override func viewDidLoad() {

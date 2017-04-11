@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+WBList.h"
 
+
+/**
+ 演示多数据源切换
+ 
+    适用场景：
+            单个View，多数据源多种页面类型
+ */
 @interface WBMultiSourceController : UIViewController
 
 @end
