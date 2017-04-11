@@ -20,6 +20,7 @@
 #import "WBCollectionViewController.h"
 #import "WBNestedViewController.h"
 #import "WBCustomLayoutViewController.h"
+#import "WBWaterFallViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -84,7 +85,8 @@
              @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
              @{@"title":@"Nested",@"class":[WBNestedViewController class]},
-             @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]}
+             @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
+             @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]}
              ];
 }
 

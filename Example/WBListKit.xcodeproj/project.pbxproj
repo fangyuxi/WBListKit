@@ -37,6 +37,8 @@
 		1ED1F5A71E821C7F00C0EF58 /* WBListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5A61E821C7F00C0EF58 /* WBListDataSource.m */; };
 		1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5AD1E824AD900C0EF58 /* WBSwiftListViewController.swift */; };
 		1ED1F5B01E824F9100C0EF58 /* WBSwiftListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5AF1E824F9100C0EF58 /* WBSwiftListCell.swift */; };
+		1EE2B4C41E9CDC56003A58C6 /* WBWaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE2B4C31E9CDC56003A58C6 /* WBWaterFallLayout.swift */; };
+		1EE2B4C71E9CDE0D003A58C6 /* WBWaterFallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE2B4C61E9CDE0D003A58C6 /* WBWaterFallViewController.m */; };
 		1EE3D77E1E8B8A0B006D4B66 /* WBMultiSourceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE3D77D1E8B8A0B006D4B66 /* WBMultiSourceController.m */; };
 		1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE3D7801E8B8A35006D4B66 /* WBLeftTableSource.m */; };
 		1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE3D7831E8B8A4B006D4B66 /* WBRightTableSource.m */; };
@@ -130,6 +132,9 @@
 		1ED1F5AC1E824AD900C0EF58 /* WBListKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WBListKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		1ED1F5AD1E824AD900C0EF58 /* WBSwiftListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftListViewController.swift; sourceTree = "<group>"; };
 		1ED1F5AF1E824F9100C0EF58 /* WBSwiftListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftListCell.swift; sourceTree = "<group>"; };
+		1EE2B4C31E9CDC56003A58C6 /* WBWaterFallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWaterFallLayout.swift; sourceTree = "<group>"; };
+		1EE2B4C51E9CDE0D003A58C6 /* WBWaterFallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBWaterFallViewController.h; sourceTree = "<group>"; };
+		1EE2B4C61E9CDE0D003A58C6 /* WBWaterFallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBWaterFallViewController.m; sourceTree = "<group>"; };
 		1EE3D77C1E8B8A0B006D4B66 /* WBMultiSourceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMultiSourceController.h; sourceTree = "<group>"; };
 		1EE3D77D1E8B8A0B006D4B66 /* WBMultiSourceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMultiSourceController.m; sourceTree = "<group>"; };
 		1EE3D77F1E8B8A35006D4B66 /* WBLeftTableSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLeftTableSource.h; sourceTree = "<group>"; };
@@ -235,6 +240,9 @@
 				1E1A04FA1E96349800F4BDB8 /* WBCustomLayoutViewController.m */,
 				1E1A04FC1E96360400F4BDB8 /* WBCustomSeparatorView.h */,
 				1E1A04FD1E96360400F4BDB8 /* WBCustomSeparatorView.m */,
+				1EE2B4C31E9CDC56003A58C6 /* WBWaterFallLayout.swift */,
+				1EE2B4C51E9CDE0D003A58C6 /* WBWaterFallViewController.h */,
+				1EE2B4C61E9CDE0D003A58C6 /* WBWaterFallViewController.m */,
 			);
 			path = CustomLayout;
 			sourceTree = "<group>";
@@ -648,6 +656,7 @@
 				1ED1F5B01E824F9100C0EF58 /* WBSwiftListCell.swift in Sources */,
 				1EE3D77E1E8B8A0B006D4B66 /* WBMultiSourceController.m in Sources */,
 				6003F59E195388D20070C39A /* WBAppDelegate.m in Sources */,
+				1EE2B4C41E9CDC56003A58C6 /* WBWaterFallLayout.swift in Sources */,
 				1ED1F57C1E80FFD100C0EF58 /* WBDemosCell.m in Sources */,
 				1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */,
 				1ED0D8491E8B596600FA7A15 /* WBCollectionViewDataSource.m in Sources */,
@@ -662,6 +671,7 @@
 				1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */,
 				1E1A04FB1E96349800F4BDB8 /* WBCustomLayoutViewController.m in Sources */,
 				1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */,
+				1EE2B4C71E9CDE0D003A58C6 /* WBWaterFallViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
 				1ED1F5921E81252100C0EF58 /* WBReformerListCellReformer.m in Sources */,
