@@ -59,7 +59,6 @@
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
             row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-            row.height = WBListCellHeightAutoLayout;
             row.data = @{@"title":@(index)
                             };
             maker.addRow(row).setIdentifier(@"AutoLayout");

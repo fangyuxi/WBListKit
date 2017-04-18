@@ -42,7 +42,9 @@
     [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
         
         WBTableRow *row = [[WBTableRow alloc] init];
-        row.height = 100.0f;
+        row.calculateHeight = ^CGFloat(WBTableRow *row) {
+            return 100.0f;
+        };
         row.position = WBTableRowPositionSingle;
         row.associatedCellClass = [WBHeaderFooterCell class];
         

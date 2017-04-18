@@ -32,9 +32,9 @@ class WBSwiftListViewController: UIViewController {
             
             for i in 1..<10{
                 let row: WBTableRow = WBTableRow();
-                row.height = 100.0;
                 row.associatedCellClass = WBSwiftListCell.self
                 row.data = ["color":UIColor.clear, "index":i]
+                row.calculateHeight = {row in return 100.0};
                 maker.addRow()(row)
             }
         }

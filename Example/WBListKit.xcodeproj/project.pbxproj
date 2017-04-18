@@ -379,17 +379,17 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
+				1ED1F5A41E821C6300C0EF58 /* DataSource(业务层抽象) */,
 				1EC603B51E9632DB00B0F53F /* CustomLayout */,
 				1E3E89E31E94D6D6003C8CD2 /* Nested */,
 				1E3E89CE1E8FBE07003C8CD2 /* CollectionView */,
 				1EE3D77B1E8B89F1006D4B66 /* MultiDataSource */,
 				1E4DD0251E84EC64001C02AD /* MVC */,
 				1ED1F5A81E824A9400C0EF58 /* Swift */,
-				1ED1F5A41E821C6300C0EF58 /* DataSource(业务层抽象) */,
 				1ED1F5931E81583100C0EF58 /* HeaderFooter */,
 				1ED1F5891E8124DA00C0EF58 /* Reformer */,
 				1ED1F57F1E8105C000C0EF58 /* SimpleList */,
-				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
 				6003F59C195388D20070C39A /* WBAppDelegate.h */,
 				6003F59D195388D20070C39A /* WBAppDelegate.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,

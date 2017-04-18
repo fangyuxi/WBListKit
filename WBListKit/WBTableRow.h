@@ -52,20 +52,14 @@ WBListKit_SUBCLASSING_RESTRICTED
 @property (nonatomic, strong) Class associatedCellClass;
 
 /**
- default is WBListCellHeightAutoLayout
- */
-@property (nonatomic, assign) CGFloat height;
-
-/**
- if cellHeight is WBListCellHeightAutoLayout
- then calculateCellHeight will never be called
+ if you don't give a block to take a height, framework will use autolayout
+ or ,you can return WBListCellHeightAutoLayout to use autolayout
  */
 @property (nonatomic, copy) CGFloat(^calculateHeight)(WBTableRow *row);
 
 /**
- if cellHeight is WBListCellHeightAutoLayout
- then updateCellHeight() will never effect height
- you could use view layout method ,like 'updateConstraints()' instead
+you can call this method to update height when cell's content has changed
+but if you return WBListCellHeightAutoLayout in block ,this method will do nothing
  */
 - (void)updateHeight;
 

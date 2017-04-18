@@ -251,22 +251,21 @@
         return [self.tableDataSource tableView:tableView heightForRowAtIndexPath:indexPath];
     }
 
-    if (row.height == WBListCellHeightAutoLayout) {
-        
-        CGFloat f = [tableView fd_heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
-                                             cacheByIndexPath:indexPath
-                                                configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
-                                                    cell.row = row;
-                                                    [cell update];
-                                                }];
-        return f;
-    }
     if (row.calculateHeight) {
         CGFloat height = row.calculateHeight(row);
-        return height;
+        if (height != WBListCellHeightAutoLayout) {
+            return height;
+        }
+
     }
     
-    return row.height;
+    CGFloat f = [tableView fd_heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
+                                         cacheByIndexPath:indexPath
+                                            configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
+                                                cell.row = row;
+                                                [cell update];
+                                            }];
+    return f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

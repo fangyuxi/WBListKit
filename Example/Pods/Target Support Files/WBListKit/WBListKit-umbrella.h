@@ -15,6 +15,7 @@
 #import "WBCollectionSupplementaryItem.h"
 #import "WBCollectionCellProtocol.h"
 #import "WBCollectionSupplementaryViewProtocol.h"
+#import "WBCollectionSectionPrivate.h"
 #import "WBTableRow.h"
 #import "WBTableSection.h"
 #import "WBTableSectionMaker.h"
@@ -23,6 +24,7 @@
 #import "WBTableViewDelegateProxy.h"
 #import "WBTableCellProtocal.h"
 #import "WBTableHeaderFooterViewProtocal.h"
+#import "WBTableSectionPrivate.h"
 
 FOUNDATION_EXPORT double WBListKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char WBListKitVersionString[];

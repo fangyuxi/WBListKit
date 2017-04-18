@@ -14,10 +14,6 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 
 - (void)updateHeight
 {
-    if (self.height == WBListCellHeightAutoLayout) {
-        return;
-    }
-    
     if (self.calculateHeight) {
         self.calculateHeight(self);
     }
