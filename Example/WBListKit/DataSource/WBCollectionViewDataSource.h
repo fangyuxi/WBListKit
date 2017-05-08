@@ -11,7 +11,8 @@
 @interface WBCollectionViewDataSource : WBListDataSource
 
 /**
- list adapter,lazy created by source
+ WBCollectionViewDataSource会自动创建一个适合于UICollectionView的Adapter,当数据加载完毕后
+ 我们可以通过这个adapter将数据交给UICollectionView
  */
 @property (nonatomic, strong, readonly, nullable) WBCollectionViewAdapter *collectionViewAdapter;
 

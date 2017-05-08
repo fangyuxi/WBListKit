@@ -22,9 +22,12 @@
  actionDelegate是从adapter中传到view中的实现了此协议的controller对象
 */
 
-@protocol WBListActionToControllerProtocol <NSObject,UITableViewDelegate,UICollectionViewDelegateFlowLayout>
+@protocol WBListActionToControllerProtocol <NSObject,
+                                UITableViewDelegate,
+                                UICollectionViewDelegateFlowLayout>
 @optional
 
+//TO DO 函数命名有点问题
 - (void)actionFromReusableView:(UIView *)view
           withEventTag:(NSString *)tag
    withParameterObject:(id)object;
@@ -53,15 +56,21 @@
 
 /**
  当view所在控制器消失后，框架会自动调用此方法，可在此方法中取消正在进行的异步操作，例如取消图片下载
+ 如果adapter调用了willDisAppear，那么这个方法会同步回调
  */
 - (void)cancel;
 
 
 /**
  同 'cancel' 方法相反，可以恢复之前正在进行的异步操作
+ 如果adapter调用了willAppear，那么这个方法会同步回调
  */
 - (void)reload;
 
 @end
 
 #endif /* WBListReusableViewProtocal_h */
+
+
+
+

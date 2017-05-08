@@ -15,7 +15,7 @@
 @interface UIViewController(WBList)<WBListDataSourceDelegate>
 
 /**
- 相当于为控制器创建了一个list的命名空间
+ 相当于为控制器创建了一个list的命名空间，防止在加入现有项目中的时候命名冲突
  */
 @property (nonatomic, strong, nullable, readonly) WBListController *list;
 

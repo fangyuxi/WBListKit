@@ -11,12 +11,15 @@
 #import "WBListKit.h"
 
 /**
- usually you with no need for subclass directly
+ 提供了Controller加载数据的统一接口
+ 提供了同Controller通信的统一接口
+ 搭配Adapter之后，可以将获取的数据经转化提供给UITableView/UICollectionView/XXXView 显示 
  
- you should use subclass 
+ 通常来讲你不需要继承改写这个类，因为这类的每一个子类对应了一种不同的列表组织方式，目前iOS中
+ 仅存在UITableView 和 UICollectionView 所以目前有两个子类：
  
- WBTableViewDataSource for UITableView
- WBCollectionViewDataSource for UICollectionView
+ UITableViewDataSource
+ UICollectionViewDataSource
  
  */
 @interface WBListDataSource : NSObject
@@ -32,15 +35,19 @@
 + (nullable instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 /**
- in normal conditions,it will be controller object
+ 通常，这个delegate应该为控制器，如果是控制器，那么在控制器的WBList分类中的list属性已经帮助我们
+ 实现了所有代理方法，list知道应该怎样处理数据层的回调。
+ 
+ 如果不是控制器，那么需要自己实现数据层的代理
  */
 @property (nonatomic, weak, nullable, readonly) id<WBListDataSourceDelegate> delegate;
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
 /**
- load data 子类需要重写以下三个方法，在loadSource处理控制器发起的加载数据的请求
-           在loadMoreSource中处理控制器发起的加载更多的请求，在cancelLoad中
-           处理控制器发起的取消加载的请求
+ load data  子类需要重写以下三个方法
+            在loadSource处理控制器发起的加载数据的请求
+            在loadMoreSource中处理控制器发起的加载更多的请求，
+            在cancelLoad中处理控制器发起的取消加载的请求
  */
 - (void)loadSource;
 - (void)loadMoreSource;

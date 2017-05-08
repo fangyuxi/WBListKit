@@ -11,6 +11,10 @@
 
 #import "WBListReusableViewProtocol.h"
 
+/**
+ 所有自定义的UITableView的Header或者Footer需要遵守这个协议
+ */
+
 @class WBTableSectionHeaderFooter;
 
 @protocol WBTableHeaderFooterViewProtocal <WBListReusableViewProtocol>
