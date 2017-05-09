@@ -11,7 +11,7 @@ iOS7.0及以上
 
 ## Installation
 
-被cocoapods折腾烦了，暂时不支持pod，使用请拷贝源码。
+暂时不支持pod，使用请拷贝源码。
 
 ## Author
 
