@@ -12,74 +12,21 @@
     "xcoder.fang@gmail.com": "fangyuxi@58.com"
   },
   "source": {
-    "git": "../"
+    "git": "https://github.com/fangyuxi/WBListKit.git",
+    "tag": "0.2"
   },
   "platforms": {
     "ios": "7.0"
   },
   "requires_arc": true,
   "frameworks": "UIKit",
-  "source_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
-  "subspecs": [
-    {
-      "name": "TableView",
-      "source_files": [
-        "WBListKit/WBTableRow.{h,m}",
-        "WBListKit/WBTableSection.{h,m}",
-        "WBListKit/WBTableSectionMaker.{h,m}",
-        "WBListKit/WBTableSectionHeaderFooter.{h,m}",
-        "WBListKit/WBTableViewAdapter.{h,m}",
-        "WBListKit/WBTableViewDelegateProxy.{h,m}",
-        "WBListKit/WBTableCellProtocal.h",
-        "WBListKit/WBTableHeaderFooterViewProtocal.h",
-        "WBListKit/WBTableSectionPrivate.h"
-      ],
-      "dependencies": {
-        "UITableView+FDTemplateLayoutCell": [
+  "source_files": "WBListKit/*.{h,m}",
+  "dependencies": {
+    "MJRefresh": [
 
-        ]
-      }
-    },
-    {
-      "name": "CollectionView",
-      "source_files": [
-        "WBListKit/WBCollectionItem.{h,m}",
-        "WBListKit/WBCollectionSection.{h,m}",
-        "WBListKit/WBCollectionSectionMaker.{h,m}",
-        "WBListKit/WBCollectionViewAdapter.{h,m}",
-        "WBListKit/WBCollectionViewDelegateProxy.{h,m}",
-        "WBListKit/WBCollectionSupplementaryItem.{h,m}",
-        "WBListKit/WBCollectionCellProtocol.h",
-        "WBListKit/WBCollectionSupplementaryViewProtocol.h",
-        "WBListKit/WBCollectionSectionPrivate.h"
-      ],
-      "dependencies": {
-        "UITableView+FDTemplateLayoutCell": [
+    ],
+    "UITableView+FDTemplateLayoutCell": [
 
-        ]
-      }
-    },
-    {
-      "name": "DataSource",
-      "source_files": [
-        "WBListKit/WBListDataSource.{h,m}",
-        "WBListKit/WBTableViewDataSource.{h,m}",
-        "WBListKit/WBCollectionViewDataSource.{h,m}",
-        "WBListKit/WBListController.{h,m}",
-        "WBListKit/UIViewController+WBList.{h,m}",
-        "WBListKit/WBListDataSourceDelegate.h"
-      ],
-      "dependencies": {
-        "MJRefresh": [
-
-        ],
-        "WBListKit/CollectionView": [
-
-        ],
-        "WBListKit/TableView": [
-
-        ]
-      }
-    }
-  ]
+    ]
+  }
 }

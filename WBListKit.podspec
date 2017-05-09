@@ -12,32 +12,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.frameworks = 'UIKit'
 
-    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h'
-
-    s.subspec 'TableView' do |t|
-        t.source_files =    'WBListKit/WBTableRow.{h,m}','WBListKit/WBTableSection.{h,m}','WBListKit/WBTableSectionMaker.{h,m}','WBListKit/WBTableSectionHeaderFooter.{h,m}','WBListKit/WBTableViewAdapter.{h,m}','WBListKit/WBTableViewDelegateProxy.{h,m}','WBListKit/WBTableCellProtocal.h','WBListKit/WBTableHeaderFooterViewProtocal.h','WBListKit/WBTableSectionPrivate.h'
-        t.dependency 'UITableView+FDTemplateLayoutCell'
-    end
-
-    s.subspec 'CollectionView' do |c|
-        c.source_files =    'WBListKit/WBCollectionItem.{h,m}','WBListKit/WBCollectionSection.{h,m}',
-                            'WBListKit/WBCollectionSectionMaker.{h,m}',
-                            'WBListKit/WBCollectionViewAdapter.{h,m}',
-                            'WBListKit/WBCollectionViewDelegateProxy.{h,m}',
-                            'WBListKit/WBCollectionSupplementaryItem.{h,m}',
-                            'WBListKit/WBCollectionCellProtocol.h',
-                            'WBListKit/WBCollectionSupplementaryViewProtocol.h',
-                            'WBListKit/WBCollectionSectionPrivate.h'
-        c.dependency 'UITableView+FDTemplateLayoutCell'
-    end
-
-    s.subspec 'DataSource' do |d|
-        d.source_files =    'WBListKit/WBListDataSource.{h,m}','WBListKit/WBTableViewDataSource.{h,m}','WBListKit/WBCollectionViewDataSource.{h,m}',
-                            'WBListKit/WBListController.{h,m}',
-                            'WBListKit/UIViewController+WBList.{h,m}',
-                            'WBListKit/WBListDataSourceDelegate.h'
-        d.dependency 'MJRefresh'
-        d.dependency 'WBListKit/CollectionView'
-        d.dependency 'WBListKit/TableView'
-    end
+    s.source_files = 'WBListKit/*.{h,m}'
+    s.dependency 'MJRefresh'
+    s.dependency 'UITableView+FDTemplateLayoutCell'
 end
