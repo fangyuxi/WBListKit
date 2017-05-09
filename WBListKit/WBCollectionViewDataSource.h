@@ -7,6 +7,7 @@
 //
 
 #import "WBListDataSource.h"
+#import "WBCollectionViewAdapter.h"
 
 @interface WBCollectionViewDataSource : WBListDataSource
 

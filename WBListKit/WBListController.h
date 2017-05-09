@@ -10,7 +10,7 @@
 #import "WBTableViewDataSource.h"
 #import "WBCollectionViewDataSource.h"
 #import "WBListDataSourceDelegate.h"
-#import "MJRefresh.h"
+#import "MJRefresh/MJRefresh.h"
 
 // 可以理解为一个UIViewController的代理对象，避免了业务方需要继承一个基类控制器
 

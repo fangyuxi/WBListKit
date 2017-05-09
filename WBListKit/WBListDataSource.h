@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WBListDataSourceDelegate.h"
-#import "WBListKit.h"
+#import "WBListReusableViewProtocol.h"
 
 /**
  提供了Controller加载数据的统一接口
@@ -31,8 +31,8 @@
  @return source
  */
 - (nullable instancetype)initWithDelegate:(nonnull id<WBListDataSourceDelegate>)delegate NS_DESIGNATED_INITIALIZER;
-- (nullable instancetype)init UNAVAILABLE_ATTRIBUTE;
-+ (nullable instancetype)new UNAVAILABLE_ATTRIBUTE;
+- (nonnull instancetype)init UNAVAILABLE_ATTRIBUTE;
++ (nonnull instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 /**
  通常，这个delegate应该为控制器，如果是控制器，那么在控制器的WBList分类中的list属性已经帮助我们

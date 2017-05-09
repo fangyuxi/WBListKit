@@ -15,13 +15,9 @@
 		1E3E89E61E94D6F1003C8CD2 /* WBNestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E51E94D6F1003C8CD2 /* WBNestedViewController.m */; };
 		1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89E81E94D702003C8CD2 /* WBNestedTableViewCell.m */; };
 		1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E89EB1E94D717003C8CD2 /* WBNestedCollectionViewCell.m */; };
-		1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0151E840017001C02AD /* UIViewController+WBList.m */; };
 		1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */; };
 		1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */; };
-		1EA8B1001E8A299200D14C2B /* WBListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8B0FF1E8A299200D14C2B /* WBListController.m */; };
 		1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC603B71E9632DB00B0F53F /* JKSeparatorLayout.m */; };
-		1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0D8451E8B58BD00FA7A15 /* WBTableViewDataSource.m */; };
-		1ED0D8491E8B596600FA7A15 /* WBCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED0D8481E8B596600FA7A15 /* WBCollectionViewDataSource.m */; };
 		1ED1F57C1E80FFD100C0EF58 /* WBDemosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5771E80FFD100C0EF58 /* WBDemosCell.m */; };
 		1ED1F57E1E80FFD100C0EF58 /* WBListKitDemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F57B1E80FFD100C0EF58 /* WBListKitDemosViewController.m */; };
 		1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5811E8105D400C0EF58 /* WBSimpleListViewController.m */; };
@@ -34,7 +30,6 @@
 		1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5981E81591C00C0EF58 /* WBHeaderFooterCell.m */; };
 		1ED1F59C1E81592F00C0EF58 /* WBDemoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F59B1E81592F00C0EF58 /* WBDemoHeaderView.m */; };
 		1ED1F59F1E81594000C0EF58 /* WBDemoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F59E1E81594000C0EF58 /* WBDemoFooterView.m */; };
-		1ED1F5A71E821C7F00C0EF58 /* WBListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5A61E821C7F00C0EF58 /* WBListDataSource.m */; };
 		1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5AD1E824AD900C0EF58 /* WBSwiftListViewController.swift */; };
 		1ED1F5B01E824F9100C0EF58 /* WBSwiftListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1F5AF1E824F9100C0EF58 /* WBSwiftListCell.swift */; };
 		1EE2B4C41E9CDC56003A58C6 /* WBWaterFallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE2B4C31E9CDC56003A58C6 /* WBWaterFallLayout.swift */; };
@@ -88,21 +83,12 @@
 		1E3E89E81E94D702003C8CD2 /* WBNestedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNestedTableViewCell.m; sourceTree = "<group>"; };
 		1E3E89EA1E94D717003C8CD2 /* WBNestedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNestedCollectionViewCell.h; sourceTree = "<group>"; };
 		1E3E89EB1E94D717003C8CD2 /* WBNestedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNestedCollectionViewCell.m; sourceTree = "<group>"; };
-		1E4DD0141E840017001C02AD /* UIViewController+WBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBList.h"; sourceTree = "<group>"; };
-		1E4DD0151E840017001C02AD /* UIViewController+WBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBList.m"; sourceTree = "<group>"; };
-		1E4DD0171E84A5F3001C02AD /* WBListDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListDataSourceDelegate.h; sourceTree = "<group>"; };
 		1E4DD0261E84EC81001C02AD /* WBMVCTableListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMVCTableListDataSource.h; sourceTree = "<group>"; };
 		1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCTableListDataSource.m; sourceTree = "<group>"; };
 		1E4DD0281E84EC81001C02AD /* WBMVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMVCViewController.h; sourceTree = "<group>"; };
 		1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCViewController.m; sourceTree = "<group>"; };
-		1EA8B0FE1E8A299200D14C2B /* WBListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListController.h; sourceTree = "<group>"; };
-		1EA8B0FF1E8A299200D14C2B /* WBListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListController.m; sourceTree = "<group>"; };
 		1EC603B61E9632DB00B0F53F /* JKSeparatorLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKSeparatorLayout.h; sourceTree = "<group>"; };
 		1EC603B71E9632DB00B0F53F /* JKSeparatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSeparatorLayout.m; sourceTree = "<group>"; };
-		1ED0D8441E8B58BD00FA7A15 /* WBTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTableViewDataSource.h; sourceTree = "<group>"; };
-		1ED0D8451E8B58BD00FA7A15 /* WBTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTableViewDataSource.m; sourceTree = "<group>"; };
-		1ED0D8471E8B596600FA7A15 /* WBCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewDataSource.h; sourceTree = "<group>"; };
-		1ED0D8481E8B596600FA7A15 /* WBCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewDataSource.m; sourceTree = "<group>"; };
 		1ED1F5761E80FFD100C0EF58 /* WBDemosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDemosCell.h; sourceTree = "<group>"; };
 		1ED1F5771E80FFD100C0EF58 /* WBDemosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDemosCell.m; sourceTree = "<group>"; };
 		1ED1F57A1E80FFD100C0EF58 /* WBListKitDemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListKitDemosViewController.h; sourceTree = "<group>"; };
@@ -127,8 +113,6 @@
 		1ED1F59B1E81592F00C0EF58 /* WBDemoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDemoHeaderView.m; sourceTree = "<group>"; };
 		1ED1F59D1E81594000C0EF58 /* WBDemoFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDemoFooterView.h; sourceTree = "<group>"; };
 		1ED1F59E1E81594000C0EF58 /* WBDemoFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDemoFooterView.m; sourceTree = "<group>"; };
-		1ED1F5A51E821C7F00C0EF58 /* WBListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListDataSource.h; sourceTree = "<group>"; };
-		1ED1F5A61E821C7F00C0EF58 /* WBListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListDataSource.m; sourceTree = "<group>"; };
 		1ED1F5AC1E824AD900C0EF58 /* WBListKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WBListKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		1ED1F5AD1E824AD900C0EF58 /* WBSwiftListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftListViewController.swift; sourceTree = "<group>"; };
 		1ED1F5AF1E824F9100C0EF58 /* WBSwiftListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftListCell.swift; sourceTree = "<group>"; };
@@ -300,25 +284,6 @@
 			path = HeaderFooter;
 			sourceTree = "<group>";
 		};
-		1ED1F5A41E821C6300C0EF58 /* DataSource(业务层抽象) */ = {
-			isa = PBXGroup;
-			children = (
-				1ED1F5A51E821C7F00C0EF58 /* WBListDataSource.h */,
-				1ED1F5A61E821C7F00C0EF58 /* WBListDataSource.m */,
-				1ED0D8441E8B58BD00FA7A15 /* WBTableViewDataSource.h */,
-				1ED0D8451E8B58BD00FA7A15 /* WBTableViewDataSource.m */,
-				1ED0D8471E8B596600FA7A15 /* WBCollectionViewDataSource.h */,
-				1ED0D8481E8B596600FA7A15 /* WBCollectionViewDataSource.m */,
-				1E4DD0141E840017001C02AD /* UIViewController+WBList.h */,
-				1E4DD0151E840017001C02AD /* UIViewController+WBList.m */,
-				1EA8B0FE1E8A299200D14C2B /* WBListController.h */,
-				1EA8B0FF1E8A299200D14C2B /* WBListController.m */,
-				1E4DD0171E84A5F3001C02AD /* WBListDataSourceDelegate.h */,
-			);
-			name = "DataSource(业务层抽象)";
-			path = DataSource;
-			sourceTree = "<group>";
-		};
 		1ED1F5A81E824A9400C0EF58 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
-				1ED1F5A41E821C6300C0EF58 /* DataSource(业务层抽象) */,
 				1EC603B51E9632DB00B0F53F /* CustomLayout */,
 				1E3E89E31E94D6D6003C8CD2 /* Nested */,
 				1E3E89CE1E8FBE07003C8CD2 /* CollectionView */,
@@ -658,8 +622,6 @@
 				6003F59E195388D20070C39A /* WBAppDelegate.m in Sources */,
 				1EE2B4C41E9CDC56003A58C6 /* WBWaterFallLayout.swift in Sources */,
 				1ED1F57C1E80FFD100C0EF58 /* WBDemosCell.m in Sources */,
-				1E4DD0161E840017001C02AD /* UIViewController+WBList.m in Sources */,
-				1ED0D8491E8B596600FA7A15 /* WBCollectionViewDataSource.m in Sources */,
 				1E4DD02A1E84EC81001C02AD /* WBMVCTableListDataSource.m in Sources */,
 				1ED1F58F1E81250A00C0EF58 /* WBReformerListCell.m in Sources */,
 				1ED1F59F1E81594000C0EF58 /* WBDemoFooterView.m in Sources */,
@@ -670,7 +632,6 @@
 				1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */,
 				1E3E89E11E94D000003C8CD2 /* WBCollectionHeaderView.m in Sources */,
 				1E1A04FB1E96349800F4BDB8 /* WBCustomLayoutViewController.m in Sources */,
-				1ED0D8461E8B58BD00FA7A15 /* WBTableViewDataSource.m in Sources */,
 				1EE2B4C71E9CDE0D003A58C6 /* WBWaterFallViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
@@ -686,10 +647,8 @@
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
 				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
 				1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */,
-				1ED1F5A71E821C7F00C0EF58 /* WBListDataSource.m in Sources */,
 				1ED1F59C1E81592F00C0EF58 /* WBDemoHeaderView.m in Sources */,
 				1ED1F57E1E80FFD100C0EF58 /* WBListKitDemosViewController.m in Sources */,
-				1EA8B1001E8A299200D14C2B /* WBListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

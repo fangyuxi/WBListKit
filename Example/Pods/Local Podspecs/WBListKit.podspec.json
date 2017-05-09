@@ -1,6 +1,6 @@
 {
   "name": "WBListKit",
-  "version": "0.1",
+  "version": "0.2",
   "summary": "A Wrapper of UICollectionView & UITableView",
   "description": "Esay and Quick to use UICollectionView & UITableView to build list",
   "homepage": "https://github.com/fangyuxi/WBListKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fangyuxi/WBListKit.git",
-    "tag": "0.1"
+    "tag": "0.2"
   },
   "platforms": {
     "ios": "7.0"
@@ -31,7 +31,9 @@
         "WBListKit/WBTableSectionHeaderFooter.{h,m}",
         "WBListKit/WBTableViewAdapter.{h,m}",
         "WBListKit/WBTableViewDelegateProxy.{h,m}",
-        "WBListKit/{WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate}.h"
+        "WBListKit/WBTableCellProtocal.h",
+        "WBListKit/WBTableHeaderFooterViewProtocal.h",
+        "WBListKit/WBTableSectionPrivate.h"
       ],
       "dependencies": {
         "UITableView+FDTemplateLayoutCell": [
@@ -54,6 +56,22 @@
       ],
       "dependencies": {
         "UITableView+FDTemplateLayoutCell": [
+
+        ]
+      }
+    },
+    {
+      "name": "DataSource",
+      "source_files": [
+        "WBListKit/WBListDataSource.{h,m}",
+        "WBListKit/WBTableViewDataSource.{h,m}",
+        "WBListKit/WBCollectionViewDataSource.{h,m}",
+        "WBListKit/WBListController.{h,m}",
+        "WBListKit/UIViewController+WBList.{h,m}",
+        "WBListKit/WBListDataSourceDelegate.h"
+      ],
+      "dependencies": {
+        "MJRefresh": [
 
         ]
       }

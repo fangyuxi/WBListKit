@@ -7,6 +7,7 @@
 //
 
 #import "WBListDataSource.h"
+#import "WBTableViewAdapter.h"
 
 /**
  for UITableView

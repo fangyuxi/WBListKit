@@ -17,7 +17,7 @@
 
 #pragma mark init
 
-- (nullable instancetype)init{
+- (nonnull instancetype)init{
     NSCAssert(NO, @"please use 'initWithDelegate' method, give a delegate object");
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
