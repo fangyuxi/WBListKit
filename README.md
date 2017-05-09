@@ -1,24 +1,17 @@
 # WBListKit
 
-[![CI Status](http://img.shields.io/travis/xcoder.fang@gmail.com/WBListKit.svg?style=flat)](https://travis-ci.org/xcoder.fang@gmail.com/WBListKit)
-[![Version](https://img.shields.io/cocoapods/v/WBListKit.svg?style=flat)](http://cocoapods.org/pods/WBListKit)
-[![License](https://img.shields.io/cocoapods/l/WBListKit.svg?style=flat)](http://cocoapods.org/pods/WBListKit)
-[![Platform](https://img.shields.io/cocoapods/p/WBListKit.svg?style=flat)](http://cocoapods.org/pods/WBListKit)
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+下载项目后，运行命令 pod install
 
 ## Requirements
 
+iOS7.0及以上
+
 ## Installation
 
-WBListKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "WBListKit"
-```
+被cocoapods折腾烦了，暂时不支持pod，使用请拷贝源码。
 
 ## Author
 
