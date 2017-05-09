@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.frameworks = 'UIKit'
 
-    s.source_files = 'WBListKit/*.{h,m}'
+    s.source_files = 'Pod/Classes/**/*'
     s.dependency 'MJRefresh'
     s.dependency 'UITableView+FDTemplateLayoutCell'
 end
