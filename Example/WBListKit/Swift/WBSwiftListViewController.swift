@@ -9,7 +9,7 @@
 import UIKit
 import WBListKit
 
-class WBSwiftListViewController: UIViewController {
+class WBSwiftListViewController: UIViewController,WBListActionToControllerProtocol {
 
     let tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
     let adapter: WBTableViewAdapter = WBTableViewAdapter();
@@ -18,6 +18,7 @@ class WBSwiftListViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView);
         adapter.bindTableView(tableView);
+        adapter.actionDelegate = self
         self.loadData();
     }
 
