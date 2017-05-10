@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol WBListEmptyKitDelegate {
+public protocol WBListEmptyKitDelegate: class {
     
 }

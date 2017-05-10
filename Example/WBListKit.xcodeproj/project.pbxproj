@@ -55,6 +55,9 @@
 		C2099A8F1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */; };
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
+		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
+		C2CC21BB1EC313D4007E6600 /* WBListEmptyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */; };
+		C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +156,9 @@
 		C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitScrollViewExtension.swift; sourceTree = "<group>"; };
 		C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDataSource.swift; sourceTree = "<group>"; };
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
+		C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitNameSpace.swift; sourceTree = "<group>"; };
+		C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKit.swift; sourceTree = "<group>"; };
+		C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitEmptyView.swift; sourceTree = "<group>"; };
 		E0E7AE40CECE50A361CB12DC /* Pods-WBListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Example/Pods-WBListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EA526BE8203C1AE100B80AAA /* WBListKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WBListKit.podspec; path = ../WBListKit.podspec; sourceTree = "<group>"; };
 		F178E417C75900A9BFEDDA43 /* Pods-WBListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Example/Pods-WBListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -417,6 +423,9 @@
 				C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */,
 				C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */,
 				C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */,
+				C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */,
+				C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */,
+				C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */,
 			);
 			path = EmptyView;
 			sourceTree = "<group>";
@@ -643,7 +652,9 @@
 				1ED1F58F1E81250A00C0EF58 /* WBReformerListCell.m in Sources */,
 				1ED1F59F1E81594000C0EF58 /* WBDemoFooterView.m in Sources */,
 				1E1A04FE1E96360400F4BDB8 /* WBCustomSeparatorView.m in Sources */,
+				C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */,
 				1ED1F58C1E8124F500C0EF58 /* WBReformerListViewController.m in Sources */,
+				C2CC21BB1EC313D4007E6600 /* WBListEmptyKit.swift in Sources */,
 				1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */,
 				1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */,
 				1ED1F5991E81591C00C0EF58 /* WBHeaderFooterCell.m in Sources */,
@@ -666,6 +677,7 @@
 				C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
 				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
+				C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */,
 				1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */,
 				1ED1F59C1E81592F00C0EF58 /* WBDemoHeaderView.m in Sources */,
 				1ED1F57E1E80FFD100C0EF58 /* WBListKitDemosViewController.m in Sources */,

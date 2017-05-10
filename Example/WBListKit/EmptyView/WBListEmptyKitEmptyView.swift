@@ -1,5 +1,5 @@
 //
-//  WBListEmptyKitDataSource.swift
+//  WBListEmptyKitEmptyView.swift
 //  WBListKit
 //
 //  Created by Romeo on 2017/5/10.
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import UIKit
 
-public protocol WBListEmptyKitDataSource: class {
+class WBListEmptyKitEmptyView: UIView {
     
 }
