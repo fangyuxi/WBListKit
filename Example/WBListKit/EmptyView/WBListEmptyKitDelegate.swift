@@ -7,7 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol WBListEmptyKitDelegate: class {
+    
+    func emptyViewWillAppear(in view: UIView)
+    
+    func emptyViewDidAppear(in view: UIView)
+    
+    func emptyViewWillDisAppear(in view: UIView)
+    
+    func emptyViewDidDisAppear(in view: UIView)
     
 }
