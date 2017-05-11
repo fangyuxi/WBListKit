@@ -13,16 +13,22 @@ import UIKit
 public protocol WBListEmptyKitDataSource: class {
     
     /// 单独一张图片
-    func emptyImage(for view: UIView ) -> UIImage?
+    func emptyImage(for emptyView:UIView, in view: UIView) -> UIImage?
+    
+    /// 单独的一个按钮
+    func emptyButton(for emptyView:UIView, in view: UIView) -> UIButton?
+    
+    /// 单独的一段文本
+    func emptyLabel(for emptyView:UIView, in view: UIView) -> UILabel?
     
     /// 自己定制的一个UIView
     func customEmptyView(for view: UIView) -> UIView?
     
-    ///
+    ///  返回emptyView的动画
     func animation(for emptyView: UIView, in view: UIView) -> CAAnimation?
     
     /// 竖向的offset 默认在View的中间位置
-    func verticalEmptyViewOffset(for view: UIView) -> CGFloat
+    func verticalOffset(for emptyView:UIView, in view: UIView) -> CGFloat
     
     /// 在统计列表为空的情况下是否忽略一些section
     func ignoredSectionsNumber(in view: UIView) -> [Int]?
@@ -31,20 +37,31 @@ public protocol WBListEmptyKitDataSource: class {
 /// 提供一些默认实现
 public extension WBListEmptyKitDataSource{
     
-    func emptyImage(for view: UIView ) -> UIImage?{
-        return nil;
+    func emptyImage(for emptyView:UIView, in view: UIView ) -> UIImage?{
+        return nil
+    }
+    
+    func emptyButton(for emptyView:UIView, in view: UIView) -> UIButton?{
+        return nil
+    }
+    
+    func emptyLabel(for emptyView:UIView, in view: UIView) -> UILabel?{
+        return nil
     }
     
     func customEmptyView(for view: UIView) -> UIView?{
-        return nil;
+        return nil
     }
     
-    func verticalEmptyViewOffset(for view: UIView) -> CGFloat{
-        return 0;
+    func animation(for emptyView: UIView, in view: UIView) -> CAAnimation?{
+        return nil
+    }
+    func verticalOffset(for emptyView:UIView, in view: UIView) -> CGFloat{
+        return 0
     }
     
     func ignoredSectionsNumber(in view: UIView) -> [Int]?{
-        return nil;
+        return nil
     }
 }
 
