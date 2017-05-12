@@ -7,9 +7,9 @@
 //
 
 #import "WBOCEmptyViewController.h"
-#import "WBListKit.h"
 #import "WBSimpleListCell.h"
 #import "WBSimpleListAutoLayoutCell.h"
+#import "OCAndSwift-Swift.h"
 
 @interface WBOCEmptyViewController ()<WBListActionToControllerProtocol>
 
@@ -40,37 +40,39 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
-        
-        for (NSInteger index = 0; index < 5; ++index) {
-            WBTableRow *row = [[WBTableRow alloc] init];
-            row.calculateHeight = ^CGFloat(WBTableRow *row){
-                return 60.0f;
-            };
-            row.associatedCellClass = [WBSimpleListCell class];
-            row.data = @{@"title":@(index)
-                         };
-            maker.addRow(row).setIdentifier(@"FixedHeight");
-        }
-    }];
-    
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
-        
-        for (NSInteger index = 0; index < 5; ++index) {
-            WBTableRow *row = [[WBTableRow alloc] init];
-            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-            row.data = @{@"title":@(index)
-                         };
-            maker.addRow(row).setIdentifier(@"AutoLayout");
-        }
-    }];
+//    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+//        
+//        for (NSInteger index = 0; index < 5; ++index) {
+//            WBTableRow *row = [[WBTableRow alloc] init];
+//            row.calculateHeight = ^CGFloat(WBTableRow *row){
+//                return 60.0f;
+//            };
+//            row.associatedCellClass = [WBSimpleListCell class];
+//            row.data = @{@"title":@(index)
+//                         };
+//            maker.addRow(row).setIdentifier(@"FixedHeight");
+//        }
+//    }];
+//    
+//    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+//        
+//        for (NSInteger index = 0; index < 5; ++index) {
+//            WBTableRow *row = [[WBTableRow alloc] init];
+//            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
+//            row.data = @{@"title":@(index)
+//                         };
+//            maker.addRow(row).setIdentifier(@"AutoLayout");
+//        }
+//    }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.tableView reloadData];
+            [self.tableView reloadEmptyView];
         });
     });
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
