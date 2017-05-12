@@ -52,7 +52,6 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		79988F3C763713347B0ED0E6 /* Pods_WBListKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612CC99D1429A9BECB5F184D /* Pods_WBListKit_Example.framework */; };
 		8F38D291A6A35A29B1447509 /* Pods_WBListKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8CBE0B799444E8D0182178 /* Pods_WBListKit_Tests.framework */; };
-		C2099A8F1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */; };
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
@@ -153,7 +152,6 @@
 		612CC99D1429A9BECB5F184D /* Pods_WBListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WBListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EAA3DCE0066AD1E81DF29D /* Pods-WBListKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Tests/Pods-WBListKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitScrollViewExtension.swift; sourceTree = "<group>"; };
 		C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDataSource.swift; sourceTree = "<group>"; };
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
 		C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitNameSpace.swift; sourceTree = "<group>"; };
@@ -356,7 +354,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
-				C2099A8D1EC2B60E0081234A /* EmptyView */,
+				C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */,
 				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
 				1EC603B51E9632DB00B0F53F /* CustomLayout */,
 				1E3E89E31E94D6D6003C8CD2 /* Nested */,
@@ -417,16 +415,16 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		C2099A8D1EC2B60E0081234A /* EmptyView */ = {
+		C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */ = {
 			isa = PBXGroup;
 			children = (
-				C2099A8E1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift */,
 				C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */,
 				C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */,
 				C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */,
 				C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */,
 				C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */,
 			);
+			name = WBListEmptyViewKit;
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
@@ -672,7 +670,6 @@
 				1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
 				1E3E89D41E8FBE57003C8CD2 /* WBCollectionViewCell.m in Sources */,
-				C2099A8F1EC2BA850081234A /* WBListEmptyKitScrollViewExtension.swift in Sources */,
 				1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */,
 				C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,

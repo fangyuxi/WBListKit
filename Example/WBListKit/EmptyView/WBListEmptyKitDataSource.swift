@@ -22,10 +22,13 @@ public protocol WBListEmptyKitDataSource: class {
     func emptyLabel(for emptyView:UIView, in view: UIView) -> UILabel?
     
     /// 自己定制的一个UIView
-    func customEmptyView(for view: UIView) -> UIView?
+    func customEmptyView(for emptyView: UIView , in view: UIView) -> UIView?
     
     ///  返回emptyView的动画
     func animation(for emptyView: UIView, in view: UIView) -> CAAnimation?
+    
+    /// emptyView的背景颜色
+    func backgroudColor(for emptyView:UIView, in view: UIView) -> UIColor?
     
     /// 竖向的offset 默认在View的中间位置
     func verticalOffset(for emptyView:UIView, in view: UIView) -> CGFloat
@@ -49,7 +52,7 @@ public extension WBListEmptyKitDataSource{
         return nil
     }
     
-    func customEmptyView(for view: UIView) -> UIView?{
+    func customEmptyView(for emptyView: UIView , in view: UIView) -> UIView?{
         return nil
     }
     
@@ -63,14 +66,18 @@ public extension WBListEmptyKitDataSource{
     func ignoredSectionsNumber(in view: UIView) -> [Int]?{
         return nil
     }
+    
+    func backgroudColor(for emptyView:UIView, in view: UIView) -> UIColor?{
+        return view.backgroundColor
+    }
 }
 
 /// 如果控制器实现了这个协议，那么判断是否需要去掉导航栏的高度
 public extension WBListEmptyKitDataSource where Self: UIViewController{
     
-    func verticalEmptyViewOffset(in view: UIView) -> CGFloat {
+    func verticalOffset(for emptyView:UIView, in view: UIView) -> CGFloat {
         if let nav = self.navigationController, !nav.isNavigationBarHidden, nav.navigationBar.isTranslucent {
-            return -nav.navigationBar.frame.maxY / 2
+            return -nav.navigationBar.frame.maxY
         }
         return 0
     }

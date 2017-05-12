@@ -58,15 +58,17 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
                 return view;
             }
             let view = WBListEmptyKitEmptyView()
-            self.setupEmptyView(view)
             objc_setAssociatedObject(self, &AssociatedKeys.emptyViewKey, view, .OBJC_ASSOCIATION_RETAIN)
+            self.setupEmptyView(view)
             return view;
         }
     }
     
     internal func setupEmptyView(_ view: WBListEmptyKitEmptyView){
+        
+        //layout
         if view.superview == nil  {
-            parent.insertSubview(view, at: 0)
+            parent.addSubview(view)
             view.translatesAutoresizingMaskIntoConstraints = false
             parent.addConstraint(NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: parent, attribute: .leading, multiplier: 1, constant: 0))
             parent.addConstraint(NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: parent, attribute: .trailing, multiplier: 1, constant: 0))
@@ -80,7 +82,16 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
             view.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: UILayoutConstraintAxis.vertical)
         }
         
-        view.isHidden = true
+        view.hide()
+        
+        //event
+        self.emptyView.didTappedEmptyView = {emptyView in
+            
+            if self.delegate?.shouldAllowTap(emptyView: self.emptyView, for: self.parent) ?? true {
+                
+                self.delegate?.emptyView(self.emptyView, tappedInView: self.parent)
+            }
+        }
     }
     
     internal func configEmptyView(){
@@ -98,21 +109,30 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
         
         if itemsCount == 0 {
             if self.emptyView.isHidden == true {
-                self.delegate?.emptyViewWillAppear(in: parent)
-                self.emptyView.isHidden = false
-                self.delegate?.emptyViewDidAppear(in: parent)
-            }
-            return
-        }
-        
-        if let delegate = self.delegate {
-            if delegate.shouldDisplay(emptyView: self.emptyView, for: parent) {
                 
-                //config
-                self.delegate?.emptyViewWillDisAppear(in: parent)
-                self.emptyView.isHidden = true
-                self.delegate?.emptyViewDidDisAppear(in: parent)
+                if self.delegate?.shouldDisplay(emptyView: self.emptyView, for: parent) ?? true {
+                    
+                    self.emptyView.shouldFadeIn = self.delegate?.emptyView(self.emptyView, shouldFadeIn: parent) ?? true
+                    self.parent.isScrollEnabled = self.delegate?.shouldAllowScroll(emptyView: self.emptyView, for: self.parent) ?? false
+                    self.emptyView.backgroundColor = dataSource.backgroudColor(for: self.emptyView, in: self.parent) ?? self.parent.backgroundColor
+                    self.emptyView.verticalOffset = dataSource.verticalOffset(for: self.emptyView, in: self.parent)
+                    self.emptyView.label = dataSource.emptyLabel(for: self.emptyView, in: self.parent)
+                    self.emptyView.button = dataSource.emptyButton(for: self.emptyView, in: self.parent)
+                    self.emptyView.image = dataSource.emptyImage(for: self.emptyView, in: self.parent)
+                    self.emptyView.customView = dataSource.customEmptyView(for: self.emptyView, in: self.parent)
+                    
+                    self.delegate?.emptyViewWillAppear(in: parent)
+                    self.emptyView.show()
+                    parent.bringSubview(toFront: self.emptyView)
+                    self.delegate?.emptyViewDidAppear(in: parent)
+                }
             }
+        }
+        else{
+            self.delegate?.emptyViewWillDisAppear(in: parent)
+            self.parent.isScrollEnabled = true
+            self.emptyView.hide()
+            self.delegate?.emptyViewDidDisAppear(in: parent)
         }
         
     }
@@ -174,17 +194,7 @@ public extension UIScrollView{
     func reloadEmptyView(){
         
         self.empty.configEmptyView()
-        self.empty.emptyView.tappedAction = {[weak self] emptyView in
-            
-            guard let strongSelf = self , let delegate = strongSelf.empty.delegate  else{
-                return
-            }
-            
-            if delegate.shouldAllowTap(emptyView: strongSelf.empty.emptyView, for: strongSelf) {
-                
-                delegate.emptyView(strongSelf.empty.emptyView, tappedInView: strongSelf)
-            }
-        }
+        
     }
 }
 
