@@ -9,7 +9,7 @@
 import UIKit
 import WBListKit
 
-class WBSwiftListViewController: UIViewController,WBListActionToControllerProtocol,WBListEmptyKitDelegate,WBListEmptyKitDataSource {
+class WBSwiftListViewController: UIViewController,WBListActionToControllerProtocol {
 
     let tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
     let adapter: WBTableViewAdapter = WBTableViewAdapter();
@@ -20,9 +20,6 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
         view.addSubview(tableView);
         
         tableView.frame = view.bounds
-        tableView.empty.delegate = self
-        tableView.empty.dataSource = self
-        
         adapter.bindTableView(tableView);
         adapter.actionDelegate = self
         self.loadData();
@@ -31,11 +28,6 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
     func loadData(){
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-            self.tableView.reloadData();
-            self.tableView.reloadEmptyView();
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
             
             self.adapter.addSection { (maker) in
                 
@@ -49,39 +41,7 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
             }
             
             self.tableView.reloadData();
-            self.tableView.reloadEmptyView();
         })
-    }
-    
-    func ignoredSectionsNumber(in view: UIView) -> [Int]? {
-        return [0]
-    }
-    
-    func emptyLabel(for emptyView: UIView, in view: UIView) -> UILabel? {
-        let label = UILabel()
-        label.text = "空页面"
-        label.textAlignment = NSTextAlignment.center
-        label.backgroundColor = UIColor.red
-        return label
-    }
-    
-    func emptyButton(for emptyView: UIView, in view: UIView) -> UIButton? {
-        let button = UIButton()
-        button.setTitle("空页面按钮演示，点击事件", for: UIControlState.normal)
-        button.setTitleColor(UIColor.red, for: .normal)
-        button.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.red.cgColor
-        
-        return button
-    }
-    
-    func emptyView(_ emptyView: UIView, button: UIButton, tappedInView: UIView) {
-        
-    }
-    
-    func emptyView(_ emptyView: UIView, tappedInView: UIView) {
-        
     }
 }
 

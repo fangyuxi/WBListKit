@@ -21,6 +21,7 @@
 #import "WBNestedViewController.h"
 #import "WBCustomLayoutViewController.h"
 #import "WBWaterFallViewController.h"
+#import "WBOCEmptyViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -80,13 +81,14 @@
     return @[@{@"title":@"Simple List",@"class":[WBSimpleListViewController class]},
              @{@"title":@"Reformer List",@"class":[WBReformerListViewController class]},
              @{@"title":@"FooterHeader List",@"class":[WBListHeaderFooterViewController class]},
-             @{@"title":@"Swift Demos",@"class":[WBSwiftListViewController class]},
              @{@"title":@"MVC Demos",@"class":[WBMVCViewController class]},
              @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
              @{@"title":@"Nested",@"class":[WBNestedViewController class]},
              @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
-             @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]}
+             @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]},
+             @{@"title":@"Empty Kit Swift ",@"class":[WBSwiftEmptyViewController class]},
+             @{@"title":@"Empty Kit OC ",@"class":[WBOCEmptyViewController class]}
              ];
 }
 

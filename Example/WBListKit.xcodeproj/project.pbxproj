@@ -54,6 +54,8 @@
 		8F38D291A6A35A29B1447509 /* Pods_WBListKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8CBE0B799444E8D0182178 /* Pods_WBListKit_Tests.framework */; };
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
+		C28E6E031EC5B4F100846A66 /* WBSwiftEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */; };
+		C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */; };
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
 		C2CC21BB1EC313D4007E6600 /* WBListEmptyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */; };
 		C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */; };
@@ -154,6 +156,9 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDataSource.swift; sourceTree = "<group>"; };
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
+		C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftEmptyViewController.swift; sourceTree = "<group>"; };
+		C28E6E041EC5B50800846A66 /* WBOCEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOCEmptyViewController.h; sourceTree = "<group>"; };
+		C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOCEmptyViewController.m; sourceTree = "<group>"; };
 		C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitNameSpace.swift; sourceTree = "<group>"; };
 		C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKit.swift; sourceTree = "<group>"; };
 		C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitEmptyView.swift; sourceTree = "<group>"; };
@@ -441,6 +446,8 @@
 		C2AD80BD1EC5A8470006CA07 /* OC */ = {
 			isa = PBXGroup;
 			children = (
+				C28E6E041EC5B50800846A66 /* WBOCEmptyViewController.h */,
+				C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -448,6 +455,7 @@
 		C2AD80BE1EC5A8470006CA07 /* SWIFT */ = {
 			isa = PBXGroup;
 			children = (
+				C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */,
 			);
 			path = SWIFT;
 			sourceTree = "<group>";
@@ -665,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28E6E031EC5B4F100846A66 /* WBSwiftEmptyViewController.swift in Sources */,
 				1ED1F5B01E824F9100C0EF58 /* WBSwiftListCell.swift in Sources */,
 				1EE3D77E1E8B8A0B006D4B66 /* WBMultiSourceController.m in Sources */,
 				6003F59E195388D20070C39A /* WBAppDelegate.m in Sources */,
@@ -699,6 +708,7 @@
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
 				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
 				C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */,
+				C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */,
 				1ED1F5AE1E824AD900C0EF58 /* WBSwiftListViewController.swift in Sources */,
 				1ED1F59C1E81592F00C0EF58 /* WBDemoHeaderView.m in Sources */,
 				1ED1F57E1E80FFD100C0EF58 /* WBListKitDemosViewController.m in Sources */,
