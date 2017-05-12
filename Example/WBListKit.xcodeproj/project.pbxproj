@@ -354,6 +354,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */,
 				C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */,
 				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
 				1EC603B51E9632DB00B0F53F /* CustomLayout */,
@@ -426,6 +427,29 @@
 			);
 			name = WBListEmptyViewKit;
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				C2AD80BD1EC5A8470006CA07 /* OC */,
+				C2AD80BE1EC5A8470006CA07 /* SWIFT */,
+			);
+			path = EmptyViewExample;
+			sourceTree = "<group>";
+		};
+		C2AD80BD1EC5A8470006CA07 /* OC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
+		C2AD80BE1EC5A8470006CA07 /* SWIFT */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SWIFT;
 			sourceTree = "<group>";
 		};
 		CB3262A321830CE91852395F /* Pods */ = {

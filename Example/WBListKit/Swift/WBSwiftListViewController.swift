@@ -67,12 +67,21 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
     
     func emptyButton(for emptyView: UIView, in view: UIView) -> UIButton? {
         let button = UIButton()
-        button.setTitle("空页面按钮", for: UIControlState.normal)
+        button.setTitle("空页面按钮演示，点击事件", for: UIControlState.normal)
+        button.setTitleColor(UIColor.red, for: .normal)
         button.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.red.cgColor
         
         return button
+    }
+    
+    func emptyView(_ emptyView: UIView, button: UIButton, tappedInView: UIView) {
+        
+    }
+    
+    func emptyView(_ emptyView: UIView, tappedInView: UIView) {
+        
     }
 }
 

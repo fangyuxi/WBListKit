@@ -131,8 +131,8 @@ class  WBListEmptyKitEmptyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.red
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapEmptyView(_:)))
-        addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapEmptyView))
+        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -179,7 +179,7 @@ extension WBListEmptyKitEmptyView{
         if hitView.isEqual(customView) {
             return hitView
         }
-        return nil
+        return self
     }
 }
 

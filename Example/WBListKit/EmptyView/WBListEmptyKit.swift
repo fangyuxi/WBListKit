@@ -86,11 +86,12 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
         
         //event
         self.emptyView.didTappedEmptyView = {emptyView in
-            
             if self.delegate?.shouldAllowTap(emptyView: self.emptyView, for: self.parent) ?? true {
-                
                 self.delegate?.emptyView(self.emptyView, tappedInView: self.parent)
             }
+        }
+        self.emptyView.didTappedButton = {button in
+            self.delegate?.emptyView(self.emptyView, button: button, tappedInView: self.parent)
         }
     }
     
@@ -98,7 +99,6 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
         guard let dataSource = self.dataSource else {
             return
         }
-        
         
         var itemsCount = 0
         if let ignoredSections = dataSource.ignoredSectionsNumber(in: parent){
@@ -144,11 +144,9 @@ extension WBListEmptyKitNameSpace where Parent: UIScrollView{
         if let tableView = parent as? UITableView {
             return tableView.numberOfSections;
         }
-        
         if let collectionView = parent as? UICollectionView {
             return collectionView.numberOfSections;
         }
-        
         return 0
     }
     
@@ -163,7 +161,6 @@ extension WBListEmptyKitNameSpace where Parent: UIScrollView{
             }
             return count
         }
-        
         if let collectionView = parent as? UICollectionView {
             for index in 0..<self.sectionCount(){
                 if ignoredSectionNums.contains(index) {
@@ -180,7 +177,6 @@ extension WBListEmptyKitNameSpace where Parent: UIScrollView{
         if let tableView = parent as? UITableView {
             return tableView.numberOfRows(inSection: num)
         }
-        
         if let collectionView = parent as? UICollectionView {
             return collectionView.numberOfItems(inSection: num)
         }
@@ -192,10 +188,6 @@ extension WBListEmptyKitNameSpace where Parent: UIScrollView{
 public extension UIScrollView{
     
     func reloadEmptyView(){
-        
         self.empty.configEmptyView()
-        
     }
 }
-
-

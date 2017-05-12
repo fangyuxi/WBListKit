@@ -23,6 +23,8 @@ public protocol WBListEmptyKitDelegate: class{
     /// EmptyView 发生Tap事件
     func emptyView(_ emptyView: UIView, tappedInView: UIView)
     
+    func emptyView(_ emptyView: UIView, button: UIButton, tappedInView: UIView)
+    
     /// 显示emptyView的时候，是否要fade
     func emptyView(_ emptyView: UIView, shouldFadeIn: UIView) -> Bool
     
@@ -57,6 +59,9 @@ public extension WBListEmptyKitDelegate{
     
     /// EmptyView 发生Tap事件
     func emptyView(_ emptyView: UIView, tappedInView: UIView){
+    }
+    
+    func emptyView(_ emptyView: UIView, button: UIButton, tappedInView: UIView){
     }
     
     func emptyView(_ emptyView: UIView, shouldFadeIn: UIView) -> Bool {
