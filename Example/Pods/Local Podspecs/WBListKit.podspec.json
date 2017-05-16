@@ -42,7 +42,8 @@
         "WBListKit/WBTableViewDelegateProxy.{h,m}",
         "WBListKit/WBTableCellProtocal.h",
         "WBListKit/WBTableHeaderFooterViewProtocal.h",
-        "WBListKit/WBTableSectionPrivate.h"
+        "WBListKit/WBTableSectionPrivate.h",
+        "WBListKit/WBTableViewAdapterPrivate.h"
       ]
     },
     {

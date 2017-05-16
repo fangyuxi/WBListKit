@@ -17,7 +17,18 @@ Pod::Spec.new do |s|
 
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
-        t.source_files = 'WBListKit/WBTableRow.{h,m}','WBListKit/UITableView+WBListKitPrivate.{h,m}','WBListKit/UITableView+WBListKit.{h,m}','WBListKit/WBTableSection.{h,m}','WBListKit/WBTableSectionMaker.{h,m}','WBListKit/WBTableSectionHeaderFooter.{h,m}','WBListKit/WBTableViewAdapter.{h,m}','WBListKit/WBTableViewDelegateProxy.{h,m}','WBListKit/WBTableCellProtocal.h','WBListKit/WBTableHeaderFooterViewProtocal.h','WBListKit/WBTableSectionPrivate.h'
+        t.source_files = 'WBListKit/WBTableRow.{h,m}',
+        'WBListKit/UITableView+WBListKitPrivate.{h,m}',
+        'WBListKit/UITableView+WBListKit.{h,m}',
+        'WBListKit/WBTableSection.{h,m}',
+        'WBListKit/WBTableSectionMaker.{h,m}',
+        'WBListKit/WBTableSectionHeaderFooter.{h,m}',
+        'WBListKit/WBTableViewAdapter.{h,m}',
+        'WBListKit/WBTableViewDelegateProxy.{h,m}',
+        'WBListKit/WBTableCellProtocal.h',
+        'WBListKit/WBTableHeaderFooterViewProtocal.h',
+        'WBListKit/WBTableSectionPrivate.h',
+        'WBListKit/WBTableViewAdapterPrivate.h'
     end
 
     s.subspec 'CollectionView' do |c|

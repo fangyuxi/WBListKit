@@ -41,7 +41,6 @@
  如果不是控制器，那么需要自己实现数据层的代理
  */
 @property (nonatomic, weak, nullable, readonly) id<WBListDataSourceDelegate> delegate;
-@property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
 /**
  load data  子类需要重写以下三个方法

@@ -41,16 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  you should use these method to manage tableview's and datasource
  please avoid direct use tableview's delegate and datasource property
- 
- before use it, you must know why 
  */
 @property (nonatomic, weak) id tableDataSource;
-
-/**
- look into WBListCell, adapter is a brige for actions transport from cell to controller
- inherits UITableViewDelegate Protolcol, contains All actions from cell
- */
-@property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
 
 /**
  get section at index

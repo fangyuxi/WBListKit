@@ -10,6 +10,7 @@
 #import "UITableView+WBListKitPrivate.h"
 #import <objc/runtime.h>
 #import "WBListReusableViewProtocol.h"
+#import "WBTableViewAdapterPrivate.h"
 
 static int WBListActionToControllerProtocolKey;
 

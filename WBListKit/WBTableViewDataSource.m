@@ -21,16 +21,12 @@
 @implementation WBTableViewDataSource
 
 @synthesize tableViewAdapter = _tableViewAdapter;
-@synthesize actionDelegate = _actionDelegate;
 
 - (void)bindTableView:(nullable UITableView *)tableView{
     [self.tableViewAdapter unBindTableView];
     self.tableView = tableView;
     if (tableView) {
         [self.tableViewAdapter bindTableView:self.tableView];
-    }
-    if (self.actionDelegate) {
-        self.tableViewAdapter.actionDelegate = self.actionDelegate;
     }
 }
 

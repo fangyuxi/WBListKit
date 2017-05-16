@@ -24,7 +24,6 @@
     [self createView];
     
     self.list.tableDataSource = [[WBMVCTableListDataSource alloc] initWithDelegate:self];
-    self.list.tableDataSource.actionDelegate = self;
     [self.list.tableDataSource bindTableView:self.list.tableView];
     
     [self.list refreshImmediately];

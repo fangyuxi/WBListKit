@@ -12,6 +12,8 @@
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
 #import "WBTableSectionPrivate.h"
+#import "UITableView+WBListKitPrivate.h"
+#import "WBTableViewAdapterPrivate.h"
 
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -34,6 +36,7 @@
     self.tableView = tableView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.adapter = self;
     
     if (self.actionDelegate || self.tableDataSource) {
         [self updateTableDelegateProxy];
@@ -43,6 +46,7 @@
 - (void)unBindTableView{
     self.tableView.delegate = nil;
     self.tableView.dataSource = nil;
+    self.tableView.adapter = nil;
     self.tableView = nil;
 }
 

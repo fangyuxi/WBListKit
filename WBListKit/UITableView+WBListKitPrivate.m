@@ -8,7 +8,8 @@
 
 #import "UITableView+WBListKitPrivate.h"
 #import <objc/runtime.h>
-//#import "UITableView+WBListKit.h"
+#import "UITableView+WBListKit.h"
+#import "WBTableViewAdapterPrivate.h"
 
 static int AdapterKey;
 
@@ -16,10 +17,11 @@ static int AdapterKey;
 
 - (void)setAdapter:(WBTableViewAdapter *)adapter{
     objc_setAssociatedObject(self, &AdapterKey, adapter, OBJC_ASSOCIATION_ASSIGN);
-    //adapter.actionDelegate = self.actionDelegate;
+    adapter.actionDelegate = self.actionDelegate;
 }
 
 - (WBTableViewAdapter *)adapter{
    return objc_getAssociatedObject(self, &AdapterKey);
 }
+
 @end

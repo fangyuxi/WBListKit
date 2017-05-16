@@ -24,4 +24,4 @@
 #import "WBCollectionViewDataSource.h"
 #import "WBListDataSourceDelegate.h"
 
-//#import "UITableView+WBListKit.h"
+#import "UITableView+WBListKit.h"

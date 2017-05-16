@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+WBList.h"
+#import "WBListKit.h"
 
 
 /**

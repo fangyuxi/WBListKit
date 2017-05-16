@@ -37,6 +37,7 @@
 #import "WBTableCellProtocal.h"
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableSectionPrivate.h"
+#import "WBTableViewAdapterPrivate.h"
 
 FOUNDATION_EXPORT double WBListKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char WBListKitVersionString[];

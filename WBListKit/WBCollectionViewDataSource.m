@@ -20,7 +20,6 @@
 @implementation WBCollectionViewDataSource
 
 @synthesize collectionViewAdapter = _collectionViewAdapter;
-@synthesize actionDelegate = _actionDelegate;
 
 - (void)bindCollectionView:(nullable UICollectionView *)collectionView{
     [self.collectionViewAdapter unBindCollectionView];

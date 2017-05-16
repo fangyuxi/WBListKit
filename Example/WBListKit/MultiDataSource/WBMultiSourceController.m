@@ -32,6 +32,7 @@
     
     //tableview
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    self.tableView.actionDelegate = self;
     [self.view addSubview:self.tableView];
     
     //header
@@ -44,9 +45,6 @@
 - (void)createSource{
     self.leftSource = [[WBLeftTableSource alloc] initWithDelegate:self];
     self.rightSource = [[WBRightTableSource alloc] initWithDelegate:self];
-    
-    self.leftSource.actionDelegate = self;
-    self.rightSource.actionDelegate = self;
 }
 
 - (void)changeTableVieSource{
