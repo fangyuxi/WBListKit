@@ -13,6 +13,12 @@
 
 @interface UICollectionView (WBListKit)
 
+/**
+ 取代UICollectionView的delegate 
+ 增加了从Cell到自定义代理对象的事件传递
+ 在Cell中合成actionDelegate属性，通过
+ actionDelegate属性，将cell的事件传递给View，进而通过这个属性，传递到想传递的地方（通常是控制器）
+ */
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
 @end

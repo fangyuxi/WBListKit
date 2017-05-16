@@ -12,7 +12,9 @@
 #import "WBListKitMacros.h"
 
 /**
-    实现链式语法
+ 是 collectionView 的 section 的装配器
+ 通过maker来构建section
+ 实现了链式语法
  **/
 
 NS_ASSUME_NONNULL_BEGIN

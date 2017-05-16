@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WBCollectionViewAdapter.h"
 
+/**
+ 隐藏这个属性，防止外部访问到
+ */
 @interface UICollectionView (WBListKitPrivate)
 
 @property (nonatomic, weak) WBCollectionViewAdapter *adapter;

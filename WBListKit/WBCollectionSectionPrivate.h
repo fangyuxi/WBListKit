@@ -13,6 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+/**
+ 隐藏了section的实现，防止外部不使用maker而直接修改section
+ */
 @interface WBCollectionSection ()
 
 @property (nonatomic, strong, nullable, readwrite) WBCollectionSectionMaker *maker;

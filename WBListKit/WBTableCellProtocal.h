@@ -12,9 +12,9 @@
 #import "WBListReusableViewProtocol.h"
 
 /**
- 所有自定义的UITableViewCell需要遵守这个协议
+ 所有自定义的UITableViewCell需要遵守这个协议，并合成row属性
+ 实现WBListReusableViewProtocol中的方法
  */
-
 @class WBTableRow;
 
 @protocol WBTableCellProtocol <WBListReusableViewProtocol>

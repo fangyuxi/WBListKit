@@ -7,6 +7,9 @@
 //
 
 
+/**
+ 隐藏这个属性，防止外部访问到
+ */
 @protocol WBListActionToControllerProtocol;
 
 @interface WBCollectionViewAdapter ()

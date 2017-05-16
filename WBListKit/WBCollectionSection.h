@@ -24,7 +24,7 @@ WBListKit_SUBCLASSING_RESTRICTED
 @property (nonatomic, strong, nullable, readonly) WBCollectionSectionMaker *maker;
 
 /**
- 此section的唯一标识符
+ 此section的唯一标识符，可以通过唯一标识符准确的找到这个cell
  */
 @property (nonatomic, copy, readonly) NSString *identifier;
 

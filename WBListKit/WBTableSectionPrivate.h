@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class WBTableSection;
 
+/**
+ 隐藏了section的实现，防止外部不使用maker而直接修改section
+ */
 @interface WBTableSection ()
 
 @property (nonatomic, strong, nullable, readwrite) WBTableSectionMaker *maker;

@@ -11,6 +11,10 @@
 
 #import "WBListReusableViewProtocol.h"
 
+/**
+ 任何自定义的SupplementaryItem 都应该遵循这个协议，并合成item属性
+ 实现WBListReusableViewProtocol中的方法
+ */
 @class WBCollectionSupplementaryItem;
 
 @protocol WBCollectionSupplementaryViewProtocol <WBListReusableViewProtocol>
