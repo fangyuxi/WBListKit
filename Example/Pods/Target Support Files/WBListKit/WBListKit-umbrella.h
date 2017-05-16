@@ -12,6 +12,9 @@
 
 #import "WBListKit.h"
 #import "WBCollectionItem.h"
+#import "UICollectionView+WBListKitPrivate.h"
+#import "WBCollectionViewAdapterPrivate.h"
+#import "UICollectionView+WBListKit.h"
 #import "WBCollectionSection.h"
 #import "WBCollectionSectionMaker.h"
 #import "WBCollectionViewAdapter.h"

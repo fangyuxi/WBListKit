@@ -12,151 +12,151 @@
 		07159A933B3C47A02FE2B2744ABAAC89 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E757AC9E11D6C7626DA7C6F7D2F8F /* MJRefreshStateHeader.m */; };
 		091D17D5D8F832D28546A72B788CF0AE /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD76AEF2C43FA233876E62DDCD0A2AF /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A1E34B4A27DCD62A914F3B028A07E6C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F0406D8B089EE513074A627C156DA2B2 /* UIView+MJExtension.m */; };
-		0C008E99B24EFBBB84959F91A368C509 /* WBCollectionViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D3BE7E1C5C7FB14B8FAE3D5E6B42032 /* WBCollectionViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EFB524EFDF2F8712A2F5067817A672E /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = AF526A3A771B13D36B365C540FDD4F48 /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D289E4C7F51839CA2B982150074B664 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		0FDB2B4F75591851F0F119EAE70B3F63 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5958A88A16127659EC45229EA6DC5937 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		101F836F887C01B45F4DCF351EBC28D1 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB27C3EC9EA36AFC9BA5968BEA6A3B1 /* MJRefreshBackNormalFooter.m */; };
-		152E7047D1A85EF6113522F0AF02632A /* UITableView+WBListKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9177E48E31D1F2357D1C17966F7498 /* UITableView+WBListKitPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1579BDE4361A7F980092FFD893758156 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574FD0AB528240966E7718649FA8DC92 /* MJRefresh.framework */; };
-		15D2EE448A4D63EF5FED42AB1BF0B20E /* WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F4EDD45E5F13A343565B57F4D13874 /* WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F033046E658F3BFD0011DCB768CF54 /* MJRefreshBackNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 33FF5193673706CE94D03567DDD78F28 /* MJRefreshBackNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17F8FCE0454FD45DBD7D9E4E3CFB9B05 /* WBTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 616C06A0DF068D5EBA952AF9733C92AE /* WBTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1843E6DF520A5EFE9C83C38E18578E42 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C81CAD43D5800313023863B1B3732449 /* MJRefreshAutoStateFooter.m */; };
-		19247A3BCC9D8E2DE232AE6D075CAE83 /* WBListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EC461C167ADF6A37FF12A9F453B88E3 /* WBListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF5A421C2ADE7A2EEBD1754BE853961 /* UITableView+FDTemplateLayoutCellDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = C7E3DA39D5C315233C004E50A699AB62 /* UITableView+FDTemplateLayoutCellDebug.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED505CC385A149F4DF8F4B94BA4FC0B /* MJRefreshBackStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C0098E0F95B6519362A146067AA5265 /* MJRefreshBackStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20D95D67D9A566E60FC4362A7FD8DCAA /* WBTableSectionHeaderFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A7252A3381F0825A8BD8973B5F8F47 /* WBTableSectionHeaderFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2317D5F2DC70CB02A3DD4D1609AD8B24 /* WBCollectionViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8231BDB60FA74E099DEEC4EF8DBDA962 /* WBCollectionViewDelegateProxy.m */; };
+		23199A511200D28DEC59272E5FD460D6 /* UITableView+WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 713858DF130403A506C80E45511A1622 /* UITableView+WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2524EC4EF024A6C067A0FA082084CFB5 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E99ADADDCC8B96E1428A2C195855AA33 /* MJRefreshBackStateFooter.m */; };
 		2854C9B1086758BD2B6681206B6759B4 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B964F14F2B7BF28B94A03D9797B7357 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28F7CE834FF844257272AC05739FBE54 /* WBListKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BA0560C0453A222E309CBBC97E7128 /* WBListKit-dummy.m */; };
 		2ADEECA5EB70F9D80000788DCB7E1C2B /* UITableView+FDTemplateLayoutCell-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEA5E65CC1E864AAB0451A372832735 /* UITableView+FDTemplateLayoutCell-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B36E32645FA483897D41A373740B087 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
-		2C78FF4FA83ED7577D70EDC4E5B425C1 /* WBListKitAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C2DFB7E041320F559381DACEE05A59 /* WBListKitAssert.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		2CEA12D52F3F7AC0669C99A157E19F62 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 01620AA98C787A72D9CF248F9407177D /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		313E3CB4B93BF1D1F190A7DB9FDB8FE1 /* WBListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4163D797827C1D7E82D0B9F36A5B73B5 /* WBListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		311CDD837C0A910EB4D74267DF9FFBF7 /* WBTableSectionHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A62BBACB6054AE00639A42438948E2 /* WBTableSectionHeaderFooter.m */; };
 		344DB99F8332029C0391F08B6D0E425C /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D1DBB92B6D416D63E1E37732E4CBA /* MJRefreshAutoNormalFooter.m */; };
 		35D685CF7C6F73A65AD3DD99674CA78F /* MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D9DA52BAEA83C8690FEC741BB17379 /* MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		360E89B27A7526FCFA5FC3EF5540DB4F /* WBTableSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF51E8B22DD7CE89CB03D6BC243E29 /* WBTableSectionMaker.m */; };
 		3829CBCC3598DB13C2AD3B7383D1F24A /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C437C5060ABAF573F6EADD20561E64F /* MJRefreshFooter.m */; };
 		38E0CD63021889EE46E1A6B9FA0415F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8609C27CADBCFF34050995E359CF0890 /* UIKit.framework */; };
-		3B591A86A931E00FA9B5BE2B92B02CB5 /* WBCollectionSupplementaryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 006E8451A4FE88FF447E034757A98AB4 /* WBCollectionSupplementaryItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3C2FFC491E2F1DED888306B18FEE7B58 /* WBTableViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = E6E26CE0AB79FBC3C79BE84C23C8FC43 /* WBTableViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41A803B8196017AFDCFE7BAAC091D561 /* UITableView+WBListKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9177E48E31D1F2357D1C17966F7498 /* UITableView+WBListKitPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		432FA22864D148EBD4CB22F55AB68004 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
 		457ACF9150DCF9AF445B129CC9678FB6 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AC6AA3221AD428CBA3FB04499526279 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		460050BF32312965A812F9ACBF39D3FF /* WBCollectionSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E14446B327B2CBF9F8633082AA857BF6 /* WBCollectionSectionPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46C2C733808ECD46EC956490349B0908 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B3E98CD7D795FB7FE2A5F1EB7B0D53 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		4AC84CA003857BE2E959AB3C2276B5A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
 		4D4F2050654580FE1F1D5F4F82CEDDB8 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FF36A6A07ECA0FA593434E2D2F0FF43B /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4FCEDB6318374BE5F83E56C0CE3A7099 /* WBTableSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 046E5FAF0DD6DC07BF0040A593C17E80 /* WBTableSectionPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E34B5CBC7FB3B6A064636EE5129F1CE /* WBCollectionSectionMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F1983B2583CD213776F822953869C7 /* WBCollectionSectionMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5114498738C268A83C606D7223C4EBDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8609C27CADBCFF34050995E359CF0890 /* UIKit.framework */; };
-		5351F241F02CBA0B12A84D52D0B80067 /* UITableView+WBListKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C96250E77755B3E70917E02DB57103 /* UITableView+WBListKit.m */; };
+		5258894F98E9DE475F46EB925DC34473 /* WBListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CADD9E29EAB7519D1E416FE61B92C /* WBListDataSource.m */; };
 		53BDF81D0A52EA526D597A5C5B139D7F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D7943FE84828AB8C1BC9B42EC83EF /* MASCompositeConstraint.m */; };
+		54FD45B67264D3AAAEB108D7145134E9 /* WBTableHeaderFooterViewProtocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B528C7096F598D11F40FB0957C99D9E /* WBTableHeaderFooterViewProtocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		576B6DB71FF28F867DB6E7237BF1B3BC /* UICollectionView+WBListKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AAF15E87673FB5F43D8B06162CFFFED /* UICollectionView+WBListKitPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58365A324527351127E123339159E6E8 /* WBListDataReformerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 017DB4565BCB669D68AED4082527FA2A /* WBListDataReformerProtocol.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		583DFC80F59D3CD0B6A4061302E6F0B7 /* Pods-WBListKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20159B7DF0410F5D95DE5FA922EFD3EE /* Pods-WBListKit_Tests-dummy.m */; };
 		58E6E68D10EF3D64522BD267CC1761A6 /* NSBundle+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = F654AE667ABB133024DB93E619556C9A /* NSBundle+MJRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D731320F9FD0B100A2F14D2B1DE2E290 /* MASConstraint.m */; };
-		5C2B43063B845805EB26ADE4357C6A88 /* WBCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = BF66DC000D19CF6753FC2B55B1A3E855 /* WBCollectionItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B9FB24AA52CE73D986ADEB39EBAA702 /* WBTableViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = C54A43BE54DF06C280CAEF5C2CD0D42E /* WBTableViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CDE637E14B1D21CED568D622C8AC29B /* WBListKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 396E03B0F5FE97F35E6D135C04F325D9 /* WBListKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E8177FE7A6A8DB1A85ED5499000CEED /* UITableView+FDTemplateLayoutCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BBF958F3780A130E0E49700B1991D /* UITableView+FDTemplateLayoutCell-dummy.m */; };
-		5EC1555D246C688904D3ED59B22C84FC /* WBCollectionSectionMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = FA80972340FC387889C702E1E69E81A1 /* WBCollectionSectionMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5EC72AB40BE69F31D8E8DFD2CF47F046 /* UITableView+WBListKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 294C06DEBC312D29DC0F67522122E571 /* UITableView+WBListKitPrivate.m */; };
-		5F5BD63C5E8E99F2A111D2352D60E2A0 /* WBTableViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8B6F3A72C8FD0F1B349626634E23A /* WBTableViewDelegateProxy.m */; };
 		603472E3D9BA241330850937D6FF5414 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
+		617D5E7C77A1BDE29E9765A03ECA635A /* WBCollectionSupplementaryViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F92C900F200BA84CACB99927D82A838E /* WBCollectionSupplementaryViewProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		621B413DAEFE75991251ED378822527C /* MJRefresh-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4636B62E21F122C7F4EEA23FBA624E9F /* MJRefresh-dummy.m */; };
 		6298B1C2234864DA5ED3B5E6398B95AC /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13A5BEAE3C2C5EAC8285479139A4B7A4 /* MJRefresh.bundle */; };
-		633DAA2DA0577E2F1582314CCF9B503E /* WBCollectionSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 832B808DCC8EE21A72784162B5A3BE12 /* WBCollectionSectionPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		636BBA734C1A17A734761D674FAE8800 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B209A4B8DF65137846EFF72E8F762CF /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		687C16AA5962FE26CA58AF45BD7B45A9 /* WBCollectionSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFFDBE81E560CB4B20278D5BFAAF1F /* WBCollectionSectionMaker.m */; };
+		67C130E9618712D228356BCBE5F120AE /* WBTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6C8E66A6A56AF55FA42E6ADDFA860 /* WBTableViewAdapter.m */; };
 		6A0B1A0FA7A75C861B9D401D0E8CC95E /* MJRefreshGifHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 85EB049E450EA4A917F26A327A73D360 /* MJRefreshGifHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B1FA7D75784D46103B3B8E9234F60F8 /* WBTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = E8B1A9F2DFD92B8603AD6F281E81301D /* WBTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BAFB8CD8D7FBC68E5F1C5C916160235 /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9EA6670EDE86BB405F355B422591F4 /* UIViewController+WBList.m */; };
 		6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 284E4F870816572E7EB90486B283D7F6 /* MASLayoutConstraint.m */; };
-		6FC8E7000D853620396F73683A12D67D /* WBListDataSourceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FFA484B4E57B003C5BA140F9DC1428 /* WBListDataSourceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		700366F33AD86A47FA7964DBACC5D25C /* WBCollectionSupplementaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCF125E4E0FE39D88B602907D783A84 /* WBCollectionSupplementaryItem.m */; };
+		71A5B1BE54812E1E68410F23869CEE97 /* WBCollectionSupplementaryItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EDF0F66172D3820D761171A660375CAA /* WBCollectionSupplementaryItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71F6D96E3AEAA07389F37E2C4B63C4F6 /* MJRefreshHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D8B1F8EC2E6AB35D0125EBD50F40C5 /* MJRefreshHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7395D2B6BC22403E8DAE7D6077DE7ECF /* WBCollectionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 45291C3313C51F353BA37C3B9D5DA07C /* WBCollectionSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E4073514C95FAD72D516B3DFEEA4DC /* MASConstraintMaker.m */; };
-		73DC41CB9C5420266650FF50668A16C0 /* WBListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20FC3373BF2BF47EA22AC4398970043 /* WBListController.m */; };
 		756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1D2D108A6F48AED5D4F5AA77B73F1F /* MASViewConstraint.m */; };
-		75FE2E4797F4477809A149F1199B7C78 /* WBListReusableViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FE6BE1117DA3CD1B171F54A2676901E9 /* WBListReusableViewProtocol.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
-		76FF6D6CF741F3CC89D5D7D8144843B0 /* WBCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D189B829050C23BDEEC914B10DDADE5 /* WBCollectionViewAdapter.m */; };
+		77F65520E81028C5E47DF3CDEDCDACBF /* WBCollectionSupplementaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F33784FD76DF6946BFC0A64D9ABBA1F /* WBCollectionSupplementaryItem.m */; };
 		7942D242D079A5710A72B659A54D7E26 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 19DB94876FFA88040228C76435F6667B /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B96E85D067D563B3ECBB54EECE42E11 /* WBListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4163D797827C1D7E82D0B9F36A5B73B5 /* WBListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C04FFEE7447D0255965DE51B5B70280 /* WBListReusableViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FE6BE1117DA3CD1B171F54A2676901E9 /* WBListReusableViewProtocol.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		7C17BEA6034027310D1D205DB2008CA5 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F6B5A9D8CE6942CC21E5628CB2F9231 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EFDAA1642FA83DE777CFD086182D5A4 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFD691B8C8CAB30C1492AE52438F5CD /* MJRefreshAutoGifFooter.m */; };
+		804F11E3BB5248A0989403FCB555994D /* UICollectionView+WBListKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E13C68C6CDF26F50CC48D5C46F8BA2 /* UICollectionView+WBListKit.m */; };
 		8069223DDD6D0F2E1A87D8E66966709B /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC075E42BA84864DD6C66242471A21F /* MJRefreshConst.m */; };
 		81F38395F858F84A4062ACDC7A64FDBA /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5106F80925019BB6DC2DD73D017595AB /* UITableView+FDKeyedHeightCache.m */; };
+		885CA3DE3F5A4656AFC7A53372C428BF /* WBTableCellProtocal.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B5A801B4A181C722FE0042E76DF6AB /* WBTableCellProtocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88DE7BAB1F4999A5F4B617F44E5FD1D3 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ADCBEAAF65E8DFECB47ADFF50E1D81D /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A6EEF68E7625AB66A3A8DED1594F88F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D803430F1FC2B0563A0AD82AA4897D2 /* ViewController+MASAdditions.m */; };
 		8B855A73B75155FB2C0CB05B54FDDE0D /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1D5FAA7DA4AB9B13989279B5B067F /* UIScrollView+MJRefresh.m */; };
-		8C61B74E1F06E57D8FEBBD4284487BED /* WBTableSectionHeaderFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A7252A3381F0825A8BD8973B5F8F47 /* WBTableSectionHeaderFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C7F74BA784C1FBA8EF9EFE860556F57 /* UIViewController+WBList.h in Headers */ = {isa = PBXBuildFile; fileRef = 827A80F9F0FDF7850443E6407911B995 /* UIViewController+WBList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C93B9002F90C8C291BB007A1E8EF57E /* WBCollectionViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 941A6AECDC2E7F98084F65271A506C17 /* WBCollectionViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CB7C6CF4CE9BC93635DE739117F2CB1 /* WBCollectionViewAdapterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E7502465AA55653B82FAFEF355C2FE7F /* WBCollectionViewAdapterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CD45B754192DE834B642975E85257AB /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDB12DDB7F1A050C7FD2346E62ECF03 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8D750FB3098FE302CF9DCC7731150C24 /* WBCollectionSupplementaryViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 478FB4177046CF44C1635125E1B1FC57 /* WBCollectionSupplementaryViewProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC3FC2342EC2E944B3A3E83E2683130 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E171326055E992A410979E660CC22390 /* MJRefreshHeader.m */; };
-		8E8C7546C855DE062D96078C13E5F985 /* WBTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D671AFC8F5F780C9136E9F74A0FCA4F3 /* WBTableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8ED7315A8915DB9B6419D891EC7E1D3B /* WBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D160288DBA19C132EAE45023F17AB651 /* WBTableViewDataSource.m */; };
+		900617606C3E72F6D8BD19D88D289100 /* WBListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20FC3373BF2BF47EA22AC4398970043 /* WBListController.m */; };
 		9082BE066725F6535AF44775A7FF82E8 /* Pods-WBListKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 00845061125FD24A2843A4D426EB6A4F /* Pods-WBListKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9408069758B2182627AD847B1486529B /* WBCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96F38BD290FD86DF340F7AC289DC6D /* WBCollectionItem.m */; };
-		94C1324C219769868189ACC0A2B15F43 /* WBCollectionViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 979A2A93FEFE517EC46379B30ECE9680 /* WBCollectionViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9563BA0CB75C8AD304E8680CC740D9C6 /* UITableView+FDIndexPathHeightCache.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69E05E5FE6CC04266EF6E4FC3ACF6A /* UITableView+FDIndexPathHeightCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99DC9840F206AE537884587E0CDB945D /* WBTableViewAdapterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D9FAB8E5FFAE94CC40B1B5CA594A9A /* WBTableViewAdapterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A0B47D8B4E199A0DCAD458F2E233A9D /* WBTableHeaderFooterViewProtocal.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B528C7096F598D11F40FB0957C99D9E /* WBTableHeaderFooterViewProtocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99C501BE817E5197C967E2C692D98FA8 /* WBListKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BA0560C0453A222E309CBBC97E7128 /* WBListKit-dummy.m */; };
+		9A28A1C39B3CB4CC3803238F9DF834EE /* WBTableSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = EECF51E8B22DD7CE89CB03D6BC243E29 /* WBTableSectionMaker.m */; };
 		9E237F7688E3B2389018813A0C906709 /* UITableView_FDTemplateLayoutCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9273736C699F7802CA23BC704637DD2 /* UITableView_FDTemplateLayoutCell.framework */; };
 		9F221B363BCEBB2CE95B0B5117689956 /* UITableView+FDTemplateLayoutCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9043D29F8C5B9E5D7B43B61791D2B5E0 /* UITableView+FDTemplateLayoutCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F0F5D89498366BF0D0D40B2C458EF4 /* Masonry-dummy.m */; };
-		A129AAD01A5DBEEB6164E4FACD3448B6 /* WBCollectionViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440B5F30CDFABE61378B5500C708B0D /* WBCollectionViewDelegateProxy.m */; };
-		A19205C6A9927D9D27158BF0F255E37D /* WBCollectionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F03FC75E6591DC7B9F4B7F00BCF3BFB /* WBCollectionSection.m */; };
 		A216B157C41A222124F109A36BC8CA4E /* Pods-WBListKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33D53773B9678F062372A09F4C4954E4 /* Pods-WBListKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2BE159BBDABB55FB3AD319C082C3C86 /* UITableView+WBListKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 294C06DEBC312D29DC0F67522122E571 /* UITableView+WBListKitPrivate.m */; };
 		A2D9F9EFFDFE9C19DA842E826B06BCEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
-		A3094E50DF8CED56F404A6122DA2FBC1 /* UITableView+WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 713858DF130403A506C80E45511A1622 /* UITableView+WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4DEB10A8B2B14C61D9BDA8D0179BFD3 /* WBListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 117CADD9E29EAB7519D1E416FE61B92C /* WBListDataSource.m */; };
+		A3B6AE8ECAE36C1A2864F700E4AA3B0E /* WBTableSectionPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 046E5FAF0DD6DC07BF0040A593C17E80 /* WBTableSectionPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5382D3EA98D2EB1AD9EDA5F2138F00D /* MJRefreshAutoNormalFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E22B9C9E8EA070C8CCF6ACF4ECE7ABA /* MJRefreshAutoNormalFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A630AC7DD6CA08802460755158CCF327 /* WBTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E6C8E66A6A56AF55FA42E6ADDFA860 /* WBTableViewAdapter.m */; };
 		A63CFBE0A20E28127798B843D10D7420 /* UITableView+FDKeyedHeightCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B9FCE360DC10050BD0DE3FD7794E1C27 /* UITableView+FDKeyedHeightCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A72D242BEF61E27D6C29092DF4666A4A /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = C7F68C5A9D69633CA7FB6A3303E683C7 /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F50FAF09A27E37A051026EAF7973D27 /* MASViewAttribute.m */; };
+		AA0EEFC2EF683CF23613B737FD9C28DC /* WBTableViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8B6F3A72C8FD0F1B349626634E23A /* WBTableViewDelegateProxy.m */; };
 		AA4959949A290D4B8BE1E31A890D0C80 /* MJRefreshFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 772AAEA5D0A42DD78F0E324DC4B799CF /* MJRefreshFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA3E78B92D670B928AAE920586693B1 /* WBCollectionCellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 662B2C8D2A613874F9D83ED07BE08F4A /* WBCollectionCellProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABE6E2BF2A25232065054D26626859F2 /* WBCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 81643105A072FA0B4F05634140CA2B1F /* WBCollectionViewDataSource.m */; };
 		ACFF30D8442A7DD59A0BFF4ECD0AA829 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B2B892067D06F86DDC2FC75AC9BFAB /* UITableView+FDTemplateLayoutCell.m */; };
+		AFDC54F5093B49C10DD401690861928D /* UICollectionView+WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB93AEB790EBA52E8B4F71D419C3767 /* UICollectionView+WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B02D91E02099D3C6A2F988C766032176 /* MJRefreshBackFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = C31FEACDD7D477DFDF376FFCF18D851F /* MJRefreshBackFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B28840EB8388CC447A996B987FAEF2FC /* WBTableSectionHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A62BBACB6054AE00639A42438948E2 /* WBTableSectionHeaderFooter.m */; };
-		B3B3DD9621CA0D22C1CABC2B54F05E35 /* WBTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2153B31B783251A0073AC60BB977B /* WBTableSection.m */; };
-		B427061C0125562280E12D4208218CED /* WBListDataReformerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 017DB4565BCB669D68AED4082527FA2A /* WBListDataReformerProtocol.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		B44383A3FA435C1E986942C817339302 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 776896F8D332609184B03F1E1CCB7D8D /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B66F0911051FD13D87CEE6690200B83F /* WBCollectionViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = F1BE7FAEA3382A082219874964074EFB /* WBCollectionViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B553F20262FC1D154F77A61A35D90EFC /* WBListKitAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C2DFB7E041320F559381DACEE05A59 /* WBListKitAssert.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		B766A39E6B4FDAD5205B0BAF06277ADA /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB06BEC20E9EEBFB37865C647450D5F /* UITableView+FDIndexPathHeightCache.m */; };
+		B8F5FC24862DFEF807A9B0AA9ABDFD1B /* WBTableSectionMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DD4F61211B1C57E306332B4B710C51 /* WBTableSectionMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA0711638621C2A47AABFF9E03546893 /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 035D414DA60C6CAA830AC91B1FC2E1CD /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC17CF109B58CEA2CFD6D856F8562DCB /* WBCollectionSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B87332FA4DECE707289C0C23DCED9F0A /* WBCollectionSectionMaker.m */; };
+		BC3DCEFEED64F0DE554632A3D4402663 /* WBListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EC461C167ADF6A37FF12A9F453B88E3 /* WBListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDB33C3708110C6D755175D1F0A2A70B /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5CB09A25C2F26D3DE3BBAD5FC649C1 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF45FF4D2D0EB89245DF3BF65BAB0791 /* WBListKitMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6426D96473C4B52134EBBEF6339139 /* WBListKitMacros.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		C0A16E00B4BC2D88A7833D5DAED62942 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC1A08384925F672C32C6D2FA4898FA /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2CC26551ECB136B009526C7 /* UICollectionView+WBListKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */; };
-		C2CC26571ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */; };
-		C2CC26591ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2CC265A1ECB15CF009526C7 /* UICollectionView+WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2CC265B1ECB15D4009526C7 /* UICollectionView+WBListKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C894A666F1E4EBEBAEACE789800C9B1B /* WBCollectionCellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DC838591B150EE79768883A45FCD245C /* WBCollectionCellProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C199C99B2935C88E5AC9DC2A9393D30A /* WBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D160288DBA19C132EAE45023F17AB651 /* WBTableViewDataSource.m */; };
+		C720A546683F96F1BBBE4028E1642269 /* WBListKitMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6426D96473C4B52134EBBEF6339139 /* WBListKitMacros.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F25DD7C42FC1CFF676FE9E3254F62B97 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = BA74CEE9FE9B8EFCE5C13F739043FA60 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE0407B9F2D7C2A230F6972D5F1A12B6 /* WBListKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 396E03B0F5FE97F35E6D135C04F325D9 /* WBListKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCB415AC2AE6E69023F1F2ECD587CE93 /* WBCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8D93DB10F9867F03856F505608EF76 /* WBCollectionViewAdapter.m */; };
+		CE09B05DF609E675A0E80C21990D9F0F /* UICollectionView+WBListKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D26C11745F10B77C8EEF3905001D4B /* UICollectionView+WBListKitPrivate.m */; };
 		D02DEBC241C24DEEFDA13C355197A2FB /* UIScrollView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A20F9B14164427D4876F569FE6A6B27B /* UIScrollView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D07B9626AE9F1F93009372D88F115F0B /* WBCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 81643105A072FA0B4F05634140CA2B1F /* WBCollectionViewDataSource.m */; };
 		D0E7D5B865722A25EC7D91B0FAD8A6CD /* MJRefreshAutoGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = D411592E97F1653CCEADEECDA53BC504 /* MJRefreshAutoGifFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2A6F91EB0A8CCB780E3AFDAF50CBF26 /* WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F4EDD45E5F13A343565B57F4D13874 /* WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D34725F1197EFE543D258B32F9EEE513 /* WBListDataSourceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 81FFA484B4E57B003C5BA140F9DC1428 /* WBListDataSourceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D44A070B2F15D907963C9140C3F9ED1C /* WBCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AAFAB5BAF51A6056FD8BCEDC348F8AE /* WBCollectionItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46545D206874E3A223372C84F1EA73E /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A921D3A3DA9CD7DA2276A161E382A8B /* MJRefreshAutoFooter.m */; };
 		D66E78D63935A98894E702D922AA8B91 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA75CF126A21BC086F23CD35ED74B9C /* MJRefreshBackGifFooter.m */; };
-		D67A3106EC0F5B8566104B7F9D2C5850 /* WBTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 616C06A0DF068D5EBA952AF9733C92AE /* WBTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72402755D3BA3CA04EB5F291540CADD /* UIViewController+WBList.h in Headers */ = {isa = PBXBuildFile; fileRef = 827A80F9F0FDF7850443E6407911B995 /* UIViewController+WBList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D820DE54D6E9E5C85E0F9BF8A399E5EF /* MJRefresh-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E94A9557089E27A1C0BD6DDE4629E68E /* MJRefresh-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8B1525CB3DFCBD8E5032680530413D9 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E2380FDFE468A00BCB3009ECE168E3 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9F2BA4D713DAC2A85CB4A453240EA3E /* MJRefreshAutoFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = B0EC1753A1BF072D4A7DA693044DF974 /* MJRefreshAutoFooter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9F7AA3BDDFBEB17A4FC2B6A17217D21 /* WBTableSectionMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DD4F61211B1C57E306332B4B710C51 /* WBTableSectionMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB9418B691706E495404E42DC037E42B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B53DED2C14A8B189E585D510EBE3165 /* Foundation.framework */; };
 		DE17E4C2C6EADE5D2D531268B1695405 /* UIView+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E42C7BA11F0335F30378F3802271CA /* UIView+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFAC615694E89A515948AC20BCE7E1CC /* WBTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2153B31B783251A0073AC60BB977B /* WBTableSection.m */; };
+		E048AE24A003620808E305A37A344DA5 /* WBTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CA46EAC3B8CF95F490761DE4B253DB /* WBTableRow.m */; };
+		E49D70CF3FFA7AAB9853222D3E4F3D6C /* WBTableViewAdapterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D9FAB8E5FFAE94CC40B1B5CA594A9A /* WBTableViewAdapterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57312010AFB591EE37870F65E651EA6 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E4810C8298044A8E13454645E79E2932 /* MJRefreshNormalHeader.m */; };
-		E6A71DEEAC85EEEFDACC6F69D9F6E5E6 /* WBTableCellProtocal.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B5A801B4A181C722FE0042E76DF6AB /* WBTableCellProtocal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E592530629DCCEA1777A2F56573F80EF /* WBCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E32A528A1105B09050630A777E048E1 /* WBCollectionItem.m */; };
 		E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C2727FF364ABFF9A080138D18BE60 /* NSArray+MASAdditions.m */; };
-		E7CEDF2A10DB2BB4A917ADA81F587B94 /* WBCollectionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = F51C7D65E8C942827A27301A52E400BA /* WBCollectionSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E80DB5D9B2D35085282DF057BB540AFE /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBD8E015421AF633C029139EEA42F79 /* MJRefreshBackFooter.m */; };
+		E9472EA21F25CA1E8F297EEA2739E966 /* WBTableViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = E6E26CE0AB79FBC3C79BE84C23C8FC43 /* WBTableViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9E81CA874F88341F4655B87EB468E11 /* WBCollectionViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 979A2A93FEFE517EC46379B30ECE9680 /* WBCollectionViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBEB72F80DCD10DEB82BF5F856D467FD /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = D3C9EFD9A0DACA0FAF433BCF11C02F1B /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE2BF97D656607623636F387D155B533 /* WBTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = E8B1A9F2DFD92B8603AD6F281E81301D /* WBTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE79DFE8AF6838937B64663D134F2756 /* UIViewController+WBList.m in Sources */ = {isa = PBXBuildFile; fileRef = DE9EA6670EDE86BB405F355B422591F4 /* UIViewController+WBList.m */; };
-		F40341C1D6E527CB87A04C7F5C07D38E /* WBTableViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = C54A43BE54DF06C280CAEF5C2CD0D42E /* WBTableViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F29637B814AD58470CC87CE54108CC53 /* WBCollectionViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E5223598A2D5F5C9885C1E2639206AF /* WBCollectionViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A57F7C1F8184A6DDEABB07FA6D7083 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 915B2BB5817F4D8238615EE0BB3C597F /* NSBundle+MJRefresh.m */; };
 		F4B3E44D5D2F6508BC1BB35A9FBDEC70 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A34C131E9F5A3E84B9A0E6032943104B /* View+MASAdditions.m */; };
+		F4F7B13CD81BD063A6102B5D112169BB /* UITableView+WBListKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C96250E77755B3E70917E02DB57103 /* UITableView+WBListKit.m */; };
+		F63C012D847112ADF26D8A7E6D60D36E /* WBCollectionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2001B2A3D0414D6A1C02C634A63DD824 /* WBCollectionSection.m */; };
 		F68EA720B0ED1BF96CEBF07977A1C0A2 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D05774FA49D16B2609486EB355A9845B /* MJRefreshComponent.m */; };
 		F6E13F208D0EEC103FF2611439B5907F /* Pods-WBListKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1928A4C82CEA40412B7F20F028DCD1 /* Pods-WBListKit_Example-dummy.m */; };
+		FB4259EC9B35F35078EDF2D4E2CBC617 /* WBTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D671AFC8F5F780C9136E9F74A0FCA4F3 /* WBTableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9C6242B11049E2F1062D04565E568D /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1167E12BB45F148856F3A0738398D03 /* UIScrollView+MJExtension.m */; };
-		FC2C34FEF62011545EECCF677F2E57A7 /* WBTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CA46EAC3B8CF95F490761DE4B253DB /* WBTableRow.m */; };
 		FD31283E2A43955C5BA6FA9008EE8D7C /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC726172FCDB7842EEBE8A3C0969A09 /* MJRefreshGifHeader.m */; };
 /* End PBXBuildFile section */
 
@@ -206,12 +206,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006E8451A4FE88FF447E034757A98AB4 /* WBCollectionSupplementaryItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSupplementaryItem.h; sourceTree = "<group>"; };
 		00845061125FD24A2843A4D426EB6A4F /* Pods-WBListKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WBListKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		01620AA98C787A72D9CF248F9407177D /* MJRefreshBackGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackGifFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackGifFooter.h; sourceTree = "<group>"; };
 		017DB4565BCB669D68AED4082527FA2A /* WBListDataReformerProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListDataReformerProtocol.h; sourceTree = "<group>"; };
 		035D414DA60C6CAA830AC91B1FC2E1CD /* MJRefreshAutoStateFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoStateFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.h; sourceTree = "<group>"; };
-		0440B5F30CDFABE61378B5500C708B0D /* WBCollectionViewDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewDelegateProxy.m; sourceTree = "<group>"; };
 		046E5FAF0DD6DC07BF0040A593C17E80 /* WBTableSectionPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableSectionPrivate.h; sourceTree = "<group>"; };
 		05C2DFB7E041320F559381DACEE05A59 /* WBListKitAssert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListKitAssert.h; sourceTree = "<group>"; };
 		091A8E19B0F8BD9D3E133CEFBAABFE84 /* Pods_WBListKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WBListKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,9 +218,9 @@
 		0B964F14F2B7BF28B94A03D9797B7357 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		0CC1A08384925F672C32C6D2FA4898FA /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
 		0CD76AEF2C43FA233876E62DDCD0A2AF /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
-		0D189B829050C23BDEEC914B10DDADE5 /* WBCollectionViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewAdapter.m; sourceTree = "<group>"; };
 		0D3C9A5F1FDF843BA856967ECC664F29 /* UITableView+FDTemplateLayoutCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UITableView+FDTemplateLayoutCell.xcconfig"; sourceTree = "<group>"; };
 		0D803430F1FC2B0563A0AD82AA4897D2 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		0E32A528A1105B09050630A777E048E1 /* WBCollectionItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionItem.m; sourceTree = "<group>"; };
 		0ED8B6F3A72C8FD0F1B349626634E23A /* WBTableViewDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableViewDelegateProxy.m; sourceTree = "<group>"; };
 		0F6B5A9D8CE6942CC21E5628CB2F9231 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		117CADD9E29EAB7519D1E416FE61B92C /* WBListDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBListDataSource.m; sourceTree = "<group>"; };
@@ -234,6 +232,7 @@
 		1BB27C3EC9EA36AFC9BA5968BEA6A3B1 /* MJRefreshBackNormalFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackNormalFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.m; sourceTree = "<group>"; };
 		1C437C5060ABAF573F6EADD20561E64F /* MJRefreshFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshFooter.m; path = MJRefresh/Base/MJRefreshFooter.m; sourceTree = "<group>"; };
 		1E7E59F9FA505F859D3FC18239E525C7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2001B2A3D0414D6A1C02C634A63DD824 /* WBCollectionSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSection.m; sourceTree = "<group>"; };
 		20159B7DF0410F5D95DE5FA922EFD3EE /* Pods-WBListKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WBListKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		21CA46EAC3B8CF95F490761DE4B253DB /* WBTableRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableRow.m; sourceTree = "<group>"; };
 		22D8B1F8EC2E6AB35D0125EBD50F40C5 /* MJRefreshHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshHeader.h; path = MJRefresh/Base/MJRefreshHeader.h; sourceTree = "<group>"; };
@@ -253,17 +252,16 @@
 		396E03B0F5FE97F35E6D135C04F325D9 /* WBListKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WBListKit-umbrella.h"; sourceTree = "<group>"; };
 		3ADCBEAAF65E8DFECB47ADFF50E1D81D /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		3BA1D5FAA7DA4AB9B13989279B5B067F /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		3D3BE7E1C5C7FB14B8FAE3D5E6B42032 /* WBCollectionViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewDelegateProxy.h; sourceTree = "<group>"; };
 		3E1928A4C82CEA40412B7F20F028DCD1 /* Pods-WBListKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WBListKit_Example-dummy.m"; sourceTree = "<group>"; };
-		3F03FC75E6591DC7B9F4B7F00BCF3BFB /* WBCollectionSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSection.m; sourceTree = "<group>"; };
 		3F9177E48E31D1F2357D1C17966F7498 /* UITableView+WBListKitPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+WBListKitPrivate.h"; sourceTree = "<group>"; };
 		4163D797827C1D7E82D0B9F36A5B73B5 /* WBListController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListController.h; sourceTree = "<group>"; };
 		42B882275DF375EFC499FC570322FB42 /* WBListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WBListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E6C8E66A6A56AF55FA42E6ADDFA860 /* WBTableViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableViewAdapter.m; sourceTree = "<group>"; };
+		45291C3313C51F353BA37C3B9D5DA07C /* WBCollectionSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSection.h; sourceTree = "<group>"; };
 		45A62BBACB6054AE00639A42438948E2 /* WBTableSectionHeaderFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableSectionHeaderFooter.m; sourceTree = "<group>"; };
 		4636B62E21F122C7F4EEA23FBA624E9F /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
-		478FB4177046CF44C1635125E1B1FC57 /* WBCollectionSupplementaryViewProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSupplementaryViewProtocol.h; sourceTree = "<group>"; };
 		49B3E98CD7D795FB7FE2A5F1EB7B0D53 /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+FDTemplateLayoutCellDebug.m"; path = "Classes/UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
+		4AAF15E87673FB5F43D8B06162CFFFED /* UICollectionView+WBListKitPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKitPrivate.h"; sourceTree = "<group>"; };
 		4AF8FC76DD0EABB92C0ABF7E2D3E8B5A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B5CB09A25C2F26D3DE3BBAD5FC649C1 /* MJRefreshStateHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshStateHeader.h; path = MJRefresh/Custom/Header/MJRefreshStateHeader.h; sourceTree = "<group>"; };
 		4C0661F2ABCBCF93E8B1C72A7D118E96 /* Pods-WBListKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WBListKit_Example.modulemap"; sourceTree = "<group>"; };
@@ -271,12 +269,13 @@
 		4D2E757AC9E11D6C7626DA7C6F7D2F8F /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		4D9BBF958F3780A130E0E49700B1991D /* UITableView+FDTemplateLayoutCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell-dummy.m"; sourceTree = "<group>"; };
 		4E22B9C9E8EA070C8CCF6ACF4ECE7ABA /* MJRefreshAutoNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoNormalFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoNormalFooter.h; sourceTree = "<group>"; };
+		4E5223598A2D5F5C9885C1E2639206AF /* WBCollectionViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewAdapter.h; sourceTree = "<group>"; };
 		4F50FAF09A27E37A051026EAF7973D27 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		4FB07B092D6C002E363C3ED1A4C28604 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		5106F80925019BB6DC2DD73D017595AB /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+FDKeyedHeightCache.m"; path = "Classes/UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
 		52CFB3C4B0896821FD1158D2218A69F8 /* MJRefresh-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-prefix.pch"; sourceTree = "<group>"; };
 		532BECE991FFFB356076DDFF994A0908 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56BFFDBE81E560CB4B20278D5BFAAF1F /* WBCollectionSectionMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSectionMaker.m; sourceTree = "<group>"; };
+		54D26C11745F10B77C8EEF3905001D4B /* UICollectionView+WBListKitPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKitPrivate.m"; sourceTree = "<group>"; };
 		574FD0AB528240966E7718649FA8DC92 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5958A88A16127659EC45229EA6DC5937 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		5A921D3A3DA9CD7DA2276A161E382A8B /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoFooter.m; path = MJRefresh/Base/MJRefreshAutoFooter.m; sourceTree = "<group>"; };
@@ -289,21 +288,26 @@
 		5FEA5E65CC1E864AAB0451A372832735 /* UITableView+FDTemplateLayoutCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell-umbrella.h"; sourceTree = "<group>"; };
 		616C06A0DF068D5EBA952AF9733C92AE /* WBTableRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableRow.h; sourceTree = "<group>"; };
 		62444AB9D78472C68165882F6A6FB302 /* Pods-WBListKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBListKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		662B2C8D2A613874F9D83ED07BE08F4A /* WBCollectionCellProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionCellProtocol.h; sourceTree = "<group>"; };
+		6A8D93DB10F9867F03856F505608EF76 /* WBCollectionViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewAdapter.m; sourceTree = "<group>"; };
 		6AC6AA3221AD428CBA3FB04499526279 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		6F33784FD76DF6946BFC0A64D9ABBA1F /* WBCollectionSupplementaryItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSupplementaryItem.m; sourceTree = "<group>"; };
 		6FC22A3A22D1DB38B238E4FBB64B5489 /* UITableView_FDTemplateLayoutCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITableView_FDTemplateLayoutCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713858DF130403A506C80E45511A1622 /* UITableView+WBListKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+WBListKit.h"; sourceTree = "<group>"; };
+		71E13C68C6CDF26F50CC48D5C46F8BA2 /* UICollectionView+WBListKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKit.m"; sourceTree = "<group>"; };
 		74DD4F61211B1C57E306332B4B710C51 /* WBTableSectionMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableSectionMaker.h; sourceTree = "<group>"; };
 		75E42C7BA11F0335F30378F3802271CA /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		75F32E9498A9DF77503C75BF3F56348A /* Pods-WBListKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WBListKit_Tests.modulemap"; sourceTree = "<group>"; };
 		772AAEA5D0A42DD78F0E324DC4B799CF /* MJRefreshFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshFooter.h; path = MJRefresh/Base/MJRefreshFooter.h; sourceTree = "<group>"; };
 		776896F8D332609184B03F1E1CCB7D8D /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		77F1983B2583CD213776F822953869C7 /* WBCollectionSectionMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSectionMaker.h; sourceTree = "<group>"; };
 		7CB06BEC20E9EEBFB37865C647450D5F /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+FDIndexPathHeightCache.m"; path = "Classes/UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
 		7D2A4C7E86EE11CD2445590ED373B2F2 /* Pods-WBListKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WBListKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		81643105A072FA0B4F05634140CA2B1F /* WBCollectionViewDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewDataSource.m; sourceTree = "<group>"; };
 		81FFA484B4E57B003C5BA140F9DC1428 /* WBListDataSourceDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListDataSourceDelegate.h; sourceTree = "<group>"; };
+		8231BDB60FA74E099DEEC4EF8DBDA962 /* WBCollectionViewDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionViewDelegateProxy.m; sourceTree = "<group>"; };
 		826823499F5FCFBCE577D038EC5DC435 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827A80F9F0FDF7850443E6407911B995 /* UIViewController+WBList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBList.h"; sourceTree = "<group>"; };
-		832B808DCC8EE21A72784162B5A3BE12 /* WBCollectionSectionPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSectionPrivate.h; sourceTree = "<group>"; };
 		85EB049E450EA4A917F26A327A73D360 /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshGifHeader.h; path = MJRefresh/Custom/Header/MJRefreshGifHeader.h; sourceTree = "<group>"; };
 		8609C27CADBCFF34050995E359CF0890 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		86BA0560C0453A222E309CBBC97E7128 /* WBListKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WBListKit-dummy.m"; sourceTree = "<group>"; };
@@ -314,12 +318,13 @@
 		8F2E71FAD21C471BD9676EC011BD9E6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F4F0E0827425683C497E698B2CB0E6A /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		8F62F50E90C2396DA7DB9685F836D994 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		8F96F38BD290FD86DF340F7AC289DC6D /* WBCollectionItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionItem.m; sourceTree = "<group>"; };
 		9043D29F8C5B9E5D7B43B61791D2B5E0 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDTemplateLayoutCell.h"; path = "Classes/UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		90E2153B31B783251A0073AC60BB977B /* WBTableSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableSection.m; sourceTree = "<group>"; };
 		915B2BB5817F4D8238615EE0BB3C597F /* NSBundle+MJRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+MJRefresh.m"; path = "MJRefresh/NSBundle+MJRefresh.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		941A6AECDC2E7F98084F65271A506C17 /* WBCollectionViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewDelegateProxy.h; sourceTree = "<group>"; };
 		979A2A93FEFE517EC46379B30ECE9680 /* WBCollectionViewDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewDataSource.h; sourceTree = "<group>"; };
+		9AAFAB5BAF51A6056FD8BCEDC348F8AE /* WBCollectionItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionItem.h; sourceTree = "<group>"; };
 		9AFCDF20F90019AB643F65B2FF63E5F1 /* Pods-WBListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC461C167ADF6A37FF12A9F453B88E3 /* WBListDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListDataSource.h; sourceTree = "<group>"; };
 		A0F8CBD859FE5CD64746AD2AF2CE54DE /* Pods-WBListKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBListKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -336,14 +341,9 @@
 		B20FC3373BF2BF47EA22AC4398970043 /* WBListController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBListController.m; sourceTree = "<group>"; };
 		B3F1EA6EAC517D4CC9322A936242D36B /* Pods-WBListKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WBListKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B5B5A801B4A181C722FE0042E76DF6AB /* WBTableCellProtocal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableCellProtocal.h; sourceTree = "<group>"; };
+		B87332FA4DECE707289C0C23DCED9F0A /* WBCollectionSectionMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSectionMaker.m; sourceTree = "<group>"; };
 		B9FCE360DC10050BD0DE3FD7794E1C27 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDKeyedHeightCache.h"; path = "Classes/UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
 		BA74CEE9FE9B8EFCE5C13F739043FA60 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
-		BF66DC000D19CF6753FC2B55B1A3E855 /* WBCollectionItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionItem.h; sourceTree = "<group>"; };
-		C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKit.h"; sourceTree = "<group>"; };
-		C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKit.m"; sourceTree = "<group>"; };
-		C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKitPrivate.h"; sourceTree = "<group>"; };
-		C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKitPrivate.m"; sourceTree = "<group>"; };
-		C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewAdapterPrivate.h; sourceTree = "<group>"; };
 		C31FEACDD7D477DFDF376FFCF18D851F /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		C51C5CC3E4371FA825819B7013E52F77 /* Pods-WBListKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WBListKit_Example-resources.sh"; sourceTree = "<group>"; };
 		C54A43BE54DF06C280CAEF5C2CD0D42E /* WBTableViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableViewDelegateProxy.h; sourceTree = "<group>"; };
@@ -351,6 +351,7 @@
 		C7F68C5A9D69633CA7FB6A3303E683C7 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		C81CAD43D5800313023863B1B3732449 /* MJRefreshAutoStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoStateFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoStateFooter.m; sourceTree = "<group>"; };
 		CAC726172FCDB7842EEBE8A3C0969A09 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		CEB93AEB790EBA52E8B4F71D419C3767 /* UICollectionView+WBListKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKit.h"; sourceTree = "<group>"; };
 		D05774FA49D16B2609486EB355A9845B /* MJRefreshComponent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshComponent.m; path = MJRefresh/Base/MJRefreshComponent.m; sourceTree = "<group>"; };
 		D160288DBA19C132EAE45023F17AB651 /* WBTableViewDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableViewDataSource.m; sourceTree = "<group>"; };
 		D1E2380FDFE468A00BCB3009ECE168E3 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
@@ -360,31 +361,30 @@
 		D731320F9FD0B100A2F14D2B1DE2E290 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		D9273736C699F7802CA23BC704637DD2 /* UITableView_FDTemplateLayoutCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITableView_FDTemplateLayoutCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB56ED15B1B488B74751A3655D58F5AE /* Pods-WBListKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WBListKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DC838591B150EE79768883A45FCD245C /* WBCollectionCellProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionCellProtocol.h; sourceTree = "<group>"; };
 		DE9EA6670EDE86BB405F355B422591F4 /* UIViewController+WBList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBList.m"; sourceTree = "<group>"; };
+		E14446B327B2CBF9F8633082AA857BF6 /* WBCollectionSectionPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSectionPrivate.h; sourceTree = "<group>"; };
 		E171326055E992A410979E660CC22390 /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		E2D9FAB8E5FFAE94CC40B1B5CA594A9A /* WBTableViewAdapterPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableViewAdapterPrivate.h; sourceTree = "<group>"; };
 		E4810C8298044A8E13454645E79E2932 /* MJRefreshNormalHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshNormalHeader.m; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.m; sourceTree = "<group>"; };
 		E6E26CE0AB79FBC3C79BE84C23C8FC43 /* WBTableViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableViewAdapter.h; sourceTree = "<group>"; };
+		E7502465AA55653B82FAFEF355C2FE7F /* WBCollectionViewAdapterPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewAdapterPrivate.h; sourceTree = "<group>"; };
 		E8B1A9F2DFD92B8603AD6F281E81301D /* WBTableSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableSection.h; sourceTree = "<group>"; };
 		E94A9557089E27A1C0BD6DDE4629E68E /* MJRefresh-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJRefresh-umbrella.h"; sourceTree = "<group>"; };
 		E99ADADDCC8B96E1428A2C195855AA33 /* MJRefreshBackStateFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackStateFooter.m; path = MJRefresh/Custom/Footer/Back/MJRefreshBackStateFooter.m; sourceTree = "<group>"; };
 		EBBD8E015421AF633C029139EEA42F79 /* MJRefreshBackFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBackFooter.m; path = MJRefresh/Base/MJRefreshBackFooter.m; sourceTree = "<group>"; };
-		EBCF125E4E0FE39D88B602907D783A84 /* WBCollectionSupplementaryItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBCollectionSupplementaryItem.m; sourceTree = "<group>"; };
+		EDF0F66172D3820D761171A660375CAA /* WBCollectionSupplementaryItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSupplementaryItem.h; sourceTree = "<group>"; };
 		EECC581D0FE4B3EC24CBDC1B91E2E06A /* Pods-WBListKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBListKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		EECF51E8B22DD7CE89CB03D6BC243E29 /* WBTableSectionMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WBTableSectionMaker.m; sourceTree = "<group>"; };
 		F0406D8B089EE513074A627C156DA2B2 /* UIView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
-		F1BE7FAEA3382A082219874964074EFB /* WBCollectionViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewAdapter.h; sourceTree = "<group>"; };
 		F25DD7C42FC1CFF676FE9E3254F62B97 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		F51C7D65E8C942827A27301A52E400BA /* WBCollectionSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSection.h; sourceTree = "<group>"; };
 		F654AE667ABB133024DB93E619556C9A /* NSBundle+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+MJRefresh.h"; path = "MJRefresh/NSBundle+MJRefresh.h"; sourceTree = "<group>"; };
 		F6F5BA9813BBDF02C8C3517822039514 /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		F7B2B892067D06F86DDC2FC75AC9BFAB /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+FDTemplateLayoutCell.m"; path = "Classes/UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		F92C900F200BA84CACB99927D82A838E /* WBCollectionSupplementaryViewProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSupplementaryViewProtocol.h; sourceTree = "<group>"; };
 		F935BA64BAAA0926A5C2BA533260EA4C /* Pods_WBListKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WBListKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D9DA52BAEA83C8690FEC741BB17379 /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		FA1D2D108A6F48AED5D4F5AA77B73F1F /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		FA6DE36D22329CF899899DB9E77F5913 /* WBListKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WBListKit.xcconfig; sourceTree = "<group>"; };
-		FA80972340FC387889C702E1E69E81A1 /* WBCollectionSectionMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionSectionMaker.h; sourceTree = "<group>"; };
 		FB69E05E5FE6CC04266EF6E4FC3ACF6A /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDIndexPathHeightCache.h"; path = "Classes/UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
 		FE6BE1117DA3CD1B171F54A2676901E9 /* WBListReusableViewProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBListReusableViewProtocol.h; sourceTree = "<group>"; };
 		FEA7F012DA8FB38FFBFB2266D24F7E3B /* Pods-WBListKit_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WBListKit_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -558,33 +558,6 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		62DC22F9DD62B1856ED81671F354B1B3 /* WBListKit */ = {
-			isa = PBXGroup;
-			children = (
-				C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */,
-				C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */,
-				C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */,
-				C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */,
-				DC838591B150EE79768883A45FCD245C /* WBCollectionCellProtocol.h */,
-				BF66DC000D19CF6753FC2B55B1A3E855 /* WBCollectionItem.h */,
-				8F96F38BD290FD86DF340F7AC289DC6D /* WBCollectionItem.m */,
-				F51C7D65E8C942827A27301A52E400BA /* WBCollectionSection.h */,
-				3F03FC75E6591DC7B9F4B7F00BCF3BFB /* WBCollectionSection.m */,
-				FA80972340FC387889C702E1E69E81A1 /* WBCollectionSectionMaker.h */,
-				56BFFDBE81E560CB4B20278D5BFAAF1F /* WBCollectionSectionMaker.m */,
-				832B808DCC8EE21A72784162B5A3BE12 /* WBCollectionSectionPrivate.h */,
-				006E8451A4FE88FF447E034757A98AB4 /* WBCollectionSupplementaryItem.h */,
-				EBCF125E4E0FE39D88B602907D783A84 /* WBCollectionSupplementaryItem.m */,
-				478FB4177046CF44C1635125E1B1FC57 /* WBCollectionSupplementaryViewProtocol.h */,
-				F1BE7FAEA3382A082219874964074EFB /* WBCollectionViewAdapter.h */,
-				0D189B829050C23BDEEC914B10DDADE5 /* WBCollectionViewAdapter.m */,
-				C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */,
-				3D3BE7E1C5C7FB14B8FAE3D5E6B42032 /* WBCollectionViewDelegateProxy.h */,
-				0440B5F30CDFABE61378B5500C708B0D /* WBCollectionViewDelegateProxy.m */,
-			);
-			path = WBListKit;
-			sourceTree = "<group>";
-		};
 		7C53FF9547E05CCECF5DAC76EBC6007B /* WBListKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +589,33 @@
 				8609C27CADBCFF34050995E359CF0890 /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		909761368CEB8A38C3613755465DEE4B /* WBListKit */ = {
+			isa = PBXGroup;
+			children = (
+				CEB93AEB790EBA52E8B4F71D419C3767 /* UICollectionView+WBListKit.h */,
+				71E13C68C6CDF26F50CC48D5C46F8BA2 /* UICollectionView+WBListKit.m */,
+				4AAF15E87673FB5F43D8B06162CFFFED /* UICollectionView+WBListKitPrivate.h */,
+				54D26C11745F10B77C8EEF3905001D4B /* UICollectionView+WBListKitPrivate.m */,
+				662B2C8D2A613874F9D83ED07BE08F4A /* WBCollectionCellProtocol.h */,
+				9AAFAB5BAF51A6056FD8BCEDC348F8AE /* WBCollectionItem.h */,
+				0E32A528A1105B09050630A777E048E1 /* WBCollectionItem.m */,
+				45291C3313C51F353BA37C3B9D5DA07C /* WBCollectionSection.h */,
+				2001B2A3D0414D6A1C02C634A63DD824 /* WBCollectionSection.m */,
+				77F1983B2583CD213776F822953869C7 /* WBCollectionSectionMaker.h */,
+				B87332FA4DECE707289C0C23DCED9F0A /* WBCollectionSectionMaker.m */,
+				E14446B327B2CBF9F8633082AA857BF6 /* WBCollectionSectionPrivate.h */,
+				EDF0F66172D3820D761171A660375CAA /* WBCollectionSupplementaryItem.h */,
+				6F33784FD76DF6946BFC0A64D9ABBA1F /* WBCollectionSupplementaryItem.m */,
+				F92C900F200BA84CACB99927D82A838E /* WBCollectionSupplementaryViewProtocol.h */,
+				4E5223598A2D5F5C9885C1E2639206AF /* WBCollectionViewAdapter.h */,
+				6A8D93DB10F9867F03856F505608EF76 /* WBCollectionViewAdapter.m */,
+				E7502465AA55653B82FAFEF355C2FE7F /* WBCollectionViewAdapterPrivate.h */,
+				941A6AECDC2E7F98084F65271A506C17 /* WBCollectionViewDelegateProxy.h */,
+				8231BDB60FA74E099DEEC4EF8DBDA962 /* WBCollectionViewDelegateProxy.m */,
+			);
+			path = WBListKit;
 			sourceTree = "<group>";
 		};
 		91AF116CA08990E8441CE0CE38D42882 /* UITableView+FDTemplateLayoutCell */ = {
@@ -691,14 +691,6 @@
 			path = "Target Support Files/Pods-WBListKit_Example";
 			sourceTree = "<group>";
 		};
-		D8DF5801A0A53540694159B85FF9C130 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				62DC22F9DD62B1856ED81671F354B1B3 /* WBListKit */,
-			);
-			name = CollectionView;
-			sourceTree = "<group>";
-		};
 		D96360705871DF5F37E16D82EA26C95B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,10 +705,18 @@
 			path = "../Target Support Files/UITableView+FDTemplateLayoutCell";
 			sourceTree = "<group>";
 		};
+		DB01D3470C588E2FA01C9DD2E0CD025C /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				909761368CEB8A38C3613755465DEE4B /* WBListKit */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
 		E2AB56A29E38686FC5D26C6E4C2E468B /* WBListKit */ = {
 			isa = PBXGroup;
 			children = (
-				D8DF5801A0A53540694159B85FF9C130 /* CollectionView */,
+				DB01D3470C588E2FA01C9DD2E0CD025C /* CollectionView */,
 				F54D17DA9ADEB885094A8175118A709F /* DataSource */,
 				25BDC7441BB4041979E435876D85B0B6 /* Support Files */,
 				BC1883E480489D3CF2817D1E32FE67F2 /* TableView */,
@@ -880,46 +880,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2758606FD75E59B09DE5168A7A79BE7C /* Headers */ = {
+		405DA515E065B567C42E82243C18BDF1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3094E50DF8CED56F404A6122DA2FBC1 /* UITableView+WBListKit.h in Headers */,
-				C2CC265B1ECB15D4009526C7 /* UICollectionView+WBListKitPrivate.h in Headers */,
-				152E7047D1A85EF6113522F0AF02632A /* UITableView+WBListKitPrivate.h in Headers */,
-				D72402755D3BA3CA04EB5F291540CADD /* UIViewController+WBList.h in Headers */,
-				C894A666F1E4EBEBAEACE789800C9B1B /* WBCollectionCellProtocol.h in Headers */,
-				5C2B43063B845805EB26ADE4357C6A88 /* WBCollectionItem.h in Headers */,
-				E7CEDF2A10DB2BB4A917ADA81F587B94 /* WBCollectionSection.h in Headers */,
-				5EC1555D246C688904D3ED59B22C84FC /* WBCollectionSectionMaker.h in Headers */,
-				633DAA2DA0577E2F1582314CCF9B503E /* WBCollectionSectionPrivate.h in Headers */,
-				3B591A86A931E00FA9B5BE2B92B02CB5 /* WBCollectionSupplementaryItem.h in Headers */,
-				8D750FB3098FE302CF9DCC7731150C24 /* WBCollectionSupplementaryViewProtocol.h in Headers */,
-				B66F0911051FD13D87CEE6690200B83F /* WBCollectionViewAdapter.h in Headers */,
-				94C1324C219769868189ACC0A2B15F43 /* WBCollectionViewDataSource.h in Headers */,
-				0C008E99B24EFBBB84959F91A368C509 /* WBCollectionViewDelegateProxy.h in Headers */,
-				313E3CB4B93BF1D1F190A7DB9FDB8FE1 /* WBListController.h in Headers */,
-				B427061C0125562280E12D4208218CED /* WBListDataReformerProtocol.h in Headers */,
-				19247A3BCC9D8E2DE232AE6D075CAE83 /* WBListDataSource.h in Headers */,
-				6FC8E7000D853620396F73683A12D67D /* WBListDataSourceDelegate.h in Headers */,
-				CE0407B9F2D7C2A230F6972D5F1A12B6 /* WBListKit-umbrella.h in Headers */,
-				15D2EE448A4D63EF5FED42AB1BF0B20E /* WBListKit.h in Headers */,
-				2C78FF4FA83ED7577D70EDC4E5B425C1 /* WBListKitAssert.h in Headers */,
-				BF45FF4D2D0EB89245DF3BF65BAB0791 /* WBListKitMacros.h in Headers */,
-				75FE2E4797F4477809A149F1199B7C78 /* WBListReusableViewProtocol.h in Headers */,
-				E6A71DEEAC85EEEFDACC6F69D9F6E5E6 /* WBTableCellProtocal.h in Headers */,
-				9A0B47D8B4E199A0DCAD458F2E233A9D /* WBTableHeaderFooterViewProtocal.h in Headers */,
-				D67A3106EC0F5B8566104B7F9D2C5850 /* WBTableRow.h in Headers */,
-				EE2BF97D656607623636F387D155B533 /* WBTableSection.h in Headers */,
-				8C61B74E1F06E57D8FEBBD4284487BED /* WBTableSectionHeaderFooter.h in Headers */,
-				D9F7AA3BDDFBEB17A4FC2B6A17217D21 /* WBTableSectionMaker.h in Headers */,
-				C2CC26591ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h in Headers */,
-				4FCEDB6318374BE5F83E56C0CE3A7099 /* WBTableSectionPrivate.h in Headers */,
-				3C2FFC491E2F1DED888306B18FEE7B58 /* WBTableViewAdapter.h in Headers */,
-				99DC9840F206AE537884587E0CDB945D /* WBTableViewAdapterPrivate.h in Headers */,
-				C2CC265A1ECB15CF009526C7 /* UICollectionView+WBListKit.h in Headers */,
-				8E8C7546C855DE062D96078C13E5F985 /* WBTableViewDataSource.h in Headers */,
-				F40341C1D6E527CB87A04C7F5C07D38E /* WBTableViewDelegateProxy.h in Headers */,
+				AFDC54F5093B49C10DD401690861928D /* UICollectionView+WBListKit.h in Headers */,
+				576B6DB71FF28F867DB6E7237BF1B3BC /* UICollectionView+WBListKitPrivate.h in Headers */,
+				23199A511200D28DEC59272E5FD460D6 /* UITableView+WBListKit.h in Headers */,
+				41A803B8196017AFDCFE7BAAC091D561 /* UITableView+WBListKitPrivate.h in Headers */,
+				8C7F74BA784C1FBA8EF9EFE860556F57 /* UIViewController+WBList.h in Headers */,
+				AAA3E78B92D670B928AAE920586693B1 /* WBCollectionCellProtocol.h in Headers */,
+				D44A070B2F15D907963C9140C3F9ED1C /* WBCollectionItem.h in Headers */,
+				7395D2B6BC22403E8DAE7D6077DE7ECF /* WBCollectionSection.h in Headers */,
+				4E34B5CBC7FB3B6A064636EE5129F1CE /* WBCollectionSectionMaker.h in Headers */,
+				460050BF32312965A812F9ACBF39D3FF /* WBCollectionSectionPrivate.h in Headers */,
+				71A5B1BE54812E1E68410F23869CEE97 /* WBCollectionSupplementaryItem.h in Headers */,
+				617D5E7C77A1BDE29E9765A03ECA635A /* WBCollectionSupplementaryViewProtocol.h in Headers */,
+				F29637B814AD58470CC87CE54108CC53 /* WBCollectionViewAdapter.h in Headers */,
+				8CB7C6CF4CE9BC93635DE739117F2CB1 /* WBCollectionViewAdapterPrivate.h in Headers */,
+				E9E81CA874F88341F4655B87EB468E11 /* WBCollectionViewDataSource.h in Headers */,
+				8C93B9002F90C8C291BB007A1E8EF57E /* WBCollectionViewDelegateProxy.h in Headers */,
+				7B96E85D067D563B3ECBB54EECE42E11 /* WBListController.h in Headers */,
+				58365A324527351127E123339159E6E8 /* WBListDataReformerProtocol.h in Headers */,
+				BC3DCEFEED64F0DE554632A3D4402663 /* WBListDataSource.h in Headers */,
+				D34725F1197EFE543D258B32F9EEE513 /* WBListDataSourceDelegate.h in Headers */,
+				5CDE637E14B1D21CED568D622C8AC29B /* WBListKit-umbrella.h in Headers */,
+				D2A6F91EB0A8CCB780E3AFDAF50CBF26 /* WBListKit.h in Headers */,
+				B553F20262FC1D154F77A61A35D90EFC /* WBListKitAssert.h in Headers */,
+				C720A546683F96F1BBBE4028E1642269 /* WBListKitMacros.h in Headers */,
+				7C04FFEE7447D0255965DE51B5B70280 /* WBListReusableViewProtocol.h in Headers */,
+				885CA3DE3F5A4656AFC7A53372C428BF /* WBTableCellProtocal.h in Headers */,
+				54FD45B67264D3AAAEB108D7145134E9 /* WBTableHeaderFooterViewProtocal.h in Headers */,
+				17F8FCE0454FD45DBD7D9E4E3CFB9B05 /* WBTableRow.h in Headers */,
+				6B1FA7D75784D46103B3B8E9234F60F8 /* WBTableSection.h in Headers */,
+				20D95D67D9A566E60FC4362A7FD8DCAA /* WBTableSectionHeaderFooter.h in Headers */,
+				B8F5FC24862DFEF807A9B0AA9ABDFD1B /* WBTableSectionMaker.h in Headers */,
+				A3B6AE8ECAE36C1A2864F700E4AA3B0E /* WBTableSectionPrivate.h in Headers */,
+				E9472EA21F25CA1E8F297EEA2739E966 /* WBTableViewAdapter.h in Headers */,
+				E49D70CF3FFA7AAB9853222D3E4F3D6C /* WBTableViewAdapterPrivate.h in Headers */,
+				FB4259EC9B35F35078EDF2D4E2CBC617 /* WBTableViewDataSource.h in Headers */,
+				5B9FB24AA52CE73D986ADEB39EBAA702 /* WBTableViewDelegateProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,9 +1059,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E53AA166A82660FA10ED7E6F125909BB /* Build configuration list for PBXNativeTarget "WBListKit" */;
 			buildPhases = (
-				A4B9F6BBEF33DFFE8856AE860F60D847 /* Sources */,
+				B6896313BEC1861BB00BDB90CA4F0793 /* Sources */,
 				39F80B3CBE406677A03F080C7261F2E3 /* Frameworks */,
-				2758606FD75E59B09DE5168A7A79BE7C /* Headers */,
+				405DA515E065B567C42E82243C18BDF1 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -1125,10 +1125,8 @@
 				59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */,
 				73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */,
 				6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */,
-				C2CC26551ECB136B009526C7 /* UICollectionView+WBListKit.m in Sources */,
 				A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */,
 				A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */,
-				C2CC26571ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m in Sources */,
 				756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */,
 				E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */,
 				0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -1192,30 +1190,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4B9F6BBEF33DFFE8856AE860F60D847 /* Sources */ = {
+		B6896313BEC1861BB00BDB90CA4F0793 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5351F241F02CBA0B12A84D52D0B80067 /* UITableView+WBListKit.m in Sources */,
-				5EC72AB40BE69F31D8E8DFD2CF47F046 /* UITableView+WBListKitPrivate.m in Sources */,
-				EE79DFE8AF6838937B64663D134F2756 /* UIViewController+WBList.m in Sources */,
-				9408069758B2182627AD847B1486529B /* WBCollectionItem.m in Sources */,
-				A19205C6A9927D9D27158BF0F255E37D /* WBCollectionSection.m in Sources */,
-				687C16AA5962FE26CA58AF45BD7B45A9 /* WBCollectionSectionMaker.m in Sources */,
-				700366F33AD86A47FA7964DBACC5D25C /* WBCollectionSupplementaryItem.m in Sources */,
-				76FF6D6CF741F3CC89D5D7D8144843B0 /* WBCollectionViewAdapter.m in Sources */,
-				D07B9626AE9F1F93009372D88F115F0B /* WBCollectionViewDataSource.m in Sources */,
-				A129AAD01A5DBEEB6164E4FACD3448B6 /* WBCollectionViewDelegateProxy.m in Sources */,
-				73DC41CB9C5420266650FF50668A16C0 /* WBListController.m in Sources */,
-				A4DEB10A8B2B14C61D9BDA8D0179BFD3 /* WBListDataSource.m in Sources */,
-				28F7CE834FF844257272AC05739FBE54 /* WBListKit-dummy.m in Sources */,
-				FC2C34FEF62011545EECCF677F2E57A7 /* WBTableRow.m in Sources */,
-				B3B3DD9621CA0D22C1CABC2B54F05E35 /* WBTableSection.m in Sources */,
-				B28840EB8388CC447A996B987FAEF2FC /* WBTableSectionHeaderFooter.m in Sources */,
-				360E89B27A7526FCFA5FC3EF5540DB4F /* WBTableSectionMaker.m in Sources */,
-				A630AC7DD6CA08802460755158CCF327 /* WBTableViewAdapter.m in Sources */,
-				8ED7315A8915DB9B6419D891EC7E1D3B /* WBTableViewDataSource.m in Sources */,
-				5F5BD63C5E8E99F2A111D2352D60E2A0 /* WBTableViewDelegateProxy.m in Sources */,
+				804F11E3BB5248A0989403FCB555994D /* UICollectionView+WBListKit.m in Sources */,
+				CE09B05DF609E675A0E80C21990D9F0F /* UICollectionView+WBListKitPrivate.m in Sources */,
+				F4F7B13CD81BD063A6102B5D112169BB /* UITableView+WBListKit.m in Sources */,
+				A2BE159BBDABB55FB3AD319C082C3C86 /* UITableView+WBListKitPrivate.m in Sources */,
+				6BAFB8CD8D7FBC68E5F1C5C916160235 /* UIViewController+WBList.m in Sources */,
+				E592530629DCCEA1777A2F56573F80EF /* WBCollectionItem.m in Sources */,
+				F63C012D847112ADF26D8A7E6D60D36E /* WBCollectionSection.m in Sources */,
+				BC17CF109B58CEA2CFD6D856F8562DCB /* WBCollectionSectionMaker.m in Sources */,
+				77F65520E81028C5E47DF3CDEDCDACBF /* WBCollectionSupplementaryItem.m in Sources */,
+				CCB415AC2AE6E69023F1F2ECD587CE93 /* WBCollectionViewAdapter.m in Sources */,
+				ABE6E2BF2A25232065054D26626859F2 /* WBCollectionViewDataSource.m in Sources */,
+				2317D5F2DC70CB02A3DD4D1609AD8B24 /* WBCollectionViewDelegateProxy.m in Sources */,
+				900617606C3E72F6D8BD19D88D289100 /* WBListController.m in Sources */,
+				5258894F98E9DE475F46EB925DC34473 /* WBListDataSource.m in Sources */,
+				99C501BE817E5197C967E2C692D98FA8 /* WBListKit-dummy.m in Sources */,
+				E048AE24A003620808E305A37A344DA5 /* WBTableRow.m in Sources */,
+				DFAC615694E89A515948AC20BCE7E1CC /* WBTableSection.m in Sources */,
+				311CDD837C0A910EB4D74267DF9FFBF7 /* WBTableSectionHeaderFooter.m in Sources */,
+				9A28A1C39B3CB4CC3803238F9DF834EE /* WBTableSectionMaker.m in Sources */,
+				67C130E9618712D228356BCBE5F120AE /* WBTableViewAdapter.m in Sources */,
+				C199C99B2935C88E5AC9DC2A9393D30A /* WBTableViewDataSource.m in Sources */,
+				AA0EEFC2EF683CF23613B737FD9C28DC /* WBTableViewDelegateProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

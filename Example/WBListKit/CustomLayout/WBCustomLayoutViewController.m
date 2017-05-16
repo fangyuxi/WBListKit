@@ -30,10 +30,10 @@
     JKSeparatorLayout *layout = [[JKSeparatorLayout alloc] init];
     layout.separatorLayoutDelegate = self;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:layout];
+    self.collectionView.actionDelegate = self;
     [self.view addSubview:self.collectionView];
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    self.adapter.actionDelegate = self;
     self.adapter.collectionViewDataSource = self;
     [self.adapter bindCollectionView:self.collectionView];
     

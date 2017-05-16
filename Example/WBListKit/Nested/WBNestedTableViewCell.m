@@ -32,11 +32,11 @@
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.contentView addSubview:self.collectionView];
     self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.actionDelegate = self;
     
     [self makeLayout];
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    self.adapter.actionDelegate = self;
     [self.adapter bindCollectionView:self.collectionView];
     
     return self;
