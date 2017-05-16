@@ -1,18 +1,16 @@
 //
-//  WBTableViewAdapterPrivate.h
+//  WBCollectionViewAdapterPrivate.h
 //  Pods
 //
 //  Created by Romeo on 2017/5/16.
 //
 //
 
-//#import "WBTableViewAdapter.h"
 
 @protocol WBListActionToControllerProtocol;
 
-@interface WBTableViewAdapter ()
+@interface WBCollectionViewAdapter ()
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
 
 @end
-

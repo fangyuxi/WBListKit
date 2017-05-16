@@ -120,6 +120,11 @@
 		BDB33C3708110C6D755175D1F0A2A70B /* MJRefreshStateHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B5CB09A25C2F26D3DE3BBAD5FC649C1 /* MJRefreshStateHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF45FF4D2D0EB89245DF3BF65BAB0791 /* WBListKitMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6426D96473C4B52134EBBEF6339139 /* WBListKitMacros.h */; settings = {ATTRIBUTES = (Project, Public, ); }; };
 		C0A16E00B4BC2D88A7833D5DAED62942 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC1A08384925F672C32C6D2FA4898FA /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2CC26551ECB136B009526C7 /* UICollectionView+WBListKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */; };
+		C2CC26571ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */; };
+		C2CC26591ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2CC265A1ECB15CF009526C7 /* UICollectionView+WBListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2CC265B1ECB15D4009526C7 /* UICollectionView+WBListKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C894A666F1E4EBEBAEACE789800C9B1B /* WBCollectionCellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DC838591B150EE79768883A45FCD245C /* WBCollectionCellProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F25DD7C42FC1CFF676FE9E3254F62B97 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = BA74CEE9FE9B8EFCE5C13F739043FA60 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -334,6 +339,11 @@
 		B9FCE360DC10050BD0DE3FD7794E1C27 /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDKeyedHeightCache.h"; path = "Classes/UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
 		BA74CEE9FE9B8EFCE5C13F739043FA60 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		BF66DC000D19CF6753FC2B55B1A3E855 /* WBCollectionItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBCollectionItem.h; sourceTree = "<group>"; };
+		C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKit.h"; sourceTree = "<group>"; };
+		C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKit.m"; sourceTree = "<group>"; };
+		C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+WBListKitPrivate.h"; sourceTree = "<group>"; };
+		C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+WBListKitPrivate.m"; sourceTree = "<group>"; };
+		C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCollectionViewAdapterPrivate.h; sourceTree = "<group>"; };
 		C31FEACDD7D477DFDF376FFCF18D851F /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		C51C5CC3E4371FA825819B7013E52F77 /* Pods-WBListKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WBListKit_Example-resources.sh"; sourceTree = "<group>"; };
 		C54A43BE54DF06C280CAEF5C2CD0D42E /* WBTableViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = WBTableViewDelegateProxy.h; sourceTree = "<group>"; };
@@ -551,6 +561,10 @@
 		62DC22F9DD62B1856ED81671F354B1B3 /* WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				C2CC26501ECB136B009526C7 /* UICollectionView+WBListKit.h */,
+				C2CC26511ECB136B009526C7 /* UICollectionView+WBListKit.m */,
+				C2CC26521ECB136B009526C7 /* UICollectionView+WBListKitPrivate.h */,
+				C2CC26531ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m */,
 				DC838591B150EE79768883A45FCD245C /* WBCollectionCellProtocol.h */,
 				BF66DC000D19CF6753FC2B55B1A3E855 /* WBCollectionItem.h */,
 				8F96F38BD290FD86DF340F7AC289DC6D /* WBCollectionItem.m */,
@@ -564,6 +578,7 @@
 				478FB4177046CF44C1635125E1B1FC57 /* WBCollectionSupplementaryViewProtocol.h */,
 				F1BE7FAEA3382A082219874964074EFB /* WBCollectionViewAdapter.h */,
 				0D189B829050C23BDEEC914B10DDADE5 /* WBCollectionViewAdapter.m */,
+				C2CC26581ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h */,
 				3D3BE7E1C5C7FB14B8FAE3D5E6B42032 /* WBCollectionViewDelegateProxy.h */,
 				0440B5F30CDFABE61378B5500C708B0D /* WBCollectionViewDelegateProxy.m */,
 			);
@@ -870,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3094E50DF8CED56F404A6122DA2FBC1 /* UITableView+WBListKit.h in Headers */,
+				C2CC265B1ECB15D4009526C7 /* UICollectionView+WBListKitPrivate.h in Headers */,
 				152E7047D1A85EF6113522F0AF02632A /* UITableView+WBListKitPrivate.h in Headers */,
 				D72402755D3BA3CA04EB5F291540CADD /* UIViewController+WBList.h in Headers */,
 				C894A666F1E4EBEBAEACE789800C9B1B /* WBCollectionCellProtocol.h in Headers */,
@@ -897,9 +913,11 @@
 				EE2BF97D656607623636F387D155B533 /* WBTableSection.h in Headers */,
 				8C61B74E1F06E57D8FEBBD4284487BED /* WBTableSectionHeaderFooter.h in Headers */,
 				D9F7AA3BDDFBEB17A4FC2B6A17217D21 /* WBTableSectionMaker.h in Headers */,
+				C2CC26591ECB13B1009526C7 /* WBCollectionViewAdapterPrivate.h in Headers */,
 				4FCEDB6318374BE5F83E56C0CE3A7099 /* WBTableSectionPrivate.h in Headers */,
 				3C2FFC491E2F1DED888306B18FEE7B58 /* WBTableViewAdapter.h in Headers */,
 				99DC9840F206AE537884587E0CDB945D /* WBTableViewAdapterPrivate.h in Headers */,
+				C2CC265A1ECB15CF009526C7 /* UICollectionView+WBListKit.h in Headers */,
 				8E8C7546C855DE062D96078C13E5F985 /* WBTableViewDataSource.h in Headers */,
 				F40341C1D6E527CB87A04C7F5C07D38E /* WBTableViewDelegateProxy.h in Headers */,
 			);
@@ -1107,8 +1125,10 @@
 				59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */,
 				73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */,
 				6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */,
+				C2CC26551ECB136B009526C7 /* UICollectionView+WBListKit.m in Sources */,
 				A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */,
 				A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */,
+				C2CC26571ECB136B009526C7 /* UICollectionView+WBListKitPrivate.m in Sources */,
 				756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */,
 				E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */,
 				0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

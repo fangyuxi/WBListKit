@@ -20,12 +20,11 @@ class WBSwiftEmptyViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView);
         tableView.frame = view.bounds
-        
         tableView.empty.delegate = self
         tableView.empty.dataSource = self
+        tableView.actionDelegate = self;
         
         adapter.bindTableView(tableView);
-        adapter.actionDelegate = self
         
         let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItemStyle.plain, target: self, action: #selector(add))
         let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear))
@@ -70,6 +69,9 @@ class WBSwiftEmptyViewController: UIViewController {
 }
 
 extension WBSwiftEmptyViewController : WBListActionToControllerProtocol{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print( #function, #line, type(of: self))
+    }
 }
 
 extension WBSwiftEmptyViewController : WBListEmptyKitDataSource{

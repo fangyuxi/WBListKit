@@ -11,6 +11,7 @@
 #import "WBCollectionCellProtocol.h"
 #import "WBCollectionSupplementaryViewProtocol.h"
 #import "WBCollectionSectionPrivate.h"
+#import "WBCollectionViewAdapterPrivate.h"
 
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]

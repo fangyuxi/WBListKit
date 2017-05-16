@@ -48,12 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak) id collectionViewDataSource;
 
-/**
- look into WBListCell, adapter is a brige for actions transport from cell to controller
- inherits UICollectionViewDelegate Protolcol, contains All actions from cell
- */
-@property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
-
 #pragma mark Section Model
 
 /**

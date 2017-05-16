@@ -32,7 +32,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'CollectionView' do |c|
-        c.source_files =    'WBListKit/WBCollectionItem.{h,m}','WBListKit/WBCollectionSection.{h,m}',
+        c.source_files =    'WBListKit/WBCollectionItem.{h,m}',
+                            'WBListKit/UICollectionView+WBListKitPrivate.{h,m}',
+                            'WBListKit/WBCollectionViewAdapterPrivate.h'
+                            'WBListKit/UICollectionView+WBListKit.{h,m}',
+                            'WBListKit/WBCollectionSection.{h,m}',
                             'WBListKit/WBCollectionSectionMaker.{h,m}',
                             'WBListKit/WBCollectionViewAdapter.{h,m}',
                             'WBListKit/WBCollectionViewDelegateProxy.{h,m}',

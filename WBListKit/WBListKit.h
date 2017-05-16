@@ -25,3 +25,4 @@
 #import "WBListDataSourceDelegate.h"
 
 #import "UITableView+WBListKit.h"
+#import "UICollectionView+WBListKit.h"
