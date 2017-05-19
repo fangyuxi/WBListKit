@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'WBListKit'
-    s.version          = '0.3'
+    s.version          = '0.4'
     s.summary          = 'A Wrapper of UICollectionView & UITableView'
     s.description      = 'Esay and Quick to use UICollectionView & UITableView to build list'
     s.homepage         = 'https://github.com/fangyuxi/WBListKit'
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
         t.source_files = 'WBListKit/WBTableRow.{h,m}',
+        t.public_header_files = 'WBListKit/{UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h'
         'WBListKit/UITableView+WBListKitPrivate.{h,m}',
         'WBListKit/UITableView+WBListKit.{h,m}',
         'WBListKit/WBTableSection.{h,m}',
@@ -44,15 +45,19 @@ Pod::Spec.new do |s|
                             'WBListKit/WBCollectionCellProtocol.h',
                             'WBListKit/WBCollectionSupplementaryViewProtocol.h',
                             'WBListKit/WBCollectionSectionPrivate.h'
+        c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionSectionMaker,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
         c.dependency 'UITableView+FDTemplateLayoutCell'
     end
 
     s.subspec 'DataSource' do |d|
-        d.source_files =    'WBListKit/WBListDataSource.{h,m}','WBListKit/WBTableViewDataSource.{h,m}','WBListKit/WBCollectionViewDataSource.{h,m}',
+        d.source_files =    'WBListKit/WBListDataSource.{h,m}',
+                            'WBListKit/WBTableViewDataSource.{h,m}',
+                            'WBListKit/WBCollectionViewDataSource.{h,m}',
                             'WBListKit/WBListController.{h,m}',
                             'WBListKit/UIViewController+WBList.{h,m}',
                             'WBListKit/WBListDataSourceDelegate.h',
                             'WBListKit/WBTableViewDataSourcePrivate.h'
+        d.public_header_files = 'WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate}.h'
         d.dependency 'MJRefresh'
         d.dependency 'WBListKit/CollectionView'
         d.dependency 'WBListKit/TableView'
