@@ -7,7 +7,7 @@
 //
 
 #import "WBMVCViewController.h"
-#import "UIViewController+WBList.h"
+#import "WBListKit.h"
 #import "WBMVCTableListDataSource.h"
 
 @interface WBMVCViewController ()<WBListActionToControllerProtocol>
@@ -22,9 +22,8 @@
     self.view.backgroundColor = [UIColor redColor];
     
     [self createView];
-    
     self.list.tableDataSource = [[WBMVCTableListDataSource alloc] initWithDelegate:self];
-    [self.list.tableDataSource bindTableView:self.list.tableView];
+    [self.list.tableView bindViewDataSource:self.list.tableDataSource];
     
     [self.list refreshImmediately];
 }

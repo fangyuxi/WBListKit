@@ -10,8 +10,10 @@
 #import <objc/runtime.h>
 #import "UITableView+WBListKit.h"
 #import "WBTableViewAdapterPrivate.h"
+#import "WBTableViewDataSource.h"
 
 static int AdapterKey;
+static int SourceKey;
 
 @implementation UITableView (WBListKitPrivate)
 
@@ -22,6 +24,14 @@ static int AdapterKey;
 
 - (WBTableViewAdapter *)adapter{
    return objc_getAssociatedObject(self, &AdapterKey);
+}
+
+- (void)setSource:(WBTableViewDataSource *)source{
+    objc_setAssociatedObject(self, &SourceKey, source, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (WBTableViewDataSource *)source{
+    return objc_getAssociatedObject(self, &SourceKey);
 }
 
 @end

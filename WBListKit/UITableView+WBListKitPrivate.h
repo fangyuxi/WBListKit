@@ -12,8 +12,12 @@
 /**
  隐藏这个属性，防止外部访问到
  */
+@class WBTableViewDataSource;
+@class WBTableViewAdapter;
+
 @interface UITableView (WBListKitPrivate)
 
 @property (nonatomic, weak) WBTableViewAdapter *adapter;
+@property (nonatomic, weak) WBTableViewDataSource *source;
 
 @end

@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.frameworks = 'UIKit'
 
     s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h'
-    s.public_header_files = 'WBListKit/WBListKit.h'
+    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol}.h'
 
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
@@ -51,7 +51,8 @@ Pod::Spec.new do |s|
         d.source_files =    'WBListKit/WBListDataSource.{h,m}','WBListKit/WBTableViewDataSource.{h,m}','WBListKit/WBCollectionViewDataSource.{h,m}',
                             'WBListKit/WBListController.{h,m}',
                             'WBListKit/UIViewController+WBList.{h,m}',
-                            'WBListKit/WBListDataSourceDelegate.h'
+                            'WBListKit/WBListDataSourceDelegate.h',
+                            'WBListKit/WBTableViewDataSourcePrivate.h'
         d.dependency 'MJRefresh'
         d.dependency 'WBListKit/CollectionView'
         d.dependency 'WBListKit/TableView'

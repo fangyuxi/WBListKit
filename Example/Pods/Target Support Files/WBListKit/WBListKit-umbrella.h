@@ -10,7 +10,11 @@
 #endif
 #endif
 
+#import "WBListDataReformerProtocol.h"
 #import "WBListKit.h"
+#import "WBListKitAssert.h"
+#import "WBListKitMacros.h"
+#import "WBListReusableViewProtocol.h"
 #import "WBCollectionItem.h"
 #import "UICollectionView+WBListKitPrivate.h"
 #import "WBCollectionViewAdapterPrivate.h"
@@ -29,6 +33,7 @@
 #import "WBListController.h"
 #import "UIViewController+WBList.h"
 #import "WBListDataSourceDelegate.h"
+#import "WBTableViewDataSourcePrivate.h"
 #import "WBTableRow.h"
 #import "UITableView+WBListKitPrivate.h"
 #import "UITableView+WBListKit.h"

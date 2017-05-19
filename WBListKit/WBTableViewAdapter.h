@@ -18,18 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WBTableViewAdapter : NSObject
 
 /**
- 绑定tableView
- 当Adapter和TableView出现多对一情况的时候，重新绑定即可
- @param tableView 'tableView'
- */
-- (void)bindTableView:(UITableView *)tableView;
-
-/**
- 解绑TableView
- */
-- (void)unBindTableView;
-
-/**
  可以在'viewWillAppear' 和 'viewDidDisappear' 中调用，用来回调cell/header/footer
  中的 'cancel' 'reload' 方法
  */

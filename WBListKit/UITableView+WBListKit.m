@@ -11,6 +11,8 @@
 #import <objc/runtime.h>
 #import "WBListReusableViewProtocol.h"
 #import "WBTableViewAdapterPrivate.h"
+#import "WBTableViewDataSource.h"
+#import "WBTableViewDataSourcePrivate.h"
 
 static int WBListActionToControllerProtocolKey;
 
@@ -23,6 +25,22 @@ static int WBListActionToControllerProtocolKey;
 
 - (id<WBListActionToControllerProtocol>)actionDelegate{
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
+}
+
+- (void)bindAdapter:(nonnull WBTableViewAdapter *)adapter{
+    [adapter bindTableView:self];
+}
+
+- (void)unbindAdapter{
+    [self.adapter unBindTableView];
+}
+
+- (void)bindViewDataSource:(nonnull WBTableViewDataSource *)source{
+    [source bindTableView:self];
+}
+
+- (void)unbindViewDataSource{
+    [self.source unBindTableView];
 }
 
 @end

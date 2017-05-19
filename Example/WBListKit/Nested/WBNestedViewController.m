@@ -33,7 +33,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.adapter bindTableView:self.tableView];
+    [self.tableView bindAdapter:self.adapter];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];

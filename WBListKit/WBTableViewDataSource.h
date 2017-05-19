@@ -20,13 +20,4 @@
  */
 @property (nonatomic, strong, readonly, nullable) WBTableViewAdapter *tableViewAdapter;
 
-/**
- 绑定tableView
- 当DataSource和TableView出现多对一情况的时候
- 在使用指定的DataSource之前，需要重新绑定
- @param tableView 'tableView'
- */
-- (void)bindTableView:(nullable UITableView *)tableView;
-- (void)unBindTableView;
-
 @end

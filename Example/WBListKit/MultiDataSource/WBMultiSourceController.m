@@ -56,7 +56,7 @@
         self.list.tableDataSource = self.leftSource;
     }
     
-    [self.list.tableDataSource bindTableView:self.tableView];
+    [self.tableView bindViewDataSource:self.list.tableDataSource];
     [self.list refreshImmediately];
 }
 

@@ -17,5 +17,17 @@
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
 
+/**
+ 绑定tableView
+ 当Adapter和TableView出现多对一情况的时候，重新绑定即可
+ @param tableView 'tableView'
+ */
+- (void)bindTableView:(UITableView *)tableView;
+
+/**
+ 解绑TableView
+ */
+- (void)unBindTableView;
+
 @end
 

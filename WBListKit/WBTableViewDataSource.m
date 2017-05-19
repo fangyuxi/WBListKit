@@ -7,16 +7,9 @@
 //
 
 #import "WBTableViewDataSource.h"
-
-@interface WBTableViewDataSource ()
-
-/**
- display data on whitch
- set this property to bind tableview on this datasource
- */
-@property (nonatomic, weak, readwrite, nullable) UITableView *tableView;
-
-@end
+#import "UITableView+WBListKitPrivate.h"
+#import "WBTableViewDataSourcePrivate.h"
+#import "WBTableViewAdapterPrivate.h"
 
 @implementation WBTableViewDataSource
 
@@ -25,6 +18,7 @@
 - (void)bindTableView:(nullable UITableView *)tableView{
     [self.tableViewAdapter unBindTableView];
     self.tableView = tableView;
+    self.tableView.source = self;
     if (tableView) {
         [self.tableViewAdapter bindTableView:self.tableView];
     }
@@ -32,6 +26,7 @@
 
 - (void)unBindTableView{
     [self.tableViewAdapter unBindTableView];
+    self.tableView.source = nil;
     self.tableView = nil;
 }
 

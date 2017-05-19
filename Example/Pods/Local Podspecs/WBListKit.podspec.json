@@ -22,7 +22,7 @@
   "requires_arc": true,
   "frameworks": "UIKit",
   "source_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
-  "public_header_files": "WBListKit/WBListKit.h",
+  "public_header_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol}.h",
   "subspecs": [
     {
       "name": "TableView",
@@ -76,7 +76,8 @@
         "WBListKit/WBCollectionViewDataSource.{h,m}",
         "WBListKit/WBListController.{h,m}",
         "WBListKit/UIViewController+WBList.{h,m}",
-        "WBListKit/WBListDataSourceDelegate.h"
+        "WBListKit/WBListDataSourceDelegate.h",
+        "WBListKit/WBTableViewDataSourcePrivate.h"
       ],
       "dependencies": {
         "MJRefresh": [
