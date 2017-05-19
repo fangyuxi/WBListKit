@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIkit.h>
 
+@class WBCollectionViewAdapter;
+@class WBCollectionViewDataSource;
 @protocol WBListActionToControllerProtocol;
 
 @interface UICollectionView (WBListKit)
@@ -21,4 +23,23 @@
  */
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
+/**
+ 绑定adapter
+ 
+ @param adapter 'adapter'
+ */
+- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter;
+- (void)unbindAdapter;
+
+/**
+ 绑定TableViewSource
+ 
+ @param source 'source'
+ */
+- (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source;
+- (void)unbindViewDataSource;
+
+
 @end
+
+

@@ -12,8 +12,10 @@
 /**
  隐藏这个属性，防止外部访问到
  */
+@class WBCollectionViewDataSource;
 @interface UICollectionView (WBListKitPrivate)
 
 @property (nonatomic, weak) WBCollectionViewAdapter *adapter;
+@property (nonatomic, weak) WBCollectionViewDataSource *source;
 
 @end

@@ -6,7 +6,6 @@
 //  Copyright © 2017年 xcoder.fang@gmail.com. All rights reserved.
 //
 
-#import "WBTableViewDataSource.h"
 #import "UITableView+WBListKitPrivate.h"
 #import "WBTableViewDataSourcePrivate.h"
 #import "WBTableViewAdapterPrivate.h"

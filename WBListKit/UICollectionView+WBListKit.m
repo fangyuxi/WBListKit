@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import "WBListReusableViewProtocol.h"
 #import "WBCollectionViewAdapterPrivate.h"
+#import "WBCollectionViewDataSourcePrivate.h"
 
 static int WBListActionToControllerProtocolKey;
 
@@ -24,5 +25,22 @@ static int WBListActionToControllerProtocolKey;
 - (id<WBListActionToControllerProtocol>)actionDelegate{
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
 }
+
+- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter{
+    [adapter bindCollectionView:self];
+}
+
+- (void)unbindAdapter{
+    [self.adapter unBindCollectionView];
+}
+
+- (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source{
+    [source bindCollectionView:self];
+}
+
+- (void)unbindViewDataSource{
+    [self.source unBindCollectionView];
+}
+
 
 @end

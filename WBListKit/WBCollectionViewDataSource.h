@@ -17,13 +17,4 @@
  */
 @property (nonatomic, strong, readonly, nullable) WBCollectionViewAdapter *collectionViewAdapter;
 
-/**
- 绑定collectionView
- 当DataSource和collectionView出现多对一情况的时候
- 在使用指定的DataSource之前，需要重新绑定
- @param collectionView 'collectionView'
- */
-- (void)bindCollectionView:(nullable UICollectionView *)collectionView;
-- (void)unBindCollectionView;
-
 @end

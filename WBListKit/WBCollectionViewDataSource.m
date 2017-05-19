@@ -7,15 +7,9 @@
 //
 
 #import "WBCollectionViewDataSource.h"
-
-@interface WBCollectionViewDataSource ()
-
-/**
- display data on whitch
- */
-@property (nonatomic, weak, readwrite, nullable) UICollectionView *collectionView;
-
-@end
+#import "WBCollectionViewDataSourcePrivate.h"
+#import "WBCollectionViewAdapterPrivate.h"
+#import "UICollectionView+WBListKitPrivate.h"
 
 @implementation WBCollectionViewDataSource
 
@@ -23,7 +17,8 @@
 
 - (void)bindCollectionView:(nullable UICollectionView *)collectionView{
     [self.collectionViewAdapter unBindCollectionView];
-    _collectionView = collectionView;
+    self.collectionView = collectionView;
+    self.collectionView.source = self;
     if (collectionView) {
         [self.collectionViewAdapter bindCollectionView:collectionView];
     }
@@ -31,6 +26,7 @@
 
 - (void)unBindCollectionView{
     [self.collectionViewAdapter unBindCollectionView];
+    self.collectionView.source = nil;
     self.collectionView = nil;
 }
 

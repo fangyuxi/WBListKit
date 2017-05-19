@@ -1,6 +1,6 @@
 {
   "name": "WBListKit",
-  "version": "0.3",
+  "version": "0.4",
   "summary": "A Wrapper of UICollectionView & UITableView",
   "description": "Esay and Quick to use UICollectionView & UITableView to build list",
   "homepage": "https://github.com/fangyuxi/WBListKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fangyuxi/WBListKit.git",
-    "commit": "d6281e9320f6d2bfb73acce1bf919b122116077e",
+    "commit": "c081664aadc274b0022c74c85d42fd38c049e67b",
     "submodules": true
   },
   "platforms": {
@@ -44,7 +44,8 @@
         "WBListKit/WBTableHeaderFooterViewProtocal.h",
         "WBListKit/WBTableSectionPrivate.h",
         "WBListKit/WBTableViewAdapterPrivate.h"
-      ]
+      ],
+      "public_header_files": "WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h"
     },
     {
       "name": "CollectionView",
@@ -62,6 +63,7 @@
         "WBListKit/WBCollectionSupplementaryViewProtocol.h",
         "WBListKit/WBCollectionSectionPrivate.h"
       ],
+      "public_header_files": "WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionSectionMaker,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h",
       "dependencies": {
         "UITableView+FDTemplateLayoutCell": [
 
@@ -77,8 +79,10 @@
         "WBListKit/WBListController.{h,m}",
         "WBListKit/UIViewController+WBList.{h,m}",
         "WBListKit/WBListDataSourceDelegate.h",
-        "WBListKit/WBTableViewDataSourcePrivate.h"
+        "WBListKit/WBTableViewDataSourcePrivate.h",
+        "WBListKit/WBCollectionViewDataSourcePrivate.h"
       ],
+      "public_header_files": "WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate,WBCollectionViewDataSourcePrivate}.h",
       "dependencies": {
         "MJRefresh": [
 

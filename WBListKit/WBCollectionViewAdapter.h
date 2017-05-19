@@ -16,21 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WBCollectionViewAdapter : NSObject
 
-
-
-/**
- bind UICollectionView
-
- @param collectionView 'UICollectionView'
- */
-- (void)bindCollectionView:(UICollectionView *)collectionView;
-
-/**
- unbind UICollectionView
- you can use this method to manage multi adapter binding one collectionView
- */
-- (void)unBindCollectionView;
-
 /**
  可以在'viewWillAppear' 和 'viewDidDisappear' 中调用，用来回调item supplementaryView
  中的 'cancel' 'reload' 方法

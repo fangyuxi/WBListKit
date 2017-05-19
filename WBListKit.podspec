@@ -56,8 +56,9 @@ Pod::Spec.new do |s|
                             'WBListKit/WBListController.{h,m}',
                             'WBListKit/UIViewController+WBList.{h,m}',
                             'WBListKit/WBListDataSourceDelegate.h',
-                            'WBListKit/WBTableViewDataSourcePrivate.h'
-        d.public_header_files = 'WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate}.h'
+                            'WBListKit/WBTableViewDataSourcePrivate.h',
+                            'WBListKit/WBCollectionViewDataSourcePrivate.h'
+        d.public_header_files = 'WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate,WBCollectionViewDataSourcePrivate}.h'
         d.dependency 'MJRefresh'
         d.dependency 'WBListKit/CollectionView'
         d.dependency 'WBListKit/TableView'

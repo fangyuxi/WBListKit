@@ -12,6 +12,7 @@
 #import "WBCollectionViewAdapterPrivate.h"
 
 static int AdapterKey;
+static int SourceKey;
 
 @implementation UICollectionView (WBListKitPrivate)
 
@@ -22,6 +23,14 @@ static int AdapterKey;
 
 - (WBCollectionViewAdapter *)adapter{
    return objc_getAssociatedObject(self, &AdapterKey);
+}
+
+- (void)setSource:(WBCollectionViewDataSource *)source{
+    objc_setAssociatedObject(self, &SourceKey, source, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (WBCollectionViewDataSource *)source{
+    return objc_getAssociatedObject(self, &SourceKey);
 }
 
 @end
