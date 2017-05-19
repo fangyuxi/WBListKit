@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/fangyuxi/WBListKit'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'xcoder.fang@gmail.com' => 'fangyuxi@58.com' }
-    s.source           = { :git => 'https://github.com/fangyuxi/WBListKit.git', :commit => "d6281e9320f6d2bfb73acce1bf919b122116077e",:submodules => true}
+    s.source           = { :git => 'https://github.com/fangyuxi/WBListKit.git', :commit => "c081664aadc274b0022c74c85d42fd38c049e67b",:submodules => true}
 
     s.ios.deployment_target = '7.0'
     s.requires_arc = true
@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
         t.source_files = 'WBListKit/WBTableRow.{h,m}',
-        t.public_header_files = 'WBListKit/{UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h'
         'WBListKit/UITableView+WBListKitPrivate.{h,m}',
         'WBListKit/UITableView+WBListKit.{h,m}',
         'WBListKit/WBTableSection.{h,m}',
@@ -30,6 +29,7 @@ Pod::Spec.new do |s|
         'WBListKit/WBTableHeaderFooterViewProtocal.h',
         'WBListKit/WBTableSectionPrivate.h',
         'WBListKit/WBTableViewAdapterPrivate.h'
+        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h'
     end
 
     s.subspec 'CollectionView' do |c|
