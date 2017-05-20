@@ -449,12 +449,13 @@
 
 - (CGFloat)heightForHeaderFooter:(WBTableSectionHeaderFooter *)headerFooter
                         inSectoin:(WBTableSection *)section{
-    NSString *identifier = NSStringFromClass(headerFooter.associatedHeaderFooterClass);\
-    UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *view = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-    view.headerFooter = headerFooter;
-    [view update];
-    CGSize size = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height;
+    NSString *identifier = NSStringFromClass(headerFooter.associatedHeaderFooterClass);
+    CGFloat height = [self.tableView fd_heightForHeaderFooterViewWithIdentifier:identifier configuration:^(id headerFooterView) {
+        UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
+        view.headerFooter = headerFooter;
+        [view update];
+    }];
+    return height;
 }
 
 - (void)registeCellIfNeededUseCellClass:(Class)cellClass{
