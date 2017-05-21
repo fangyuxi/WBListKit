@@ -22,7 +22,6 @@ typedef NS_ENUM(NSInteger, WBTableHeaderFooterType)
     WBTableHeaderFooterTypeFooter
 };
 
-
 /**
  A 'Model Object' for header & footer
  */
@@ -48,13 +47,6 @@ WBListKit_SUBCLASSING_RESTRICTED
  then calculateHeight will never be called
  */
 @property (nonatomic, copy) CGFloat(^calculateHeight)(WBTableSectionHeaderFooter *headerFooter);
-
-/**
- if height is WBListCellHeightAutoLayout
- then updateHeight() will never effect height
- you could use view layout method ,like 'updateConstraints()' instead
- */
-- (void)updateHeight;
 
 
 @end

@@ -12,13 +12,6 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 
 @implementation WBTableRow
 
-- (void)updateHeight
-{
-    if (self.calculateHeight) {
-        self.calculateHeight(self);
-    }
-}
-
 - (void)setAssociatedCellClass:(Class)associatedCellClass
 {
     NSString *className = NSStringFromClass(associatedCellClass);

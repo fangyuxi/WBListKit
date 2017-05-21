@@ -12,12 +12,4 @@ const CGFloat WBTableHeaderFooterHeightAutoLayout = -1.0f;
 
 @implementation WBTableSectionHeaderFooter
 
-- (void)updateHeight
-{
-    if (self.calculateHeight) {
-        self.calculateHeight(self);
-    }
-}
-
-
 @end

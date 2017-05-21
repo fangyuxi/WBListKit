@@ -57,10 +57,4 @@ WBListKit_SUBCLASSING_RESTRICTED
  */
 @property (nonatomic, copy) CGFloat(^calculateHeight)(WBTableRow *row);
 
-/**
-you can call this method to update height when cell's content has changed
-but if you return WBListCellHeightAutoLayout in block ,this method will do nothing
- */
-- (void)updateHeight;
-
 @end
