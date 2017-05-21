@@ -76,9 +76,7 @@
     
 }
 
-- (void)actionFromReusableView:(UIView *)view
-                  withEventTag:(NSString *)tag
-           withParameterObject:(id)object{
+- (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{
 }
 
 

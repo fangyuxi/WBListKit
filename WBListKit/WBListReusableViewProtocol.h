@@ -27,16 +27,15 @@
                                 UICollectionViewDelegateFlowLayout>
 @optional
 
-//TO DO 函数命名有点问题
 - (void)actionFromReusableView:(UIView *)view
-          withEventTag:(NSString *)tag
-   withParameterObject:(id)object;
+                      eventTag:(NSString *)tag
+                     parameter:(id)param;
 
 @end
 
 
 /**
- 所有可重用的view必须遵守此协议，如cell header footer
+ 所有可重用的，数据驱动的view必须遵守此协议，如cell header footer collectioncell collection supplementaryview ...
  */
 @protocol WBListReusableViewProtocol <NSObject>
 

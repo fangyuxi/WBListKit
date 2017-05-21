@@ -42,10 +42,7 @@
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
 }
 
-- (void)actionFromReusableView:(UIView *)view
-                  withEventTag:(NSString *)tag
-           withParameterObject:(id)object{
-    
+- (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
