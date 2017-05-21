@@ -288,15 +288,16 @@
         return [self.tableDataSource tableView:tableView heightForHeaderInSection:section];
     }
     
-    if (header.height == WBTableHeaderFooterHeightAutoLayout) {
-        WBTableSectionMaker *maker = [self sectionAtIndex:section];
-        return [self heightForHeaderFooter:header inSectoin:maker.section];
-    }
+    CGFloat height = 0;
     if (header.calculateHeight) {
-        CGFloat height = header.calculateHeight(header);
-        return height;
+        height = header.calculateHeight(header);
+        if (height == WBTableHeaderFooterHeightAutoLayout) {
+            height = [self heightForHeaderFooter:header inSectoin:maker.section];
+        }
+    }else{
+        height = [self heightForHeaderFooter:header inSectoin:maker.section];
     }
-    return header.height;
+    return height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -314,15 +315,16 @@
         return [self.tableDataSource tableView:tableView heightForFooterInSection:section];
     }
     
-    if (footer.height == WBTableHeaderFooterHeightAutoLayout) {
-        WBTableSectionMaker *maker = [self sectionAtIndex:section];
-        return [self heightForHeaderFooter:footer inSectoin:maker.section];
-    }
+    CGFloat height = 0;
     if (footer.calculateHeight) {
-        CGFloat height = footer.calculateHeight(footer);
-        return height;
+        height = footer.calculateHeight(footer);
+        if (height == WBTableHeaderFooterHeightAutoLayout) {
+            height = [self heightForHeaderFooter:footer inSectoin:maker.section];
+        }
+    }else{
+        height = [self heightForHeaderFooter:footer inSectoin:maker.section];
     }
-    return footer.height;
+    return height;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

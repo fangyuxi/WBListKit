@@ -14,10 +14,6 @@ const CGFloat WBTableHeaderFooterHeightAutoLayout = -1.0f;
 
 - (void)updateHeight
 {
-    if (self.height == WBTableHeaderFooterHeightAutoLayout) {
-        return;
-    }
-    
     if (self.calculateHeight) {
         self.calculateHeight(self);
     }

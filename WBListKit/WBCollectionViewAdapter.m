@@ -387,39 +387,28 @@
 
 - (void)registeCellIfNeededUseCellClass:(Class)cellClass{
     NSString *cellIdentifier = NSStringFromClass(cellClass);
-    
     if ([self.registedCellIdentifiers containsObject:cellIdentifier]) {
         return;
     }
-
     NSString *cellNibPath = [[NSBundle mainBundle] pathForResource:cellIdentifier ofType:@"nib"];
-    if (cellNibPath)
-    {
+    if (cellNibPath){
         [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil]  forCellWithReuseIdentifier:cellIdentifier];
         [self.registedCellIdentifiers addObject:cellIdentifier];
-    }
-    else
-    {
+    }else{
         [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:cellIdentifier];
         [self.registedCellIdentifiers addObject:cellIdentifier];
     }
 }
 - (void)registeSupplementaryViewIfNeededUseClass:(Class)supplementaryViewClass kind:(NSString *)kind{
-    
     NSString *identifier = NSStringFromClass(supplementaryViewClass);
-    
     if ([self.registedSupplementaryIdentifiers containsObject:identifier]) {
         return;
     }
-
     NSString *nibPath = [[NSBundle mainBundle] pathForResource:identifier ofType:@"nib"];
-    if (nibPath)
-    {
+    if (nibPath){
         [self.collectionView registerNib:[UINib nibWithNibName:nibPath bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
         [self.registedSupplementaryIdentifiers addObject:identifier];
-    }
-    else
-    {
+    }else{
         [self.collectionView registerClass:supplementaryViewClass forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
         [self.registedSupplementaryIdentifiers addObject:identifier];
     }

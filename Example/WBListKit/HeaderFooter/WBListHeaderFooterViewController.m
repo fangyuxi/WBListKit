@@ -49,12 +49,14 @@
         row.associatedCellClass = [WBHeaderFooterCell class];
         
         WBTableSectionHeaderFooter *header = [WBTableSectionHeaderFooter new];
-        header.height = WBTableHeaderFooterHeightAutoLayout;
         header.displayType = WBTableHeaderFooterTypeHeader;
         header.associatedHeaderFooterClass = [WBDemoHeaderView class];
         
         WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
-        footer.height = 80.0f;
+        footer.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
+          
+            return 80.0f;
+        };
         footer.displayType = WBTableHeaderFooterTypeFooter;
         footer.associatedHeaderFooterClass = [WBDemoFooterView class];
         

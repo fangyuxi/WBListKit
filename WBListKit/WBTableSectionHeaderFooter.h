@@ -44,11 +44,6 @@ WBListKit_SUBCLASSING_RESTRICTED
 @property (nonatomic, strong) Class associatedHeaderFooterClass;
 
 /**
- default is WBListHeaderFooterHeightAutoLayout
- */
-@property (nonatomic, assign) CGFloat height;
-
-/**
  if height is WBListHeaderFooterHeightAutoLayout
  then calculateHeight will never be called
  */
