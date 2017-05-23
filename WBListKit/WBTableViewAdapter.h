@@ -109,5 +109,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface WBTableViewAdapter (ReloadShortcut)
+
+- (void)reloadRowAtIndex:(NSIndexPath *)indexPath
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block;
+
+@end
+
 NS_ASSUME_NONNULL_END
 

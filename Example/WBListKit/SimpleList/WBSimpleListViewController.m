@@ -31,6 +31,7 @@
     
     self.adapter = [[WBTableViewAdapter alloc] init];
     [self.tableView bindAdapter:self.adapter];
+    self.tableView.actionDelegate = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
@@ -73,7 +74,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [self.adapter reloadRowAtIndex:indexPath
+                         animation:UITableViewRowAnimationAutomatic
+                        usingBlock:^(WBTableRow * _Nonnull row) {
+        row.data = @{@"title":@(100)
+                     };
+    }];
 }
 
 - (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{

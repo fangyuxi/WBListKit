@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/fangyuxi/WBListKit'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'xcoder.fang@gmail.com' => 'fangyuxi@58.com' }
-    s.source           = { :git => 'https://github.com/fangyuxi/WBListKit.git', :commit => "c081664aadc274b0022c74c85d42fd38c049e67b",:submodules => true}
+    s.source           = { :git => 'https://github.com/fangyuxi/WBListKit.git', :tag => "1.0.1"}
 
     s.ios.deployment_target = '7.0'
     s.requires_arc = true

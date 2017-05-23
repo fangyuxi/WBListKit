@@ -15,7 +15,9 @@
 
 @end
 
-@implementation WBSimpleListAutoLayoutCell
+@implementation WBSimpleListAutoLayoutCell{
+    MASConstraint *_topConstraint;
+}
 
 @synthesize row = _row;
 
@@ -37,13 +39,15 @@
     
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.contentView.mas_top).offset(30);
+        _topConstraint = make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-30);
     }];
+    _topConstraint.offset = 30.0f;
 }
 
 - (void)update{
     self.label.text = [NSString stringWithFormat:@"SimpleList AutoLayout Cell Index : %@",[[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue]];
+    _topConstraint.offset = [[(NSDictionary *)self.row.data objectForKey:@"title"] floatValue];
 }
 
 

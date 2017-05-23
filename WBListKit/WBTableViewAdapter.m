@@ -504,5 +504,16 @@
 
 @end
 
+@implementation WBTableViewAdapter (ReloadShortcut)
 
+- (void)reloadRowAtIndex:(NSIndexPath *)indexPath
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block{
+    WBTableSectionMaker *maker = [self sectionAtIndex:indexPath.section];
+    WBTableRow *row = maker.rowAtIndex(indexPath.row);
+    block(row);
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animationType];
+}
+
+@end
 
