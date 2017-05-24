@@ -38,6 +38,7 @@ public protocol WBListEmptyKitDataSource: class {
 }
 
 /// 提供一些默认实现
+///这个地方使用了协议扩展，所以暂时不支持OC混编
 public extension WBListEmptyKitDataSource{
     
     func emptyImage(for emptyView:UIView, in view: UIView ) -> UIImage?{

@@ -54,6 +54,9 @@
 		8F38D291A6A35A29B1447509 /* Pods_WBListKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8CBE0B799444E8D0182178 /* Pods_WBListKit_Tests.framework */; };
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
+		C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */; };
+		C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD51ED5547400D87C48 /* WBExpandingCell.m */; };
+		C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */; };
 		C28E6E031EC5B4F100846A66 /* WBSwiftEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */; };
 		C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */; };
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
@@ -156,6 +159,12 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDataSource.swift; sourceTree = "<group>"; };
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
+		C2411FD11ED5545500D87C48 /* WBExpandingCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellViewController.h; sourceTree = "<group>"; };
+		C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellViewController.m; sourceTree = "<group>"; };
+		C2411FD41ED5547400D87C48 /* WBExpandingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCell.h; sourceTree = "<group>"; };
+		C2411FD51ED5547400D87C48 /* WBExpandingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCell.m; sourceTree = "<group>"; };
+		C2411FD71ED5549900D87C48 /* WBExpandingCellReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellReformer.h; sourceTree = "<group>"; };
+		C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellReformer.m; sourceTree = "<group>"; };
 		C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftEmptyViewController.swift; sourceTree = "<group>"; };
 		C28E6E041EC5B50800846A66 /* WBOCEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOCEmptyViewController.h; sourceTree = "<group>"; };
 		C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOCEmptyViewController.m; sourceTree = "<group>"; };
@@ -359,6 +368,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				C2411FD01ED5543900D87C48 /* ExpandingCell */,
 				C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */,
 				C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */,
 				1ED1F5751E80FFAD00C0EF58 /* Demos Catalog */,
@@ -432,6 +442,19 @@
 			);
 			name = WBListEmptyViewKit;
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		C2411FD01ED5543900D87C48 /* ExpandingCell */ = {
+			isa = PBXGroup;
+			children = (
+				C2411FD11ED5545500D87C48 /* WBExpandingCellViewController.h */,
+				C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */,
+				C2411FD41ED5547400D87C48 /* WBExpandingCell.h */,
+				C2411FD51ED5547400D87C48 /* WBExpandingCell.m */,
+				C2411FD71ED5549900D87C48 /* WBExpandingCellReformer.h */,
+				C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */,
+			);
+			path = ExpandingCell;
 			sourceTree = "<group>";
 		};
 		C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */ = {
@@ -694,9 +717,12 @@
 				1E1A04FB1E96349800F4BDB8 /* WBCustomLayoutViewController.m in Sources */,
 				1EE2B4C71E9CDE0D003A58C6 /* WBWaterFallViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */,
+				C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
 				1ED1F5921E81252100C0EF58 /* WBReformerListCellReformer.m in Sources */,
 				1E3E89E61E94D6F1003C8CD2 /* WBNestedViewController.m in Sources */,
+				C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */,
 				1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */,
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,

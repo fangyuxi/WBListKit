@@ -24,7 +24,8 @@
 
 @protocol WBListActionToControllerProtocol <NSObject,
                                 UITableViewDelegate,
-                                UICollectionViewDelegateFlowLayout>
+                                UICollectionViewDelegateFlowLayout,
+                                UICollectionViewDelegate>
 @optional
 
 - (void)actionFromReusableView:(UIView *)view

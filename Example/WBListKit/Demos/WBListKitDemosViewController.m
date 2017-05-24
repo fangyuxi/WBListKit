@@ -22,6 +22,7 @@
 #import "WBCustomLayoutViewController.h"
 #import "WBWaterFallViewController.h"
 #import "WBOCEmptyViewController.h"
+#import "WBExpandingCellViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -79,6 +80,7 @@
 
 - (NSArray *)data{
     return @[@{@"title":@"Simple List",@"class":[WBSimpleListViewController class]},
+             @{@"title":@"Expanding Cell List",@"class":[WBExpandingCellViewController class]},
              @{@"title":@"Reformer List",@"class":[WBReformerListViewController class]},
              @{@"title":@"FooterHeader List",@"class":[WBListHeaderFooterViewController class]},
              @{@"title":@"MVC Demos",@"class":[WBMVCViewController class]},
