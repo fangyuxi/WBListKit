@@ -120,8 +120,8 @@
     return section.maker;
 }
 
-- (NSUInteger)indexOfSection:(WBTableSection *)section{
-    return [self.sections indexOfObject:section];
+- (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker{
+    return [self.sections indexOfObject:maker.section];
 }
 
 - (void)addSection:(void(^)(WBTableSectionMaker *maker))block{
@@ -513,6 +513,19 @@
     WBTableRow *row = maker.rowAtIndex(indexPath.row);
     block(row);
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animationType];
+}
+
+- (void)reloadRowAtIndex:(NSInteger )index
+    forSectionIdentifier:(NSString *)identifier
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block{
+    WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
+    NSInteger sectionIndex = [self indexOfSection:maker];
+    WBTableRow *row = maker.rowAtIndex(index);
+    block(row);
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index
+                                                                inSection:sectionIndex]]
+                          withRowAnimation:animationType];
 }
 
 @end

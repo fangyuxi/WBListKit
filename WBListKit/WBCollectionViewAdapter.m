@@ -120,8 +120,8 @@
     return section.maker;
 }
 
-- (NSUInteger)indexOfSection:(WBCollectionSection *)section{
-    return [self.sections indexOfObject:section];
+- (NSUInteger)indexOfSection:(WBCollectionSectionMaker *)maker{
+    return [self.sections indexOfObject:maker.section];
 }
 
 - (void)addSection:(void(^)(WBCollectionSectionMaker *maker))block{

@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param section 'section'
  @return index
  */
-- (NSUInteger)indexOfSection:(WBCollectionSection *)section;
+- (NSUInteger)indexOfSection:(WBCollectionSectionMaker *)maker;
 
 /**
  append section

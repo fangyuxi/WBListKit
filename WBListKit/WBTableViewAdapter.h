@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param section 'section'
  @return index
  */
-- (NSUInteger)indexOfSection:(WBTableSection *)section;
+- (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker;
 
 /**
  append section
@@ -112,6 +112,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WBTableViewAdapter (ReloadShortcut)
 
 - (void)reloadRowAtIndex:(NSIndexPath *)indexPath
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block;
+
+- (void)reloadRowAtIndex:(NSInteger )index
+    forSectionIdentifier:(NSString *)identifier
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block;
 
