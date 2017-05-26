@@ -14,7 +14,7 @@
 
 
 /**
-     如果获取的rawdata不能直接用于cell渲染，那么你需要一个转换器转换数据格式后提供给cell渲染
+     如果获取的rawdata不能直接用于cell渲染，或者需要一些额外的state，那么你需要一个转换器转换数据格式后提供给cell渲染
  
      WBTableRow *row = [[WBTableRow alloc] init];
      row.calculateHeight = ^CGFloat(WBTableRow *row){
@@ -31,7 +31,7 @@
      WBReformerListCellReformer mybe has some customized properties used by cell in 'update' method
  
      - (void)update{
-         WBReformerListCellReformer *reformer = (WBReformerListCellReformer *)self.row.data;
+         WBReformerListCellReformer *reformer = self.row.data;
          self.title.text = reformer.title;
          self.date.text = reformer.date;
      }
