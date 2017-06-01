@@ -32,6 +32,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     
+    
     self.adapter = [[WBTableViewAdapter alloc] init];
     [self.tableView bindAdapter:self.adapter];
     

@@ -83,12 +83,9 @@
 #pragma mark section operators
 
 - (WBCollectionSectionMaker *)sectionAtIndex:(NSUInteger)index{
-    
-    if (index >= self.sections.count)
-    {
+    if (index >= self.sections.count){
         return nil;
     }
-    
     WBCollectionSection *section = [self.sections objectAtIndex:index];
     if (!section.maker) {
         WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
@@ -103,8 +100,7 @@
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         WBCollectionSection *tmpSection = (WBCollectionSection *)obj;
-        if ([tmpSection.identifier isEqualToString:identifier])
-        {
+        if ([tmpSection.identifier isEqualToString:identifier]){
             section = tmpSection;
             BOOL b = true;
             stop = &b;
@@ -129,13 +125,10 @@
 }
 
 - (void)insertSection:(void(^)(WBCollectionSectionMaker *maker))block
-              atIndex:(NSUInteger)index
-{
-    if (index > self.sections.count)
-    {
+              atIndex:(NSUInteger)index{
+    if (index > self.sections.count){
         return;
     }
-    
     WBCollectionSection *section = [[WBCollectionSection alloc] init];
     WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
     section.maker = maker;
@@ -144,14 +137,12 @@
 }
 
 - (void)updateSection:(WBCollectionSection *)section
-             useMaker:(void(^)(WBCollectionSectionMaker *maker))block
-{
+             useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
     block(section.maker);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
-                    useMaker:(void(^)(WBCollectionSectionMaker *maker))block
-{
+                    useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
     WBCollectionSectionMaker *maker = [self sectionAtIndex:index];
     if (maker.section) {
         [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
@@ -161,8 +152,7 @@
 }
 
 - (void)updateSectionForIdentifier:(NSString *)identifier
-                          useMaker:(void(^)(WBCollectionSectionMaker *maker))block
-{
+                          useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
     WBCollectionSectionMaker *maker = [self sectionForIdentifier:identifier];
     if (maker.section) {
         [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {

@@ -13,8 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fangyuxi/WBListKit.git",
-    "commit": "c081664aadc274b0022c74c85d42fd38c049e67b",
-    "submodules": true
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "7.0"

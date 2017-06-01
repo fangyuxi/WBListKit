@@ -83,12 +83,9 @@
 #pragma mark section operators
 
 - (WBTableSectionMaker *)sectionAtIndex:(NSUInteger)index{
-    
-    if (index >= self.sections.count)
-    {
+    if (index >= self.sections.count){
         return nil;
     }
-    
     WBTableSection *section = [self.sections objectAtIndex:index];
     if (!section.maker) {
         WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
@@ -103,8 +100,7 @@
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        
         WBTableSection *tmpSection = (WBTableSection *)obj;
-        if ([tmpSection.identifier isEqualToString:identifier])
-        {
+        if ([tmpSection.identifier isEqualToString:identifier]){
             section = tmpSection;
             BOOL b = true;
             stop = &b;
@@ -144,14 +140,12 @@
 }
 
 - (void)updateSection:(WBTableSection *)section
-            useMaker:(void(^)(WBTableSectionMaker *maker))block
-{
+            useMaker:(void(^)(WBTableSectionMaker *maker))block{
     block(section.maker);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
-                   useMaker:(void(^)(WBTableSectionMaker *maker))block
-{
+                   useMaker:(void(^)(WBTableSectionMaker *maker))block{
     WBTableSectionMaker *maker = [self sectionAtIndex:index];
     if (maker.section) {
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
@@ -161,8 +155,7 @@
 }
 
 - (void)updateSectionForIdentifier:(NSString *)identifier
-                           useMaker:(void(^)(WBTableSectionMaker *maker))block
-{
+                           useMaker:(void(^)(WBTableSectionMaker *maker))block{
     WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
     if (maker.section) {
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
