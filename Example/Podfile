@@ -4,6 +4,7 @@ platform :ios, '8.0'
 target 'WBListKit_Example' do
   pod 'WBListKit', :path => '../'
   pod 'Masonry'
+  pod 'MJRefresh'
   target 'WBListKit_Tests' do
     inherit! :search_paths
 

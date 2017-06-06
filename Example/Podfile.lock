@@ -9,7 +9,6 @@ PODS:
   - WBListKit/CollectionView (0.4):
     - UITableView+FDTemplateLayoutCell
   - WBListKit/DataSource (0.4):
-    - MJRefresh
     - WBListKit/CollectionView
     - WBListKit/TableView
   - WBListKit/TableView (0.4):
@@ -17,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - Masonry
+  - MJRefresh
   - WBListKit (from `../`)
 
 EXTERNAL SOURCES:
@@ -27,8 +27,8 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
-  WBListKit: 43aefb9453f0141a90d786120da3becf00313c62
+  WBListKit: e5ef104f93b651d4ff22a2cf5c644dd8cd97c7d9
 
-PODFILE CHECKSUM: c1054f61cea51bd7b2b101fe9f36eda7633baf69
+PODFILE CHECKSUM: f818af41439681cfa958c0f9fd02e9e605b007f5
 
 COCOAPODS: 1.2.1

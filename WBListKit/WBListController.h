@@ -10,7 +10,8 @@
 #import "WBTableViewDataSource.h"
 #import "WBCollectionViewDataSource.h"
 #import "WBListDataSourceDelegate.h"
-#import "MJRefresh/MJRefresh.h"
+#import "WBListRefreshHeaderViewProtocol.h"
+#import "WBListRefreshFooterViewProtocol.h"
 
 // 可以理解为一个UIViewController的代理对象，避免了业务方需要继承一个基类控制器
 
@@ -49,8 +50,8 @@
  暂时不支持脱离MJRefresh使用，如果有自己已经定义的header，可以考虑继承一个
  MJRefreshHeaderFooter，将已经实现好的header贴到MJ中
  */
-@property (nonatomic, strong, nullable) MJRefreshHeader *refreshHeaderView;
-@property (nonatomic, strong, nullable) MJRefreshFooter *loadMoreFooterView;
+@property (nonatomic, strong, nullable) id<WBListRefreshHeaderViewProtocol> refreshHeaderView;
+@property (nonatomic, strong, nullable) id<WBListRefreshFooterViewProtocol> loadMoreFooterView;
 
 /**
  refresh

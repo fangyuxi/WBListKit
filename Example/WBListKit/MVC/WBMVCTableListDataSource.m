@@ -57,7 +57,7 @@
     
     //此处可以是网络层代码,也可是本地数据
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
             //追加数据 所以是update
@@ -77,7 +77,7 @@
                     row.data = reformer;
                     maker.addRow(row);
                 }
-                if (maker.rowCount > 20) {
+                if (maker.rowCount > 30) {
                     self.canLoadMore = NO;
                 }else{
                     self.canLoadMore = YES;

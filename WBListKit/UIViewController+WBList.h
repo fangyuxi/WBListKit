@@ -10,7 +10,6 @@
 #import "WBListDataSource.h"
 #import "WBListDataSourceDelegate.h"
 #import "WBListController.h"
-#import "MJRefresh/MJRefresh.h"
 
 @interface UIViewController(WBList)<WBListDataSourceDelegate>
 

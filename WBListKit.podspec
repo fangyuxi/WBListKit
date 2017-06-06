@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.frameworks = 'UIKit'
 
-    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h'
-    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol}.h'
+    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
+    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
 
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
@@ -59,7 +59,6 @@ Pod::Spec.new do |s|
                             'WBListKit/WBTableViewDataSourcePrivate.h',
                             'WBListKit/WBCollectionViewDataSourcePrivate.h'
         d.public_header_files = 'WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate,WBCollectionViewDataSourcePrivate}.h'
-        d.dependency 'MJRefresh'
         d.dependency 'WBListKit/CollectionView'
         d.dependency 'WBListKit/TableView'
     end

@@ -20,8 +20,8 @@
   },
   "requires_arc": true,
   "frameworks": "UIKit",
-  "source_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol}.h",
-  "public_header_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol}.h",
+  "source_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h",
+  "public_header_files": "WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h",
   "subspecs": [
     {
       "name": "TableView",
@@ -83,9 +83,6 @@
       ],
       "public_header_files": "WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate,WBCollectionViewDataSourcePrivate}.h",
       "dependencies": {
-        "MJRefresh": [
-
-        ],
         "WBListKit/CollectionView": [
 
         ],

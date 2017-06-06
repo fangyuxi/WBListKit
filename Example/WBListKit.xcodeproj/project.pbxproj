@@ -54,6 +54,7 @@
 		8F38D291A6A35A29B1447509 /* Pods_WBListKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8CBE0B799444E8D0182178 /* Pods_WBListKit_Tests.framework */; };
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
+		C20ACE191EE69BE50054E843 /* WBMVCRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C20ACE181EE69BE50054E843 /* WBMVCRefreshHeader.m */; };
 		C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */; };
 		C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD51ED5547400D87C48 /* WBExpandingCell.m */; };
 		C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */; };
@@ -62,6 +63,7 @@
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
 		C2CC21BB1EC313D4007E6600 /* WBListEmptyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */; };
 		C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */; };
+		C2FEAB381EE69EF3005BC9F3 /* WBMVCRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FEAB371EE69EF3005BC9F3 /* WBMVCRefreshFooter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,8 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDataSource.swift; sourceTree = "<group>"; };
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
+		C20ACE171EE69BE50054E843 /* WBMVCRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMVCRefreshHeader.h; sourceTree = "<group>"; };
+		C20ACE181EE69BE50054E843 /* WBMVCRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCRefreshHeader.m; sourceTree = "<group>"; };
 		C2411FD11ED5545500D87C48 /* WBExpandingCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellViewController.h; sourceTree = "<group>"; };
 		C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellViewController.m; sourceTree = "<group>"; };
 		C2411FD41ED5547400D87C48 /* WBExpandingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCell.h; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitNameSpace.swift; sourceTree = "<group>"; };
 		C2CC21BA1EC313D4007E6600 /* WBListEmptyKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKit.swift; sourceTree = "<group>"; };
 		C2CC21BC1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitEmptyView.swift; sourceTree = "<group>"; };
+		C2FEAB361EE69EF3005BC9F3 /* WBMVCRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMVCRefreshFooter.h; sourceTree = "<group>"; };
+		C2FEAB371EE69EF3005BC9F3 /* WBMVCRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCRefreshFooter.m; sourceTree = "<group>"; };
 		E0E7AE40CECE50A361CB12DC /* Pods-WBListKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Example/Pods-WBListKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EA526BE8203C1AE100B80AAA /* WBListKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WBListKit.podspec; path = ../WBListKit.podspec; sourceTree = "<group>"; };
 		F178E417C75900A9BFEDDA43 /* Pods-WBListKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBListKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBListKit_Example/Pods-WBListKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 				1E4DD0271E84EC81001C02AD /* WBMVCTableListDataSource.m */,
 				1E4DD0281E84EC81001C02AD /* WBMVCViewController.h */,
 				1E4DD0291E84EC81001C02AD /* WBMVCViewController.m */,
+				C20ACE171EE69BE50054E843 /* WBMVCRefreshHeader.h */,
+				C20ACE181EE69BE50054E843 /* WBMVCRefreshHeader.m */,
+				C2FEAB361EE69EF3005BC9F3 /* WBMVCRefreshFooter.h */,
+				C2FEAB371EE69EF3005BC9F3 /* WBMVCRefreshFooter.m */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -708,6 +718,7 @@
 				1E1A04FE1E96360400F4BDB8 /* WBCustomSeparatorView.m in Sources */,
 				C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */,
 				1ED1F58C1E8124F500C0EF58 /* WBReformerListViewController.m in Sources */,
+				C2FEAB381EE69EF3005BC9F3 /* WBMVCRefreshFooter.m in Sources */,
 				C2CC21BB1EC313D4007E6600 /* WBListEmptyKit.swift in Sources */,
 				1E3E89D11E8FBE1A003C8CD2 /* WBCollectionViewController.m in Sources */,
 				1EE3D7841E8B8A4B006D4B66 /* WBRightTableSource.m in Sources */,
@@ -720,6 +731,7 @@
 				C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */,
 				C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
+				C20ACE191EE69BE50054E843 /* WBMVCRefreshHeader.m in Sources */,
 				1ED1F5921E81252100C0EF58 /* WBReformerListCellReformer.m in Sources */,
 				1E3E89E61E94D6F1003C8CD2 /* WBNestedViewController.m in Sources */,
 				C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */,

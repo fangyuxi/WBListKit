@@ -9,6 +9,8 @@
 #import "WBMVCViewController.h"
 #import "WBListKit.h"
 #import "WBMVCTableListDataSource.h"
+#import "WBMVCRefreshHeader.h"
+#import "WBMVCRefreshFooter.h"
 
 @interface WBMVCViewController ()<WBListActionToControllerProtocol>
 
@@ -29,13 +31,13 @@
 }
 
 - (void)createView{
-    MJRefreshStateHeader *header = [[MJRefreshStateHeader alloc] init];
+    WBMVCRefreshHeader *header = [[WBMVCRefreshHeader alloc] init];
     self.list.refreshHeaderView = header;
     
     self.list.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.list.tableView];
     
-    MJRefreshAutoFooter *footer = [[MJRefreshAutoFooter alloc] init];
+    WBMVCRefreshFooter *footer = [[WBMVCRefreshFooter alloc] init];
     self.list.loadMoreFooterView = footer;
 }
 

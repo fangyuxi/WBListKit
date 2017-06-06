@@ -7,8 +7,9 @@
 //
 
 #import "WBListController.h"
+#import "WBListRefreshControlCallbackProtocol.h"
 
-@interface WBListController ()
+@interface WBListController ()<WBListRefreshControlCallbackProtocol>
 
 @property (nonatomic, strong, nullable, readwrite) UIViewController *viewController;
 
@@ -24,26 +25,14 @@
 
 #pragma mark setters
 
-- (void)setRefreshHeaderView:(MJRefreshHeader *)refreshHeaderView{
+- (void)setRefreshHeaderView:(id<WBListRefreshHeaderViewProtocol>)refreshHeaderView{
     _refreshHeaderView = refreshHeaderView;
-    [[self getCurrentView] setMj_header:refreshHeaderView];
-    if (!refreshHeaderView.refreshingTarget) {
-        refreshHeaderView.refreshingTarget = self;
-    }
-    if (!refreshHeaderView.refreshingAction) {
-        refreshHeaderView.refreshingAction = @selector(refreshViewBeginRefreshing);
-    }
+    [_refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
 }
 
-- (void)setLoadMoreFooterView:(MJRefreshFooter *)loadMoreFooterView{
+- (void)setLoadMoreFooterView:(id<WBListRefreshFooterViewProtocol>)loadMoreFooterView{
     _loadMoreFooterView = loadMoreFooterView;
-    [[self getCurrentView] setMj_footer:loadMoreFooterView];
-    if (!loadMoreFooterView.refreshingTarget) {
-        loadMoreFooterView.refreshingTarget = self;
-    }
-    if (!loadMoreFooterView.refreshingAction) {
-        loadMoreFooterView.refreshingAction = @selector(refreshViewBeginLoadMore);
-    }
+    [_loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
 }
 
 - (void)setTableView:(UITableView *)tableView{
@@ -52,10 +41,10 @@
     }
     _tableView = tableView;
     if (self.refreshHeaderView) {
-        [_tableView setMj_header:self.refreshHeaderView];
+        [self.refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
     }
     if (self.loadMoreFooterView) {
-        [_tableView setMj_footer:self.loadMoreFooterView];
+        [self.loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
     }
 }
 
@@ -65,62 +54,72 @@
     }
     _collectionView = collectionView;
     if (self.refreshHeaderView) {
-        [_collectionView setMj_header:self.refreshHeaderView];
+        [self.refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
     }
     if (self.loadMoreFooterView) {
-        [_collectionView setMj_footer:self.loadMoreFooterView];
+        [self.loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
     }
 }
 
 #pragma mark MJRefresh CallBack
 
-- (void)refreshViewBeginRefreshing{
+- (void)refreshControlBeginRefreshing{
     [[self getCurrentSource] loadSource];
 }
 
-- (void)refreshViewBeginLoadMore{
+- (void)refreshControlBeginLoadMore{
     [[self getCurrentSource] loadMoreSource];
 }
 
 #pragma mark controller refresh source
 
 - (void)dragToRefresh{
-    [[self getCurrentView].mj_header beginRefreshing];
+    //[[self getCurrentView].mj_header beginRefreshing];
+    [self.refreshHeaderView begin];
 }
 
 - (void)refreshImmediately{
-    [self refreshViewBeginRefreshing];
+    [self refreshControlBeginRefreshing];
 }
 
 #pragma mark dataSource delegate
 
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
     //下拉刷新的时候禁止上拉
-    [self getCurrentView].mj_footer = nil;
+    //[self getCurrentView].mj_footer = nil;
+    [self.loadMoreFooterView disable];
 }
 
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
-    [[self getCurrentView].mj_header endRefreshing];
+    [self.refreshHeaderView end];
+    //[[self getCurrentView].mj_header endRefreshing];
     [self toggleFooterMoreDataState];
     [(UITableView *)[self getCurrentView] reloadData];
 }
 
 - (void)sourceDidStartLoadMore:(WBListDataSource *)tableSource{
+    [self.refreshHeaderView disable];
 }
 
 - (void)sourceDidFinishLoadMore:(WBListDataSource *)tableSource{
-    [[self getCurrentView].mj_footer endRefreshing];
+    //[[self getCurrentView].mj_footer endRefreshing];
+    [self.loadMoreFooterView end];
+    if (self.refreshHeaderView) {
+        [self.refreshHeaderView enable];
+    }
     [self toggleFooterMoreDataState];
     [(UITableView *)[self getCurrentView] reloadData];
 }
 
 - (void)source:(WBListDataSource *)tableSource loadError:(NSError *)error{
-    [[self getCurrentView].mj_header endRefreshing];
+    //[[self getCurrentView].mj_header endRefreshing];
+    [self.refreshHeaderView end];
     [self toggleFooterMoreDataState];
 }
 
 - (void)source:(WBListDataSource *)tableSource loadMoreError:(NSError *)error{
-    [[self getCurrentView].mj_footer endRefreshing];
+    //[[self getCurrentView].mj_footer endRefreshing];
+    [self.loadMoreFooterView end];
     [self toggleFooterMoreDataState];
 }
 
@@ -133,10 +132,10 @@
 - (void)toggleFooterMoreDataState{
     if (self.loadMoreFooterView) {
         if ([self getCurrentSource].canLoadMore) {
-            self.loadMoreFooterView = self.loadMoreFooterView;
-            [self.loadMoreFooterView resetNoMoreData];
+            [self.loadMoreFooterView enable];
+            [self.loadMoreFooterView resetToNormalState];
         }else{
-            [self.loadMoreFooterView endRefreshingWithNoMoreData];
+            [self.loadMoreFooterView endWithNoMoreDataState];
         }
     }
 }
