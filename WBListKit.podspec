@@ -55,6 +55,7 @@ Pod::Spec.new do |s|
                             'WBListKit/WBCollectionViewDataSource.{h,m}',
                             'WBListKit/WBListController.{h,m}',
                             'WBListKit/UIViewController+WBList.{h,m}',
+                            'WBListKit/WBMustOverride.{h,m}',
                             'WBListKit/WBListDataSourceDelegate.h',
                             'WBListKit/WBTableViewDataSourcePrivate.h',
                             'WBListKit/WBCollectionViewDataSourcePrivate.h'

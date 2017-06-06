@@ -41,7 +41,10 @@
     self.list.loadMoreFooterView = footer;
 }
 
+
+/** 如果想使用代理，那么必须调用super **/
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
+    [super sourceDidStartLoad:tableSource];
 }
 
 - (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{

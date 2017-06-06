@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  get index of section
  
- @param section 'section'
+ @param maker 'sectionMaker'
  @return index
  */
 - (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker;

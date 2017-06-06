@@ -74,7 +74,6 @@
 #pragma mark controller refresh source
 
 - (void)dragToRefresh{
-    //[[self getCurrentView].mj_header beginRefreshing];
     [self.refreshHeaderView begin];
 }
 
@@ -86,13 +85,11 @@
 
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
     //下拉刷新的时候禁止上拉
-    //[self getCurrentView].mj_footer = nil;
     [self.loadMoreFooterView disable];
 }
 
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
     [self.refreshHeaderView end];
-    //[[self getCurrentView].mj_header endRefreshing];
     [self toggleFooterMoreDataState];
     [(UITableView *)[self getCurrentView] reloadData];
 }
@@ -112,13 +109,11 @@
 }
 
 - (void)source:(WBListDataSource *)tableSource loadError:(NSError *)error{
-    //[[self getCurrentView].mj_header endRefreshing];
     [self.refreshHeaderView end];
     [self toggleFooterMoreDataState];
 }
 
 - (void)source:(WBListDataSource *)tableSource loadMoreError:(NSError *)error{
-    //[[self getCurrentView].mj_footer endRefreshing];
     [self.loadMoreFooterView end];
     [self toggleFooterMoreDataState];
 }

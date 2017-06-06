@@ -8,6 +8,7 @@
 
 #import "WBListDataSource.h"
 #import "UIViewController+WBList.h"
+#import "WBMustOverride.h"
 
 @interface WBListDataSource ()<WBListActionToControllerProtocol>
 @property (nonatomic, weak, nullable, readwrite) id<WBListDataSourceDelegate> delegate;
@@ -35,7 +36,7 @@
 #pragma mark list
 
 - (void)loadSource{
-    NSAssert(NO, @"subclass must implementation loadSource in WBListDataSource");
+    WB_SUBCLASS_MUST_OVERRIDE;
     return;
 }
 
