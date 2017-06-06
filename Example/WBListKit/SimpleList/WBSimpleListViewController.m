@@ -50,8 +50,10 @@
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row).setIdentifier(@"FixedHeight");
+            maker.addRow(row);
         }
+        
+        maker.setIdentifier(@"FixedHeight");
     }];
     
     [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
