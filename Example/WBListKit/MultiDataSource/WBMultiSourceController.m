@@ -9,6 +9,7 @@
 #import "WBMultiSourceController.h"
 #import "WBLeftTableSource.h"
 #import "WBRightTableSource.h"
+#import "WBMVCRefreshHeader.h"
 
 @interface WBMultiSourceController ()<WBListActionToControllerProtocol>
 
@@ -36,7 +37,7 @@
     [self.view addSubview:self.tableView];
     
     //header
-    MJRefreshStateHeader *header = [[MJRefreshStateHeader alloc] init];
+    WBMVCRefreshHeader *header = [[WBMVCRefreshHeader alloc] init];
     
     self.list.refreshHeaderView = header;
     self.list.tableView = self.tableView;
