@@ -63,9 +63,32 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 
 ### (Tag3) 那么什么是数据驱动的View
 iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `UITableViewFooter&Header` `UICollectionViewSupplementary` <br>
-这些视图的很多行为相同，比如update,reset,reload,cancel,框架会在合适的时机回调这些方法，业务方只需要在这些方法做相应的事情就可以（大家的代码又一样了）所以就有了这个协议 `WBListReusableViewProtocol` 所以 `WBTableCellProtocal` `WBTableHeaderFooterViewProtocal` 都是 `WBListReusableViewProtocol` 的子协议 <br>
+这些视图的很多行为相同，比如update,reset,reload,cancel,框架会在合适的时机回调这些方法，业务方只需要在这些方法做相应的事情就可以（大家的代码又一样了）所以就有了这个协议 `WBListReusableViewProtocol` 所以 `WBTableCellProtocal` `WBTableHeaderFooterViewProtocal` 都是 `WBListReusableViewProtocol` 的子协议, `WBTableCellProtocal`中有row属性，`WBTableHeaderFooterViewProtocal`中有headerfooter属性，这样所有的cell和footerheader都有了row模型<br>
 同时这些View还存在向外部抛出事件的需求，那么所有遵循 `WBListActionToControllerProtocol` 的对象都可以接受抛出事件的回调，大部分来讲这个对象是控制器<br>
-这样所有的事件都有迹可循，每个人写的代码都八九不离十。 `WBListActionToControllerProtocol` 同时也继承了 `UITableViewDelegate`协议，结果所有事件都可以通过一个代理搞定
+这样所有的事件都有迹可循，每个人写的代码都八九不离十。 `WBListActionToControllerProtocol` 同时也继承了 `UITableViewDelegate`协议，结果所有事件都可以通过一个代理搞定,这个协议如下：<br>
+
+```C
+/**
+ 比如Cell中有一个button，需要到Controller中发送网络请求，那么代码如下：
+ 'button.action = ^(){
+     [self.actionDelegate actionFromView:self withEventTag:@"youreventtage" withParameterObject:self.row];
+ };'
+ 
+ actionDelegate是WBListReusableViewProtocol中的一个可选属性，业务方可以合成这个属性，将事件分发出去
+*/
+
+@protocol WBListActionToControllerProtocol <NSObject,
+                                UITableViewDelegate,
+                                UICollectionViewDelegateFlowLayout,
+                                UICollectionViewDelegate>
+@optional
+
+- (void)actionFromReusableView:(UIView *)view
+                      eventTag:(NSString *)tag
+                     parameter:(id)param;
+
+@end
+```
 
 ### WBTableViewAdapter
 
