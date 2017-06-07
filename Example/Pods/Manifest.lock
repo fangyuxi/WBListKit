@@ -1,4 +1,5 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
   - UITableView+FDTemplateLayoutCell (1.6)
@@ -15,6 +16,7 @@ PODS:
     - UITableView+FDTemplateLayoutCell
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - Masonry
   - MJRefresh
   - WBListKit (from `../`)
@@ -24,11 +26,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WBListKit: 1db5209a41b3b1f89157bdec8ee65062ec12c30c
 
-PODFILE CHECKSUM: f818af41439681cfa958c0f9fd02e9e605b007f5
+PODFILE CHECKSUM: 85c51a1f67394d8d50e9e4bce206a2be489b0158
 
 COCOAPODS: 1.2.1

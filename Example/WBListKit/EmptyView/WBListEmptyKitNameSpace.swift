@@ -13,11 +13,13 @@ import UIKit
 
 //https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID136
 
+//OC版本的替代品
+
+//https://github.com/dzenbot/DZNEmptyDataSet
+
 public final class WBListEmptyKitNameSpace<Parent:NSObject>{
     public unowned let parent: Parent;
     public init(parent:Parent) {
         self.parent = parent;
     }
 }
-
-

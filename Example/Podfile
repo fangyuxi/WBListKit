@@ -5,6 +5,7 @@ target 'WBListKit_Example' do
   pod 'WBListKit', :path => '../'
   pod 'Masonry'
   pod 'MJRefresh'
+  pod 'DZNEmptyDataSet'
   target 'WBListKit_Tests' do
     inherit! :search_paths
 
