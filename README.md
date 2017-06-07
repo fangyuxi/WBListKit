@@ -46,7 +46,7 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 ### WBTableRow
 `WBTableRow` 代表了一行,同时充当了`UITableViewCell`的模型，主要完成以下工作<br>
 * 通过属性`associatedCellClass` 关联一个已经实现了`WBTableCellProtocol` 协议的`UITableViewCell`对象（同时支持NIB）
-* 可以配置这个`Cell`是使用自动布局的方式确定高度还是使用Frame方式
+* 可以配置这个`Cell`是使用自动布局的方式[确定高度](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)还是使用Frame方式
 * 框架除了会帮你通过`IndexPath`确定`Cell`的具体位置之外,还会根据具体位置抽象出一个`WBTableRowPosition`,帮你确定`Cell`具体是`Top`,`Bottom`,`Middle`,`Single`,这样对于一些要根据`Cell`具体位置布局UI的情况就很方便了很多
 * 提供一个`data`属性,为`Cell`提供真正的数据源,`data`对象到底是什么类型,下面再讨论（这样的好处就在于不用为每一种类型的`Cell`都创建一种Row类型）
 
@@ -59,7 +59,7 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 ### WBTableSectionHeaderFooter
 * `WBTableSectionHeaderFooter`类似于`WBTableRow`,都是给数据驱动的View(Tag3)提供模型
 * 通过属性`associatedHeaderFooterClass`关联一个已经实现了`WBTableHeaderFooterViewProtocal`协议的`UITableViewReusebleView`对象（同时支持NIB）
-* 可以配置这个`WBTableSectionHeaderFooter`是使用自动布局的方式确定高度还是使用Frame方式
+* 可以配置这个`WBTableSectionHeaderFooter`是使用自动布局的方式[确定高度](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)还是使用Frame方式
 
 ### (Tag3) 那么什么是数据驱动的View
 iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `UITableViewFooter&Header` `UICollectionViewSupplementary` <br>
@@ -69,7 +69,7 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
 
 ### WBTableViewAdapter
 
-* 实现了 `UITableView` 的所有数据源和大部分代理方法，而且通过拦截者方式，所以这些代理对业务方完全透明
+* 实现了 `UITableView` 的所有数据源和大部分代理方法，而且通过[拦截者](https://github.com/facebook/AsyncDisplayKit/blob/7b112a2dcd0391ddf3671f9dcb63521f554b78bd/AsyncDisplayKit/ASCollectionView.mm#L34-L53)方式，所以这些代理对业务方完全透明
 * 自动注册 `UITableViewCell` `UICollectionViewCell` `UITableViewFooter&Header` `UICollectionViewSupplementary`
 * 通过updateSection,addSection,deleteSection等操作给View装配数据,上代码：
 
@@ -191,4 +191,5 @@ Cell中代码：
 }
 ```
 
-
+### (Tag3) 下面解决数据从哪里来的问题
+从上面我们可以看出来,Adapter其实只是一个数据的装配器，`UITableView`的Adapter装配适合`UITableView`的数据，`UICollectionView`的Adapter装配适合`UICollectionView`的数据，它并不关心数据从哪里来的问题。
