@@ -64,14 +64,17 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `UITableViewFooter&Header` `UICollectionViewSupplementary` <br>
 这些视图的很多行为相同，比如update,reset,reload,cancel,框架会在合适的时机回调这些方法，业务方只需要在这些方法做相应的事情就可以（大家的代码又一样了）所以就有了这个协议 `WBListReusableViewProtocol` 那么 `WBTableCellProtocal` `WBTableHeaderFooterViewProtocal` 都是 `WBListReusableViewProtocol` 的子协议 <br>
 同时这些View还存在向外部抛出事件的需求，那么所以遵循 `WBListActionToControllerProtocol` 的对象都可以接受抛出事件的回调，大部分来讲这个对象是控制器<br>
-这样所有的事件都有迹可循，每个人写的代码都八九不离十。
+这样所有的事件都有迹可循，每个人写的代码都八九不离十。 `WBListActionToControllerProtocol` 同时也继承了 `UITableViewDelegate`协议，结果所有时间都可以通过一个代理搞定
 
-### (Tag3) WBTableViewAdapter
+### WBTableViewAdapter
 
 * 实现了 `UITableView` 的所有数据源和大部分代理方法，而且通过拦截者方式，所以这些代理对业务方完全透明
+* 自动注册
 * 通过updateSection,addSection,deleteSection等操作给View装配数据,上代码：
 
 ```c
+self.adapter = [[WBTableViewAdapter alloc] init];
+self.tableView bindAdapter:self.adapter];
 [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
         
         for (NSInteger index = 0; index < 5; ++index) {
@@ -87,5 +90,109 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
         
         maker.setIdentifier(@"FixedHeight");
     }];
+Cell中的代码
+
+@implementation WBSimpleListCell
+
+@synthesize row = _row;
+
+- (void)makeLayout{
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.contentView);
+    }];
+}
+
+- (void)update{
+    self.label.text = [NSString stringWithFormat:@"SimpleList self manage height Cell Index : %@",[[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue]];
+}
+
+@end
+
+
 ```
+
+### (Tag2) 我们给Cell提供什么样的数据
+第一种方式，不论什么情况下，直接将网络请求或者本地加载的数据，用原始类型(NSDictionary,NSArray...)提供给row的data属性，在cell的update方法中直接访问原始类型<br>
+这种方式很好，不会造成类爆炸，可以在调试的时候直接打印，很直观，但是并不完美，如果一个cell有自己的状态，比如是否选中，比如是否在播放中，是否浏览过，这些状态如果我们也追加到原始类型中,就会出现表意不明，如果没有定义好足够明确的key，那么后期维护是很恐怖的。即便强制要求代码规范，但是项目是在生长的，很难讲什么时候走偏。<br>
+第二种方式是通过映射(MJExtension,YYModel)等的方式将网络返回的原始数据转换（不讨论转换代码的位置，只讨论交付的数据）成Model交付给Cell,这样就解决了上面的问题，但是坏处也是显而易见的，会造成类爆炸，即便是简单的表单提交页面，也会写出很多Model。
+
+针对上述问题，框架提供了一个协议 `WBListDataReformerProtocol` 协议长这个样子：
+
+```c
+@protocol WBListDataReformerProtocol <NSObject>
+
+- (void)reformRawData:(id)data forRow:(WBTableRow *)row;
+
+@optional
+@property (nonatomic, strong) id rawData;
+
+@end
+```
+对于没有状态的Cell，使用原始数据类型表征就很清楚了，可以直接将原始类型扔给Cell用。<br>
+对于带有自由状态，或者显示的一种内容需要多种数据组装，或者需要原始数据转化后才能显示的需求，创建一个遵循这个协议的对象，定义对象属性，提供给Cell使用，代码如下:<br>
+
+装配代码:<br>
+```C
+[self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+        
+        for (NSInteger index = 0; index < 5; ++index) {
+            WBTableRow *row = [[WBTableRow alloc] init];
+            row.calculateHeight = ^CGFloat(WBTableRow *row){
+                return 60.0f;
+            };
+            row.associatedCellClass = [WBReformerListCell class];
+            WBReformerListCellReformer *reformer = [WBReformerListCellReformer new];
+            [reformer reformRawData:@{@"title":@(index),
+                                      @"date":[NSDate new]
+                                      } forRow:row];
+            row.data = reformer;
+            maker.addRow(row);
+        }
+    }];
+```
+Reformer<br>
+```C
+@interface WBReformerListCellReformer : NSObject<WBListDataReformerProtocol>
+
+@property (nonatomic, copy, readonly) NSString *title;
+@property (nonatomic, copy, readonly) NSString *date;
+
+@end
+
+@interface WBReformerListCellReformer ()
+
+@property (nonatomic, copy, readwrite) NSString *title;
+@property (nonatomic, copy, readwrite) NSString *date;
+
+@end
+
+@implementation WBReformerListCellReformer
+
+@synthesize rawData = _rawData;
+
+- (void)reformRawData:(id)data forRow:(WBTableRow *)row{
+    
+    if (![data isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    self.rawData = data;
+    self.title = [[data objectForKey:@"title"] stringValue];
+    NSDate *date = [data objectForKey:@"date"];
+    self.date = [date description];
+}
+
+@end
+```
+
+Cell中代码：
+
+```C
+- (void)update{
+    WBReformerListCellReformer *reformer = (WBReformerListCellReformer *)self.row.data;
+    self.title.text = reformer.title;
+    self.date.text = reformer.date;
+}
+```
+
 
