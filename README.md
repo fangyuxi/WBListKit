@@ -36,7 +36,7 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 
 ## 设计思路
 
-**注意:** 只介绍针对`UITableView`的实现方式，`UICollectionView`的实现大体相似，后续只介绍不同的地方
+**注意:** 只介绍针对`UITableView`的实现方式,`UICollectionView`的实现大体相似，后续只介绍不同的地方
 
 
 针对`UITableView`的每一行，抽象成对象`WBTableRow`，针对`UITableView`的每一个section，抽象成`WBTableSection`对象，将Header和Footer抽象成`WBTableSectionHeaderFooter`对象<br>
@@ -49,7 +49,7 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 `WBTableRow`代表了一行，同时充当了`UITableViewCell`的模型，主要完成以下工作<br>
 * 通过属性`associatedCellClass`关联一个已经实现了`WBTableCellProtocal`协议的`UITableViewCell`对象（同时支持NIB）
 * 可以配置这个`Cell`是使用自动布局的方式确定高度还是使用Frame方式布局
-* 框架除了会帮你通过`IndexPath`确定`Cell`的具体位置之外，还会根据具体位置抽象出一个`WBTableRowPosition`,帮你确定`Cell`具体是`Top`,`Bottom`,`Middle`,`Single`<br>这样对于一些要根据`Cell`具体位置布局UI的情况就很方便了
+* 框架除了会帮你通过`IndexPath`确定`Cell`的具体位置之外，还会根据具体位置抽象出一个`WBTableRowPosition`,帮你确定`Cell`具体是`Top`,`Bottom`,`Middle`,`Single`这样对于一些要根据`Cell`具体位置布局UI的情况就很方便了
 * 提供一个`data`属性，为`Cell`提供真正的数据源，`data`对象到底是什么类型，下面再讨论
 
 ### WBTableSection WBTableSectionMaker
