@@ -14,6 +14,9 @@
 
 @synthesize tableViewAdapter = _tableViewAdapter;
 
+- (void)loadSource{
+}
+
 - (void)bindTableView:(nullable UITableView *)tableView{
     [self.tableViewAdapter unBindTableView];
     self.tableView = tableView;

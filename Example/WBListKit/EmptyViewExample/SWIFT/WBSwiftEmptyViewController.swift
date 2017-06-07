@@ -76,6 +76,9 @@ extension WBSwiftEmptyViewController : WBListActionToControllerProtocol{
 
 extension WBSwiftEmptyViewController : WBListEmptyKitDataSource{
     
+    /// 可以在这些方法中通过ViewSource的delegate方法中拿到error code 根据error code 
+    /// 返回特定的view
+    
     // you can try
 //    func ignoredSectionsNumber(in view: UIView) -> [Int]? {
 //        return [0]

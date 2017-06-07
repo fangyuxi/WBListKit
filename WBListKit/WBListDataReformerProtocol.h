@@ -20,11 +20,10 @@
      row.calculateHeight = ^CGFloat(WBTableRow *row){
      return 60.0f;
      };
+     NSDictionary *rawData = @{@"title":@(index),@"date":[NSDate new]};
      row.associatedCellClass = [WBReformerListCell class];
      WBReformerListCellReformer *reformer = [WBReformerListCellReformer new];
-     [reformer reformRawData:@{@"title":@(index),
-     @"date":[NSDate new]
-     } forRow:row];
+     [reformer reformRawData:rawData forRow:row];
      row.data = reformer;
      maker.addRow(row);
  
@@ -39,6 +38,9 @@
 @protocol WBListDataReformerProtocol <NSObject>
 
 - (void)reformRawData:(id)data forRow:(WBTableRow *)row;
+
+@optional
+@property (nonatomic, strong) id rawData;
 
 @end
 

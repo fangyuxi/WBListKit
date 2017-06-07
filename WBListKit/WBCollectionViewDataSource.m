@@ -15,6 +15,9 @@
 
 @synthesize collectionViewAdapter = _collectionViewAdapter;
 
+- (void)loadSource{
+}
+
 - (void)bindCollectionView:(nullable UICollectionView *)collectionView{
     [self.collectionViewAdapter unBindCollectionView];
     self.collectionView = collectionView;

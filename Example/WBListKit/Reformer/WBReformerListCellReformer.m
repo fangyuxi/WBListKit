@@ -17,12 +17,14 @@
 
 @implementation WBReformerListCellReformer
 
+@synthesize rawData = _rawData;
+
 - (void)reformRawData:(id)data forRow:(WBTableRow *)row{
     
     if (![data isKindOfClass:[NSDictionary class]]) {
         return;
     }
-    
+    self.rawData = data;
     self.title = [[data objectForKey:@"title"] stringValue];
     NSDate *date = [data objectForKey:@"date"];
     self.date = [date description];

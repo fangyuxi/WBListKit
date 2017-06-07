@@ -39,7 +39,7 @@
     //header
     WBMVCRefreshHeader *header = [[WBMVCRefreshHeader alloc] init];
     
-    self.list.refreshHeaderView = header;
+    self.list.refreshHeaderControl = header;
     self.list.tableView = self.tableView;
 }
 

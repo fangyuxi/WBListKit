@@ -31,6 +31,12 @@
 - (nullable instancetype)initWithController:(nonnull UIViewController *)viewController;
 
 /**
+ refresh
+ */
+- (void)dragToRefresh; //会引发refreshHeaderControl的刷新动画(调用refreshHeaderControl中的begin方法)
+- (void)refreshImmediately; //直接刷新数据源，不会引发refreshHeaderControl变化
+
+/**
  提供一个WBTableViewDataSource和UITableView
  注意不能同时存在UITableView和UICollectionView，如果同时存在会产生异常
  */
@@ -46,17 +52,9 @@
 
 
 /**
- 结合了MJRefresh实现上拉下拉刷新，在针对不同的业务的时候，可以自己定制样式
- 暂时不支持脱离MJRefresh使用，如果有自己已经定义的header，可以考虑继承一个
- MJRefreshHeaderFooter，将已经实现好的header贴到MJ中
+ 集成下拉刷新和上拉加载更多的接口，框架内部会在合适的时机调用接口中定义的方法
  */
-@property (nonatomic, strong, nullable) id<WBListRefreshHeaderViewProtocol> refreshHeaderView;
-@property (nonatomic, strong, nullable) id<WBListRefreshFooterViewProtocol> loadMoreFooterView;
-
-/**
- refresh
- */
-- (void)dragToRefresh;
-- (void)refreshImmediately;
+@property (nonatomic, strong, nullable) id<WBListRefreshHeaderViewProtocol> refreshHeaderControl;
+@property (nonatomic, strong, nullable) id<WBListRefreshFooterViewProtocol> loadMoreFooterControl;
 
 @end

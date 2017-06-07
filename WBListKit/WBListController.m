@@ -25,43 +25,57 @@
 
 #pragma mark setters
 
-- (void)setRefreshHeaderView:(id<WBListRefreshHeaderViewProtocol>)refreshHeaderView{
-    _refreshHeaderView = refreshHeaderView;
-    [_refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
+- (void)setRefreshHeaderControl:(id<WBListRefreshHeaderViewProtocol>)refreshHeaderView{
+    _refreshHeaderControl = refreshHeaderView;
+    [_refreshHeaderControl attachToView:[self getCurrentView] callbackTarget:self];
 }
 
-- (void)setLoadMoreFooterView:(id<WBListRefreshFooterViewProtocol>)loadMoreFooterView{
-    _loadMoreFooterView = loadMoreFooterView;
-    [_loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
+- (void)setLoadMoreFooterControl:(id<WBListRefreshFooterViewProtocol>)loadMoreFooterView{
+    _loadMoreFooterControl = loadMoreFooterView;
+    [_loadMoreFooterControl attachToView:[self getCurrentView] callbackTarget:self];
 }
 
 - (void)setTableView:(UITableView *)tableView{
     if (tableView) {
-        NSAssert(!self.collectionView, @"不能同时存在UITableView和UICollectionView");
+        WBListKitAssert(!self.collectionView, @"不能同时存在UITableView和UICollectionView");
     }
     _tableView = tableView;
-    if (self.refreshHeaderView) {
-        [self.refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
+    if (self.refreshHeaderControl) {
+        [self.refreshHeaderControl attachToView:[self getCurrentView] callbackTarget:self];
     }
-    if (self.loadMoreFooterView) {
-        [self.loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
+    if (self.loadMoreFooterControl) {
+        [self.loadMoreFooterControl attachToView:[self getCurrentView] callbackTarget:self];
     }
 }
 
 - (void)setCollectionView:(UICollectionView *)collectionView{
     if (collectionView) {
-        NSAssert(!self.tableView, @"不能同时存在UITableView和UICollectionView");
+        WBListKitAssert(!self.tableView, @"不能同时存在UITableView和UICollectionView");
     }
     _collectionView = collectionView;
-    if (self.refreshHeaderView) {
-        [self.refreshHeaderView attachToView:[self getCurrentView] callbackTarget:self];
+    if (self.refreshHeaderControl) {
+        [self.refreshHeaderControl attachToView:[self getCurrentView] callbackTarget:self];
     }
-    if (self.loadMoreFooterView) {
-        [self.loadMoreFooterView attachToView:[self getCurrentView] callbackTarget:self];
+    if (self.loadMoreFooterControl) {
+        [self.loadMoreFooterControl attachToView:[self getCurrentView] callbackTarget:self];
     }
 }
 
-#pragma mark MJRefresh CallBack
+- (void)setTableDataSource:(WBTableViewDataSource *)tableDataSource{
+    if (tableDataSource) {
+        WBListKitAssert(!self.collectionDataSource, @"不能同时存在UITableViewSource和UICollectionViewSource");
+    }
+    _tableDataSource = tableDataSource;
+}
+
+- (void)setCollectionDataSource:(WBCollectionViewDataSource *)collectionDataSource{
+    if (collectionDataSource) {
+        WBListKitAssert(!self.tableDataSource, @"不能同时存在UITableViewSource和UICollectionViewSource");
+    }
+    _collectionDataSource = collectionDataSource;
+}
+
+#pragma mark WBListRefresh & LoadMore Control CallBack
 
 - (void)refreshControlBeginRefreshing{
     [[self getCurrentSource] loadSource];
@@ -74,7 +88,7 @@
 #pragma mark controller refresh source
 
 - (void)dragToRefresh{
-    [self.refreshHeaderView begin];
+    [self.refreshHeaderControl begin];
 }
 
 - (void)refreshImmediately{
@@ -85,36 +99,36 @@
 
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
     //下拉刷新的时候禁止上拉
-    [self.loadMoreFooterView disable];
+    [self.loadMoreFooterControl disable];
 }
 
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
-    [self.refreshHeaderView end];
+    [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
     [(UITableView *)[self getCurrentView] reloadData];
 }
 
 - (void)sourceDidStartLoadMore:(WBListDataSource *)tableSource{
-    [self.refreshHeaderView disable];
+    [self.refreshHeaderControl disable];
 }
 
 - (void)sourceDidFinishLoadMore:(WBListDataSource *)tableSource{
     //[[self getCurrentView].mj_footer endRefreshing];
-    [self.loadMoreFooterView end];
-    if (self.refreshHeaderView) {
-        [self.refreshHeaderView enable];
+    [self.loadMoreFooterControl end];
+    if (self.refreshHeaderControl) {
+        [self.refreshHeaderControl enable];
     }
     [self toggleFooterMoreDataState];
     [(UITableView *)[self getCurrentView] reloadData];
 }
 
 - (void)source:(WBListDataSource *)tableSource loadError:(NSError *)error{
-    [self.refreshHeaderView end];
+    [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
 }
 
 - (void)source:(WBListDataSource *)tableSource loadMoreError:(NSError *)error{
-    [self.loadMoreFooterView end];
+    [self.loadMoreFooterControl end];
     [self toggleFooterMoreDataState];
 }
 
@@ -125,12 +139,12 @@
 }
 
 - (void)toggleFooterMoreDataState{
-    if (self.loadMoreFooterView) {
+    if (self.loadMoreFooterControl) {
         if ([self getCurrentSource].canLoadMore) {
-            [self.loadMoreFooterView enable];
-            [self.loadMoreFooterView resetToNormalState];
+            [self.loadMoreFooterControl enable];
+            [self.loadMoreFooterControl resetToNormalState];
         }else{
-            [self.loadMoreFooterView endWithNoMoreDataState];
+            [self.loadMoreFooterControl endWithNoMoreDataState];
         }
     }
 }
