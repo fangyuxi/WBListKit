@@ -426,5 +426,83 @@ Cell中代码：
 @end
 
 ```
+`WBListController`控制了MVC的数据流转
+
+* 通过接口规范了同刷新控件的交互方式，可以插件化的提供刷新控件
+* 响应刷新控件的消息，进而控制数据源
+* 响应数据源回调，刷新View
+
 如果你的业务不是上述加粗字体的流程，那么可以定义自己的 " `WBListController` "
+
+### 刷新控件
+
+利用如下四个协议：`WBListRefreshControlCallbackProtocol` `WBListRefreshControlProtocol` `WBListRefreshFooterViewProtocol` `WBListRefreshHeaderViewProtocol` ，一个实现好的刷新控件：
+
+```objc
+#import <MJRefresh/MJRefresh.h>
+#import "WBListRefreshHeaderViewProtocol.h"
+
+@interface WBMVCRefreshHeader : MJRefreshStateHeader<WBListRefreshHeaderViewProtocol>
+
+@end
+
+@interface WBMVCRefreshHeader ()
+@property (nonatomic, weak) UIScrollView *attchedView;
+@end
+
+@implementation WBMVCRefreshHeader
+
+- (void)begin{
+    [self beginRefreshing];
+}
+
+- (void)end{
+    [self endRefreshing];
+}
+
+- (void)attachToView:(UIScrollView *)scrollView
+      callbackTarget:(id<WBListRefreshControlCallbackProtocol>)target{
+    
+    self.attchedView = scrollView;
+    scrollView.mj_header = self;
+    self.refreshingTarget = target;
+    self.refreshingBlock = ^{
+        [target refreshControlBeginRefreshing];
+    };
+}
+
+- (void)enable{
+    self.attchedView.mj_header = self;
+}
+
+- (void)disable{
+    self.attchedView.mj_header = nil;
+}
+
+@end
+```
+
+### 空页面加载，错误页面，空内容提示
+
+老生常谈的问题，当View没有内容的时候，需要给一个全屏的提示，可能是正在加载的提示，可能是加载错误并没有缓存等。框架提供了 `WBListEmptyViewKit` 但是并没有耦合到框架内部。使用方法见Demo，由于 `WBListEmptyViewKit` 是使用Swift编写，而且用了协议扩展和泛型，目前并不能和业务方的OC代码混编，如果想要OC版本,[可看这里](https://github.com/dzenbot/DZNEmptyDataSet)，使用方法和 `WBListEmptyViewKit` 一样。 其实`WBListEmptyViewKit`就是抄的这个。
+
+
+### UICollectionView
+
+实现原理和用法和UITableView一样，不同点如下：
+
+* 高度缓存，UICollectionView的Item的Size是由布局对象决定，而且UICollectionView内部已经做好了高度缓存。
+* 提供了 `WBCollectionSupplementaryItem` 支持
+* 结合自定义布局 请看 `CustomLayout` 提供了两个例子
+
+
+
+
+
+
+
+
+
+
+
 
