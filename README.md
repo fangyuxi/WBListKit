@@ -67,7 +67,7 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
 同时这些View还存在向外部抛出事件的需求，那么所有遵循 `WBListActionToControllerProtocol` 的对象都可以接受抛出事件的回调，大部分来讲这个对象是控制器<br>
 这样所有的事件都有迹可循，每个人写的代码都八九不离十。 `WBListActionToControllerProtocol` 同时也继承了 `UITableViewDelegate`协议，结果所有事件都可以通过一个代理搞定,这个协议如下：<br>
 
-```C
+```objc
 /**
  比如Cell中有一个button，需要到Controller中发送网络请求，那么代码如下：
  'button.action = ^(){
@@ -96,7 +96,7 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
 * 自动注册 `UITableViewCell` `UICollectionViewCell` `UITableViewFooter&Header` `UICollectionViewSupplementary`
 * 通过updateSection,addSection,deleteSection等操作给View装配数据,上代码：
 
-```c
+```objc
 self.adapter = [[WBTableViewAdapter alloc] init];
 self.tableView bindAdapter:self.adapter];
 [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
@@ -115,7 +115,7 @@ self.tableView bindAdapter:self.adapter];
 
 Cell中的代码
 
-```c
+```objc
 @implementation WBSimpleListCell
 
 @synthesize row = _row;
@@ -142,7 +142,7 @@ Cell中的代码
 
 针对上述问题，框架提供了一个协议 `WBListDataReformerProtocol` 协议长这个样子：
 
-```c
+```objc
 @protocol WBListDataReformerProtocol <NSObject>
 
 - (void)reformRawData:(id)data forRow:(WBTableRow *)row;
@@ -154,7 +154,7 @@ Cell中的代码
 ```
 对于没有状态的Cell，使用原始数据类型表征就很清楚了，可以直接将原始类型扔给Cell用。<br>
 对于带有自有状态，或者需要原始数据转化后才能显示的需求，创建一个遵循这个协议的对象，自定义对象属性，提供给Cell使用，代码如下:<br>
-```C
+```objc
 [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
         
         for (NSInteger index = 0; index < 5; ++index) {
@@ -171,7 +171,7 @@ Cell中的代码
 ```
 Reformer代码
 
-```C
+```objc
 @interface WBReformerListCellReformer : NSObject<WBListDataReformerProtocol>
 
 @property (nonatomic, copy, readonly) NSString *title;
@@ -206,7 +206,7 @@ Reformer代码
 
 Cell中代码：
 
-```C
+```objc
 - (void)update{
     WBReformerListCellReformer *reformer = (WBReformerListCellReformer *)self.row.data;
     self.title.text = reformer.title;
@@ -215,4 +215,119 @@ Cell中代码：
 ```
 
 ### (Tag3) 下面解决数据从哪里来的问题
-从上面我们可以看出来,Adapter其实只是一个数据的装配器，`UITableView`的Adapter装配适合`UITableView`的数据，`UICollectionView`的Adapter装配适合`UICollectionView`的数据，它并不关心数据从哪里来的问题。
+从上面我们可以看出来,Adapter其实只是一个数据的装配器（不同于Android），`UITableView`的Adapter装配适合`UITableView`的数据，`UICollectionView`的Adapter装配适合`UICollectionView`的数据，它并不关心数据从哪里来。那么如果是非常简单的数据源，比如一个关于页面中只有两列，版本信息和版权信息，而且也没有下拉刷新等功能，那么直接用Controller提供数据未尝不可，所有逻辑都集中在一个类中，比如下面的代码：
+
+```objc
+@interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
+@property (nonatomic, strong) WBTableViewAdapter *adapter;
+@property (nonatomic, strong) UITableView *tableView;
+@end
+
+@implementation WBListKitDemosViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.title = @"WBListKit Demos";
+    self.view.backgroundColor = [UIColor redColor];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen     mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+    
+    self.adapter = [[WBTableViewAdapter alloc] init];
+    [self.tableView bindAdapter:self.adapter];
+    self.tableView.actionDelegate = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadData];
+    });
+}
+
+- (void)loadData{
+    
+    // hide warnings
+    __weak typeof(self) weakSelf = self;
+    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+        
+        NSMutableArray *rows = [NSMutableArray new];
+        [[weakSelf data] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           
+            WBTableRow *row = [[WBTableRow alloc] init];
+            row.calculateHeight = ^CGFloat(WBTableRow *row){
+                return 60.0f;
+            };
+            row.associatedCellClass = [WBDemosCell class];
+            row.data = obj;
+            [rows addObject:row];
+            
+        }];
+        maker.addRows(rows).setIdentifier(@"DemoIdentifier");
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            [self.tableView reloadData];
+        });
+    });
+}
+
+- (NSArray *)data{
+    return @[@{@"title":@"Simple List",@"class":[WBSimpleListViewController class]},
+             @{@"title":@"Expanding Cell List",@"class":[WBExpandingCellViewController class]},
+             @{@"title":@"Reformer List",@"class":[WBReformerListViewController class]},
+             @{@"title":@"FooterHeader List",@"class":[WBListHeaderFooterViewController class]},
+             @{@"title":@"MVC Demos",@"class":[WBMVCViewController class]},
+             @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
+             @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
+             @{@"title":@"Nested",@"class":[WBNestedViewController class]},
+             @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
+             @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]},
+             @{@"title":@"Empty Kit Swift ",@"class":[WBSwiftEmptyViewController class]},
+             @{@"title":@"Empty Kit OC ",@"class":[WBOCEmptyViewController class]}
+             ];
+}
+@end
+
+```
+
+以上代码，提供数据源的方法 `- (NSArray *)data` 加载数据的方法 `- (void)loadData` ，这样些并没有什么问题，但是如果提供数据源方法业务逻辑复查杂（查询数据库，加载网络，缓存），而且还要支持上拉刷新等操作，都写在控制器里面，坏处是显而易见的，那么这个时候我们就急需要一个Model层和一个Dao层，所以框架提供了列表类的数据源 `WBListDataSource` 此类定义了外部（通常是控制器）操作数据源的接口`loadSource` `loadMoreSource` `cancelLoad`和属性 `canLoadMore`，对外部提供代理方法 `WBListDataSourceDelegate` 汇报自身状态：
+
+```objc
+@protocol WBListDataSourceDelegate <NSObject>
+
+@optional
+
+- (void)sourceDidStartLoad:(WBListDataSource *)tableSource;
+- (void)sourceDidFinishLoad:(WBListDataSource *)tableSource ;
+- (void)sourceDidStartLoadMore:(WBListDataSource *)tableSource;
+- (void)sourceDidFinishLoadMore:(WBListDataSource *)tableSource;
+
+- (void)source:(WBListDataSource *)tableSource loadError:(NSError *)error;
+- (void)source:(WBListDataSource *)tableSource loadMoreError:(NSError *)error;
+- (void)source:(WBListDataSource *)source didReceviedExtraData:(id)data;
+
+- (void)sourceDidClearAllData:(WBListDataSource *)tableSource;
+
+@end
+```
+子类可以在合适的时机调用如下这些方法驱动delegate:
+
+```objc
+@interface WBListDataSource (NotifyController)
+
+- (void)notifyWillLoad;
+- (void)notifyWillLoadMore;
+- (void)notifyDidFinishLoad;
+- (void)notifyDidFinishLoadMore;
+- (void)notifyDidReceviedExtraData:(nonnull id)data;
+- (void)notifyLoadError:(nonnull NSError *)error;
+- (void)notifyLoadMoreError:(nonnull NSError *)error;
+- (void)notifySourceDidClear;
+
+@end
+```
+
+并提供了两个子类 `WBTableViewDataSource` `WBCollectionViewDataSource` 、两个子类中分别带有 `UITableViewAdapter` `UICollectionViewAdapter` 用于拼装数据。
+
+
+
