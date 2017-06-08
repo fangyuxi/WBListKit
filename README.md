@@ -484,7 +484,71 @@ Cell中代码：
 
 ### 空页面加载，错误页面，空内容提示
 
-老生常谈的问题，当View没有内容的时候，需要给一个全屏的提示，可能是正在加载的提示，可能是加载错误并没有缓存等。框架提供了 `WBListEmptyViewKit` 但是并没有耦合到框架内部。使用方法见Demo，由于 `WBListEmptyViewKit` 是使用Swift编写，而且用了协议扩展和泛型，目前并不能和业务方的OC代码混编，如果想要OC版本,[可看这里](https://github.com/dzenbot/DZNEmptyDataSet)，使用方法和 `WBListEmptyViewKit` 一样。 其实`WBListEmptyViewKit`就是抄的这个。
+老生常谈的问题，当View没有内容的时候，需要给一个全屏的提示，可能是正在加载的提示，可能是加载错误并没有缓存等。框架提供了 `WBListEmptyViewKit` 但是并没有耦合到框架内部。使用方法见Demo，由于 `WBListEmptyViewKit` 是使用Swift编写，而且用了协议扩展和泛型，目前并不能和业务方的OC代码混编，如果想要OC版本,[可看这里](https://github.com/dzenbot/DZNEmptyDataSet)，使用方法和 `WBListEmptyViewKit` 一样。 其实`WBListEmptyViewKit`就是抄的这个。类似这样：
+
+```swift
+override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(tableView);
+        tableView.frame = view.bounds
+        tableView.empty.delegate = self
+        tableView.empty.dataSource = self
+        tableView.actionDelegate = self;
+        
+        adapter.bindTableView(tableView);
+        
+        let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItemStyle.plain, target: self, action: #selector(add))
+        let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear))
+            
+        self.navigationItem.rightBarButtonItems = [leftItem, rightItem]
+            
+        self.loadData();
+    }
+
+extension WBSwiftEmptyViewController : WBListEmptyKitDataSource{
+    
+    /// 可以在这些方法中通过ViewSource的delegate方法中拿到error code 根据error code 
+    /// 返回特定的view
+    
+    // you can try
+//    func ignoredSectionsNumber(in view: UIView) -> [Int]? {
+//        return [0]
+//    }
+    
+    // you can try
+//    func emptyLabel(for emptyView: UIView, in view: UIView) -> UILabel? {
+//        let label = UILabel()
+//        label.text = "空页面"
+//        label.textAlignment = NSTextAlignment.center
+//        label.backgroundColor = UIColor.red
+//        return label
+//    }
+    
+    func emptyButton(for emptyView: UIView, in view: UIView) -> UIButton? {
+        let button = UIButton()
+        button.setTitle("空页面按钮演示，点击事件", for: UIControlState.normal)
+        button.setTitleColor(UIColor.red, for: .normal)
+        button.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.red.cgColor
+        
+        return button
+    }
+}
+
+extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
+    
+    func emptyView(_ emptyView: UIView, button: UIButton, tappedInView: UIView) {
+        print( #function, #line, type(of: self))
+    }
+    
+    func emptyView(_ emptyView: UIView, tappedInView: UIView) {
+        print( #function, #line, type(of: self))
+    }
+}
+
+
+```
 
 
 ### UICollectionView
@@ -496,9 +560,14 @@ Cell中代码：
 * 结合自定义布局 请看 `CustomLayout` 提供了两个例子
 
 
+### 后续
 
+后续计划将[自动diff功能](https://github.com/wokalski/Diff.swift)加入进来，实现自动刷新
 
+### MVVM
 
+对于表单提交类的列表来说，MVVM可能很合适，框架内部虽然没有支持，也是考虑到每个项目的MVVM选型不一样，但是Reformer机制(Tag2)已经提供了
+足够多的灵活性，Reformer可以结合ReactCocoa或者KVOController来实现MVVM。
 
 
 
