@@ -19,7 +19,8 @@
 
 - (nullable instancetype)initWithController:(nonnull UIViewController *)viewController{
     self = [super init];
-    self.viewController = viewController;
+    _autoReloadWhenDataSourceReady = YES;
+    _viewController = viewController;
     return self;
 }
 
@@ -95,6 +96,14 @@
     [self refreshControlBeginRefreshing];
 }
 
+- (void)dragToLoadMore{
+    [self.loadMoreFooterControl begin];
+}
+
+- (void)loadMoreImmediately{
+    [self refreshControlBeginLoadMore];
+}
+
 #pragma mark dataSource delegate
 
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
@@ -105,7 +114,9 @@
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
     [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
-    [(UITableView *)[self getCurrentView] reloadData];
+    if (self.autoReloadWhenDataSourceReady) {
+        [(UITableView *)[self getCurrentView] reloadData];
+    }
 }
 
 - (void)sourceDidStartLoadMore:(WBListDataSource *)tableSource{
@@ -119,7 +130,9 @@
         [self.refreshHeaderControl enable];
     }
     [self toggleFooterMoreDataState];
-    [(UITableView *)[self getCurrentView] reloadData];
+    if (self.autoReloadWhenDataSourceReady) {
+        [(UITableView *)[self getCurrentView] reloadData];
+    }
 }
 
 - (void)source:(WBListDataSource *)tableSource loadError:(NSError *)error{

@@ -29,7 +29,7 @@
 - (nullable instancetype)initWithDelegate:(nonnull id<WBListDataSourceDelegate>)delegate{
     NSCParameterAssert(delegate);
     self = [super init];
-    self.delegate = delegate;
+    _delegate = delegate;
     return self;
 }
 

@@ -48,7 +48,7 @@
             在loadMoreSource中处理控制器发起的加载更多的请求，
             在cancelLoad中处理控制器发起的取消加载的请求
  */
-- (void)loadSource;
+- (void)loadSource; //必须重写，重写后在此方法中刷新和装配数据。否则会异常，因为如果source没有加载数据的方法，那么就不应该有source
 - (void)loadMoreSource;
 - (void)cancelLoad;
 
