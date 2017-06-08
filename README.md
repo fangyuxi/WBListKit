@@ -327,7 +327,52 @@ Cell中代码：
 @end
 ```
 
-并提供了两个子类 `WBTableViewDataSource` `WBCollectionViewDataSource` 、两个子类中分别带有 `UITableViewAdapter` `UICollectionViewAdapter` 用于拼装数据。
+并提供了两个子类 `WBTableViewDataSource` `WBCollectionViewDataSource` 、两个子类中分别带有 `UITableViewAdapter` `UICollectionViewAdapter` 用于拼装数据。用这种方法之后代码见 `MVC` 文件夹。并且当页面中存在多种数据源的时候，只需要切换就可以了，代码见 `MultiDataSource` 文件夹，代码就不大段贴了，只贴一部分控制器的代码，可以看出来，很精简。
+
+```objc
+@interface WBMVCViewController ()<WBListActionToControllerProtocol>
+
+@end
+
+@implementation WBMVCViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor redColor];
+    
+    [self createView];
+    self.list.tableDataSource = [[WBMVCTableListDataSource alloc] initWithDelegate:self];
+    [self.list.tableView bindViewDataSource:self.list.tableDataSource];
+    
+    [self.list refreshImmediately];
+}
+
+- (void)createView{
+    WBMVCRefreshHeader *header = [[WBMVCRefreshHeader alloc] init];
+    self.list.refreshHeaderControl = header;
+    
+    self.list.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,           [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    [self.view addSubview:self.list.tableView];
+    
+    WBMVCRefreshFooter *footer = [[WBMVCRefreshFooter alloc] init];
+    self.list.loadMoreFooterControl = footer;
+}
+
+- (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
+    
+}
+
+- (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+@end
+
+```
 
 
 
