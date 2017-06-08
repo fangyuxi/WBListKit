@@ -374,5 +374,57 @@ Cell中代码：
 
 ```
 
+### 看不明白self.list是什么？让我们更进一步
 
+到目前为止，之前提出的问题大部分都解决了，只是还剩一个，下拉刷新和上拉加载更多怎么支持？**这些动作其实是View层发出的action，我们应该交由Controller层响应事件，然后通知DataSource刷新数据，然后Controller再响应DataSource的回调刷新View，这个流程是所有业务方都有的流程，** 那么我们是不是可以提供一个列表控制器的基类来完成一些View和DataSource的协调工作呢，这样子类就天然拥有了这些协调工作，可以，但是不够完美，因为看到了继承，而且还是控制器的继承，一旦我们要求业务方继承一个控制器，那么就很难将框架应用到现有的项目中，而且继承是强耦合的范式，也不方便扩展。那用协议怎么样？协议是最好的解决办法，但是我们不仅需要统一的接口，也需要一些实现好的接口，OC语言也天然没有支持协议默认实现的功能(Swift中的协议扩展适合解决这个问题，OC可以通过[ProtocolKit](https://github.com/forkingdog/ProtocolKit)解决).那么我们可以给`UIViewController`提供一个proxy对象，通过组合的方式给`UIViewController`提供列表功能，这个属性叫`list`（只要在现有项目中控制器没有这个list属性的命名冲突就可以0成本接入了），`list`是一个 `WBListController`类型的实例，继承自(NSObject)，提供了全套的列表功能支持，代码如下：
+
+```objc
+@interface WBListController : NSObject<WBListDataSourceDelegate>
+
+/**
+ 创建列表控制器
+
+ @param viewController 'UIViewController'
+ @return listController
+ */
+- (nullable instancetype)initWithController:(nonnull UIViewController *)viewController;
+
+/**
+ refresh
+ */
+- (void)dragToRefresh; //会引发refreshHeaderControl的刷新动画(调用refreshHeaderControl中的begin方法)
+- (void)refreshImmediately; //直接刷新数据源，不会引发refreshHeaderControl变化
+
+/**
+ 加载更多的两种方式，通常，这两个方法需要手工调用的情况很少，加载更多的控件会在合适的时机自动调用它们
+ 我能想到的场景就是在做预加载的情况下可以调用
+ */
+- (void)dragToLoadMore;
+- (void)loadMoreImmediately;
+
+/**
+ 提供一个WBTableViewDataSource和UITableView
+ 注意不能同时存在UITableView和UICollectionView，如果同时存在会产生异常
+ */
+@property (nonatomic, strong, nullable) WBTableViewDataSource *tableDataSource;
+@property (nonatomic, strong, nullable) UITableView *tableView;
+
+/**
+ 提供一个WBCollectionViewDataSource和UICollectionView
+ 注意不能同时存在UITableView和UICollectionView，如果同时存在会产生异常
+ */
+@property (nonatomic, strong, nullable) WBCollectionViewDataSource *collectionDataSource;
+@property (nonatomic, strong, nullable) UICollectionView *collectionView;
+
+
+/**
+ 集成下拉刷新和上拉加载更多的接口，框架内部会在合适的时机调用接口中定义的方法
+ */
+@property (nonatomic, strong, nullable) id<WBListRefreshHeaderViewProtocol> refreshHeaderControl;
+@property (nonatomic, strong, nullable) id<WBListRefreshFooterViewProtocol> loadMoreFooterControl;
+
+@end
+
+```
+如果你的业务不是上述加粗字体的流程，那么可以定义自己的 " `WBListController` "
 
