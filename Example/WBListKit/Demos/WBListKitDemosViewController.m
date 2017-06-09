@@ -23,6 +23,7 @@
 #import "WBWaterFallViewController.h"
 #import "WBOCEmptyViewController.h"
 #import "WBExpandingCellViewController.h"
+#import "WBListNibViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -86,6 +87,7 @@
              @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
              @{@"title":@"Nested",@"class":[WBNestedViewController class]},
+             @{@"title":@"Nib Cell List",@"class":[WBListNibViewController class]},
              @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
              @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]},
              @{@"title":@"Empty Kit Swift ",@"class":[WBSwiftEmptyViewController class]},

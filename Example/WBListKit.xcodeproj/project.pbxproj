@@ -58,6 +58,9 @@
 		C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */; };
 		C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD51ED5547400D87C48 /* WBExpandingCell.m */; };
 		C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */; };
+		C267174A1EEA47E2006B85B7 /* WBListNibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26717481EEA47E2006B85B7 /* WBListNibCell.m */; };
+		C267174B1EEA47E2006B85B7 /* WBListNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26717491EEA47E2006B85B7 /* WBListNibCell.xib */; };
+		C267174E1EEA4825006B85B7 /* WBListNibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C267174D1EEA4825006B85B7 /* WBListNibViewController.m */; };
 		C28E6E031EC5B4F100846A66 /* WBSwiftEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */; };
 		C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */; };
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
@@ -169,6 +172,11 @@
 		C2411FD51ED5547400D87C48 /* WBExpandingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCell.m; sourceTree = "<group>"; };
 		C2411FD71ED5549900D87C48 /* WBExpandingCellReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellReformer.h; sourceTree = "<group>"; };
 		C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellReformer.m; sourceTree = "<group>"; };
+		C26717471EEA47E2006B85B7 /* WBListNibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListNibCell.h; sourceTree = "<group>"; };
+		C26717481EEA47E2006B85B7 /* WBListNibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListNibCell.m; sourceTree = "<group>"; };
+		C26717491EEA47E2006B85B7 /* WBListNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBListNibCell.xib; sourceTree = "<group>"; };
+		C267174C1EEA4825006B85B7 /* WBListNibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListNibViewController.h; sourceTree = "<group>"; };
+		C267174D1EEA4825006B85B7 /* WBListNibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListNibViewController.m; sourceTree = "<group>"; };
 		C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftEmptyViewController.swift; sourceTree = "<group>"; };
 		C28E6E041EC5B50800846A66 /* WBOCEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOCEmptyViewController.h; sourceTree = "<group>"; };
 		C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOCEmptyViewController.m; sourceTree = "<group>"; };
@@ -378,6 +386,7 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				C26717461EEA47E2006B85B7 /* nib */,
 				C2411FD01ED5543900D87C48 /* ExpandingCell */,
 				C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */,
 				C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */,
@@ -465,6 +474,18 @@
 				C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */,
 			);
 			path = ExpandingCell;
+			sourceTree = "<group>";
+		};
+		C26717461EEA47E2006B85B7 /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				C26717471EEA47E2006B85B7 /* WBListNibCell.h */,
+				C26717481EEA47E2006B85B7 /* WBListNibCell.m */,
+				C26717491EEA47E2006B85B7 /* WBListNibCell.xib */,
+				C267174C1EEA4825006B85B7 /* WBListNibViewController.h */,
+				C267174D1EEA4825006B85B7 /* WBListNibViewController.m */,
+			);
+			path = nib;
 			sourceTree = "<group>";
 		};
 		C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */ = {
@@ -592,6 +613,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C267174B1EEA47E2006B85B7 /* WBListNibCell.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -737,6 +759,7 @@
 				C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */,
 				1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */,
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
+				C267174E1EEA4825006B85B7 /* WBListNibViewController.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,
 				1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
@@ -744,6 +767,7 @@
 				1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */,
 				C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
+				C267174A1EEA47E2006B85B7 /* WBListNibCell.m in Sources */,
 				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
 				C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */,
 				C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */,
