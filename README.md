@@ -559,6 +559,65 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
 * 提供了 `WBCollectionSupplementaryItem` 支持
 * 结合自定义布局 请看 `CustomLayout` 提供了两个例子
 
+### 在UITableViewCell中嵌入UICollectionView
+
+```objc
+@implementation WBNestedTableViewCell
+
+@synthesize row = _row;
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    self.contentView.backgroundColor = [UIColor redColor];
+    
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    [self.contentView addSubview:self.collectionView];
+    self.collectionView.backgroundColor = [UIColor yellowColor];
+    self.collectionView.actionDelegate = self;
+    
+    [self makeLayout];
+    
+    self.adapter = [[WBCollectionViewAdapter alloc] init];
+    [self.collectionView bindAdapter:self.adapter];
+    
+    return self;
+}
+
+- (void)makeLayout{
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+}
+
+- (void)update{
+    [self.adapter deleteAllElements];
+    [self.collectionView reloadData];
+    
+    // data from ... anywhere
+    
+    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+        maker.setIdentifier(@"WBNested");
+        for (NSInteger index = 0; index < 100; ++index) {
+            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+            item.associatedCellClass = [WBNestedCollectionViewCell class];
+            item.data = @{@"title":@(index)
+                          };
+            maker.addItem(item);
+        }
+    }];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(40, 40);
+}
+
+@end
+
+```
 
 ### 后续
 
@@ -569,7 +628,9 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
 对于表单提交类的列表来说，MVVM可能很合适，框架内部虽然没有支持，也是考虑到每个项目的MVVM选型不一样，但是Reformer机制(Tag2)已经提供了
 足够多的灵活性，Reformer可以结合ReactCocoa或者KVOController来实现MVVM。
 
+### 问题
 
+Reformer的设计是否存在摇摆不定？如果框架没有一个范式来约束什么时候用原始类型什么时候用Reformer，那么业务方怎么保证用的准确？
 
 
 
