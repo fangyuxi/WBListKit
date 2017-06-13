@@ -21,6 +21,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             //刷新需要清空数据
+            [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter deleteAllSections];
             
             [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
@@ -37,6 +38,7 @@
             
             self.canLoadMore = YES;
             [self notifyDidFinishLoad];
+            [self.tableViewAdapter commitAutoDiffer];
         });
     });
 }

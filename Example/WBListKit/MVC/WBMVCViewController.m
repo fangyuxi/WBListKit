@@ -51,6 +51,8 @@
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //test
+    [self.list refreshImmediately];
 }
 
 @end
