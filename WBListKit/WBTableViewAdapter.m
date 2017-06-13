@@ -15,6 +15,12 @@
 #import "UITableView+WBListKitPrivate.h"
 #import "WBTableViewAdapterPrivate.h"
 
+#import "IGListDiffKit.h"
+#import "IGListBatchUpdates.h"
+#import "UICollectionView+IGListBatchUpdateData.h"
+#import "IGListReloadIndexPath.h"
+#import "WBTableUpdater.h"
+
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak, readwrite) UITableView *tableView;
@@ -22,8 +28,12 @@
 @property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedHeaderFooterIdentifiers;
-
 @property (nonatomic, strong) WBTableViewDelegateProxy *delegateProxy;
+
+@property (nonatomic, assign) BOOL isInDifferring;
+@property (nonatomic, strong) NSMutableArray *oldSections; // used for diff
+@property (nonatomic, strong) WBTableUpdater *updater;
+
 @end
 
 @implementation WBTableViewAdapter
@@ -131,7 +141,6 @@
     {
         return;
     }
-    
     WBTableSection *section = [[WBTableSection alloc] init];
     WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
     section.maker = maker;
@@ -161,6 +170,19 @@
         [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
             block(maker);
         }];
+    }
+}
+
+- (void)exchangeSectionIndex:(NSInteger)index1
+            withSectionIndex:(NSInteger)index2{
+    if (index1 == index2 || index1 < 0 || index2 < 0) {
+        return;
+    }
+    WBTableSectionMaker *maker1 = [self sectionAtIndex:index1];
+    WBTableSectionMaker *maker2 = [self sectionAtIndex:index2];
+    
+    if (maker1 && maker2) {
+        [self.sections exchangeObjectAtIndex:index1 withObjectAtIndex:index2];
     }
 }
 
@@ -423,6 +445,13 @@
     return _sections;
 }
 
+- (WBTableUpdater *)updater{
+    if (!_updater) {
+        _updater = [WBTableUpdater new];
+    }
+    return _updater;
+}
+
 #pragma mark private method
 
 - (void)updateTableDelegateProxy
@@ -519,6 +548,30 @@
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index
                                                                 inSection:sectionIndex]]
                           withRowAnimation:animationType];
+}
+
+@end
+
+@implementation WBTableViewAdapter (AutoDiffer)
+
+- (void)beginAutoDiffer{
+    if (self.isInDifferring){
+        NSLog(@"已经有一个在differ中的任务");
+        return;
+    }
+    
+    self.isInDifferring = YES;
+    self.oldSections = [self.sections copy];
+}
+
+- (void)commitAutoDiffer{
+    if (!self.isInDifferring) {
+        NSLog(@"先使用beginAutoDiffer开始任务，才能提交任务");
+        return;
+    }
+    self.isInDifferring = NO;
+    [self.updater updateDiffRowAndSectionInAdapter:self from:self.oldSections to:self.sections];
+    self.oldSections = [self.sections copy];
 }
 
 @end

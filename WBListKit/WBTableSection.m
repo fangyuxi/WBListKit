@@ -21,6 +21,12 @@
 
 @synthesize rowCount = _rowCount;
 
+- (instancetype)init{
+    self = [super init];
+    [self setIdentifier:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    return self;
+}
+
 /**
  gets
  */
@@ -130,6 +136,17 @@
 
 - (void)setFooter:(WBTableSectionHeaderFooter * _Nullable)footer{
     _footer = footer;
+}
+
+#pragma mark differ protocol
+
+- (nonnull id<NSObject>)diffIdentifier{
+    return self.identifier;
+}
+
+- (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
+    WBTableSection *section = (WBTableSection *)object;
+    return [self.identifier isEqualToString:section.identifier];
 }
 
 @end

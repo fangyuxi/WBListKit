@@ -28,6 +28,7 @@ static int WBListActionToControllerProtocolKey;
 }
 
 - (void)bindAdapter:(nonnull WBTableViewAdapter *)adapter{
+    [self unbindAdapter];
     [adapter bindTableView:self];
 }
 
@@ -36,7 +37,9 @@ static int WBListActionToControllerProtocolKey;
 }
 
 - (void)bindViewDataSource:(nonnull WBTableViewDataSource *)source{
+    [self unbindViewDataSource];
     [source bindTableView:self];
+    [self reloadData];
 }
 
 - (void)unbindViewDataSource{

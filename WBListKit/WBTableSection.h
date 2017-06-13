@@ -11,6 +11,7 @@
 #import "WBTableSectionHeaderFooter.h"
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
+#import "WBListDiffableProtocol.h"
 
 @class WBTableSectionMaker;
 
@@ -19,7 +20,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBTableSection : NSObject
+@interface WBTableSection : NSObject<WBListDiffableProtocol>
 
 /**
  use a maker to config section

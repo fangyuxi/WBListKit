@@ -99,6 +99,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateSectionForIdentifier:(NSString *)identifier
                            useMaker:(void(^)(WBTableSectionMaker *maker))block;
 
+- (void)exchangeSectionIndex:(NSInteger)index1
+            withSectionIndex:(NSInteger)index2;
+
 /**
  删除操作
  */
@@ -106,6 +109,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteSectionAtIndex:(NSUInteger)index;
 - (void)deleteSectionForIdentifier:(NSString *)identifier;
 - (void)deleteAllSections;
+
+@end
+
+@interface WBTableViewAdapter (AutoDiffer)
+
+- (void)beginAutoDiffer;
+- (void)commitAutoDiffer;
 
 @end
 

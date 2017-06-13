@@ -115,7 +115,7 @@
     [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
     if (self.autoReloadWhenDataSourceReady) {
-        [(UITableView *)[self getCurrentView] reloadData];
+        //[(UITableView *)[self getCurrentView] reloadData];
     }
 }
 
@@ -124,14 +124,13 @@
 }
 
 - (void)sourceDidFinishLoadMore:(WBListDataSource *)tableSource{
-    //[[self getCurrentView].mj_footer endRefreshing];
     [self.loadMoreFooterControl end];
     if (self.refreshHeaderControl) {
         [self.refreshHeaderControl enable];
     }
     [self toggleFooterMoreDataState];
     if (self.autoReloadWhenDataSourceReady) {
-        [(UITableView *)[self getCurrentView] reloadData];
+        //[(UITableView *)[self getCurrentView] reloadData];
     }
 }
 

@@ -36,3 +36,6 @@
 #import "WBListRefreshControlProtocol.h"
 #import "WBListRefreshFooterViewProtocol.h"
 #import "WBListRefreshHeaderViewProtocol.h"
+
+/** differ **/
+#import "WBListDiffableProtocol.h"

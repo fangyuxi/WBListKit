@@ -18,11 +18,11 @@
     
     //此处可以是网络层代码,也可是本地数据
     
+    //刷新需要清空数据
+    [self.tableViewAdapter deleteAllSections];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //刷新需要清空数据
-            [self.tableViewAdapter deleteAllSections];
             
             [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
                 
