@@ -12,8 +12,34 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.frameworks = 'UIKit'
 
-    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
-    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
+    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol,WBListDiffableProtocol}.h'
+    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol,WBListDiffableProtocol}.h'
+
+    s.subspec 'Differ' do |d|
+        d.source_files = 'WBListKit/IGListAssert.h',
+        'WBListKit/IGListCompatibility.h',
+        'WBListKit/IGListDiffable.h',
+        'WBListKit/IGListDiffKit.h',
+        'WBListKit/IGListExperiments.h',
+        'WBListKit/IGListIndexPathResultInternal.h',
+        'WBListKit/IGListIndexSetResultInternal.h',
+        'WBListKit/IGListMacros.h',
+        'WBListKit/IGListMoveIndexInternal.h',
+        'WBListKit/IGListMoveIndexPathInternal.h',
+        'WBListKit/IGListDiff.{h,mm}',
+        'WBListKit/IGListBatchUpdateData.{h,mm}',
+        'WBListKit/IGListBatchUpdates.{h,m}',
+        'WBListKit/IGListIndexPathResult.{h,m}',
+        'WBListKit/IGListIndexSetResult.{h,m}',
+        'WBListKit/IGListMoveIndex.{h,m}',
+        'WBListKit/IGListMoveIndexPath.{h,m}',
+        'WBListKit/IGListReloadIndexPath.{h,m}',
+        'WBListKit/NSNumber+IGListDiffable.{h,m}',
+        'WBListKit/NSString+IGListDiffable.{h,m}',
+        'WBListKit/UICollectionView+IGListBatchUpdateData.{h,m}'
+
+        d.public_header_files = 'WBListKit/{IGListAssert,IGListCompatibility,IGListDiffable,IGListDiffKit,IGListExperiments,IGListIndexPathResultInternal,IGListIndexSetResultInternal,IGListMacros,IGListMoveIndexInternal,IGListMoveIndexPathInternal,IGListDiff,IGListBatchUpdateData,IGListBatchUpdates,IGListIndexPathResult,IGListIndexSetResult,IGListMoveIndex,IGListReloadIndexPath,IGListMoveIndexPath,NSNumber+IGListDiffable,NSString+IGListDiffable,UICollectionView+IGListBatchUpdateData}.h'
+    end
 
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
