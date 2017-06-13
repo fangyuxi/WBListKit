@@ -14,6 +14,7 @@
 * drop in clean，零成本接入现有项目，对旧代码没有影响
 * 对下拉刷新和上拉加载更多有很好的支持
 * 对空页面和错误页面提示提供了插件化支持
+* 集成了自动differ功能，再也不用手动调用insertRow,deleteRow，甚至reload操作也可以帮你一并做完，而且只刷新变化的部分，还会配合适当的动画
 * 支持Swift混编
 
 ## 系统要求
@@ -618,10 +619,6 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
 @end
 
 ```
-
-### 后续
-
-后续计划将[自动diff功能](https://github.com/wokalski/Diff.swift)加入进来，实现自动刷新
 
 ### MVVM
 
