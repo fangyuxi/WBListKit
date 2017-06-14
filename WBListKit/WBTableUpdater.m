@@ -61,7 +61,9 @@
     [self diffSectionsInTableView:view from:from to:to];
     
     //diff row
-    [to enumerateObjectsUsingBlock:^(id<WBListDiffableProtocol>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [to enumerateObjectsUsingBlock:^(id<WBListDiffableProtocol>  _Nonnull obj,
+                                     NSUInteger idx,
+                                     BOOL * _Nonnull stop) {
         
         WBTableSection *section = (WBTableSection *)obj;
         if ([from containsObject:section]) {

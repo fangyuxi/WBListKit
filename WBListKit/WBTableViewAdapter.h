@@ -107,8 +107,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WBTableViewAdapter (AutoDiffer)
 
+
+/**
+ 在任何的更改前调用此方法，系统会记录你对如下的更改：
+     1：section的增删，位置移动
+     2：row的增删，位置的移动
+ 
+     beginAutoDiffer 和 commitAutoDiffer 成对调用，且不能嵌套
+ 
+     在调用 commitAutoDiffer 之后，会将上述更改提交，tableview会以动画的方式响应
+ 
+     如果涉涉及到reload操作，
+ */
 - (void)beginAutoDiffer;
+/**
+ 同 beginAutoDiffer 嵌套调用
+ */
 - (void)commitAutoDiffer;
+
+
+/**
+ 在任何位置调用，可以将之前的更改统一提交，tableview会以动画的方式响应
+ */
 - (void)reloadDiffer;
 
 @end
@@ -124,7 +144,13 @@ NS_ASSUME_NONNULL_BEGIN
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block;
 
-//TO DO 待完善
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(UITableViewRowAnimation)animationType
+                  usingBlock:(void(^)(WBTableSection *section))block;
+
+- (void)reloadSectionForIdentifier:(NSString *)identifier
+                         animation:(UITableViewRowAnimation)animationType
+                        usingBlock:(void(^)(WBTableSection *section))block;
 @end
 
 NS_ASSUME_NONNULL_END

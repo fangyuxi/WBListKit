@@ -545,20 +545,43 @@
                           withRowAnimation:animationType];
 }
 
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(UITableViewRowAnimation)animationType
+                  usingBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionAtIndex:index];
+    block(section);
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index]
+                  withRowAnimation:animationType];
+}
+
+- (void)reloadSectionForIdentifier:(NSString *)identifier
+                         animation:(UITableViewRowAnimation)animationType
+                        usingBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionForIdentifier:identifier];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    block(section);
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                  withRowAnimation:animationType];
+}
+
 @end
 
 @implementation WBTableViewAdapter (AutoDiffer)
 
 - (void)beginAutoDiffer{
     if (self.isInDifferring){
-        NSException* exception = [NSException exceptionWithName:@" BeginAutoDiffer Exception" reason:@"已经有一个在differ中的任务" userInfo:nil];
+        NSException* exception = [NSException exceptionWithName:@" BeginAutoDiffer Exception"
+                                                         reason:@"已经有一个在differ中的任务"
+                                                       userInfo:nil];
         @throw exception;
         return;
     }
     
     self.isInDifferring = YES;
     self.oldSections = [self.sections copy];
-    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj,
+                                                NSUInteger idx,
+                                                BOOL * _Nonnull stop) {
         WBTableSection *section = (WBTableSection *)obj;
         [section recordOldArray];
     }];
@@ -566,18 +589,23 @@
 
 - (void)commitAutoDiffer{
     if (!self.isInDifferring) {
-        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception" reason:@"先使用beginAutoDiffer开始任务，才能提交任务" userInfo:nil];
+        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception"
+                                                         reason:@"先使用beginAutoDiffer开始任务，才能提交任务"
+                                                       userInfo:nil];
         @throw exception;
         return;
     }
     self.isInDifferring = NO;
-    [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
+    [self.updater diffSectionsAndRowsInTableView:self.tableView
+                                            from:self.oldSections
+                                              to:self.sections];
     [self resetAllSectionsAndRowsRecords];
 }
 
 - (void)reloadDiffer{
-    
-    [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
+    [self.updater diffSectionsAndRowsInTableView:self.tableView
+                                            from:self.oldSections
+                                              to:self.sections];
     [self resetAllSectionsAndRowsRecords];
 }
 

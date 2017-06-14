@@ -79,7 +79,10 @@
     //[self.adapter commitAutoDiffer];
     
     //[tableView reloadData];
-    [self.adapter reloadDiffer];
+    //[self.adapter reloadDiffer];
+    [self.adapter reloadSectionAtIndex:indexPath.section animation:UITableViewRowAnimationAutomatic usingBlock:^(WBTableSection * _Nonnull section) {
+    }];
+    //[self.adapter reloadDiffer];
 }
 
 - (void)actionFromReusableView:(UIView *)view
