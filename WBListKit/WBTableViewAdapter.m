@@ -511,6 +511,14 @@
     }
 }
 
+- (void)resetAllSectionsAndRowsRecords{
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBTableSection *section = (WBTableSection *)obj;
+        [section resetOldArray];
+    }];
+    self.oldSections = [self.sections copy];
+}
+
 @end
 
 @implementation WBTableViewAdapter (ReloadShortcut)
@@ -571,14 +579,6 @@
     
     [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
     [self resetAllSectionsAndRowsRecords];
-}
-
-- (void)resetAllSectionsAndRowsRecords{
-    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        WBTableSection *section = (WBTableSection *)obj;
-        [section resetOldArray];
-    }];
-    self.oldSections = [self.sections copy];
 }
 
 @end
