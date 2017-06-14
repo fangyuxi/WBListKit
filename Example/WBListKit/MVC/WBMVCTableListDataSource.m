@@ -59,10 +59,11 @@
     
     //此处可以是网络层代码,也可是本地数据
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
             //追加数据 所以是update
+            [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter updateSectionForIdentifier:@"fangyuxi" useMaker:^(WBTableSection * _Nonnull section) {
                 
                 //maker.animationUpdate = YES;
@@ -79,12 +80,13 @@
                     row.data = reformer;
                     [section addRow:row];
                 }
-                if (section.rowCount > 30) {
+                if (section.rowCount > 100) {
                     self.canLoadMore = NO;
                 }else{
                     self.canLoadMore = YES;
                 }
             }];
+            [self.tableViewAdapter commitAutoDiffer];
             
             [self notifyDidFinishLoadMore];
         });

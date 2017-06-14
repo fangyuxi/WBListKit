@@ -15,6 +15,7 @@
 #import "WBTableViewAdapterPrivate.h"
 
 #import "WBTableSection.h"
+#import "WBTableSectionPrivate.h"
 #import "WBTableRow.h"
 
 #import "IGListDiffKit.h"
@@ -553,6 +554,10 @@
     
     self.isInDifferring = YES;
     self.oldSections = [self.sections copy];
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBTableSection *section = (WBTableSection *)obj;
+        [section recordOldArray];
+    }];
 }
 
 - (void)commitAutoDiffer{
@@ -562,8 +567,13 @@
         return;
     }
     self.isInDifferring = NO;
-    [self.updater updateDiffRowAndSectionInAdapter:self from:self.oldSections to:self.sections];
+    [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
+    
     self.oldSections = [self.sections copy];
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBTableSection *section = (WBTableSection *)obj;
+        [section resetOldArray];
+    }];
 }
 
 - (void)reloadDiffer{

@@ -36,7 +36,7 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
                     row.associatedCellClass = WBSwiftListCell.self
                     row.data = ["color":UIColor.clear, "index":i]
                     row.calculateHeight = {row in return 100.0};
-                    section.add(row);
+                    section.addRow(row);
                 }
             }
             

@@ -14,18 +14,18 @@
 
 @interface WBTableUpdater : NSObject
 
-//differ section
-- (void)updateDiffSectionInAdapter:(WBTableViewAdapter *)adapter
+- (void)diffSectionsInTableView:(UITableView *)view
                  from:(NSArray<id<WBListDiffableProtocol>> *)from
                    to:(NSArray<id<WBListDiffableProtocol>> *)to;
 
-//differ rows in section
-- (void)updateDiffRowInSection:(WBTableSection *)section
-                      from:(NSArray<id<WBListDiffableProtocol>> *)from
-                        to:(NSArray<id<WBListDiffableProtocol>> *)to;
+
+- (void)diffRowsInTableView:(UITableView *)view
+                  ofSection:(NSInteger)section
+                       from:(NSArray<id<WBListDiffableProtocol>> *)from
+                         to:(NSArray<id<WBListDiffableProtocol>> *)to;
 
 //differ all
-- (void)updateDiffRowAndSectionInAdapter:(WBTableViewAdapter *)adapter
-                                    from:(NSArray<id<WBListDiffableProtocol>> *)from
-                                      to:(NSArray<id<WBListDiffableProtocol>> *)to;
+- (void)diffSectionsAndRowsInTableView:(UITableView *)view
+                                  from:(NSArray<id<WBListDiffableProtocol>> *)from
+                                    to:(NSArray<id<WBListDiffableProtocol>> *)to;
 @end

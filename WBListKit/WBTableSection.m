@@ -7,15 +7,7 @@
 //
 
 #import "WBTableSection.h"
-
-@interface WBTableSection ()
-
-/**
- 存放此section关联的row 类型为WBListRow
- */
-@property (nonatomic, strong) NSMutableArray *rows;
-
-@end
+#import "WBTableSectionPrivate.h"
 
 @implementation WBTableSection
 
@@ -23,6 +15,7 @@
 
 - (instancetype)init{
     self = [super init];
+    self.oldArray = [NSMutableArray array];
     [self setIdentifier:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
     return self;
 }
@@ -143,6 +136,16 @@
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableSection *section = (WBTableSection *)object;
     return [self.identifier isEqualToString:section.identifier];
+}
+
+#pragma mark private
+
+- (void)recordOldArray{
+    self.oldArray = self.rows;
+}
+
+- (void)resetOldArray{
+    self.oldArray = self.rows;
 }
 
 @end

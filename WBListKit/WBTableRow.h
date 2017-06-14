@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
+#import "WBListDiffableProtocol.h"
 
 /** 使用AutoLayout自动计算cell高度 **/
 extern const CGFloat WBListCellHeightAutoLayout;
@@ -30,7 +31,7 @@ typedef NS_ENUM(NSInteger, WBTableRowPosition)
  */
 
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBTableRow : NSObject
+@interface WBTableRow : NSObject<WBListDiffableProtocol>
 
 @property (nonatomic, assign) WBTableRowPosition position;
 
@@ -38,6 +39,11 @@ WBListKit_SUBCLASSING_RESTRICTED
  associated raw data
  */
 @property (nonatomic, strong) id data;
+
+/**
+ 这一行的唯一标识，默认为对象内存地址
+ */
+@property (nonatomic, copy) NSString *key;
 
 /**
  location in list

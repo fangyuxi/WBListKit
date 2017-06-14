@@ -52,9 +52,10 @@ Pod::Spec.new do |s|
         'WBListKit/WBTableViewDelegateProxy.{h,m}',
         'WBListKit/WBTableUpdater.{h,m}',
         'WBListKit/WBTableCellProtocal.h',
+        'WBListKit/WBTableSectionPrivate.h',
         'WBListKit/WBTableHeaderFooterViewProtocal.h',
         'WBListKit/WBTableViewAdapterPrivate.h'
-        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableViewAdapterPrivate}.h'
+        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableViewAdapterPrivate,WBTableSectionPrivate}.h'
     end
 
     s.subspec 'CollectionView' do |c|

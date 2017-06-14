@@ -73,35 +73,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [self.adapter reloadRowAtIndex:indexPath
-//                         animation:UITableViewRowAnimationAutomatic
-//                        usingBlock:^(WBTableRow * _Nonnull row) {
-//        row.data = @{@"title":@(100)
-//                     };
-//    }];
-    
-//    [self.adapter beginAutoDiffer];
-//    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
-//        
-//        for (NSInteger index = 0; index < 5; ++index) {
-//            WBTableRow *row = [[WBTableRow alloc] init];
-//            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-//            row.data = @{@"title":@(index)
-//                         };
-//            maker.addRow(row).setIdentifier(@"AutoLayout");
-//        }
-//    }];
-//    [self.adapter commitAutoDiffer];
-    
-//    [self.adapter beginAutoDiffer];
-//    [self.adapter deleteSectionAtIndex:0];
-//    [self.adapter commitAutoDiffer];
-//    
+    WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     [self.adapter beginAutoDiffer];
-    [self.adapter exchangeSectionIndex:0 withSectionIndex:1];
+    [section deleteRowAtIndex:0];
     [self.adapter commitAutoDiffer];
-    
-    
 }
 
 - (void)actionFromReusableView:(UIView *)view
