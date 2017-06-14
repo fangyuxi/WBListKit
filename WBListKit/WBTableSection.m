@@ -118,10 +118,6 @@
 
 #pragma mark setter
 
-- (void)setMaker:(WBTableSectionMaker * _Nullable)maker{
-    _maker = maker;
-}
-
 - (void)setIdentifier:(NSString * _Nonnull)identifier{
     _identifier = identifier;
 }

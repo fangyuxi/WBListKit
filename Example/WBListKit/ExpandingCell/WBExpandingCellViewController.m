@@ -40,14 +40,15 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
             WBExpandingCellReformer *reformer = [WBExpandingCellReformer new];
             [reformer reformRawData:nil forRow:row];
             row.data = reformer;
             row.associatedCellClass = [WBExpandingCell class];
-            maker.addRow(row).setIdentifier(@"ExpandingCellSectionId");
+            [section addRow:row];
+            section.identifier = @"ExpandingCellSectionId";
         }
     }];
     

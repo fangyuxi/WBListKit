@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
-#import "WBTableSectionMaker.h"
+
+@class WBTableSection;
+@class WBTableRow;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param index 'index'
  */
-- (WBTableSectionMaker *)sectionAtIndex:(NSUInteger)index;
+- (WBTableSection *)sectionAtIndex:(NSUInteger)index;
 
 /**
  get section with identifier
@@ -45,22 +47,22 @@ NS_ASSUME_NONNULL_BEGIN
  @param identifier 'identifier'
  @return section
  */
-- (WBTableSectionMaker *)sectionForIdentifier:(NSString *)identifier;
+- (WBTableSection *)sectionForIdentifier:(NSString *)identifier;
 
 /**
  get index of section
  
- @param maker 'sectionMaker'
+ @param section 'section'
  @return index
  */
-- (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker;
+- (NSUInteger)indexOfSection:(WBTableSection *)section;
 
 /**
  append section
 
  @param block 'block'
  */
-- (void)addSection:(void(^)(WBTableSectionMaker *maker))block;
+- (void)addSection:(void(^)(WBTableSection *newSection))block;
 
 /**
  add section at index
@@ -68,17 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  @param index '指定位置'
  */
-- (void)insertSection:(void(^)(WBTableSectionMaker *maker))block
+- (void)insertSection:(void(^)(WBTableSection *newSection))block
               atIndex:(NSUInteger)index;
-
-/**
- update section
-
- @param section 'section'
- @param block   'block'
- */
-- (void)updateSection:(WBTableSection *)section
-            useMaker:(void(^)(WBTableSectionMaker *maker))block;
 
 /**
  更新指定位置的section
@@ -87,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  */
 - (void)updateSectionAtIndex:(NSUInteger)index
-                   useMaker:(void(^)(WBTableSectionMaker *maker))block;
+                   useBlock:(void(^)(WBTableSection *section))block;
 
 
 /**
@@ -97,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  */
 - (void)updateSectionForIdentifier:(NSString *)identifier
-                           useMaker:(void(^)(WBTableSectionMaker *maker))block;
+                           useMaker:(void(^)(WBTableSection *section))block;
 
 - (void)exchangeSectionIndex:(NSInteger)index1
             withSectionIndex:(NSInteger)index2;
@@ -116,6 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)beginAutoDiffer;
 - (void)commitAutoDiffer;
+- (void)reloadDiffer;
 
 @end
 

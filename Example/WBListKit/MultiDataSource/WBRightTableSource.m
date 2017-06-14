@@ -24,15 +24,15 @@
             [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter deleteAllSections];
             
-            [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                maker.setIdentifier(@"fangyuxi");
+                section.identifier = @"fangyuxi";
                 for (NSInteger index = 0; index < 5; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
                     row.data = @{@"title":@(index)
                                  };
-                    maker.addRow(row);
+                    [section addRow:row];
                 }
             }];
             

@@ -42,7 +42,7 @@
     
     [self.adapter beginAutoDiffer];
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -52,21 +52,21 @@
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row);
+            [section addRow:row];
         }
-        
-        maker.setIdentifier(@"FixedHeight");
+        section.identifier = @"FixedHeight";
     }];
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
             row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row).setIdentifier(@"AutoLayout");
+            [section addRow:row];
         }
+        section.identifier = @"AutoLayout";
     }];
     
     [self.adapter commitAutoDiffer];

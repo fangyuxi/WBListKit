@@ -49,7 +49,6 @@
 }
 
 - (void)changeTableVieSource{
-    [self.list.tableDataSource.tableViewAdapter beginAutoDiffer];
     if (self.list.tableDataSource == self.leftSource) {
         [self.leftSource.tableViewAdapter deleteAllSections];
         self.list.tableDataSource = self.rightSource;

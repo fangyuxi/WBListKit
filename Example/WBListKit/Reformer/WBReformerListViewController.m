@@ -40,7 +40,7 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -53,7 +53,7 @@
                                       @"date":[NSDate new]
                                       } forRow:row];
             row.data = reformer;
-            maker.addRow(row);
+            [section addRow:row];
         }
     }];
     

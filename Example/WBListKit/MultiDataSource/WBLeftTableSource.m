@@ -25,9 +25,9 @@
             [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter deleteAllSections];
             
-            [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                maker.setIdentifier(@"fangyuxi");
+                section.identifier = @"fangyuxi";
                 for (NSInteger index = 0; index < 15; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.calculateHeight = ^CGFloat(WBTableRow *row){
@@ -39,7 +39,7 @@
                                               @"date":[NSDate new]
                                               } forRow:row];
                     row.data = reformer;
-                    maker.addRow(row);
+                    [section addRow:row];
                 }
             }];
             

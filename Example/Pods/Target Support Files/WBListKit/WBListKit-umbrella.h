@@ -68,8 +68,6 @@
 #import "WBTableRow.h"
 #import "WBTableSection.h"
 #import "WBTableSectionHeaderFooter.h"
-#import "WBTableSectionMaker.h"
-#import "WBTableSectionPrivate.h"
 #import "WBTableViewAdapter.h"
 #import "WBTableViewAdapterPrivate.h"
 #import "WBTableViewDelegateProxy.h"

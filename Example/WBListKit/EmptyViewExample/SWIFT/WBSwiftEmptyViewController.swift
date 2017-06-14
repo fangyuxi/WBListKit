@@ -47,14 +47,14 @@ class WBSwiftEmptyViewController: UIViewController {
     
     func add(){
         
-        self.adapter.addSection { (maker) in
+        self.adapter.addSection { (section) in
             
             for i in 1..<10{
                 let row: WBTableRow = WBTableRow();
                 row.associatedCellClass = WBSwiftListCell.self
                 row.data = ["color":UIColor.clear, "index":i]
                 row.calculateHeight = {row in return 100.0};
-                maker.addRow()(row)
+                section.add(row)
             }
         }
         

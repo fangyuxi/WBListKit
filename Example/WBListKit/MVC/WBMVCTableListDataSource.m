@@ -9,6 +9,7 @@
 #import "WBMVCTableListDataSource.h"
 #import "WBReformerListCell.h"
 #import "WBReformerListCellReformer.h"
+#import "WBListKit.h"
 
 @implementation WBMVCTableListDataSource
 
@@ -27,10 +28,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.tableViewAdapter beginAutoDiffer];
-            [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                maker.setIdentifier(@"fangyuxi");
-                //maker.animationUpdate = YES;
+                [section setIdentifier:@"fangyuxi"];
                 for (NSInteger index = 0; index < 15; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.calculateHeight = ^CGFloat(WBTableRow *row){
@@ -42,9 +42,7 @@
                                               @"date":[NSDate new]
                                               } forRow:row];
                     row.data = reformer;
-                    maker.addRow(row);
-                    
-                    
+                    [section addRow:row];
                 }
             }];
             [self.tableViewAdapter commitAutoDiffer];
@@ -65,7 +63,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             //追加数据 所以是update
-            [self.tableViewAdapter updateSectionForIdentifier:@"fangyuxi" useMaker:^(WBTableSectionMaker * _Nonnull maker) {
+            [self.tableViewAdapter updateSectionForIdentifier:@"fangyuxi" useMaker:^(WBTableSection * _Nonnull section) {
                 
                 //maker.animationUpdate = YES;
                 for (NSInteger index = 0; index < 15; ++index) {
@@ -79,9 +77,9 @@
                                               @"date":[NSDate new]
                                               } forRow:row];
                     row.data = reformer;
-                    maker.addRow(row);
+                    [section addRow:row];
                 }
-                if (maker.rowCount > 30) {
+                if (section.rowCount > 30) {
                     self.canLoadMore = NO;
                 }else{
                     self.canLoadMore = YES;

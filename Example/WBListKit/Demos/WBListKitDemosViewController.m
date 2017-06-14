@@ -55,7 +55,7 @@
     
     // hide warnings
     __weak typeof(self) weakSelf = self;
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         NSMutableArray *rows = [NSMutableArray new];
         [[weakSelf data] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -69,7 +69,8 @@
             [rows addObject:row];
             
         }];
-        maker.addRows(rows).setIdentifier(@"DemoIdentifier");
+        [section addRows:rows];
+        [section setIdentifier:@"DemoIdentifier"];
     }];
     
     [self.adapter commitAutoDiffer];
@@ -94,8 +95,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WBTableSectionMaker *maker = [self.adapter sectionAtIndex:indexPath.section];
-    WBTableRow *row = maker.rowAtIndex(indexPath.row);
+    WBTableSection *maker = [self.adapter sectionAtIndex:indexPath.section];
+    WBTableRow *row = [maker rowAtIndex:indexPath.row];
     UIViewController *controller = [[[row.data objectForKey:@"class"] alloc] init];
     controller.title = [row.data objectForKey:@"title"];
     [self.navigationController pushViewController:controller animated:YES];

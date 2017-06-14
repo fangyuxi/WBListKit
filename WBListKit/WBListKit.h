@@ -10,6 +10,9 @@
 #import "WBTableViewAdapter.h"
 #import "WBCollectionViewAdapter.h"
 
+#import "WBTableRow.h"
+#import "WBTableSection.h"
+
 /** data transform protocol **/
 #import "WBListDataReformerProtocol.h"
 

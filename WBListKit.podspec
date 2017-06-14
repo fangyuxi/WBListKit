@@ -47,16 +47,14 @@ Pod::Spec.new do |s|
         'WBListKit/UITableView+WBListKitPrivate.{h,m}',
         'WBListKit/UITableView+WBListKit.{h,m}',
         'WBListKit/WBTableSection.{h,m}',
-        'WBListKit/WBTableSectionMaker.{h,m}',
         'WBListKit/WBTableSectionHeaderFooter.{h,m}',
         'WBListKit/WBTableViewAdapter.{h,m}',
         'WBListKit/WBTableViewDelegateProxy.{h,m}',
         'WBListKit/WBTableUpdater.{h,m}',
         'WBListKit/WBTableCellProtocal.h',
         'WBListKit/WBTableHeaderFooterViewProtocal.h',
-        'WBListKit/WBTableSectionPrivate.h',
         'WBListKit/WBTableViewAdapterPrivate.h'
-        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h'
+        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableViewAdapterPrivate}.h'
     end
 
     s.subspec 'CollectionView' do |c|

@@ -38,7 +38,7 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -46,10 +46,8 @@
                 return 60.0f;
             };
             row.associatedCellClass = [WBListNibCell class];
-            maker.addRow(row);
+            [section addRow:row];
         }
-        
-        maker.setIdentifier(@"NibSection");
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

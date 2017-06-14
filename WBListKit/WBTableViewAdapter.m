@@ -11,9 +11,11 @@
 #import "WBTableViewDelegateProxy.h"
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
-#import "WBTableSectionPrivate.h"
 #import "UITableView+WBListKitPrivate.h"
 #import "WBTableViewAdapterPrivate.h"
+
+#import "WBTableSection.h"
+#import "WBTableRow.h"
 
 #import "IGListDiffKit.h"
 #import "IGListBatchUpdates.h"
@@ -92,19 +94,15 @@
 
 #pragma mark section operators
 
-- (WBTableSectionMaker *)sectionAtIndex:(NSUInteger)index{
+- (WBTableSection *)sectionAtIndex:(NSUInteger)index{
     if (index >= self.sections.count){
         return nil;
     }
     WBTableSection *section = [self.sections objectAtIndex:index];
-    if (!section.maker) {
-        WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (WBTableSectionMaker *)sectionForIdentifier:(NSString *)identifier{
+- (WBTableSection *)sectionForIdentifier:(NSString *)identifier{
     
     __block WBTableSection *section = nil;
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -119,56 +117,48 @@
     if (!section) {
         return nil;
     }
-    if (!section.maker) {
-        WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker{
-    return [self.sections indexOfObject:maker.section];
+- (NSUInteger)indexOfSection:(WBTableSection *)section{
+    return [self.sections indexOfObject:section];
 }
 
-- (void)addSection:(void(^)(WBTableSectionMaker *maker))block{
+- (void)addSection:(void(^)(WBTableSection *newSection))block{
      [self insertSection:block atIndex:[self.sections count]];
 }
 
-- (void)insertSection:(void(^)(WBTableSectionMaker *maker))block
-              atIndex:(NSUInteger)index
-{
-    if (index > self.sections.count)
-    {
+- (void)insertSection:(void(^)(WBTableSection *newSection))block
+              atIndex:(NSUInteger)index{
+    if (index > self.sections.count){
         return;
     }
     WBTableSection *section = [[WBTableSection alloc] init];
-    WBTableSectionMaker *maker = [[WBTableSectionMaker alloc] initWithSection:section];
-    section.maker = maker;
-    [self.sections insertObject:maker.section atIndex:index];
-    block(maker);
+    [self.sections insertObject:section atIndex:index];
+    block(section);
 }
 
 - (void)updateSection:(WBTableSection *)section
-            useMaker:(void(^)(WBTableSectionMaker *maker))block{
-    block(section.maker);
+             useBlock:(void(^)(WBTableSection *section))block{
+    block(section);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
-                   useMaker:(void(^)(WBTableSectionMaker *maker))block{
-    WBTableSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
-            block(maker);
+                    useBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self updateSection:section useBlock:^(WBTableSection *section) {
+            block(section);
         }];
     }
 }
 
 - (void)updateSectionForIdentifier:(NSString *)identifier
-                           useMaker:(void(^)(WBTableSectionMaker *maker))block{
-    WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBTableSectionMaker * _Nonnull maker) {
-            block(maker);
+                          useMaker:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionForIdentifier:identifier];
+    if (section) {
+        [self updateSection:section useBlock:^(WBTableSection *section) {
+            block(section);
         }];
     }
 }
@@ -178,10 +168,10 @@
     if (index1 == index2 || index1 < 0 || index2 < 0) {
         return;
     }
-    WBTableSectionMaker *maker1 = [self sectionAtIndex:index1];
-    WBTableSectionMaker *maker2 = [self sectionAtIndex:index2];
+    WBTableSection *section1 = [self sectionAtIndex:index1];
+    WBTableSection *section2 = [self sectionAtIndex:index2];
     
-    if (maker1 && maker2) {
+    if (section1 && section2) {
         [self.sections exchangeObjectAtIndex:index1 withObjectAtIndex:index2];
     }
 }
@@ -190,15 +180,15 @@
     [self.sections removeObject:section];
 }
 - (void)deleteSectionAtIndex:(NSUInteger)index{
-    WBTableSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+    WBTableSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self deleteSection:section];
     }
 }
 - (void)deleteSectionForIdentifier:(NSString *)identifier{
-    WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+    WBTableSection *section = [self sectionForIdentifier:identifier];
+    if (section) {
+        [self deleteSection:section];
     }
 }
 - (void)deleteAllSections{
@@ -209,8 +199,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    WBTableSectionMaker *maker = [self sectionAtIndex:indexPath.section];
-    WBTableRow *row = maker.rowAtIndex(indexPath.row);
+    WBTableSection *section = [self sectionAtIndex:indexPath.section];
+    WBTableRow *row = [section rowAtIndex:indexPath.row];
     Class cellClass = row.associatedCellClass;
     NSString *identifier = NSStringFromClass(cellClass);
     WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"row's associatedCellClass is nil");
@@ -250,17 +240,17 @@
     if ([self.tableDataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
         return [self.tableDataSource tableView:tableView numberOfRowsInSection:section];
     }
-    WBTableSectionMaker *maker = [self sectionAtIndex:section];
-    return maker.rowCount;
+    WBTableSection *sectionObject = [self sectionAtIndex:section];
+    return sectionObject.rowCount;
 }
 
 #pragma mark UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    WBTableSectionMaker *maker = [self sectionAtIndex:indexPath.section];
-    WBTableRow *row = maker.rowAtIndex(indexPath.row);
-    Class cellClass = maker.rowAtIndex(indexPath.row).associatedCellClass;
+    WBTableSection *section = [self sectionAtIndex:indexPath.section];
+    WBTableRow *row = [section rowAtIndex:indexPath.row];
+    Class cellClass = row.associatedCellClass;
     
     //registe if needed
     [self registeCellIfNeededUseCellClass:cellClass];
@@ -289,8 +279,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    WBTableSectionMaker *maker = [self sectionAtIndex:section];
-    WBTableSectionHeaderFooter *header = maker.section.header;
+    WBTableSection *sectionObject = [self sectionAtIndex:section];
+    WBTableSectionHeaderFooter *header = sectionObject.header;
     if (!header) {
         return 0;
     }
@@ -307,17 +297,17 @@
     if (header.calculateHeight) {
         height = header.calculateHeight(header);
         if (height == WBTableHeaderFooterHeightAutoLayout) {
-            height = [self heightForHeaderFooter:header inSectoin:maker.section];
+            height = [self heightForHeaderFooter:header inSectoin:sectionObject];
         }
     }else{
-        height = [self heightForHeaderFooter:header inSectoin:maker.section];
+        height = [self heightForHeaderFooter:header inSectoin:sectionObject];
     }
     return height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    WBTableSectionMaker *maker = [self sectionAtIndex:section];
-    WBTableSectionHeaderFooter *footer = maker.section.footer;
+    WBTableSection *sectionObject = [self sectionAtIndex:section];
+    WBTableSectionHeaderFooter *footer = sectionObject.footer;
     if (!footer) {
         return 0;
     }
@@ -334,17 +324,17 @@
     if (footer.calculateHeight) {
         height = footer.calculateHeight(footer);
         if (height == WBTableHeaderFooterHeightAutoLayout) {
-            height = [self heightForHeaderFooter:footer inSectoin:maker.section];
+            height = [self heightForHeaderFooter:footer inSectoin:sectionObject];
         }
     }else{
-        height = [self heightForHeaderFooter:footer inSectoin:maker.section];
+        height = [self heightForHeaderFooter:footer inSectoin:sectionObject];
     }
     return height;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    WBTableSectionMaker *maker = [self sectionAtIndex:section];
-    WBTableSectionHeaderFooter *header = maker.section.header;
+    WBTableSection *sectionObject = [self sectionAtIndex:section];
+    WBTableSectionHeaderFooter *header = sectionObject.header;
     if (!header) {
         return nil;
     }
@@ -373,8 +363,8 @@
     return headerView;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    WBTableSectionMaker *maker = [self sectionAtIndex:section];
-    WBTableSectionHeaderFooter *footer = maker.section.footer;
+    WBTableSection *sectionObject = [self sectionAtIndex:section];
+    WBTableSectionHeaderFooter *footer = sectionObject.footer;
     if (!footer) {
         return nil;
     }
@@ -531,8 +521,8 @@
 - (void)reloadRowAtIndex:(NSIndexPath *)indexPath
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block{
-    WBTableSectionMaker *maker = [self sectionAtIndex:indexPath.section];
-    WBTableRow *row = maker.rowAtIndex(indexPath.row);
+    WBTableSection *section = [self sectionAtIndex:indexPath.section];
+    WBTableRow *row = [section rowAtIndex:indexPath.row];
     block(row);
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animationType];
 }
@@ -541,9 +531,9 @@
     forSectionIdentifier:(NSString *)identifier
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block{
-    WBTableSectionMaker *maker = [self sectionForIdentifier:identifier];
-    NSInteger sectionIndex = [self indexOfSection:maker];
-    WBTableRow *row = maker.rowAtIndex(index);
+    WBTableSection *section = [self sectionForIdentifier:identifier];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    WBTableRow *row = [section rowAtIndex:index];
     block(row);
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index
                                                                 inSection:sectionIndex]]
@@ -556,7 +546,8 @@
 
 - (void)beginAutoDiffer{
     if (self.isInDifferring){
-        NSLog(@"已经有一个在differ中的任务");
+        NSException* exception = [NSException exceptionWithName:@" BeginAutoDiffer Exception" reason:@"已经有一个在differ中的任务" userInfo:nil];
+        @throw exception;
         return;
     }
     
@@ -566,12 +557,17 @@
 
 - (void)commitAutoDiffer{
     if (!self.isInDifferring) {
-        NSLog(@"先使用beginAutoDiffer开始任务，才能提交任务");
+        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception" reason:@"先使用beginAutoDiffer开始任务，才能提交任务" userInfo:nil];
+        @throw exception;
         return;
     }
     self.isInDifferring = NO;
     [self.updater updateDiffRowAndSectionInAdapter:self from:self.oldSections to:self.sections];
     self.oldSections = [self.sections copy];
+}
+
+- (void)reloadDiffer{
+    
 }
 
 @end
