@@ -63,10 +63,4 @@
 @property (nonatomic, strong, nullable) id<WBListRefreshHeaderViewProtocol> refreshHeaderControl;
 @property (nonatomic, strong, nullable) id<WBListRefreshFooterViewProtocol> loadMoreFooterControl;
 
-/**
- 当数据源完成更新后，是否自动刷新UITableView和UICollectionView 默认自动刷新
- 如果不自动刷新，则需要在Source的回调方法中手动刷新
- */
-@property (nonatomic, assign) BOOL autoReloadWhenDataSourceReady;
-
 @end

@@ -8,6 +8,7 @@
 
 #import "WBListController.h"
 #import "WBListRefreshControlCallbackProtocol.h"
+#import "UITableView+WBListKit.h"
 
 @interface WBListController ()<WBListRefreshControlCallbackProtocol>
 
@@ -19,7 +20,6 @@
 
 - (nullable instancetype)initWithController:(nonnull UIViewController *)viewController{
     self = [super init];
-    _autoReloadWhenDataSourceReady = YES;
     _viewController = viewController;
     return self;
 }
@@ -114,8 +114,10 @@
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
     [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
-    if (self.autoReloadWhenDataSourceReady) {
-        //[(UITableView *)[self getCurrentView] reloadData];
+    if (self.tableView) {
+        [self.tableView reloadDiffer];
+    }else if (self.collectionView){
+        [self.collectionView reloadData];
     }
 }
 
@@ -129,8 +131,11 @@
         [self.refreshHeaderControl enable];
     }
     [self toggleFooterMoreDataState];
-    if (self.autoReloadWhenDataSourceReady) {
-        //[(UITableView *)[self getCurrentView] reloadData];
+    
+    if (self.tableView) {
+        [self.tableView reloadDiffer];
+    }else if (self.collectionView){
+        [self.collectionView reloadData];
     }
 }
 

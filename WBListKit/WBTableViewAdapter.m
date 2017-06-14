@@ -28,14 +28,10 @@
 
 @property (nonatomic, weak, readwrite) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *sections;
+
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedHeaderFooterIdentifiers;
 @property (nonatomic, strong) WBTableViewDelegateProxy *delegateProxy;
-
-@property (nonatomic, assign) BOOL isInDifferring;
-@property (nonatomic, strong) NSMutableArray *oldSections; // used for diff
-@property (nonatomic, strong) WBTableUpdater *updater;
 
 @end
 
@@ -568,16 +564,21 @@
     }
     self.isInDifferring = NO;
     [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
-    
-    self.oldSections = [self.sections copy];
-    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        WBTableSection *section = (WBTableSection *)obj;
-        [section resetOldArray];
-    }];
+    [self resetAllSectionsAndRowsRecords];
 }
 
 - (void)reloadDiffer{
     
+    [self.updater diffSectionsAndRowsInTableView:self.tableView from:self.oldSections to:self.sections];
+    [self resetAllSectionsAndRowsRecords];
+}
+
+- (void)resetAllSectionsAndRowsRecords{
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBTableSection *section = (WBTableSection *)obj;
+        [section resetOldArray];
+    }];
+    self.oldSections = [self.sections copy];
 }
 
 @end

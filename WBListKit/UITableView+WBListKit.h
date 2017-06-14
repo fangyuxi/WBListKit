@@ -40,4 +40,9 @@
 - (void)bindViewDataSource:(nonnull WBTableViewDataSource *)source;
 - (void)unbindViewDataSource;
 
+/** 以下方法同Adapter **/
+- (void)beginAutoDiffer;
+- (void)commitAutoDiffer;
+- (void)reloadDiffer;
+
 @end

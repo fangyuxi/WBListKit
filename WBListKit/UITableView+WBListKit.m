@@ -46,4 +46,14 @@ static int WBListActionToControllerProtocolKey;
     [self.source unBindTableView];
 }
 
+- (void)beginAutoDiffer{
+    [self.adapter beginAutoDiffer];
+}
+- (void)commitAutoDiffer{
+    [self.adapter commitAutoDiffer];
+}
+- (void)reloadDiffer{
+    [self.adapter reloadDiffer];
+}
+
 @end

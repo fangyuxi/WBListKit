@@ -74,9 +74,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
-    [self.adapter beginAutoDiffer];
+    //[self.adapter beginAutoDiffer];
     [section deleteRowAtIndex:0];
-    [self.adapter commitAutoDiffer];
+    //[self.adapter commitAutoDiffer];
+    
+    //[tableView reloadData];
+    [self.adapter reloadDiffer];
 }
 
 - (void)actionFromReusableView:(UIView *)view
