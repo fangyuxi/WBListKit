@@ -49,11 +49,11 @@ static int WBListActionToControllerProtocolKey;
 - (void)beginAutoDiffer{
     [self.adapter beginAutoDiffer];
 }
-- (void)commitAutoDiffer{
-    [self.adapter commitAutoDiffer];
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
+    [self.adapter commitAutoDifferWithAnimation:animation];
 }
-- (void)reloadDiffer{
-    [self.adapter reloadDiffer];
+- (void)reloadDifferWithAnimation:(BOOL)animation{
+    [self.adapter reloadDifferWithAnimation:animation];
 }
 
 @end

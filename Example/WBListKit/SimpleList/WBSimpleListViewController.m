@@ -69,7 +69,7 @@
         section.identifier = @"AutoLayout";
     }];
     
-    [self.adapter commitAutoDiffer];
+    [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

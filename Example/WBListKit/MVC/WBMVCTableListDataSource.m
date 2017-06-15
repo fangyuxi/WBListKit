@@ -22,7 +22,7 @@
     //刷新需要清空数据
     [self.tableViewAdapter beginAutoDiffer];
     [self.tableViewAdapter deleteAllSections];
-    [self.tableViewAdapter commitAutoDiffer];
+    [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -45,7 +45,7 @@
                     [section addRow:row];
                 }
             }];
-            [self.tableViewAdapter commitAutoDiffer];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
             
             self.canLoadMore = YES;
             [self notifyDidFinishLoad];
@@ -86,7 +86,7 @@
                     self.canLoadMore = YES;
                 }
             }];
-            [self.tableViewAdapter commitAutoDiffer];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
             
             [self notifyDidFinishLoadMore];
         });

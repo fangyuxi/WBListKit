@@ -38,7 +38,7 @@
             
             self.canLoadMore = YES;
             [self notifyDidFinishLoad];
-            [self.tableViewAdapter commitAutoDiffer];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
         });
     });
 }

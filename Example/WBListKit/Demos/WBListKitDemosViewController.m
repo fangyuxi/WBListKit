@@ -73,7 +73,7 @@
         [section setIdentifier:@"DemoIdentifier"];
     }];
     
-    [self.adapter commitAutoDiffer];
+    [self.adapter commitAutoDifferWithAnimation:NO];
 }
 
 - (NSArray *)data{

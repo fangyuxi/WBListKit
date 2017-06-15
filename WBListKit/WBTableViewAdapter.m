@@ -587,7 +587,7 @@
     }];
 }
 
-- (void)commitAutoDiffer{
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
     if (!self.isInDifferring) {
         NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception"
                                                          reason:@"先使用beginAutoDiffer开始任务，才能提交任务"
@@ -598,14 +598,16 @@
     self.isInDifferring = NO;
     [self.updater diffSectionsAndRowsInTableView:self.tableView
                                             from:self.oldSections
-                                              to:self.sections];
+                                              to:self.sections
+                                       animation:animation];
     [self resetAllSectionsAndRowsRecords];
 }
 
-- (void)reloadDiffer{
+- (void)reloadDifferWithAnimation:(BOOL)animation{
     [self.updater diffSectionsAndRowsInTableView:self.tableView
                                             from:self.oldSections
-                                              to:self.sections];
+                                              to:self.sections
+                                       animation:animation];
     [self resetAllSectionsAndRowsRecords];
 }
 

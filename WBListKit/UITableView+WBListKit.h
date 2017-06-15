@@ -42,7 +42,7 @@
 
 /** 以下方法同Adapter **/
 - (void)beginAutoDiffer;
-- (void)commitAutoDiffer;
-- (void)reloadDiffer;
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
+- (void)reloadDifferWithAnimation:(BOOL)animation;
 
 @end

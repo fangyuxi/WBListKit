@@ -115,7 +115,7 @@
     [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
     if (self.tableView) {
-        [self.tableView reloadDiffer];
+        [self.tableView reloadDifferWithAnimation:NO];
     }else if (self.collectionView){
         [self.collectionView reloadData];
     }
@@ -133,7 +133,7 @@
     [self toggleFooterMoreDataState];
     
     if (self.tableView) {
-        [self.tableView reloadDiffer];
+        [self.tableView reloadDifferWithAnimation:NO];
     }else if (self.collectionView){
         [self.collectionView reloadData];
     }

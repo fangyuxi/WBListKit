@@ -117,19 +117,19 @@ NS_ASSUME_NONNULL_BEGIN
  
      在调用 commitAutoDiffer 之后，会将上述更改提交，tableview会以动画的方式响应
  
-     如果涉涉及到reload操作，
+     如果涉及到row和section的 reload操作，需要调用ReloadShortcut中的方法
  */
 - (void)beginAutoDiffer;
 /**
  同 beginAutoDiffer 嵌套调用
  */
-- (void)commitAutoDiffer;
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
 
 
 /**
  在任何位置调用，可以将之前的更改统一提交，tableview会以动画的方式响应
  */
-- (void)reloadDiffer;
+- (void)reloadDifferWithAnimation:(BOOL)animation;
 
 @end
 
