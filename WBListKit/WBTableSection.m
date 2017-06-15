@@ -112,6 +112,10 @@
 #pragma mark setter
 
 - (void)setIdentifier:(NSString * _Nonnull)identifier{
+    if (!identifier) {
+        _identifier = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
+        return;
+    }
     _identifier = identifier;
 }
 
