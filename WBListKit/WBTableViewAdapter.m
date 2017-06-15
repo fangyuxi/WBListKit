@@ -577,6 +577,8 @@
         return;
     }
     
+    [self reloadDifferWithAnimation:NO];
+    
     self.isInDifferring = YES;
     self.oldSections = [self.sections copy];
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj,

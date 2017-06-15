@@ -110,14 +110,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  在任何的更改前调用此方法，系统会记录你对如下的更改：
-     1：section的增删，位置移动
-     2：row的增删，位置的移动
+ 1：section的增删，位置移动
+ 2：row的增删，位置的移动
  
-     beginAutoDiffer 和 commitAutoDiffer 成对调用，且不能嵌套
+ beginAutoDiffer 和 commitAutoDiffer 成对调用，且不能嵌套
  
-     在调用 commitAutoDiffer 之后，会将上述更改提交，tableview会以动画的方式响应
+ 在调用 commitAutoDiffer 之后，会将上述更改提交，tableview会以动画的方式响应
  
-     如果涉及到row和section的 reload操作，需要调用ReloadShortcut中的方法
+ 如果涉及到row和section的 reload操作，需要调用ReloadShortcut中的方法
+ 
+ 严格来讲，当你更新了数据源后，应该立即提交view显示,安全起见，方法内部会先调用 reloadDifferWithAnimation 方法， 将未提交更改的内容先提交一次
  */
 - (void)beginAutoDiffer;
 /**
