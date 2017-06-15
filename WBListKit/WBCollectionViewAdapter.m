@@ -12,6 +12,9 @@
 #import "WBCollectionSupplementaryViewProtocol.h"
 #import "WBCollectionSectionPrivate.h"
 #import "WBCollectionViewAdapterPrivate.h"
+#import "WBCollectionItem.h"
+#import "WBCollectionSection.h"
+#import "WBCollectionSectionPrivate.h"
 
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]
@@ -82,81 +85,68 @@
 
 #pragma mark section operators
 
-- (WBCollectionSectionMaker *)sectionAtIndex:(NSUInteger)index{
+- (WBCollectionSection *)sectionAtIndex:(NSUInteger)index{
     if (index >= self.sections.count){
         return nil;
     }
     WBCollectionSection *section = [self.sections objectAtIndex:index];
-    if (!section.maker) {
-        WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (WBCollectionSectionMaker *)sectionForIdentifier:(NSString *)identifier{
+- (WBCollectionSection *)sectionForKey:(NSString *)identifier{
     
     __block WBCollectionSection *section = nil;
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         WBCollectionSection *tmpSection = (WBCollectionSection *)obj;
-        if ([tmpSection.identifier isEqualToString:identifier]){
+        if ([tmpSection.key isEqualToString:identifier]){
             section = tmpSection;
             BOOL b = true;
             stop = &b;
         }
     }];
-    if (!section) {
-        return nil;
-    }
-    if (!section.maker) {
-        WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (NSUInteger)indexOfSection:(WBCollectionSectionMaker *)maker{
-    return [self.sections indexOfObject:maker.section];
+- (NSUInteger)indexOfSection:(WBCollectionSection *)section{
+    return [self.sections indexOfObject:section];
 }
 
-- (void)addSection:(void(^)(WBCollectionSectionMaker *maker))block{
+- (void)addSection:(void(^)(WBCollectionSection *newSection))block{
     [self insertSection:block atIndex:[self.sections count]];
 }
 
-- (void)insertSection:(void(^)(WBCollectionSectionMaker *maker))block
+- (void)insertSection:(void(^)(WBCollectionSection *newSection))block
               atIndex:(NSUInteger)index{
     if (index > self.sections.count){
         return;
     }
     WBCollectionSection *section = [[WBCollectionSection alloc] init];
-    WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-    section.maker = maker;
-    [self.sections insertObject:maker.section atIndex:index];
-    block(maker);
+    [self.sections insertObject:section atIndex:index];
+    block(section);
 }
 
 - (void)updateSection:(WBCollectionSection *)section
-             useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    block(section.maker);
+             userBlock:(void(^)(WBCollectionSection *section))block{
+    block(section);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
-                    useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
-            block(maker);
+                    userBlock:(void(^)(WBCollectionSection *section))block{
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self updateSection:section userBlock:^(WBCollectionSection * _Nonnull section) {
+            block(section);
         }];
     }
 }
 
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                          useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    WBCollectionSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
-            block(maker);
+- (void)updateSectionForIdentifier:(NSString *)key
+                         userBlock:(void(^)(WBCollectionSection *section))block{
+    WBCollectionSection *section = [self sectionForKey:key];
+    if (section) {
+        [self updateSection:section userBlock:^(WBCollectionSection * _Nonnull section) {
+            block(section);
         }];
     }
 }
@@ -165,15 +155,15 @@
     [self.sections removeObject:section];
 }
 - (void)deleteSectionAtIndex:(NSUInteger)index{
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self deleteSection:section];
     }
 }
-- (void)deleteSectionForIdentifier:(NSString *)identifier{
-    WBCollectionSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+- (void)deleteSectionForKey:(NSString *)key{
+    WBCollectionSection *section = [self sectionForKey:key];
+    if (section) {
+        [self deleteSection:section];
     }
 }
 - (void)deleteAllSections{
@@ -233,15 +223,15 @@
     if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
         return [self.collectionViewDataSource collectionView:collectionView numberOfItemsInSection:section];
     }
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:section];
-    return maker.itemsCount;
+    WBCollectionSection *sectionObject = [self sectionAtIndex:section];
+    return sectionObject.itemCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WBListKitAssertMainThread();
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:indexPath.section];
-    WBCollectionItem *item = maker.itemAtIndex(indexPath.row);
+    WBCollectionSection *section = [self sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = [section itemAtIndex:indexPath.item];
     Class cellClass = item.associatedCellClass;
     NSString *identifier = NSStringFromClass(cellClass);
     WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"item's associatedCellClass is nil");

@@ -21,12 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 WBListKit_SUBCLASSING_RESTRICTED
 @interface WBCollectionSection : NSObject
 
-@property (nonatomic, strong, nullable, readonly) WBCollectionSectionMaker *maker;
-
 /**
  此section的唯一标识符，可以通过唯一标识符准确的找到这个cell
  */
-@property (nonatomic, copy, readonly) NSString *identifier;
+@property (nonatomic, copy) NSString *key;
 
 /**
  行数
@@ -37,6 +35,29 @@ WBListKit_SUBCLASSING_RESTRICTED
  gets
  */
 - (nullable WBCollectionItem *)itemAtIndex:(NSUInteger)index;
+
+/**
+ inserts
+ */
+- (void)addItem:(WBCollectionItem *)item;
+- (void)addItems:(NSArray<WBCollectionItem *> *)items;
+- (void)insertItem:(WBCollectionItem *)item
+           atIndex:(NSUInteger)index;
+
+/**
+ delete
+ */
+- (void)deleteItem:(WBCollectionItem *)item;
+- (void)deleteItemAtIndex:(NSUInteger)index;
+- (void)deleteAllItems;
+
+/**
+ exchange replace
+ */
+- (void)replaceItemAtIndex:(NSUInteger)index
+                  withItem:(WBCollectionItem *)item;
+- (void)exchangeItemAtIndex:(NSUInteger)index1
+                  withIndex:(NSInteger)index2;
 
 @end
 

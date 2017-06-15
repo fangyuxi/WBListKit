@@ -81,7 +81,6 @@
         "WBListKit/WBCollectionViewAdapterPrivate.h",
         "WBListKit/UICollectionView+WBListKit.{h,m}",
         "WBListKit/WBCollectionSection.{h,m}",
-        "WBListKit/WBCollectionSectionMaker.{h,m}",
         "WBListKit/WBCollectionViewAdapter.{h,m}",
         "WBListKit/WBCollectionViewDelegateProxy.{h,m}",
         "WBListKit/WBCollectionSupplementaryItem.{h,m}",
@@ -89,7 +88,7 @@
         "WBListKit/WBCollectionSupplementaryViewProtocol.h",
         "WBListKit/WBCollectionSectionPrivate.h"
       ],
-      "public_header_files": "WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionSectionMaker,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h",
+      "public_header_files": "WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h",
       "dependencies": {
         "UITableView+FDTemplateLayoutCell": [
 

@@ -54,14 +54,14 @@
     
     // data from ... anywhere
     
-    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
-        maker.setIdentifier(@"WBNested");
+    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
+        section.key = @"WBNested";
         for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBNestedCollectionViewCell class];
             item.data = @{@"title":@(index)
                           };
-            maker.addItem(item);
+            [section addItem:item];
         }
     }];
 }

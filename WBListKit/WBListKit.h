@@ -12,6 +12,8 @@
 
 #import "WBTableRow.h"
 #import "WBTableSection.h"
+#import "WBCollectionSection.h"
+#import "WBCollectionItem.h"
 
 /** data transform protocol **/
 #import "WBListDataReformerProtocol.h"

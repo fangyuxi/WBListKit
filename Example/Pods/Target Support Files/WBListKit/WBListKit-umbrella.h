@@ -25,7 +25,6 @@
 #import "WBCollectionCellProtocol.h"
 #import "WBCollectionItem.h"
 #import "WBCollectionSection.h"
-#import "WBCollectionSectionMaker.h"
 #import "WBCollectionSectionPrivate.h"
 #import "WBCollectionSupplementaryItem.h"
 #import "WBCollectionSupplementaryViewProtocol.h"

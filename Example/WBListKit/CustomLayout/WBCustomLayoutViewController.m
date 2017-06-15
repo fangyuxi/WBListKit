@@ -59,13 +59,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 - (void)loadData{
     
     __weak typeof(self) weakSelf = self;
-    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         for (NSInteger index = 0; index < 10; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
                           };
-            maker.addItem(item);
+            [section addItem:item];
             
             WBCollectionSupplementaryItem *sep = [WBCollectionSupplementaryItem new];
             sep.associatedViewClass = [WBCustomSeparatorView class];

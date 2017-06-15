@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WBCollectionSectionMaker.h"
 #import "WBCollectionSupplementaryItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class WBCollectionSection;
+@class WBCollectionItem;
 
 @protocol WBListActionToControllerProtocol;
 
@@ -40,30 +41,30 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param index 'index'
  */
-- (WBCollectionSectionMaker *)sectionAtIndex:(NSUInteger)index;
+- (WBCollectionSection *)sectionAtIndex:(NSUInteger)index;
 
 /**
  get section with identifier
  
- @param identifier 'identifier'
+ @param key 'key'
  @return section
  */
-- (WBCollectionSectionMaker *)sectionForIdentifier:(NSString *)identifier;
+- (WBCollectionSection *)sectionForKey:(NSString *)key;
 
 /**
  get index of section
  
- @param maker 'sectionMaker'
+ @param section 'section'
  @return index
  */
-- (NSUInteger)indexOfSection:(WBCollectionSectionMaker *)maker;
+- (NSUInteger)indexOfSection:(WBCollectionSection *)section;
 
 /**
  append section
  
  @param block 'block'
  */
-- (void)addSection:(void(^)(WBCollectionSectionMaker *maker))block;
+- (void)addSection:(void(^)(WBCollectionSection *newSection))block;
 
 /**
  add section at index
@@ -71,17 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  @param index '指定位置'
  */
-- (void)insertSection:(void(^)(WBCollectionSectionMaker *maker))block
+- (void)insertSection:(void(^)(WBCollectionSection *newSection))block
               atIndex:(NSUInteger)index;
-
-/**
- update section
- 
- @param section 'section'
- @param block   'block'
- */
-- (void)updateSection:(WBCollectionSection *)section
-             useMaker:(void(^)(WBCollectionSectionMaker *maker))block;
 
 /**
  更新指定位置的section
@@ -90,24 +82,24 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  */
 - (void)updateSectionAtIndex:(NSUInteger)index
-                    useMaker:(void(^)(WBCollectionSectionMaker *maker))block;
+                    userBlock:(void(^)(WBCollectionSection *section))block;
 
 
 /**
  更新指定的id的section
  
- @param identifier 'identifier'
+ @param key 'key'
  @param block 'block'
  */
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                          useMaker:(void(^)(WBCollectionSectionMaker *maker))block;
+- (void)updateSectionForIdentifier:(NSString *)key
+                          userBlock:(void(^)(WBCollectionSection *section))block;
 
 /**
  删除Section操作
  */
 - (void)deleteSection:(WBCollectionSection *)section;
 - (void)deleteSectionAtIndex:(NSUInteger)index;
-- (void)deleteSectionForIdentifier:(NSString *)identifier;
+- (void)deleteSectionForKey:(NSString *)key;
 - (void)deleteAllSections;
 
 #pragma mark Supplementary View Model

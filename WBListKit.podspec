@@ -64,14 +64,13 @@ Pod::Spec.new do |s|
                             'WBListKit/WBCollectionViewAdapterPrivate.h',
                             'WBListKit/UICollectionView+WBListKit.{h,m}',
                             'WBListKit/WBCollectionSection.{h,m}',
-                            'WBListKit/WBCollectionSectionMaker.{h,m}',
                             'WBListKit/WBCollectionViewAdapter.{h,m}',
                             'WBListKit/WBCollectionViewDelegateProxy.{h,m}',
                             'WBListKit/WBCollectionSupplementaryItem.{h,m}',
                             'WBListKit/WBCollectionCellProtocol.h',
                             'WBListKit/WBCollectionSupplementaryViewProtocol.h',
                             'WBListKit/WBCollectionSectionPrivate.h'
-        c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionSectionMaker,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
+        c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
         c.dependency 'UITableView+FDTemplateLayoutCell'
     end
 

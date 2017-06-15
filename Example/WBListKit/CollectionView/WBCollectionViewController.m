@@ -57,13 +57,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 - (void)loadData{
     
     __weak typeof(self) weakSelf = self;
-    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
                          };
-            maker.addItem(item).setIdentifier(@"FixedHeight");
+            [section addItem:item];
+            section.key = @"FixedHeight";
         }
         
         WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
@@ -74,13 +75,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                                    inSection:0]];
     }];
     
-    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
                           };
-            maker.addItem(item).setIdentifier(@"FixedHeight");
+            [section addItem:item];
+            section.key = @"FixedHeight";
         }
         
         WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];

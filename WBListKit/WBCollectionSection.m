@@ -7,6 +7,7 @@
 //
 
 #import "WBCollectionSection.h"
+#import "WBCollectionSectionPrivate.h"
 
 @interface WBCollectionSection ()
 
@@ -111,14 +112,8 @@
     return [self.items count];
 }
 
-#pragma mark setter
-
-- (void)setMaker:(WBCollectionSectionMaker * _Nullable)maker{
-    _maker = maker;
-}
-
-- (void)setIdentifier:(NSString * _Nonnull)identifier{
-    _identifier = identifier;
+- (void)setKey:(NSString * _Nonnull)key{
+    _key = key;
 }
 
 - (void)setItemCount:(NSUInteger)itemCount{
