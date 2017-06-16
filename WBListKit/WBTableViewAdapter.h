@@ -44,10 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  get section with identifier
 
- @param identifier 'identifier'
+ @param key 'key'
  @return section
  */
-- (WBTableSection *)sectionForIdentifier:(NSString *)identifier;
+- (WBTableSection *)sectionForKey:(NSString *)key;
 
 /**
  get index of section
@@ -86,11 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  更新指定的id的section
 
- @param identifier 'identifier'
+ @param key 'key'
  @param block 'block'
  */
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                           useMaker:(void(^)(WBTableSection *section))block;
+- (void)updateSectionForKey:(NSString *)key
+                           useBlock:(void(^)(WBTableSection *section))block;
 
 - (void)exchangeSectionIndex:(NSInteger)index1
             withSectionIndex:(NSInteger)index2;
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deleteSection:(WBTableSection *)section;
 - (void)deleteSectionAtIndex:(NSUInteger)index;
-- (void)deleteSectionForIdentifier:(NSString *)identifier;
+- (void)deleteSectionForKey:(NSString *)key;
 - (void)deleteAllSections;
 
 @end
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
               usingBlock:(void(^)(WBTableRow *row))block;
 
 - (void)reloadRowAtIndex:(NSInteger )index
-    forSectionIdentifier:(NSString *)identifier
+           forSectionKey:(NSString *)key
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block;
 
@@ -150,9 +150,9 @@ NS_ASSUME_NONNULL_BEGIN
                    animation:(UITableViewRowAnimation)animationType
                   usingBlock:(void(^)(WBTableSection *section))block;
 
-- (void)reloadSectionForIdentifier:(NSString *)identifier
-                         animation:(UITableViewRowAnimation)animationType
-                        usingBlock:(void(^)(WBTableSection *section))block;
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(UITableViewRowAnimation)animationType
+                 usingBlock:(void(^)(WBTableSection *section))block;
 @end
 
 NS_ASSUME_NONNULL_END

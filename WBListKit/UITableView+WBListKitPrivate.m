@@ -13,7 +13,6 @@
 #import "WBTableViewDataSource.h"
 #import "WBTableSectionPrivate.h"
 
-static int AdapterKey;
 static int SourceKey;
 
 // We just forward primary call, in crash report, top most method in stack maybe WBLIST's,
@@ -53,15 +52,6 @@ static void __WBLIST_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(vo
         [sectionObject resetOldArray];
     }];
     WBLISTPrimaryCall([self wblist_reloadSections:sections withRowAnimation:animation];);
-}
-
-- (void)setAdapter:(WBTableViewAdapter *)adapter{
-    objc_setAssociatedObject(self, &AdapterKey, adapter, OBJC_ASSOCIATION_ASSIGN);
-    adapter.actionDelegate = self.actionDelegate;
-}
-
-- (WBTableViewAdapter *)adapter{
-   return objc_getAssociatedObject(self, &AdapterKey);
 }
 
 - (void)setSource:(WBTableViewDataSource *)source{

@@ -17,6 +17,7 @@
 @interface WBTableViewAdapter ()
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
+@property (nonatomic, weak, readwrite) UITableView *tableView;
 
 @property (nonatomic, assign) BOOL isInDifferring;
 @property (nonatomic, strong) NSMutableArray *oldSections; // used for diff
@@ -28,17 +29,17 @@
  */
 - (void)resetAllSectionsAndRowsRecords;
 
-/**
- 绑定tableView
- 当Adapter和TableView出现多对一情况的时候，重新绑定即可
- @param tableView 'tableView'
- */
-- (void)bindTableView:(UITableView *)tableView;
-
-/**
- 解绑TableView
- */
-- (void)unBindTableView;
+///**
+// 绑定tableView
+// 当Adapter和TableView出现多对一情况的时候，重新绑定即可
+// @param tableView 'tableView'
+// */
+//- (void)bindTableView:(UITableView *)tableView;
+//
+///**
+// 解绑TableView
+// */
+//- (void)unBindTableView;
 
 @end
 

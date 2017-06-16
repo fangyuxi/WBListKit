@@ -26,11 +26,8 @@
 
 /**
  绑定adapter
-
- @param adapter 'adapter'
  */
-- (void)bindAdapter:(nonnull WBTableViewAdapter *)adapter;
-- (void)unbindAdapter;
+@property (nonatomic, nullable) WBTableViewAdapter *adapter;
 
 /**
  绑定TableViewSource

@@ -34,7 +34,7 @@
     
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
@@ -54,7 +54,7 @@
             row.data = @{@"title":@(index)
                          };
             [section addRow:row];
-            section.identifier = @"FixedHeight";
+            section.key = @"FixedHeight";
         }
     }];
     

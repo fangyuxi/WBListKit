@@ -20,8 +20,8 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
         view.addSubview(tableView);
         
         tableView.frame = view.bounds
-        adapter.bindTableView(tableView);
-        adapter.actionDelegate = self
+        tableView.adapter = adapter;
+        tableView.actionDelegate = self;
         self.loadData();
     }
     

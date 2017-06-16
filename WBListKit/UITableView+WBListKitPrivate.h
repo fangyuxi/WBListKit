@@ -17,7 +17,6 @@
 
 @interface UITableView (WBListKitPrivate)
 
-@property (nonatomic, weak) WBTableViewAdapter *adapter;
 @property (nonatomic, weak) WBTableViewDataSource *source;
 
 @end

@@ -12,6 +12,7 @@
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
 #import "UITableView+WBListKitPrivate.h"
+#import "UITableView+WBListKit.h"
 #import "WBTableViewAdapterPrivate.h"
 
 #import "WBTableSection.h"
@@ -26,9 +27,6 @@
 
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak, readwrite) UITableView *tableView;
-
-
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedHeaderFooterIdentifiers;
 @property (nonatomic, strong) WBTableViewDelegateProxy *delegateProxy;
@@ -39,24 +37,43 @@
 
 #pragma mark bind unbind
 
-- (void)bindTableView:(UITableView *)tableView{
-    WBListKitAssert([tableView isKindOfClass:[UITableView class]], @"bindTableView 需要一个 UITableView实例");
-    [self unBindTableView];
-    self.tableView = tableView;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.adapter = self;
+//- (void)bindTableView:(UITableView *)tableView{
+//    WBListKitAssert([tableView isKindOfClass:[UITableView class]], @"bindTableView 需要一个 UITableView实例");
+//    [self unBindTableView];
+//    self.tableView = tableView;
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    self.tableView.adapter = self;
+//
+//    if (self.actionDelegate || self.tableDataSource) {
+//        [self updateTableDelegateProxy];
+//    }
+//}
+//
+//- (void)unBindTableView{
+//    self.tableView.delegate = nil;
+//    self.tableView.dataSource = nil;
+//    self.tableView.adapter = nil;
+//    self.tableView = nil;
+//}
+
+- (void)setTableView:(UITableView *)tableView{
+    _tableView.delegate = nil;
+    _tableView.dataSource = nil;
+    _tableView = nil;
+    
+    _tableView = tableView;
+    
+    if (!_tableView) {
+        return;
+    }
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     
     if (self.actionDelegate || self.tableDataSource) {
         [self updateTableDelegateProxy];
     }
-}
-
-- (void)unBindTableView{
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
-    self.tableView.adapter = nil;
-    self.tableView = nil;
 }
 
 #pragma mark manage appearance
@@ -99,13 +116,13 @@
     return section;
 }
 
-- (WBTableSection *)sectionForIdentifier:(NSString *)identifier{
+- (WBTableSection *)sectionForKey:(NSString *)key{
     
     __block WBTableSection *section = nil;
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
        
         WBTableSection *tmpSection = (WBTableSection *)obj;
-        if ([tmpSection.identifier isEqualToString:identifier]){
+        if ([tmpSection.key isEqualToString:key]){
             section = tmpSection;
             BOOL b = true;
             stop = &b;
@@ -150,9 +167,9 @@
     }
 }
 
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                          useMaker:(void(^)(WBTableSection *section))block{
-    WBTableSection *section = [self sectionForIdentifier:identifier];
+- (void)updateSectionForKey:(NSString *)key
+                          useBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionForKey:key];
     if (section) {
         [self updateSection:section useBlock:^(WBTableSection *section) {
             block(section);
@@ -182,8 +199,8 @@
         [self deleteSection:section];
     }
 }
-- (void)deleteSectionForIdentifier:(NSString *)identifier{
-    WBTableSection *section = [self sectionForIdentifier:identifier];
+- (void)deleteSectionForKey:(NSString *)key{
+    WBTableSection *section = [self sectionForKey:key];
     if (section) {
         [self deleteSection:section];
     }
@@ -533,10 +550,10 @@
 }
 
 - (void)reloadRowAtIndex:(NSInteger )index
-    forSectionIdentifier:(NSString *)identifier
+           forSectionKey:(NSString *)key
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block{
-    WBTableSection *section = [self sectionForIdentifier:identifier];
+    WBTableSection *section = [self sectionForKey:key];
     NSInteger sectionIndex = [self indexOfSection:section];
     WBTableRow *row = [section rowAtIndex:index];
     block(row);
@@ -554,10 +571,10 @@
                   withRowAnimation:animationType];
 }
 
-- (void)reloadSectionForIdentifier:(NSString *)identifier
+- (void)reloadSectionForKey:(NSString *)key
                          animation:(UITableViewRowAnimation)animationType
                         usingBlock:(void(^)(WBTableSection *section))block{
-    WBTableSection *section = [self sectionForIdentifier:identifier];
+    WBTableSection *section = [self sectionForKey:key];
     NSInteger sectionIndex = [self indexOfSection:section];
     block(section);
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]

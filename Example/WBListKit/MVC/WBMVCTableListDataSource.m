@@ -30,7 +30,7 @@
             [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                [section setIdentifier:@"fangyuxi"];
+                [section setKey:@"fangyuxi"];
                 for (NSInteger index = 0; index < 15; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.calculateHeight = ^CGFloat(WBTableRow *row){
@@ -45,7 +45,7 @@
                     [section addRow:row];
                 }
             }];
-            [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
             
             self.canLoadMore = YES;
             [self notifyDidFinishLoad];
@@ -64,7 +64,7 @@
             
             //追加数据 所以是update
             [self.tableViewAdapter beginAutoDiffer];
-            [self.tableViewAdapter updateSectionForIdentifier:@"fangyuxi" useMaker:^(WBTableSection * _Nonnull section) {
+            [self.tableViewAdapter updateSectionForKey:@"fangyuxi" useBlock:^(WBTableSection * _Nonnull section) {
                 
                 //maker.animationUpdate = YES;
                 for (NSInteger index = 0; index < 15; ++index) {

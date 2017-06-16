@@ -33,7 +33,7 @@ WBListKit_SUBCLASSING_RESTRICTED
 /**
  此section的唯一标识符
  */
-@property (nonatomic, copy, readwrite) NSString *identifier;
+@property (nonatomic, copy, readwrite) NSString *key;
 
 /**
  footer and header

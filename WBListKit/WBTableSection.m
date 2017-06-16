@@ -16,7 +16,7 @@
 - (instancetype)init{
     self = [super init];
     self.oldArray = [NSMutableArray array];
-    [self setIdentifier:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    [self setKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
     return self;
 }
 
@@ -111,12 +111,12 @@
 
 #pragma mark setter
 
-- (void)setIdentifier:(NSString * _Nonnull)identifier{
-    if (!identifier) {
-        _identifier = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
+- (void)setKey:(NSString * _Nonnull)key{
+    if (!key) {
+        key = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
         return;
     }
-    _identifier = identifier;
+    _key = key;
 }
 
 - (void)setRowCount:(NSUInteger)rowCount{
@@ -134,12 +134,12 @@
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.identifier;
+    return self.key;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableSection *section = (WBTableSection *)object;
-    return [self.identifier isEqualToString:section.identifier];
+    return [self.key isEqualToString:section.key];
 }
 
 #pragma mark private

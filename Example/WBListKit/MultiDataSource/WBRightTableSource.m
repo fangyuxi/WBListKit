@@ -26,7 +26,7 @@
             
             [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                section.identifier = @"fangyuxi";
+                section.key = @"fangyuxi";
                 for (NSInteger index = 0; index < 5; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.associatedCellClass = [WBSimpleListAutoLayoutCell class];

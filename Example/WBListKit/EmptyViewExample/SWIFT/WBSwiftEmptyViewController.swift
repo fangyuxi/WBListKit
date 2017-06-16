@@ -24,7 +24,7 @@ class WBSwiftEmptyViewController: UIViewController {
         tableView.empty.dataSource = self
         tableView.actionDelegate = self;
         
-        adapter.bindTableView(tableView);
+        tableView.adapter = adapter;
         
         let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItemStyle.plain, target: self, action: #selector(add))
         let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear))

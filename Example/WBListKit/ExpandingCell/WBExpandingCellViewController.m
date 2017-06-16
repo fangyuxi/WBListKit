@@ -30,7 +30,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     self.tableView.actionDelegate = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -48,7 +48,7 @@
             row.data = reformer;
             row.associatedCellClass = [WBExpandingCell class];
             [section addRow:row];
-            section.identifier = @"ExpandingCellSectionId";
+            section.key = @"ExpandingCellSectionId";
         }
     }];
     

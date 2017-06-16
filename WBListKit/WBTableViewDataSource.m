@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+WBListKitPrivate.h"
+#import "UITableView+WBListKit.h"
 #import "WBTableViewDataSourcePrivate.h"
 #import "WBTableViewAdapterPrivate.h"
 
@@ -18,16 +19,14 @@
 }
 
 - (void)bindTableView:(nullable UITableView *)tableView{
-    [self.tableViewAdapter unBindTableView];
+    self.tableViewAdapter.tableView = nil;
     self.tableView = tableView;
     self.tableView.source = self;
-    if (tableView) {
-        [self.tableViewAdapter bindTableView:self.tableView];
-    }
+    self.tableView.adapter = self.tableViewAdapter;
 }
 
 - (void)unBindTableView{
-    [self.tableViewAdapter unBindTableView];
+    self.tableViewAdapter.tableView = nil;
     self.tableView.source = nil;
     self.tableView = nil;
 }

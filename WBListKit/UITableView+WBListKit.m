@@ -14,6 +14,7 @@
 #import "WBTableViewDataSource.h"
 #import "WBTableViewDataSourcePrivate.h"
 
+static int AdapterKey;
 static int WBListActionToControllerProtocolKey;
 
 @implementation UITableView (WBListKit)
@@ -27,13 +28,15 @@ static int WBListActionToControllerProtocolKey;
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
 }
 
-- (void)bindAdapter:(nonnull WBTableViewAdapter *)adapter{
-    [self unbindAdapter];
-    [adapter bindTableView:self];
+- (void)setAdapter:(WBTableViewAdapter *)adapter{
+    
+    objc_setAssociatedObject(self, &AdapterKey, adapter, OBJC_ASSOCIATION_ASSIGN);
+    adapter.tableView = self;
+    adapter.actionDelegate = self.actionDelegate;
 }
 
-- (void)unbindAdapter{
-    [self.adapter unBindTableView];
+- (WBTableViewAdapter *)adapter{
+    return objc_getAssociatedObject(self, &AdapterKey);
 }
 
 - (void)bindViewDataSource:(nonnull WBTableViewDataSource *)source{
