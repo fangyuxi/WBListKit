@@ -29,8 +29,8 @@
         for (IGListMoveIndex *move in result.moves) {
             [view moveSection:move.from toSection:move.to];
         }
-        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationTop];
-        [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationTop];
+        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationFade];
+        [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationFade];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
