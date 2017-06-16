@@ -48,5 +48,14 @@ static int WBListActionToControllerProtocolKey;
     [self.source unBindCollectionView];
 }
 
+- (void)beginAutoDiffer{
+    [self.adapter beginAutoDiffer];
+}
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
+    [self.adapter commitAutoDifferWithAnimation:animation];
+}
+- (void)reloadDifferWithAnimation:(BOOL)animation{
+    [self.adapter reloadDifferWithAnimation:animation];
+}
 
 @end

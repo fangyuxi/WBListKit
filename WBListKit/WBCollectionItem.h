@@ -9,17 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
+#import "WBListDiffableProtocol.h"
 
 /**
  A Model for UICollectionView Cell
  */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBCollectionItem : NSObject
+@interface WBCollectionItem : NSObject<WBListDiffableProtocol>
 
 /**
  associated item data
  */
 @property (nonatomic, strong, nullable) id data;
+
+/**
+ 这一行的唯一标识，默认为对象内存地址
+ */
+@property (nonatomic, copy, nullable) NSString *key;
 
 /**
  location in list

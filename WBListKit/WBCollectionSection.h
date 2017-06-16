@@ -10,6 +10,7 @@
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
 #import "WBCollectionItem.h"
+#import "WBListDiffableProtocol.h"
 
 @class WBCollectionSectionMaker;
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  A Model Object For One Sectoin
  */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBCollectionSection : NSObject
+@interface WBCollectionSection : NSObject<WBListDiffableProtocol>
 
 /**
  此section的唯一标识符，可以通过唯一标识符准确的找到这个cell

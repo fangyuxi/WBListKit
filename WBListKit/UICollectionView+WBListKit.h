@@ -33,6 +33,10 @@
 - (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source;
 - (void)unbindViewDataSource;
 
+/** 以下方法同Adapter **/
+- (void)beginAutoDiffer;
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
+- (void)reloadDifferWithAnimation:(BOOL)animation;
 
 @end
 

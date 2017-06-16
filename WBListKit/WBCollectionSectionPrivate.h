@@ -19,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface WBCollectionSection ()
 
+@property (nonatomic, copy)NSArray *oldArray;
+@property (nonatomic, strong) NSMutableArray *items;
+
+- (void)recordOldArray;
+- (void)resetOldArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

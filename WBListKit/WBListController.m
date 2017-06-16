@@ -9,6 +9,7 @@
 #import "WBListController.h"
 #import "WBListRefreshControlCallbackProtocol.h"
 #import "UITableView+WBListKit.h"
+#import "UICollectionView+WBListKit.h"
 
 @interface WBListController ()<WBListRefreshControlCallbackProtocol>
 
@@ -117,7 +118,7 @@
     if (self.tableView) {
         [self.tableView reloadDifferWithAnimation:NO];
     }else if (self.collectionView){
-        [self.collectionView reloadData];
+        [self.collectionView reloadDifferWithAnimation:NO];
     }
 }
 
@@ -135,7 +136,7 @@
     if (self.tableView) {
         [self.tableView reloadDifferWithAnimation:NO];
     }else if (self.collectionView){
-        [self.collectionView reloadData];
+        [self.collectionView reloadDifferWithAnimation:NO];
     }
 }
 

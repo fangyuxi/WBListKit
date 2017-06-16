@@ -15,6 +15,8 @@
 #import "WBCollectionItem.h"
 #import "WBCollectionSection.h"
 #import "WBCollectionSectionPrivate.h"
+#import "WBCollectionUpdater.h"
+#import "WBCollectionSectionPrivate.h"
 
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]
@@ -22,13 +24,12 @@
 
 @interface WBCollectionViewAdapter ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic, strong) NSMutableDictionary *supplementaryItems;
 
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedSupplementaryIdentifiers;
-
 @property (nonatomic, strong) WBCollectionViewDelegateProxy *delegateProxy;
+
 @end
 
 @implementation WBCollectionViewAdapter
@@ -347,6 +348,13 @@
     return _supplementaryItems;
 }
 
+- (WBCollectionUpdater *)updater{
+    if (!_updater) {
+        _updater = [WBCollectionUpdater new];
+    }
+    return _updater;
+}
+
 
 #pragma mark private method
 
@@ -394,5 +402,61 @@
     }
 }
 
+- (void)resetAllSectionsAndRowsRecords{
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBCollectionSection *section = (WBCollectionSection *)obj;
+        [section resetOldArray];
+    }];
+    self.oldSections = [self.sections copy];
+}
+
+@end
+
+@implementation WBCollectionViewAdapter (AutoDiffer)
+
+- (void)beginAutoDiffer{
+    if (self.isInDifferring){
+        NSException* exception = [NSException exceptionWithName:@" BeginAutoDiffer Exception"
+                                                         reason:@"已经有一个在differ中的任务"
+                                                       userInfo:nil];
+        @throw exception;
+        return;
+    }
+    
+    [self reloadDifferWithAnimation:NO];
+    
+    self.isInDifferring = YES;
+    self.oldSections = [self.sections copy];
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj,
+                                                NSUInteger idx,
+                                                BOOL * _Nonnull stop) {
+        WBCollectionSection *section = (WBCollectionSection *)obj;
+        [section recordOldArray];
+    }];
+}
+
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
+    if (!self.isInDifferring) {
+        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception"
+                                                         reason:@"先使用beginAutoDiffer开始任务，才能提交任务"
+                                                       userInfo:nil];
+        @throw exception;
+        return;
+    }
+    self.isInDifferring = NO;
+    [self.updater diffSectionsAndRowsInCollectionView:self.collectionView
+                                            from:self.oldSections
+                                              to:self.sections
+                                       animation:animation];
+    [self resetAllSectionsAndRowsRecords];
+}
+
+- (void)reloadDifferWithAnimation:(BOOL)animation{
+    [self.updater diffSectionsAndRowsInCollectionView:self.collectionView
+                                            from:self.oldSections
+                                              to:self.sections
+                                       animation:animation];
+    [self resetAllSectionsAndRowsRecords];
+}
 
 @end

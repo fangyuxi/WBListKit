@@ -63,6 +63,7 @@ Pod::Spec.new do |s|
                             'WBListKit/UICollectionView+WBListKitPrivate.{h,m}',
                             'WBListKit/WBCollectionViewAdapterPrivate.h',
                             'WBListKit/UICollectionView+WBListKit.{h,m}',
+                            'WBListKit/WBCollectionUpdater.{h,m}',
                             'WBListKit/WBCollectionSection.{h,m}',
                             'WBListKit/WBCollectionViewAdapter.{h,m}',
                             'WBListKit/WBCollectionViewDelegateProxy.{h,m}',

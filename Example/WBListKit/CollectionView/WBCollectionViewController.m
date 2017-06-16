@@ -56,6 +56,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)loadData{
     
+    [self.adapter beginAutoDiffer];
     __weak typeof(self) weakSelf = self;
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         for (NSInteger index = 0; index < 100; ++index) {
@@ -93,7 +94,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                                    inSection:1]];
     }];
     
-    [self.collectionView reloadData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.adapter commitAutoDifferWithAnimation:YES];
+    });
+    
+    //[self.collectionView reloadData];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
