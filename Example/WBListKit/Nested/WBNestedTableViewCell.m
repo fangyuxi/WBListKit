@@ -37,7 +37,7 @@
     [self makeLayout];
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    [self.collectionView bindAdapter:self.adapter];
+    self.collectionView.adapter = self.adapter;
     
     return self;
 }

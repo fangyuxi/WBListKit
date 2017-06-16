@@ -23,13 +23,7 @@
  */
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
-/**
- 绑定adapter
- 
- @param adapter 'adapter'
- */
-- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter;
-- (void)unbindAdapter;
+@property (nonatomic, weak, nullable) WBCollectionViewAdapter *adapter;
 
 /**
  绑定TableViewSource

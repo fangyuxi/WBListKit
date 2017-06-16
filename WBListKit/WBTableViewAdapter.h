@@ -26,11 +26,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)willAppear;
 - (void)didDisappear;
 
+/**
+ 当前关联的TableView
+ */
 @property (nonatomic, weak, readonly) UITableView *tableView;
 
 /**
- you should use these method to manage tableview's and datasource
- please avoid direct use tableview's delegate and datasource property
+ 禁用UITableView的delegate和datasource，
+ 如果遇到特殊情况想指定datasource,比如：
+ `canEditRowAtIndexPath`
+ `sectionIndexTitlesForTableView`
+ `sectionForSectionIndexTitle`
+ `commitEditingStyle`
+ 
+  那么请使用这个属性代替
  */
 @property (nonatomic, weak) id tableDataSource;
 

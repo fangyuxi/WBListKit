@@ -16,18 +16,6 @@
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
 
-
-/**
- bind UICollectionView
- 
- @param collectionView 'UICollectionView'
- */
-- (void)bindCollectionView:(UICollectionView *)collectionView;
-
-/**
- unbind UICollectionView
- you can use this method to manage multi adapter binding one collectionView
- */
-- (void)unBindCollectionView;
+@property (nonatomic, weak, readwrite) UICollectionView *collectionView;
 
 @end

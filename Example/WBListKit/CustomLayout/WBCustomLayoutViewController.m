@@ -35,7 +35,7 @@
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
     self.adapter.collectionViewDataSource = self;
-    [self.collectionView bindAdapter:self.adapter];
+    self.collectionView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];

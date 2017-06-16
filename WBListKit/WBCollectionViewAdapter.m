@@ -22,8 +22,6 @@
 
 @interface WBCollectionViewAdapter ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, weak, readwrite) UICollectionView *collectionView;
-
 @property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic, strong) NSMutableDictionary *supplementaryItems;
 
@@ -35,24 +33,26 @@
 
 @implementation WBCollectionViewAdapter
 
-- (void)bindCollectionView:(UICollectionView *)collectionView{
-    NSCAssert([collectionView isKindOfClass:[UICollectionView class]], @"bindCollectionView 需要一个 UICollectinView实例");
-    [self unBindCollectionView];
-    self.collectionView = collectionView;
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+#pragma mark bind unbind
+
+- (void)setCollectionView:(UICollectionView *)collectionView{
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    _collectionView = nil;
+    
+    _collectionView = collectionView;
+    
+    if (!_collectionView) {
+        return;
+    }
+    
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
     
     if (self.actionDelegate || self.collectionViewDataSource) {
         [self updateCollectionDelegateProxy];
     }
 }
-
-- (void)unBindCollectionView{
-    self.collectionView.delegate = nil;
-    self.collectionView.dataSource = nil;
-    self.collectionView = nil;
-}
-
 #pragma mark manage appearance
 
 - (void)willAppear{

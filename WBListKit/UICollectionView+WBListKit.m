@@ -13,6 +13,8 @@
 #import "WBCollectionViewAdapterPrivate.h"
 #import "WBCollectionViewDataSourcePrivate.h"
 
+static int AdapterKey;
+
 static int WBListActionToControllerProtocolKey;
 
 @implementation UICollectionView (WBListKit)
@@ -26,16 +28,20 @@ static int WBListActionToControllerProtocolKey;
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
 }
 
-- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter{
-    [adapter bindCollectionView:self];
+- (void)setAdapter:(WBCollectionViewAdapter *)adapter{
+    objc_setAssociatedObject(self, &AdapterKey, adapter, OBJC_ASSOCIATION_ASSIGN);
+    adapter.collectionView = self;
+    adapter.actionDelegate = self.actionDelegate;
 }
 
-- (void)unbindAdapter{
-    [self.adapter unBindCollectionView];
+- (WBCollectionViewAdapter *)adapter{
+    return objc_getAssociatedObject(self, &AdapterKey);
 }
 
 - (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source{
+    [self unbindViewDataSource];
     [source bindCollectionView:self];
+    [self reloadData];
 }
 
 - (void)unbindViewDataSource{

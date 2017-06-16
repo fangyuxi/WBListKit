@@ -24,3 +24,4 @@
 @end
 
 #endif /* WBCollectionCellProtocol_h */
+

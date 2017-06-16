@@ -34,7 +34,7 @@
     [self.view addSubview:self.collectionView];
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    [self.collectionView bindAdapter:self.adapter];
+    self.collectionView.adapter = self.adapter;
     self.collectionView.actionDelegate = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{

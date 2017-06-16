@@ -37,26 +37,6 @@
 
 #pragma mark bind unbind
 
-//- (void)bindTableView:(UITableView *)tableView{
-//    WBListKitAssert([tableView isKindOfClass:[UITableView class]], @"bindTableView 需要一个 UITableView实例");
-//    [self unBindTableView];
-//    self.tableView = tableView;
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-//    self.tableView.adapter = self;
-//
-//    if (self.actionDelegate || self.tableDataSource) {
-//        [self updateTableDelegateProxy];
-//    }
-//}
-//
-//- (void)unBindTableView{
-//    self.tableView.delegate = nil;
-//    self.tableView.dataSource = nil;
-//    self.tableView.adapter = nil;
-//    self.tableView = nil;
-//}
-
 - (void)setTableView:(UITableView *)tableView{
     _tableView.delegate = nil;
     _tableView.dataSource = nil;
@@ -215,9 +195,10 @@
     
     WBTableSection *section = [self sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:indexPath.row];
+    WBListKitAssert(row ,@"当前列表的状态，数据同显示不付，您所操作的行，虽然在显示，但是数据中已经没有了");
     Class cellClass = row.associatedCellClass;
     NSString *identifier = NSStringFromClass(cellClass);
-    WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"row's associatedCellClass is nil");
+    WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"row 相关联的 associatedCellClass 为空");
     
     //registe if needed
     [self registeCellIfNeededUseCellClass:cellClass];
