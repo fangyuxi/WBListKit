@@ -172,6 +172,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//AutoDiffer方法并不能识别出item 的内容变化 或者 section内部的footer header 追加视图的变化，
+//所以在以上内容变化需要刷新的时候，请使用下面的方法
+@interface WBCollectionViewAdapter (ReloadShortcut)
+
+- (void)reloadItemAtIndex:(NSIndexPath *)indexPath
+               animation:(BOOL)animation
+              usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finish))completion;
+
+- (void)reloadItemAtIndex:(NSInteger )index
+           forSectionKey:(NSString *)key
+               animation:(BOOL)animation
+              usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finish))completion;
+
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(BOOL)animation
+                  usingBlock:(void(^)(WBCollectionSection *section))block
+                  completion:(void(^)(BOOL finish))completion;
+
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(BOOL)animation
+                 usingBlock:(void(^)(WBCollectionSection *section))block
+                 completion:(void(^)(BOOL finish))completion;
+@end
 NS_ASSUME_NONNULL_END
 
 

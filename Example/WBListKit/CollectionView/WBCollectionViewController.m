@@ -49,9 +49,13 @@
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //cell被电击后移动的动画
-    [collectionView selectItemAtIndexPath:indexPath
-                                 animated:YES
-                           scrollPosition:UICollectionViewScrollPositionTop];
+    
+    [self.adapter beginAutoDiffer];
+    [self.adapter updateSectionAtIndex:indexPath.section userBlock:^(WBCollectionSection * _Nonnull section) {
+        
+        [section deleteItemAtIndex:indexPath.item];
+    }];
+    [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
 - (void)loadData{
@@ -107,5 +111,6 @@ referenceSizeForHeaderInSection:(NSInteger)section{
     
     return CGSizeMake(320, 20);
 }
+
 
 @end

@@ -144,6 +144,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//AutoDiffer方法并不能识别出item 的内容变化 或者 section内部的footer header 追加视图的变化，
+//所以在以上内容变化需要刷新的时候，请使用下面的方法
 @interface WBTableViewAdapter (ReloadShortcut)
 
 - (void)reloadRowAtIndex:(NSIndexPath *)indexPath

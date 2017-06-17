@@ -412,6 +412,111 @@
 
 @end
 
+@implementation WBCollectionViewAdapter (ReloadShortcut)
+
+- (void)reloadItemAtIndex:(NSIndexPath *)indexPath
+                animation:(BOOL)animation
+               usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finished))completion{
+    
+    WBCollectionSection *section = [self sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = [section itemAtIndex:indexPath.item];
+    block(item);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadItemAtIndex:(NSInteger )index
+            forSectionKey:(NSString *)key
+                animation:(BOOL)animation
+               usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    WBCollectionItem *item = [section itemAtIndex:index];
+    block(item);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:sectionIndex]]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:sectionIndex]]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(BOOL)animation
+                  usingBlock:(void(^)(WBCollectionSection *section))block
+                  completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    block(section);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(BOOL)animation
+                 usingBlock:(void(^)(WBCollectionSection *section))block
+                 completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    block(section);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+@end
+
 @implementation WBCollectionViewAdapter (AutoDiffer)
 
 - (void)beginAutoDiffer{
