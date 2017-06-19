@@ -15,9 +15,12 @@
 #import "WBTableViewDataSourcePrivate.h"
 
 static int AdapterKey;
+static int DataSourceKey;
 static int WBListActionToControllerProtocolKey;
 
 @implementation UITableView (WBListKit)
+
+#pragma getters setters
 
 - (void)setActionDelegate:(id<WBListActionToControllerProtocol>)actionDelegate{
     objc_setAssociatedObject(self, &WBListActionToControllerProtocolKey, actionDelegate, OBJC_ASSOCIATION_ASSIGN);
@@ -26,6 +29,15 @@ static int WBListActionToControllerProtocolKey;
 
 - (id<WBListActionToControllerProtocol>)actionDelegate{
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
+}
+
+- (void)setTableDataSource:(id)tableDataSource{
+    objc_setAssociatedObject(self, &DataSourceKey, tableDataSource, OBJC_ASSOCIATION_ASSIGN);
+    self.adapter.tableDataSource = tableDataSource;
+}
+
+- (id)tableDataSource{
+    return objc_getAssociatedObject(self, &DataSourceKey);
 }
 
 - (void)setAdapter:(WBTableViewAdapter *)adapter{
@@ -39,6 +51,18 @@ static int WBListActionToControllerProtocolKey;
     return objc_getAssociatedObject(self, &AdapterKey);
 }
 
+#pragma mark appear disappear
+
+- (void)willAppear{
+    [self.adapter willAppear];
+}
+
+- (void)didDisappear{
+    [self.adapter didDisappear];
+}
+
+#pragma mark bind view source
+
 - (void)bindViewDataSource:(nonnull WBTableViewDataSource *)source{
     [self unbindViewDataSource];
     [source bindTableView:self];
@@ -48,6 +72,8 @@ static int WBListActionToControllerProtocolKey;
 - (void)unbindViewDataSource{
     [self.source unBindTableView];
 }
+
+#pragma mark differ
 
 - (void)beginAutoDiffer{
     [self.adapter beginAutoDiffer];

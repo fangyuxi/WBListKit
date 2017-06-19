@@ -20,30 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WBTableViewAdapter : NSObject
 
 /**
- 可以在'viewWillAppear' 和 'viewDidDisappear' 中调用，用来回调cell/header/footer
- 中的 'cancel' 'reload' 方法
- */
-- (void)willAppear;
-- (void)didDisappear;
-
-/**
- 当前关联的TableView
- */
-@property (nonatomic, weak, readonly) UITableView *tableView;
-
-/**
- 禁用UITableView的delegate和datasource，
- 如果遇到特殊情况想指定datasource,比如：
- `canEditRowAtIndexPath`
- `sectionIndexTitlesForTableView`
- `sectionForSectionIndexTitle`
- `commitEditingStyle`
- 
-  那么请使用这个属性代替
- */
-@property (nonatomic, weak) id tableDataSource;
-
-/**
  get section at index
 
  @param index 'index'
@@ -112,10 +88,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteSectionForKey:(NSString *)key;
 - (void)deleteAllSections;
 
+/**
+ 当前关联的TableView
+ */
+@property (nonatomic, weak, readonly) UITableView *tableView;
+
 @end
 
 @interface WBTableViewAdapter (AutoDiffer)
-
 
 /**
  在任何的更改前调用此方法，系统会记录你对如下的更改：

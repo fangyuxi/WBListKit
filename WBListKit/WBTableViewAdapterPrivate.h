@@ -11,13 +11,17 @@
 @protocol WBListActionToControllerProtocol;
 
 /**
- 隐藏这个属性，防止外部访问到
+ 隐藏，防止外部访问到
  */
 @class WBTableUpdater;
 @interface WBTableViewAdapter ()
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
+@property (nonatomic, weak) id<UITableViewDataSource> tableDataSource;
 @property (nonatomic, weak, readwrite) UITableView *tableView;
+
+- (void)willAppear;
+- (void)didDisappear;
 
 /**
  标识是否在differ中
