@@ -17,22 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WBCollectionViewAdapter : NSObject
 
-/**
- 可以在'viewWillAppear' 和 'viewDidDisappear' 中调用，用来回调item supplementaryView
- 中的 'cancel' 'reload' 方法
- */
-- (void)willAppear;
-- (void)didDisappear;
-
 @property (nonatomic, weak, readonly) UICollectionView *collectionView;
-
-/**
- you should use these method to manage tableview's and datasource
- please avoid direct use collectionView's delegate and datasource property
- 
- before use it, you must know why
- */
-@property (nonatomic, weak) id collectionViewDataSource;
 
 #pragma mark Section Model
 

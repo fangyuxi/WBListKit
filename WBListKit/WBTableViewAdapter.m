@@ -24,6 +24,7 @@
 #import "UICollectionView+IGListBatchUpdateData.h"
 #import "IGListReloadIndexPath.h"
 #import "WBTableUpdater.h"
+#import "WBListReusableViewProtocol.h"
 
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -252,7 +253,7 @@
     
     // hook by
     if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
-        return [self.tableDataSource tableView:tableView heightForRowAtIndexPath:indexPath];
+        return [self.actionDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
     }
 
     if (row.calculateHeight) {
@@ -285,7 +286,7 @@
     
     // hook by
     if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
-        return [self.tableDataSource tableView:tableView heightForHeaderInSection:section];
+        return [self.actionDelegate tableView:tableView heightForHeaderInSection:section];
     }
     
     CGFloat height = 0;
@@ -312,7 +313,7 @@
     
     // hook by
     if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
-        return [self.tableDataSource tableView:tableView heightForFooterInSection:section];
+        return [self.actionDelegate tableView:tableView heightForFooterInSection:section];
     }
     
     CGFloat height = 0;
@@ -341,7 +342,7 @@
     //hook by
     UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *headerView = nil;
     if ([self.tableDataSource respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
-        return [self.tableDataSource tableView:tableView viewForHeaderInSection:section];
+        return [self.actionDelegate tableView:tableView viewForHeaderInSection:section];
     }
     
     headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
@@ -371,7 +372,7 @@
     //hook by
     UITableViewHeaderFooterView<WBTableHeaderFooterViewProtocal> *footerView = nil;
     if ([self.tableDataSource respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
-        return [self.tableDataSource tableView:tableView viewForFooterInSection:section];
+        return [self.actionDelegate tableView:tableView viewForFooterInSection:section];
     }
     
     footerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];

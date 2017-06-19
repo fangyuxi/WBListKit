@@ -14,7 +14,7 @@
 #import "WBCollectionViewDataSourcePrivate.h"
 
 static int AdapterKey;
-
+static int DataSourceKey;
 static int WBListActionToControllerProtocolKey;
 
 @implementation UICollectionView (WBListKit)
@@ -36,6 +36,23 @@ static int WBListActionToControllerProtocolKey;
 
 - (WBCollectionViewAdapter *)adapter{
     return objc_getAssociatedObject(self, &AdapterKey);
+}
+
+- (void)setCollectionViewDataSource:(id<UICollectionViewDataSource>)collectionViewDataSource{
+    objc_setAssociatedObject(self, &DataSourceKey, collectionViewDataSource, OBJC_ASSOCIATION_ASSIGN);
+    self.adapter.collectionViewDataSource = collectionViewDataSource;
+}
+
+- (id<UICollectionViewDataSource>)collectionViewDataSource{
+    return objc_getAssociatedObject(self, &DataSourceKey);
+}
+
+- (void)willAppear{
+    [self.adapter willAppear];
+}
+
+- (void)didDisappear{
+    [self.adapter didDisappear];
 }
 
 - (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source{
