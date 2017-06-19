@@ -19,9 +19,24 @@
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
 @property (nonatomic, weak, readwrite) UITableView *tableView;
 
+/**
+ 标识是否在differ中
+ */
 @property (nonatomic, assign) BOOL isInDifferring;
-@property (nonatomic, strong) NSMutableArray *oldSections; // used for diff
+
+/**
+ differ之前的旧数据
+ */
+@property (nonatomic, strong) NSMutableArray *oldSections;
+
+/**
+ tableview 更新对象
+ */
 @property (nonatomic, strong) WBTableUpdater *updater;
+
+/**
+ 当前的section数组
+ */
 @property (nonatomic, strong) NSMutableArray *sections;
 
 /**
