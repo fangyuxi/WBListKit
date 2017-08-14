@@ -33,10 +33,8 @@
 - (void)createView{
     WBMVCRefreshHeader *header = [[WBMVCRefreshHeader alloc] init];
     self.list.refreshHeaderControl = header;
-    
     self.list.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.list.tableView];
-    
     WBMVCRefreshFooter *footer = [[WBMVCRefreshFooter alloc] init];
     self.list.loadMoreFooterControl = footer;
 }
