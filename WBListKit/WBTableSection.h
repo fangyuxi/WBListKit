@@ -49,6 +49,8 @@ WBListKit_SUBCLASSING_RESTRICTED
 - (void)insertRow:(WBTableRow *)row
           atIndex:(NSUInteger)index;
 
+- (void)addNewRow:(void(^)(WBTableRow *row))block;
+
 /**
  delete
  */

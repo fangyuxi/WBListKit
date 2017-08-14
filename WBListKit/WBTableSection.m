@@ -48,6 +48,12 @@
     }
 }
 
+- (void)addNewRow:(void(^)(WBTableRow *row))block{
+    WBTableRow *row = [WBTableRow new];
+    [self addRow:row];
+    block(row);
+}
+
 /**
  delete
  */

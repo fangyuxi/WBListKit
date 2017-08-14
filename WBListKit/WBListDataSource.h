@@ -31,6 +31,8 @@
  @return source
  */
 - (nullable instancetype)initWithDelegate:(nonnull id<WBListDataSourceDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithController:(nonnull UIViewController *)controller;
+
 - (nonnull instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (nonnull instancetype)new UNAVAILABLE_ATTRIBUTE;
 
