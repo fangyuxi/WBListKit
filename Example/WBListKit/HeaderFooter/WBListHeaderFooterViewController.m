@@ -30,7 +30,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
@@ -39,7 +39,7 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         WBTableRow *row = [[WBTableRow alloc] init];
         row.calculateHeight = ^CGFloat(WBTableRow *row) {
@@ -60,7 +60,9 @@
         footer.displayType = WBTableHeaderFooterTypeFooter;
         footer.associatedHeaderFooterClass = [WBDemoFooterView class];
         
-        maker.addRow(row).addFooter(footer).addHeader(header);
+        [section addRow:row];
+        section.header = header;
+        section.footer = footer;
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

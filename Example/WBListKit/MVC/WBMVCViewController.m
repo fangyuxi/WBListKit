@@ -26,7 +26,7 @@
     [self createView];
     self.list.tableDataSource = [[WBMVCTableListDataSource alloc] initWithDelegate:self];
     [self.list.tableView bindViewDataSource:self.list.tableDataSource];
-    
+    self.list.tableView.actionDelegate = self;
     [self.list refreshImmediately];
 }
 
@@ -41,17 +41,18 @@
     self.list.loadMoreFooterControl = footer;
 }
 
-
-
 - (void)sourceDidStartLoad:(WBListDataSource *)tableSource{
     
 }
 
-- (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{
+- (void)actionFromReusableView:(UIView *)view
+                      eventTag:(NSString *)tag parameter:(id)param{
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //test
+    [self.list refreshImmediately];
 }
 
 @end

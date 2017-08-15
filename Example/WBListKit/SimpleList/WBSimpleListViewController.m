@@ -30,7 +30,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     self.tableView.actionDelegate = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -40,7 +40,9 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter beginAutoDiffer];
+    
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -50,41 +52,42 @@
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row);
+            [section addRow:row];
         }
-        
-        maker.setIdentifier(@"FixedHeight");
+        section.key = @"FixedHeight";
     }];
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
             row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
             row.data = @{@"title":@(index)
                             };
-            maker.addRow(row).setIdentifier(@"AutoLayout");
+            [section addRow:row];
         }
+        section.key = @"AutoLayout";
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.tableView reloadData];
-        });
-    });
+    [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.adapter reloadRowAtIndex:indexPath
-                         animation:UITableViewRowAnimationAutomatic
-                        usingBlock:^(WBTableRow * _Nonnull row) {
-        row.data = @{@"title":@(100)
-                     };
+    WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
+    //[self.adapter beginAutoDiffer];
+    [section deleteRowAtIndex:0];
+    //[self.adapter commitAutoDiffer];
+    
+    //[tableView reloadData];
+    //[self.adapter reloadDiffer];
+    [self.adapter reloadSectionAtIndex:indexPath.section animation:UITableViewRowAnimationAutomatic usingBlock:^(WBTableSection * _Nonnull section) {
     }];
+    //[self.adapter reloadDiffer];
 }
 
-- (void)actionFromReusableView:(UIView *)view eventTag:(NSString *)tag parameter:(id)param{
+- (void)actionFromReusableView:(UIView *)view
+                      eventTag:(NSString *)tag
+                     parameter:(id)param{
 }
 
 

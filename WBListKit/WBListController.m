@@ -8,6 +8,8 @@
 
 #import "WBListController.h"
 #import "WBListRefreshControlCallbackProtocol.h"
+#import "UITableView+WBListKit.h"
+#import "UICollectionView+WBListKit.h"
 
 @interface WBListController ()<WBListRefreshControlCallbackProtocol>
 
@@ -19,7 +21,6 @@
 
 - (nullable instancetype)initWithController:(nonnull UIViewController *)viewController{
     self = [super init];
-    _autoReloadWhenDataSourceReady = YES;
     _viewController = viewController;
     return self;
 }
@@ -114,8 +115,10 @@
 - (void)sourceDidFinishLoad:(WBListDataSource *)tableSource{
     [self.refreshHeaderControl end];
     [self toggleFooterMoreDataState];
-    if (self.autoReloadWhenDataSourceReady) {
-        [(UITableView *)[self getCurrentView] reloadData];
+    if (self.tableView) {
+        [self.tableView reloadDifferWithAnimation:NO];
+    }else if (self.collectionView){
+        [self.collectionView reloadDifferWithAnimation:NO];
     }
 }
 
@@ -124,14 +127,16 @@
 }
 
 - (void)sourceDidFinishLoadMore:(WBListDataSource *)tableSource{
-    //[[self getCurrentView].mj_footer endRefreshing];
     [self.loadMoreFooterControl end];
     if (self.refreshHeaderControl) {
         [self.refreshHeaderControl enable];
     }
     [self toggleFooterMoreDataState];
-    if (self.autoReloadWhenDataSourceReady) {
-        [(UITableView *)[self getCurrentView] reloadData];
+    
+    if (self.tableView) {
+        [self.tableView reloadDifferWithAnimation:NO];
+    }else if (self.collectionView){
+        [self.collectionView reloadDifferWithAnimation:NO];
     }
 }
 

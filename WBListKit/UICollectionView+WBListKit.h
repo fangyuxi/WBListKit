@@ -16,6 +16,11 @@
 @interface UICollectionView (WBListKit)
 
 /**
+ 绑定adapter
+ */
+@property (nonatomic, weak, nullable) WBCollectionViewAdapter *adapter;
+
+/**
  取代UICollectionView的delegate 
  增加了从Cell到自定义代理对象的事件传递
  在Cell中合成actionDelegate属性，通过
@@ -24,21 +29,21 @@
 @property (nonatomic, weak, nullable) id<WBListActionToControllerProtocol> actionDelegate;
 
 /**
- 绑定adapter
- 
- @param adapter 'adapter'
+ 取代UICollectionView的dataSource
  */
-- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter;
-- (void)unbindAdapter;
+@property (nonatomic, weak, nullable) id<UICollectionViewDataSource> collectionViewDataSource;
 
 /**
  绑定TableViewSource
- 
  @param source 'source'
  */
 - (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source;
 - (void)unbindViewDataSource;
 
+/** 以下方法同Adapter **/
+- (void)beginAutoDiffer;
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
+- (void)reloadDifferWithAnimation:(BOOL)animation;
 
 @end
 

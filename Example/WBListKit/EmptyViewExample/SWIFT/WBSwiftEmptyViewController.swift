@@ -24,7 +24,7 @@ class WBSwiftEmptyViewController: UIViewController {
         tableView.empty.dataSource = self
         tableView.actionDelegate = self;
         
-        adapter.bindTableView(tableView);
+        tableView.adapter = adapter;
         
         let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItemStyle.plain, target: self, action: #selector(add))
         let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear))
@@ -47,14 +47,14 @@ class WBSwiftEmptyViewController: UIViewController {
     
     func add(){
         
-        self.adapter.addSection { (maker) in
+        self.adapter.addSection { (section) in
             
             for i in 1..<10{
                 let row: WBTableRow = WBTableRow();
                 row.associatedCellClass = WBSwiftListCell.self
                 row.data = ["color":UIColor.clear, "index":i]
                 row.calculateHeight = {row in return 100.0};
-                maker.addRow()(row)
+                section.addRow(row);
             }
         }
         

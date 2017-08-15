@@ -13,6 +13,8 @@
 #import "WBCollectionViewAdapterPrivate.h"
 #import "WBCollectionViewDataSourcePrivate.h"
 
+static int AdapterKey;
+static int DataSourceKey;
 static int WBListActionToControllerProtocolKey;
 
 @implementation UICollectionView (WBListKit)
@@ -26,21 +28,51 @@ static int WBListActionToControllerProtocolKey;
     return objc_getAssociatedObject(self, &WBListActionToControllerProtocolKey);
 }
 
-- (void)bindAdapter:(nonnull WBCollectionViewAdapter *)adapter{
-    [adapter bindCollectionView:self];
+- (void)setAdapter:(WBCollectionViewAdapter *)adapter{
+    objc_setAssociatedObject(self, &AdapterKey, adapter, OBJC_ASSOCIATION_ASSIGN);
+    adapter.collectionView = self;
+    adapter.actionDelegate = self.actionDelegate;
 }
 
-- (void)unbindAdapter{
-    [self.adapter unBindCollectionView];
+- (WBCollectionViewAdapter *)adapter{
+    return objc_getAssociatedObject(self, &AdapterKey);
+}
+
+- (void)setCollectionViewDataSource:(id<UICollectionViewDataSource>)collectionViewDataSource{
+    objc_setAssociatedObject(self, &DataSourceKey, collectionViewDataSource, OBJC_ASSOCIATION_ASSIGN);
+    self.adapter.collectionViewDataSource = collectionViewDataSource;
+}
+
+- (id<UICollectionViewDataSource>)collectionViewDataSource{
+    return objc_getAssociatedObject(self, &DataSourceKey);
+}
+
+- (void)willAppear{
+    [self.adapter willAppear];
+}
+
+- (void)didDisappear{
+    [self.adapter didDisappear];
 }
 
 - (void)bindViewDataSource:(nonnull WBCollectionViewDataSource *)source{
+    [self unbindViewDataSource];
     [source bindCollectionView:self];
+    [self reloadData];
 }
 
 - (void)unbindViewDataSource{
     [self.source unBindCollectionView];
 }
 
+- (void)beginAutoDiffer{
+    [self.adapter beginAutoDiffer];
+}
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
+    [self.adapter commitAutoDifferWithAnimation:animation];
+}
+- (void)reloadDifferWithAnimation:(BOOL)animation{
+    [self.adapter reloadDifferWithAnimation:animation];
+}
 
 @end

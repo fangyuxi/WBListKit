@@ -7,27 +7,24 @@
 //
 
 #import "WBTableSection.h"
-
-@interface WBTableSection ()
-
-/**
- 存放此section关联的row 类型为WBListRow
- */
-@property (nonatomic, strong) NSMutableArray *rows;
-
-@end
+#import "WBTableSectionPrivate.h"
 
 @implementation WBTableSection
 
 @synthesize rowCount = _rowCount;
 
+- (instancetype)init{
+    self = [super init];
+    self.oldArray = [NSMutableArray array];
+    [self setKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    return self;
+}
+
 /**
  gets
  */
-- (nullable __kindof WBTableRow *)rowAtIndex:(NSUInteger)index
-{
-    if (index < self.rowCount)
-    {
+- (nullable __kindof WBTableRow *)rowAtIndex:(NSUInteger)index{
+    if (index < self.rowCount){
         return [self.rows objectAtIndex:index];
     }
     return nil;
@@ -36,41 +33,39 @@
 /**
  inserts
  */
-- (void)addRow:(WBTableRow *)row
-{
+- (void)addRow:(WBTableRow *)row{
     [self insertRow:row atIndex:self.rowCount];
 }
-- (void)addRows:(NSArray<WBTableRow *> *)rows
-{
+- (void)addRows:(NSArray<WBTableRow *> *)rows{
     if (rows) {
         [self.rows addObjectsFromArray:rows];
     }
 }
 - (void)insertRow:(WBTableRow *)row
-          atIndex:(NSUInteger)index
-{
-    if (row && index <= self.rows.count)
-    {
+          atIndex:(NSUInteger)index{
+    if (row && index <= self.rows.count){
         [self.rows insertObject:row atIndex:index];
     }
+}
+
+- (void)addNewRow:(void(^)(WBTableRow *row))block{
+    WBTableRow *row = [WBTableRow new];
+    [self addRow:row];
+    block(row);
 }
 
 /**
  delete
  */
-- (void)deleteRow:(WBTableRow *)row
-{
+- (void)deleteRow:(WBTableRow *)row{
     [self.rows removeObject:row];
 }
-- (void)deleteRowAtIndex:(NSUInteger)index
-{
-    if (index < self.rows.count)
-    {
+- (void)deleteRowAtIndex:(NSUInteger)index{
+    if (index < self.rows.count){
         [self.rows removeObjectAtIndex:index];
     }
 }
-- (void)deleteAllRows
-{
+- (void)deleteAllRows{
     [self.rows removeAllObjects];
 }
 
@@ -78,58 +73,60 @@
  exchange replace
  */
 - (void)replaceRowAtIndex:(NSUInteger)index
-                  withRow:(WBTableRow *)row
-{
-    if (row)
-    {
+                  withRow:(WBTableRow *)row{
+    if (row){
         [self.rows replaceObjectAtIndex:index withObject:row];
     }
 }
 - (void)exchangeRowAtIndex:(NSUInteger)index1
-                 withIndex:(NSInteger)index2
-{
-    if (index1 < self.rows.count && index2 < self.rows.count)
-    {
+                 withIndex:(NSInteger)index2{
+    if (index1 < self.rows.count && index2 < self.rows.count){
         [self.rows exchangeObjectAtIndex:index1 withObjectAtIndex:index2];
     }
 }
 
 #pragma mark getter
 
-- (NSMutableArray *)rows
-{
-    if (!_rows)
-    {
+- (NSMutableArray *)rows{
+    if (!_rows){
         _rows = [NSMutableArray<WBTableRow *> array];
     }
     return _rows;
 }
 
-- (NSUInteger)rowCount
-{
+- (NSUInteger)rowCount{
     return [self.rows count];
 }
 
 #pragma mark setter
 
-- (void)setMaker:(WBTableSectionMaker * _Nullable)maker{
-    _maker = maker;
+- (void)setKey:(NSString * _Nonnull)key{
+    if (!key) {
+        key = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
+        return;
+    }
+    _key = key;
 }
 
-- (void)setIdentifier:(NSString * _Nonnull)identifier{
-    _identifier = identifier;
+#pragma mark differ protocol
+
+- (nonnull id<NSObject>)diffIdentifier{
+    return self.key;
 }
 
-- (void)setRowCount:(NSUInteger)rowCount{
-    _rowCount = rowCount;
+- (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
+    WBTableSection *section = (WBTableSection *)object;
+    return [self.key isEqualToString:section.key];
 }
 
-- (void)setHeader:(WBTableSectionHeaderFooter * _Nullable)header{
-    _header = header;
+#pragma mark private
+
+- (void)recordOldArray{
+    self.oldArray = self.rows;
 }
 
-- (void)setFooter:(WBTableSectionHeaderFooter * _Nullable)footer{
-    _footer = footer;
+- (void)resetOldArray{
+    self.oldArray = self.rows;
 }
 
 @end

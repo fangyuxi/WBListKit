@@ -6,12 +6,14 @@ PODS:
   - WBListKit (0.4):
     - WBListKit/CollectionView (= 0.4)
     - WBListKit/DataSource (= 0.4)
+    - WBListKit/Differ (= 0.4)
     - WBListKit/TableView (= 0.4)
   - WBListKit/CollectionView (0.4):
     - UITableView+FDTemplateLayoutCell
   - WBListKit/DataSource (0.4):
     - WBListKit/CollectionView
     - WBListKit/TableView
+  - WBListKit/Differ (0.4)
   - WBListKit/TableView (0.4):
     - UITableView+FDTemplateLayoutCell
 
@@ -23,15 +25,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   WBListKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
-  WBListKit: 1db5209a41b3b1f89157bdec8ee65062ec12c30c
+  WBListKit: 252a646a01183349cfa0b99963302bdb58abacc0
 
 PODFILE CHECKSUM: 85c51a1f67394d8d50e9e4bce206a2be489b0158
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1

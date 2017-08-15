@@ -21,22 +21,24 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             //刷新需要清空数据
+            [self.tableViewAdapter beginAutoDiffer];
             [self.tableViewAdapter deleteAllSections];
             
-            [self.tableViewAdapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
-                maker.setIdentifier(@"fangyuxi");
+                section.key = @"fangyuxi";
                 for (NSInteger index = 0; index < 5; ++index) {
                     WBTableRow *row = [[WBTableRow alloc] init];
                     row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
                     row.data = @{@"title":@(index)
                                  };
-                    maker.addRow(row);
+                    [section addRow:row];
                 }
             }];
             
             self.canLoadMore = YES;
             [self notifyDidFinishLoad];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
         });
     });
 }

@@ -34,7 +34,7 @@
     
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
@@ -43,7 +43,7 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 500; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -53,7 +53,8 @@
             row.associatedCellClass = [WBNestedTableViewCell class];
             row.data = @{@"title":@(index)
                          };
-            maker.addRow(row).setIdentifier(@"FixedHeight");
+            [section addRow:row];
+            section.key = @"FixedHeight";
         }
     }];
     

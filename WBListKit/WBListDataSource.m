@@ -33,6 +33,10 @@
     return self;
 }
 
+- (nullable instancetype)initWithController:(UIViewController *)controller{
+    return [self initWithDelegate:controller];
+}
+
 #pragma mark list
 
 - (void)loadSource{

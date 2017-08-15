@@ -15,7 +15,6 @@
 @class WBCollectionViewDataSource;
 @interface UICollectionView (WBListKitPrivate)
 
-@property (nonatomic, weak) WBCollectionViewAdapter *adapter;
 @property (nonatomic, weak) WBCollectionViewDataSource *source;
 
 @end

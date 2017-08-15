@@ -55,9 +55,13 @@
 		C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A901EC2BB7E0081234A /* WBListEmptyKitDataSource.swift */; };
 		C2099A931EC2BBDE0081234A /* WBListEmptyKitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */; };
 		C20ACE191EE69BE50054E843 /* WBMVCRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C20ACE181EE69BE50054E843 /* WBMVCRefreshHeader.m */; };
+		C2330FAB1EFA966D00D05C37 /* WBDifferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2330FAA1EFA966D00D05C37 /* WBDifferViewController.m */; };
 		C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */; };
 		C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD51ED5547400D87C48 /* WBExpandingCell.m */; };
 		C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */; };
+		C267174A1EEA47E2006B85B7 /* WBListNibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26717481EEA47E2006B85B7 /* WBListNibCell.m */; };
+		C267174B1EEA47E2006B85B7 /* WBListNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26717491EEA47E2006B85B7 /* WBListNibCell.xib */; };
+		C267174E1EEA4825006B85B7 /* WBListNibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C267174D1EEA4825006B85B7 /* WBListNibViewController.m */; };
 		C28E6E031EC5B4F100846A66 /* WBSwiftEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */; };
 		C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */; };
 		C2CC21B91EC308C6007E6600 /* WBListEmptyKitNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CC21B81EC308C6007E6600 /* WBListEmptyKitNameSpace.swift */; };
@@ -163,12 +167,19 @@
 		C2099A921EC2BBDE0081234A /* WBListEmptyKitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBListEmptyKitDelegate.swift; sourceTree = "<group>"; };
 		C20ACE171EE69BE50054E843 /* WBMVCRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMVCRefreshHeader.h; sourceTree = "<group>"; };
 		C20ACE181EE69BE50054E843 /* WBMVCRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBMVCRefreshHeader.m; sourceTree = "<group>"; };
+		C2330FA91EFA966D00D05C37 /* WBDifferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBDifferViewController.h; sourceTree = "<group>"; };
+		C2330FAA1EFA966D00D05C37 /* WBDifferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBDifferViewController.m; sourceTree = "<group>"; };
 		C2411FD11ED5545500D87C48 /* WBExpandingCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellViewController.h; sourceTree = "<group>"; };
 		C2411FD21ED5545500D87C48 /* WBExpandingCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellViewController.m; sourceTree = "<group>"; };
 		C2411FD41ED5547400D87C48 /* WBExpandingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCell.h; sourceTree = "<group>"; };
 		C2411FD51ED5547400D87C48 /* WBExpandingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCell.m; sourceTree = "<group>"; };
 		C2411FD71ED5549900D87C48 /* WBExpandingCellReformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBExpandingCellReformer.h; sourceTree = "<group>"; };
 		C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBExpandingCellReformer.m; sourceTree = "<group>"; };
+		C26717471EEA47E2006B85B7 /* WBListNibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListNibCell.h; sourceTree = "<group>"; };
+		C26717481EEA47E2006B85B7 /* WBListNibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListNibCell.m; sourceTree = "<group>"; };
+		C26717491EEA47E2006B85B7 /* WBListNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBListNibCell.xib; sourceTree = "<group>"; };
+		C267174C1EEA4825006B85B7 /* WBListNibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBListNibViewController.h; sourceTree = "<group>"; };
+		C267174D1EEA4825006B85B7 /* WBListNibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBListNibViewController.m; sourceTree = "<group>"; };
 		C28E6E021EC5B4F100846A66 /* WBSwiftEmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBSwiftEmptyViewController.swift; sourceTree = "<group>"; };
 		C28E6E041EC5B50800846A66 /* WBOCEmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBOCEmptyViewController.h; sourceTree = "<group>"; };
 		C28E6E051EC5B50800846A66 /* WBOCEmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBOCEmptyViewController.m; sourceTree = "<group>"; };
@@ -344,8 +355,8 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for WBListKit */,
+				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -378,6 +389,8 @@
 		6003F593195388D20070C39A /* Example for WBListKit */ = {
 			isa = PBXGroup;
 			children = (
+				C2330FA81EFA964F00D05C37 /* DifferExample */,
+				C26717461EEA47E2006B85B7 /* nib */,
 				C2411FD01ED5543900D87C48 /* ExpandingCell */,
 				C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */,
 				C2099A8D1EC2B60E0081234A /* WBListEmptyViewKit */,
@@ -454,6 +467,15 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		C2330FA81EFA964F00D05C37 /* DifferExample */ = {
+			isa = PBXGroup;
+			children = (
+				C2330FA91EFA966D00D05C37 /* WBDifferViewController.h */,
+				C2330FAA1EFA966D00D05C37 /* WBDifferViewController.m */,
+			);
+			path = DifferExample;
+			sourceTree = "<group>";
+		};
 		C2411FD01ED5543900D87C48 /* ExpandingCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +487,18 @@
 				C2411FD81ED5549900D87C48 /* WBExpandingCellReformer.m */,
 			);
 			path = ExpandingCell;
+			sourceTree = "<group>";
+		};
+		C26717461EEA47E2006B85B7 /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				C26717471EEA47E2006B85B7 /* WBListNibCell.h */,
+				C26717481EEA47E2006B85B7 /* WBListNibCell.m */,
+				C26717491EEA47E2006B85B7 /* WBListNibCell.xib */,
+				C267174C1EEA4825006B85B7 /* WBListNibViewController.h */,
+				C267174D1EEA4825006B85B7 /* WBListNibViewController.m */,
+			);
+			path = nib;
 			sourceTree = "<group>";
 		};
 		C2AD80BC1EC5A8470006CA07 /* EmptyViewExample */ = {
@@ -592,6 +626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C267174B1EEA47E2006B85B7 /* WBListNibCell.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -621,7 +656,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6DB74C4FD2483AB594871AA3 /* [CP] Check Pods Manifest.lock */ = {
@@ -636,7 +671,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6FF8CB03F7B14DE299FA648B /* [CP] Copy Pods Resources */ = {
@@ -729,6 +764,7 @@
 				1EE2B4C71E9CDE0D003A58C6 /* WBWaterFallViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				C2411FD91ED5549900D87C48 /* WBExpandingCellReformer.m in Sources */,
+				C2330FAB1EFA966D00D05C37 /* WBDifferViewController.m in Sources */,
 				C2411FD61ED5547400D87C48 /* WBExpandingCell.m in Sources */,
 				1ED1F5961E81584900C0EF58 /* WBListHeaderFooterViewController.m in Sources */,
 				C20ACE191EE69BE50054E843 /* WBMVCRefreshHeader.m in Sources */,
@@ -737,6 +773,7 @@
 				C2411FD31ED5545500D87C48 /* WBExpandingCellViewController.m in Sources */,
 				1ED1F5821E8105D400C0EF58 /* WBSimpleListViewController.m in Sources */,
 				1ED1F5851E8105ED00C0EF58 /* WBSimpleListCell.m in Sources */,
+				C267174E1EEA4825006B85B7 /* WBListNibViewController.m in Sources */,
 				1EE3D7811E8B8A35006D4B66 /* WBLeftTableSource.m in Sources */,
 				1EC603B81E9632DB00B0F53F /* JKSeparatorLayout.m in Sources */,
 				1E4DD02B1E84EC81001C02AD /* WBMVCViewController.m in Sources */,
@@ -744,6 +781,7 @@
 				1E3E89E91E94D702003C8CD2 /* WBNestedTableViewCell.m in Sources */,
 				C2099A911EC2BB7E0081234A /* WBListEmptyKitDataSource.swift in Sources */,
 				1ED1F5881E81077400C0EF58 /* WBSimpleListAutoLayoutCell.m in Sources */,
+				C267174A1EEA47E2006B85B7 /* WBListNibCell.m in Sources */,
 				1E3E89EC1E94D717003C8CD2 /* WBNestedCollectionViewCell.m in Sources */,
 				C2CC21BD1EC31AA7007E6600 /* WBListEmptyKitEmptyView.swift in Sources */,
 				C28E6E061EC5B50800846A66 /* WBOCEmptyViewController.m in Sources */,

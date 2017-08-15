@@ -12,8 +12,34 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.frameworks = 'UIKit'
 
-    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
-    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol}.h'
+    s.source_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol,WBListDiffableProtocol}.h'
+    s.public_header_files = 'WBListKit/{WBListKit,WBListDataReformerProtocol,WBListKitAssert,WBListKitMacros,WBListKitMacros,WBListReusableViewProtocol,WBListRefreshControlCallbackProtocol,WBListRefreshControlProtocol,WBListRefreshHeaderViewProtocol,WBListRefreshFooterViewProtocol,WBListDiffableProtocol}.h'
+
+    s.subspec 'Differ' do |d|
+        d.source_files = 'WBListKit/IGListAssert.h',
+        'WBListKit/IGListCompatibility.h',
+        'WBListKit/IGListDiffable.h',
+        'WBListKit/IGListDiffKit.h',
+        'WBListKit/IGListExperiments.h',
+        'WBListKit/IGListIndexPathResultInternal.h',
+        'WBListKit/IGListIndexSetResultInternal.h',
+        'WBListKit/IGListMacros.h',
+        'WBListKit/IGListMoveIndexInternal.h',
+        'WBListKit/IGListMoveIndexPathInternal.h',
+        'WBListKit/IGListDiff.{h,mm}',
+        'WBListKit/IGListBatchUpdateData.{h,mm}',
+        'WBListKit/IGListBatchUpdates.{h,m}',
+        'WBListKit/IGListIndexPathResult.{h,m}',
+        'WBListKit/IGListIndexSetResult.{h,m}',
+        'WBListKit/IGListMoveIndex.{h,m}',
+        'WBListKit/IGListMoveIndexPath.{h,m}',
+        'WBListKit/IGListReloadIndexPath.{h,m}',
+        'WBListKit/NSNumber+IGListDiffable.{h,m}',
+        'WBListKit/NSString+IGListDiffable.{h,m}',
+        'WBListKit/UICollectionView+IGListBatchUpdateData.{h,m}'
+
+        d.public_header_files = 'WBListKit/{IGListAssert,IGListCompatibility,IGListDiffable,IGListDiffKit,IGListExperiments,IGListIndexPathResultInternal,IGListIndexSetResultInternal,IGListMacros,IGListMoveIndexInternal,IGListMoveIndexPathInternal,IGListDiff,IGListBatchUpdateData,IGListBatchUpdates,IGListIndexPathResult,IGListIndexSetResult,IGListMoveIndex,IGListReloadIndexPath,IGListMoveIndexPath,NSNumber+IGListDiffable,NSString+IGListDiffable,UICollectionView+IGListBatchUpdateData}.h'
+    end
 
     s.subspec 'TableView' do |t|
         t.dependency 'UITableView+FDTemplateLayoutCell'
@@ -21,15 +47,15 @@ Pod::Spec.new do |s|
         'WBListKit/UITableView+WBListKitPrivate.{h,m}',
         'WBListKit/UITableView+WBListKit.{h,m}',
         'WBListKit/WBTableSection.{h,m}',
-        'WBListKit/WBTableSectionMaker.{h,m}',
         'WBListKit/WBTableSectionHeaderFooter.{h,m}',
         'WBListKit/WBTableViewAdapter.{h,m}',
         'WBListKit/WBTableViewDelegateProxy.{h,m}',
+        'WBListKit/WBTableUpdater.{h,m}',
         'WBListKit/WBTableCellProtocal.h',
-        'WBListKit/WBTableHeaderFooterViewProtocal.h',
         'WBListKit/WBTableSectionPrivate.h',
+        'WBListKit/WBTableHeaderFooterViewProtocal.h',
         'WBListKit/WBTableViewAdapterPrivate.h'
-        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionMaker,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableSectionPrivate,WBTableViewAdapterPrivate}.h'
+        t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableViewAdapterPrivate,WBTableSectionPrivate}.h'
     end
 
     s.subspec 'CollectionView' do |c|
@@ -37,15 +63,15 @@ Pod::Spec.new do |s|
                             'WBListKit/UICollectionView+WBListKitPrivate.{h,m}',
                             'WBListKit/WBCollectionViewAdapterPrivate.h',
                             'WBListKit/UICollectionView+WBListKit.{h,m}',
+                            'WBListKit/WBCollectionUpdater.{h,m}',
                             'WBListKit/WBCollectionSection.{h,m}',
-                            'WBListKit/WBCollectionSectionMaker.{h,m}',
                             'WBListKit/WBCollectionViewAdapter.{h,m}',
                             'WBListKit/WBCollectionViewDelegateProxy.{h,m}',
                             'WBListKit/WBCollectionSupplementaryItem.{h,m}',
                             'WBListKit/WBCollectionCellProtocol.h',
                             'WBListKit/WBCollectionSupplementaryViewProtocol.h',
                             'WBListKit/WBCollectionSectionPrivate.h'
-        c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionSectionMaker,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
+        c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
         c.dependency 'UITableView+FDTemplateLayoutCell'
     end
 

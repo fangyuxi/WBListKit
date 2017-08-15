@@ -14,6 +14,7 @@
 * drop in clean，零成本接入现有项目，对旧代码没有影响
 * 对下拉刷新和上拉加载更多有很好的支持
 * 对空页面和错误页面提示提供了插件化支持
+* 集成了自动differ功能，再也不用手动调用insertRow,deleteRow，甚至reload操作也可以帮你一并做完，而且只刷新变化的部分，还会配合适当的动画
 * 支持Swift混编
 
 ## 系统要求
@@ -50,11 +51,11 @@ WBListKit is available under the MIT license. See the LICENSE file for more info
 * 框架除了会帮你通过`IndexPath`确定`Cell`的具体位置之外,还会根据具体位置抽象出一个`WBTableRowPosition`,帮你确定`Cell`具体是`Top`,`Bottom`,`Middle`,`Single`,这样对于一些要根据`Cell`具体位置布局UI的情况就很方便了很多
 * 提供一个`data`属性,为`Cell`提供真正的数据源,`data`对象到底是什么类型,下面再讨论（这样的好处就在于不用为每一种类型的`Cell`都创建一种Row类型）
 
-### WBTableSection WBTableSectionMaker
-* `maker`负责装配`section`对象,增删改查`Row`,为section创建一个标识符
+### WBTableSection
+* 装配`section`,增删改查`Row`
 * 给`section`提供`id`,逻辑层就不用关心`section`的具体位置，只要通过`id`就可以找到想要的`section`,能够解决一部分UI位置一变，逻辑层也跟着变的窘境,一定程度也会解决各种数组越界的问题
 * 给`section`添加`footer`和`header`
-* 之所以提供一个maker，是因为方便以后扩展，section只是一个模型，如果以后有更多的逻辑，比如自动diff数组自动刷新等功能，显然不适合一股脑都放到section中，所以提供maker
+* `section` 支持diff操作
 
 ### WBTableSectionHeaderFooter
 * `WBTableSectionHeaderFooter`类似于`WBTableRow`,都是给数据驱动的View(Tag3)提供模型
@@ -99,7 +100,7 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
 ```objc
 self.adapter = [[WBTableViewAdapter alloc] init];
 self.tableView bindAdapter:self.adapter];
-[self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+[self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
@@ -108,8 +109,9 @@ self.tableView bindAdapter:self.adapter];
                             };
             maker.addRow(row);
         }
-        
-        maker.setIdentifier(@"FixedHeightSection");
+      
+        [section addRow:row];
+        section.key = @"FixedHeightSection"
     }];
 ```
 
@@ -214,6 +216,50 @@ Cell中代码：
 }
 ```
 
+### 内建的自动Differ刷新功能
+我们都有这样的经验，当我们需要删除一些rows或者sections的时候，要频繁的调用`deleteRow` `insertRow` `deleteSection`等操作，同时还要同步数据和UI显示，
+一不小心就容易崩溃。第二当我们加载更多的时候，为了避免如上操作，经常会`reload`整个view，造成不必要的计算浪费（重新reload势必要重新加载cell中的数据，入如果有复杂的cell，势必造成IO）。现在框架内部提供了数据Differ，功能，通俗讲就是比较两个数组，将数组变化的部分转化成 insert delete move 等操作，然后在合适的时候批量的提交给View刷新，所以业务方可以尽情的delete row insert,框架会在合适的时机提交给view更新。具体提供了如下三个方法
+
+```objc
+- (void)beginAutoDiffer;
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
+- (void)reloadDifferWithAnimation:(BOOL)animation;
+```
+所有在begin和commit中间进行的操作都会在commit的一刻提交给view显示，可以指定是否要动画。reload方法会随时将和上次reload或者commit之后的更改提交给View更新，代码如下：
+
+```objc
+[self.tableViewAdapter beginAutoDiffer];
+    [self.tableViewAdapter deleteAllSections];
+    [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableViewAdapter beginAutoDiffer];
+            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
+                
+                [section setIdentifier:@"fangyuxi"];
+                for (NSInteger index = 0; index < 15; ++index) {
+                    WBTableRow *row = [[WBTableRow alloc] init];
+                    row.calculateHeight = ^CGFloat(WBTableRow *row){
+                        return 60.0f;
+                    };
+                    row.associatedCellClass = [WBReformerListCell class];
+                    WBReformerListCellReformer *reformer = [WBReformerListCellReformer new];
+                    [reformer reformRawData:@{@"title":@(index),
+                                              @"date":[NSDate new]
+                                              } forRow:row];
+                    row.data = reformer;
+                    [section addRow:row];
+                }
+            }];
+            [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
+            
+            self.canLoadMore = YES;
+            [self notifyDidFinishLoad];
+        });
+```
+
 ### (Tag3) 下面解决数据从哪里来的问题
 从上面我们可以看出来,Adapter其实只是一个数据的装配器（不同于Android），`UITableView`的Adapter装配适合`UITableView`的数据，`UICollectionView`的Adapter装配适合`UICollectionView`的数据，它并不关心数据从哪里来。那么如果是非常简单的数据源，比如一个关于页面中只有两列，版本信息和版权信息，而且也没有下拉刷新等功能，那么直接用Controller提供数据未尝不可，所有逻辑都集中在一个类中，比如下面的代码：
 
@@ -246,7 +292,7 @@ Cell中代码：
     
     // hide warnings
     __weak typeof(self) weakSelf = self;
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         NSMutableArray *rows = [NSMutableArray new];
         [[weakSelf data] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -260,7 +306,9 @@ Cell中代码：
             [rows addObject:row];
             
         }];
-        maker.addRows(rows).setIdentifier(@"DemoIdentifier");
+ 
+        [section addRows:rows]
+        section.key = @"DemoIdentifier"
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -599,14 +647,14 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
     
     // data from ... anywhere
     
-    [self.adapter addSection:^(WBCollectionSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         maker.setIdentifier(@"WBNested");
         for (NSInteger index = 0; index < 100; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBNestedCollectionViewCell class];
             item.data = @{@"title":@(index)
                           };
-            maker.addItem(item);
+           [section addItem:item];
         }
     }];
 }
@@ -618,10 +666,6 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDelegate{
 @end
 
 ```
-
-### 后续
-
-后续计划将[自动diff功能](https://github.com/wokalski/Diff.swift)加入进来，实现自动刷新
 
 ### MVVM
 

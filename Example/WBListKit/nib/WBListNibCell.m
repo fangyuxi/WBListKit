@@ -10,12 +10,16 @@
 
 @implementation WBListNibCell
 
+@synthesize row = _row;
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
 }
 
-
+- (void)update{
+    
+}
 
 
 @end

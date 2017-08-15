@@ -6,28 +6,26 @@
 //
 //
 
-
 /**
- 隐藏这个属性，防止外部访问到
+ 隐藏，防止外部访问到
  */
 @protocol WBListActionToControllerProtocol;
+@class WBCollectionUpdater;
 
 @interface WBCollectionViewAdapter ()
 
 @property (nonatomic, weak) id<WBListActionToControllerProtocol> actionDelegate;
+@property (nonatomic, weak) id<UICollectionViewDataSource> collectionViewDataSource;
+@property (nonatomic, weak, readwrite) UICollectionView *collectionView;
 
+- (void)willAppear;
+- (void)didDisappear;
 
-/**
- bind UICollectionView
- 
- @param collectionView 'UICollectionView'
- */
-- (void)bindCollectionView:(UICollectionView *)collectionView;
+@property (nonatomic, assign) BOOL isInDifferring;
+@property (nonatomic, strong) NSMutableArray *oldSections;
+@property (nonatomic, strong) WBCollectionUpdater *updater;
+@property (nonatomic, strong) NSMutableArray *sections;
 
-/**
- unbind UICollectionView
- you can use this method to manage multi adapter binding one collectionView
- */
-- (void)unBindCollectionView;
+- (void)resetAllSectionsAndRowsRecords;
 
 @end

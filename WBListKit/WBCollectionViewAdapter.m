@@ -12,6 +12,11 @@
 #import "WBCollectionSupplementaryViewProtocol.h"
 #import "WBCollectionSectionPrivate.h"
 #import "WBCollectionViewAdapterPrivate.h"
+#import "WBCollectionItem.h"
+#import "WBCollectionSection.h"
+#import "WBCollectionSectionPrivate.h"
+#import "WBCollectionUpdater.h"
+#import "WBCollectionSectionPrivate.h"
 
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]
@@ -19,37 +24,36 @@
 
 @interface WBCollectionViewAdapter ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, weak, readwrite) UICollectionView *collectionView;
-
-@property (nonatomic, strong) NSMutableArray *sections;
 @property (nonatomic, strong) NSMutableDictionary *supplementaryItems;
 
 @property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
 @property (nonatomic, strong) NSMutableSet *registedSupplementaryIdentifiers;
-
 @property (nonatomic, strong) WBCollectionViewDelegateProxy *delegateProxy;
+
 @end
 
 @implementation WBCollectionViewAdapter
 
-- (void)bindCollectionView:(UICollectionView *)collectionView{
-    NSCAssert([collectionView isKindOfClass:[UICollectionView class]], @"bindCollectionView 需要一个 UICollectinView实例");
-    [self unBindCollectionView];
-    self.collectionView = collectionView;
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+#pragma mark bind unbind
+
+- (void)setCollectionView:(UICollectionView *)collectionView{
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    _collectionView = nil;
+    
+    _collectionView = collectionView;
+    
+    if (!_collectionView) {
+        return;
+    }
+    
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
     
     if (self.actionDelegate || self.collectionViewDataSource) {
         [self updateCollectionDelegateProxy];
     }
 }
-
-- (void)unBindCollectionView{
-    self.collectionView.delegate = nil;
-    self.collectionView.dataSource = nil;
-    self.collectionView = nil;
-}
-
 #pragma mark manage appearance
 
 - (void)willAppear{
@@ -82,81 +86,68 @@
 
 #pragma mark section operators
 
-- (WBCollectionSectionMaker *)sectionAtIndex:(NSUInteger)index{
+- (WBCollectionSection *)sectionAtIndex:(NSUInteger)index{
     if (index >= self.sections.count){
         return nil;
     }
     WBCollectionSection *section = [self.sections objectAtIndex:index];
-    if (!section.maker) {
-        WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (WBCollectionSectionMaker *)sectionForIdentifier:(NSString *)identifier{
+- (WBCollectionSection *)sectionForKey:(NSString *)identifier{
     
     __block WBCollectionSection *section = nil;
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         WBCollectionSection *tmpSection = (WBCollectionSection *)obj;
-        if ([tmpSection.identifier isEqualToString:identifier]){
+        if ([tmpSection.key isEqualToString:identifier]){
             section = tmpSection;
             BOOL b = true;
             stop = &b;
         }
     }];
-    if (!section) {
-        return nil;
-    }
-    if (!section.maker) {
-        WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-        section.maker = maker;
-    }
-    return section.maker;
+    return section;
 }
 
-- (NSUInteger)indexOfSection:(WBCollectionSectionMaker *)maker{
-    return [self.sections indexOfObject:maker.section];
+- (NSUInteger)indexOfSection:(WBCollectionSection *)section{
+    return [self.sections indexOfObject:section];
 }
 
-- (void)addSection:(void(^)(WBCollectionSectionMaker *maker))block{
+- (void)addSection:(void(^)(WBCollectionSection *newSection))block{
     [self insertSection:block atIndex:[self.sections count]];
 }
 
-- (void)insertSection:(void(^)(WBCollectionSectionMaker *maker))block
+- (void)insertSection:(void(^)(WBCollectionSection *newSection))block
               atIndex:(NSUInteger)index{
     if (index > self.sections.count){
         return;
     }
     WBCollectionSection *section = [[WBCollectionSection alloc] init];
-    WBCollectionSectionMaker *maker = [[WBCollectionSectionMaker alloc] initWithSection:section];
-    section.maker = maker;
-    [self.sections insertObject:maker.section atIndex:index];
-    block(maker);
+    [self.sections insertObject:section atIndex:index];
+    block(section);
 }
 
 - (void)updateSection:(WBCollectionSection *)section
-             useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    block(section.maker);
+             userBlock:(void(^)(WBCollectionSection *section))block{
+    block(section);
 }
 
 - (void)updateSectionAtIndex:(NSUInteger)index
-                    useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
-            block(maker);
+                    userBlock:(void(^)(WBCollectionSection *section))block{
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self updateSection:section userBlock:^(WBCollectionSection * _Nonnull section) {
+            block(section);
         }];
     }
 }
 
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                          useMaker:(void(^)(WBCollectionSectionMaker *maker))block{
-    WBCollectionSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self updateSection:maker.section useMaker:^(WBCollectionSectionMaker * _Nonnull maker) {
-            block(maker);
+- (void)updateSectionForIdentifier:(NSString *)key
+                         userBlock:(void(^)(WBCollectionSection *section))block{
+    WBCollectionSection *section = [self sectionForKey:key];
+    if (section) {
+        [self updateSection:section userBlock:^(WBCollectionSection * _Nonnull section) {
+            block(section);
         }];
     }
 }
@@ -165,15 +156,15 @@
     [self.sections removeObject:section];
 }
 - (void)deleteSectionAtIndex:(NSUInteger)index{
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:index];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    if (section) {
+        [self deleteSection:section];
     }
 }
-- (void)deleteSectionForIdentifier:(NSString *)identifier{
-    WBCollectionSectionMaker *maker = [self sectionForIdentifier:identifier];
-    if (maker.section) {
-        [self deleteSection:maker.section];
+- (void)deleteSectionForKey:(NSString *)key{
+    WBCollectionSection *section = [self sectionForKey:key];
+    if (section) {
+        [self deleteSection:section];
     }
 }
 - (void)deleteAllSections{
@@ -233,15 +224,15 @@
     if ([self.collectionViewDataSource respondsToSelector:@selector(collectionView:numberOfItemsInSection:)]) {
         return [self.collectionViewDataSource collectionView:collectionView numberOfItemsInSection:section];
     }
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:section];
-    return maker.itemsCount;
+    WBCollectionSection *sectionObject = [self sectionAtIndex:section];
+    return sectionObject.itemCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WBListKitAssertMainThread();
-    WBCollectionSectionMaker *maker = [self sectionAtIndex:indexPath.section];
-    WBCollectionItem *item = maker.itemAtIndex(indexPath.row);
+    WBCollectionSection *section = [self sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = [section itemAtIndex:indexPath.item];
     Class cellClass = item.associatedCellClass;
     NSString *identifier = NSStringFromClass(cellClass);
     WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"item's associatedCellClass is nil");
@@ -357,6 +348,13 @@
     return _supplementaryItems;
 }
 
+- (WBCollectionUpdater *)updater{
+    if (!_updater) {
+        _updater = [WBCollectionUpdater new];
+    }
+    return _updater;
+}
+
 
 #pragma mark private method
 
@@ -404,5 +402,166 @@
     }
 }
 
+- (void)resetAllSectionsAndRowsRecords{
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        WBCollectionSection *section = (WBCollectionSection *)obj;
+        [section resetOldArray];
+    }];
+    self.oldSections = [self.sections copy];
+}
+
+@end
+
+@implementation WBCollectionViewAdapter (ReloadShortcut)
+
+- (void)reloadItemAtIndex:(NSIndexPath *)indexPath
+                animation:(BOOL)animation
+               usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finished))completion{
+    
+    WBCollectionSection *section = [self sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = [section itemAtIndex:indexPath.item];
+    block(item);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadItemAtIndex:(NSInteger )index
+            forSectionKey:(NSString *)key
+                animation:(BOOL)animation
+               usingBlock:(void(^)(WBCollectionItem *item))block
+               completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    WBCollectionItem *item = [section itemAtIndex:index];
+    block(item);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:sectionIndex]]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:sectionIndex]]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(BOOL)animation
+                  usingBlock:(void(^)(WBCollectionSection *section))block
+                  completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionAtIndex:index];
+    block(section);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:index]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(BOOL)animation
+                 usingBlock:(void(^)(WBCollectionSection *section))block
+                 completion:(void(^)(BOOL finish))completion{
+    
+    WBCollectionSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    block(section);
+    
+    if (animation) {
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
+        } completion:^(BOOL finished) {
+            if (completion) {
+                completion(finished);
+            }
+        }];
+    }else{
+        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
+@end
+
+@implementation WBCollectionViewAdapter (AutoDiffer)
+
+- (void)beginAutoDiffer{
+    if (self.isInDifferring){
+        NSException* exception = [NSException exceptionWithName:@" BeginAutoDiffer Exception"
+                                                         reason:@"已经有一个在differ中的任务"
+                                                       userInfo:nil];
+        @throw exception;
+        return;
+    }
+    
+    [self reloadDifferWithAnimation:NO];
+    
+    self.isInDifferring = YES;
+    self.oldSections = [self.sections copy];
+    [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj,
+                                                NSUInteger idx,
+                                                BOOL * _Nonnull stop) {
+        WBCollectionSection *section = (WBCollectionSection *)obj;
+        [section recordOldArray];
+    }];
+}
+
+- (void)commitAutoDifferWithAnimation:(BOOL)animation{
+    if (!self.isInDifferring) {
+        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception"
+                                                         reason:@"先使用beginAutoDiffer开始任务，才能提交任务"
+                                                       userInfo:nil];
+        @throw exception;
+        return;
+    }
+    self.isInDifferring = NO;
+    [self.updater diffSectionsAndRowsInCollectionView:self.collectionView
+                                            from:self.oldSections
+                                              to:self.sections
+                                       animation:animation];
+    [self resetAllSectionsAndRowsRecords];
+}
+
+- (void)reloadDifferWithAnimation:(BOOL)animation{
+    [self.updater diffSectionsAndRowsInCollectionView:self.collectionView
+                                            from:self.oldSections
+                                              to:self.sections
+                                       animation:animation];
+    [self resetAllSectionsAndRowsRecords];
+}
 
 @end

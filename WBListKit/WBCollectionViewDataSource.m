@@ -10,6 +10,7 @@
 #import "WBCollectionViewDataSourcePrivate.h"
 #import "WBCollectionViewAdapterPrivate.h"
 #import "UICollectionView+WBListKitPrivate.h"
+#import "UICollectionView+WBListKit.h"
 
 @implementation WBCollectionViewDataSource
 
@@ -19,16 +20,14 @@
 }
 
 - (void)bindCollectionView:(nullable UICollectionView *)collectionView{
-    [self.collectionViewAdapter unBindCollectionView];
+    self.collectionViewAdapter.collectionView = nil;
     self.collectionView = collectionView;
     self.collectionView.source = self;
-    if (collectionView) {
-        [self.collectionViewAdapter bindCollectionView:collectionView];
-    }
+    self.collectionView.adapter = self.collectionViewAdapter;
 }
 
 - (void)unBindCollectionView{
-    [self.collectionViewAdapter unBindCollectionView];
+    self.collectionViewAdapter.collectionView = nil;
     self.collectionView.source = nil;
     self.collectionView = nil;
 }

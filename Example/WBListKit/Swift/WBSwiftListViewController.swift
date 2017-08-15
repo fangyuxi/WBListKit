@@ -20,8 +20,8 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
         view.addSubview(tableView);
         
         tableView.frame = view.bounds
-        adapter.bindTableView(tableView);
-        adapter.actionDelegate = self
+        tableView.adapter = adapter;
+        tableView.actionDelegate = self;
         self.loadData();
     }
     
@@ -29,14 +29,14 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
             
-            self.adapter.addSection { (maker) in
+            self.adapter.addSection { (section) in
                 
                 for i in 1..<10{
                     let row: WBTableRow = WBTableRow();
                     row.associatedCellClass = WBSwiftListCell.self
                     row.data = ["color":UIColor.clear, "index":i]
                     row.calculateHeight = {row in return 100.0};
-                    maker.addRow()(row)
+                    section.addRow(row);
                 }
             }
             

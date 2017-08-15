@@ -30,7 +30,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     self.tableView.actionDelegate = self;
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -40,14 +40,15 @@
 
 - (void)loadData{
     
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         for (NSInteger index = 0; index < 5; ++index) {
             WBTableRow *row = [[WBTableRow alloc] init];
             WBExpandingCellReformer *reformer = [WBExpandingCellReformer new];
             [reformer reformRawData:nil forRow:row];
             row.data = reformer;
             row.associatedCellClass = [WBExpandingCell class];
-            maker.addRow(row).setIdentifier(@"ExpandingCellSectionId");
+            [section addRow:row];
+            section.key = @"ExpandingCellSectionId";
         }
     }];
     

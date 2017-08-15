@@ -23,6 +23,7 @@
 #import "WBWaterFallViewController.h"
 #import "WBOCEmptyViewController.h"
 #import "WBExpandingCellViewController.h"
+#import "WBListNibViewController.h"
 
 @interface WBListKitDemosViewController ()<WBListActionToControllerProtocol>
 @property (nonatomic, strong) WBTableViewAdapter *adapter;
@@ -41,7 +42,7 @@
     [self.view addSubview:self.tableView];
     
     self.adapter = [[WBTableViewAdapter alloc] init];
-    [self.tableView bindAdapter:self.adapter];
+    self.tableView.adapter = self.adapter;
     self.tableView.actionDelegate = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
@@ -50,9 +51,11 @@
 
 - (void)loadData{
     
+    [self.adapter beginAutoDiffer];
+    
     // hide warnings
     __weak typeof(self) weakSelf = self;
-    [self.adapter addSection:^(WBTableSectionMaker * _Nonnull maker) {
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         NSMutableArray *rows = [NSMutableArray new];
         [[weakSelf data] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -66,15 +69,11 @@
             [rows addObject:row];
             
         }];
-        maker.addRows(rows).setIdentifier(@"DemoIdentifier");
+        [section addRows:rows];
+        [section setKey:@"DemoIdentifier"];
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            [self.tableView reloadData];
-        });
-    });
+    [self.adapter commitAutoDifferWithAnimation:NO];
 }
 
 - (NSArray *)data{
@@ -86,6 +85,7 @@
              @{@"title":@"Multi DataSource",@"class":[WBMultiSourceController class]},
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
              @{@"title":@"Nested",@"class":[WBNestedViewController class]},
+             @{@"title":@"Nib Cell List",@"class":[WBListNibViewController class]},
              @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
              @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]},
              @{@"title":@"Empty Kit Swift ",@"class":[WBSwiftEmptyViewController class]},
@@ -95,8 +95,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WBTableSectionMaker *maker = [self.adapter sectionAtIndex:indexPath.section];
-    WBTableRow *row = maker.rowAtIndex(indexPath.row);
+    WBTableSection *maker = [self.adapter sectionAtIndex:indexPath.section];
+    WBTableRow *row = [maker rowAtIndex:indexPath.row];
     UIViewController *controller = [[[row.data objectForKey:@"class"] alloc] init];
     controller.title = [row.data objectForKey:@"title"];
     [self.navigationController pushViewController:controller animated:YES];

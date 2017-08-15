@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WBListKitAssert.h"
 #import "WBListKitMacros.h"
-#import "WBTableSectionMaker.h"
+
+@class WBTableSection;
+@class WBTableRow;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,49 +20,34 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WBTableViewAdapter : NSObject
 
 /**
- 可以在'viewWillAppear' 和 'viewDidDisappear' 中调用，用来回调cell/header/footer
- 中的 'cancel' 'reload' 方法
- */
-- (void)willAppear;
-- (void)didDisappear;
-
-@property (nonatomic, weak, readonly) UITableView *tableView;
-
-/**
- you should use these method to manage tableview's and datasource
- please avoid direct use tableview's delegate and datasource property
- */
-@property (nonatomic, weak) id tableDataSource;
-
-/**
  get section at index
 
  @param index 'index'
  */
-- (WBTableSectionMaker *)sectionAtIndex:(NSUInteger)index;
+- (WBTableSection *)sectionAtIndex:(NSUInteger)index;
 
 /**
  get section with identifier
 
- @param identifier 'identifier'
+ @param key 'key'
  @return section
  */
-- (WBTableSectionMaker *)sectionForIdentifier:(NSString *)identifier;
+- (WBTableSection *)sectionForKey:(NSString *)key;
 
 /**
  get index of section
  
- @param maker 'sectionMaker'
+ @param section 'section'
  @return index
  */
-- (NSUInteger)indexOfSection:(WBTableSectionMaker *)maker;
+- (NSUInteger)indexOfSection:(WBTableSection *)section;
 
 /**
  append section
 
  @param block 'block'
  */
-- (void)addSection:(void(^)(WBTableSectionMaker *maker))block;
+- (void)addSection:(void(^)(WBTableSection *newSection))block;
 
 /**
  add section at index
@@ -68,17 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  @param index '指定位置'
  */
-- (void)insertSection:(void(^)(WBTableSectionMaker *maker))block
+- (void)insertSection:(void(^)(WBTableSection *newSection))block
               atIndex:(NSUInteger)index;
-
-/**
- update section
-
- @param section 'section'
- @param block   'block'
- */
-- (void)updateSection:(WBTableSection *)section
-            useMaker:(void(^)(WBTableSectionMaker *maker))block;
 
 /**
  更新指定位置的section
@@ -87,28 +65,67 @@ NS_ASSUME_NONNULL_BEGIN
  @param block 'block'
  */
 - (void)updateSectionAtIndex:(NSUInteger)index
-                   useMaker:(void(^)(WBTableSectionMaker *maker))block;
+                   useBlock:(void(^)(WBTableSection *section))block;
 
 
 /**
  更新指定的id的section
 
- @param identifier 'identifier'
+ @param key 'key'
  @param block 'block'
  */
-- (void)updateSectionForIdentifier:(NSString *)identifier
-                           useMaker:(void(^)(WBTableSectionMaker *maker))block;
+- (void)updateSectionForKey:(NSString *)key
+                           useBlock:(void(^)(WBTableSection *section))block;
+
+- (void)exchangeSectionIndex:(NSInteger)index1
+            withSectionIndex:(NSInteger)index2;
 
 /**
  删除操作
  */
 - (void)deleteSection:(WBTableSection *)section;
 - (void)deleteSectionAtIndex:(NSUInteger)index;
-- (void)deleteSectionForIdentifier:(NSString *)identifier;
+- (void)deleteSectionForKey:(NSString *)key;
 - (void)deleteAllSections;
+
+/**
+ 当前关联的TableView
+ */
+@property (nonatomic, weak, readonly) UITableView *tableView;
 
 @end
 
+@interface WBTableViewAdapter (AutoDiffer)
+
+/**
+ 在任何的更改前调用此方法，系统会记录你对如下的更改：
+ 1：section的增删，位置移动
+ 2：row的增删，位置的移动
+ 
+ beginAutoDiffer 和 commitAutoDiffer 成对调用，且不能嵌套
+ 
+ 在调用 commitAutoDiffer 之后，会将上述更改提交，tableview会以动画的方式响应
+ 
+ 如果涉及到row和section的 reload操作，需要调用ReloadShortcut中的方法
+ 
+ 严格来讲，当你更新了数据源后，应该立即提交view显示,安全起见，方法内部会先调用 reloadDifferWithAnimation 方法， 将未提交更改的内容先提交一次
+ */
+- (void)beginAutoDiffer;
+/**
+ 同 beginAutoDiffer 嵌套调用
+ */
+- (void)commitAutoDifferWithAnimation:(BOOL)animation;
+
+
+/**
+ 在任何位置调用，可以将之前的更改统一提交，tableview会以动画的方式响应
+ */
+- (void)reloadDifferWithAnimation:(BOOL)animation;
+
+@end
+
+//AutoDiffer方法并不能识别出item 的内容变化 或者 section内部的footer header 追加视图的变化，
+//所以在以上内容变化需要刷新的时候，请使用下面的方法
 @interface WBTableViewAdapter (ReloadShortcut)
 
 - (void)reloadRowAtIndex:(NSIndexPath *)indexPath
@@ -116,11 +133,17 @@ NS_ASSUME_NONNULL_BEGIN
               usingBlock:(void(^)(WBTableRow *row))block;
 
 - (void)reloadRowAtIndex:(NSInteger )index
-    forSectionIdentifier:(NSString *)identifier
+           forSectionKey:(NSString *)key
                animation:(UITableViewRowAnimation)animationType
               usingBlock:(void(^)(WBTableRow *row))block;
 
-//TO DO 待完善
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(UITableViewRowAnimation)animationType
+                  usingBlock:(void(^)(WBTableSection *section))block;
+
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(UITableViewRowAnimation)animationType
+                 usingBlock:(void(^)(WBTableSection *section))block;
 @end
 
 NS_ASSUME_NONNULL_END
