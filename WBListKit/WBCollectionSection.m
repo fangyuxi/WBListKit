@@ -47,6 +47,11 @@
         [self.items insertObject:item atIndex:index];
     }
 }
+- (void)addNewItem:(void(^)(WBCollectionItem *item))block{
+    WBCollectionItem *item = [WBCollectionItem new];
+    [self addItem:item];
+    block(item);
+}
 
 /**
  delete

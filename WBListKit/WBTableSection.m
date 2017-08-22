@@ -30,6 +30,23 @@
     return nil;
 }
 
+- (nullable WBTableRow *)rowForKey:(NSString *)key{
+    __block WBTableRow *row = nil;
+    [self.rows enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        WBTableRow *tmpRow = (WBTableRow *)obj;
+        if ([tmpRow.key isEqualToString:key]){
+            row = tmpRow;
+            BOOL b = true;
+            stop = &b;
+        }
+    }];
+    if (!row) {
+        return nil;
+    }
+    return row;
+}
+
 /**
  inserts
  */

@@ -24,6 +24,7 @@ WBListKit_SUBCLASSING_RESTRICTED
  gets
  */
 - (nullable WBTableRow *)rowAtIndex:(NSUInteger)index;
+- (nullable WBTableRow *)rowForKey:(NSString *)key;
 
 /**
  行数
