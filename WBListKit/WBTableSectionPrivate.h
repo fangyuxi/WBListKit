@@ -10,6 +10,7 @@
 #define WBTableSectionPrivate_h
 
 #import "WBTableSection.h"
+#import "WBTableHeaderFooterViewProtocal.h"
 
 @interface WBTableSection ()
 

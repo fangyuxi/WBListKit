@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param index 'index'
  */
-- (WBTableSection *)sectionAtIndex:(NSUInteger)index;
+- (WBTableSection *)sectionAtIndex:(NSInteger)index;
 
 /**
  get section with identifier

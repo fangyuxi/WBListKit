@@ -52,17 +52,18 @@
         header.displayType = WBTableHeaderFooterTypeHeader;
         header.associatedHeaderFooterClass = [WBDemoHeaderView class];
         
-        WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
-        footer.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
-          
-            return 80.0f;
-        };
-        footer.displayType = WBTableHeaderFooterTypeFooter;
-        footer.associatedHeaderFooterClass = [WBDemoFooterView class];
-        
+//        WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
+//        footer.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
+//
+//            return 80.0f;
+//        };
+//        footer.displayType = WBTableHeaderFooterTypeFooter;
+//        footer.associatedHeaderFooterClass = [WBDemoFooterView class];
+        section.footerHeight = 100;
+        section.footerColor = [UIColor greenColor];
         [section addRow:row];
         section.header = header;
-        section.footer = footer;
+        //section.footer = footer;
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

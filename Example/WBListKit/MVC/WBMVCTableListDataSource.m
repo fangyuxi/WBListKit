@@ -20,14 +20,15 @@
     //此处可以是网络层代码,也可是本地数据
     
     //刷新需要清空数据
-    //[self.tableViewAdapter beginAutoDiffer];
-    [self.tableViewAdapter deleteAllSections];
-    //[self.tableViewAdapter commitAutoDifferWithAnimation:NO];
+    [self.tableViewAdapter beginAutoDiffer];
+    
+    [self.tableViewAdapter commitAutoDifferWithAnimation:NO];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.tableViewAdapter beginAutoDiffer];
+            [self.tableViewAdapter deleteAllSections];
             [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
                 
                 [section setKey:@"fangyuxi"];
