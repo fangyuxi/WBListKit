@@ -51,6 +51,7 @@ Pod::Spec.new do |s|
         'WBListKit/WBTableViewAdapter.{h,m}',
         'WBListKit/WBTableViewDelegateProxy.{h,m}',
         'WBListKit/WBTableUpdater.{h,m}',
+        'WBListKit/_WBTableSectionDefaultPlaceholderHeaderFooterView.{h,m}',
         'WBListKit/WBTableCellProtocal.h',
         'WBListKit/WBTableSectionPrivate.h',
         'WBListKit/WBTableHeaderFooterViewProtocal.h',
