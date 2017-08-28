@@ -139,11 +139,11 @@
 #pragma mark private
 
 - (void)recordOldArray{
-    self.oldArray = self.rows;
+    self.oldArray = [[NSArray alloc] initWithArray:self.rows copyItems:YES];
 }
 
 - (void)resetOldArray{
-    self.oldArray = self.rows;
+    self.oldArray =  [[NSArray alloc] initWithArray:self.rows copyItems:YES];
 }
 
 #pragma mark default header footer

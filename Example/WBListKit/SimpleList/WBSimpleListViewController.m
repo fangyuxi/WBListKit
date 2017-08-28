@@ -50,6 +50,7 @@
                 return 60.0f;
             };
             row.associatedCellClass = [WBSimpleListCell class];
+            row.reloadKey = @"1";
             row.data = @{@"title":@(index)
                             };
             [section addRow:row];
@@ -57,31 +58,39 @@
         section.key = @"FixedHeight";
     }];
     
-    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
-        
-        for (NSInteger index = 0; index < 5; ++index) {
-            WBTableRow *row = [[WBTableRow alloc] init];
-            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-            row.data = @{@"title":@(index)
-                            };
-            [section addRow:row];
-        }
-        section.key = @"AutoLayout";
-    }];
+//    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
+//        
+//        for (NSInteger index = 0; index < 5; ++index) {
+//            WBTableRow *row = [[WBTableRow alloc] init];
+//            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
+//            row.data = @{@"title":@(index)
+//                            };
+//            [section addRow:row];
+//        }
+//        section.key = @"AutoLayout";
+//    }];
     
     [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
-    //[self.adapter beginAutoDiffer];
-    [section deleteRowAtIndex:0];
-    //[self.adapter commitAutoDiffer];
+    WBTableRow *row = [section rowAtIndex:0];
+    
+    [self.adapter beginAutoDiffer];
+    row.reloadKey = @"2";
+    row.data = @{@"title":@(1000)
+                  };
+    WBTableRow *row2 = [section rowAtIndex:1];
+    row2.data = @{@"title":@(100)
+                 };
+    //[section deleteRowAtIndex:0];
+    [self.adapter commitAutoDifferWithAnimation:NO];
     
     //[tableView reloadData];
     //[self.adapter reloadDiffer];
-    [self.adapter reloadSectionAtIndex:indexPath.section animation:UITableViewRowAnimationAutomatic usingBlock:^(WBTableSection * _Nonnull section) {
-    }];
+//    [self.adapter reloadSectionAtIndex:indexPath.section animation:UITableViewRowAnimationAutomatic usingBlock:^(WBTableSection * _Nonnull section) {
+//    }];
     //[self.adapter reloadDiffer];
 }
 
