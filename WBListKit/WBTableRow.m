@@ -31,6 +31,7 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
+    
     WBTableRow *row = (WBTableRow *)object;
     return [self.reloadKey isEqualToString:row.reloadKey];
 }
