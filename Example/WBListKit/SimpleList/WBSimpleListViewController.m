@@ -50,7 +50,6 @@
                 return 60.0f;
             };
             row.associatedCellClass = [WBSimpleListCell class];
-            row.reloadKey = @"1";
             row.data = @{@"title":@(index)
                             };
             [section addRow:row];
@@ -78,14 +77,15 @@
     WBTableRow *row = [section rowAtIndex:0];
     
     [self.adapter beginAutoDiffer];
-    row.reloadKey = @"2";
-    row.data = @{@"title":@(1000)
-                  };
-    WBTableRow *row2 = [section rowAtIndex:1];
-    row2.data = @{@"title":@(100)
-                 };
-    //[section deleteRowAtIndex:0];
-    [self.adapter commitAutoDifferWithAnimation:NO];
+//    row.reloadKey = @"2";
+//    row.data = @{@"title":@(1000)
+//                  };
+//    WBTableRow *row2 = [section rowAtIndex:1];
+//    row2.data = @{@"title":@(100)
+//                 };
+    [section deleteRowAtIndex:indexPath.row];
+    [section exchangeRowAtIndex:1 withIndex:2];
+    [self.adapter commitAutoDifferWithAnimation:YES];
     
     //[tableView reloadData];
     //[self.adapter reloadDiffer];

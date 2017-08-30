@@ -143,7 +143,7 @@
 }
 
 - (void)resetOldArray{
-    self.oldArray =  [[NSArray alloc] initWithArray:self.rows copyItems:YES];
+    self.oldArray =  self.rows;
 }
 
 #pragma mark default header footer

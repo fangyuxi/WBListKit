@@ -38,16 +38,15 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 #pragma mark copy
 
 - (id)copyWithZone:(NSZone *)zone{
-    WBTableRow *p = [[[self class] alloc] init];
-    p.data = self.data;
-    p.key = self.key;
-    p.associatedCellClass = self.associatedCellClass;
-    p.indexPath = self.indexPath;
-    p.calculateHeight = self.calculateHeight;
-    p.reloadKey = [[NSString alloc] initWithString:self.reloadKey];
-    p.position = self.position;
-    
-    return p;
+    WBTableRow *newRow = [[[self class] alloc] init];
+    newRow.data = self.data;
+    newRow.key = self.key;
+    newRow.associatedCellClass = self.associatedCellClass;
+    newRow.indexPath = self.indexPath;
+    newRow.calculateHeight = self.calculateHeight;
+    newRow.position = self.position;
+    newRow.reloadKey = [[NSString alloc] initWithString:self.reloadKey];
+    return newRow;
 }
 
 @end
