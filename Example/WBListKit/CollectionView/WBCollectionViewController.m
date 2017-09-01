@@ -32,7 +32,6 @@
     
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    self.collectionView.collectionViewDataSource = self;
     self.collectionView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{

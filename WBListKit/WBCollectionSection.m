@@ -110,12 +110,12 @@
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.key;
+    return self.reloadKey;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
-    WBCollectionSection *section = (WBCollectionSection *)object;
-    return [self.key isEqualToString:section.key];
+    WBTableRow *row = (WBTableRow *)object;
+    return [self.reloadKey isEqualToString:row.reloadKey];
 }
 
 #pragma mark private
