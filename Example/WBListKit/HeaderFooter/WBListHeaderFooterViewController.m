@@ -51,19 +51,22 @@
         WBTableSectionHeaderFooter *header = [WBTableSectionHeaderFooter new];
         header.displayType = WBTableHeaderFooterTypeHeader;
         header.associatedHeaderFooterClass = [WBDemoHeaderView class];
-        
-//        WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
-//        footer.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
-//
-//            return 80.0f;
-//        };
-//        footer.displayType = WBTableHeaderFooterTypeFooter;
-//        footer.associatedHeaderFooterClass = [WBDemoFooterView class];
-        section.footerHeight = 100;
-        section.footerColor = [UIColor greenColor];
-        [section addRow:row];
+        header.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
+            return 100;
+        };//目前header的自动布局 FD有个bug
         section.header = header;
-        //section.footer = footer;
+        
+        WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
+        footer.calculateHeight = ^CGFloat(WBTableSectionHeaderFooter *headerFooter) {
+
+            return 80.0f;
+        };
+        footer.displayType = WBTableHeaderFooterTypeFooter;
+        footer.associatedHeaderFooterClass = [WBDemoFooterView class];
+        section.footer = footer;
+        
+        [section addRow:row];
+        
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

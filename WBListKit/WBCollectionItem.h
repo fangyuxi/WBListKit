@@ -38,7 +38,7 @@ WBListKit_SUBCLASSING_RESTRICTED
  同key的区别，key是只要这个row创建了就不会在变化了，因为外部可能随时会通过这个key来回去row对象
  reloadKey是可能会变化的，来提醒差异化计算改更新这条row了
  */
-@property (nonatomic, copy) NSString *reloadKey;
+@property (nonatomic, copy, nonnull) NSString *reloadKey;
 
 /**
  location in list

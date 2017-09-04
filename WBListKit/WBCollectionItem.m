@@ -34,12 +34,12 @@
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.key;
+    return self.reloadKey;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBCollectionItem *row = (WBCollectionItem *)object;
-    return [self.key isEqualToString:row.key];
+    return [self.reloadKey isEqualToString:row.reloadKey];
 }
 
 #pragma mark copy
