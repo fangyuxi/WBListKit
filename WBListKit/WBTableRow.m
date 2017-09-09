@@ -14,26 +14,39 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 
 - (instancetype)init{
     self = [super init];
-    [self setKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    [self setReloadKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
     return self;
 }
 
-- (void)setAssociatedCellClass:(Class)associatedCellClass
-{
+- (void)setAssociatedCellClass:(Class)associatedCellClass{
     NSString *className = NSStringFromClass(associatedCellClass);
-    WBListKitAssert([className hasSuffix:@"Cell"], [[NSString alloc] initWithFormat:@"Cell Class Name Must end with 'Cell' "]);
+    WBListKitAssert([className hasSuffix:@"Cell"], [[NSString alloc] initWithFormat:@"cell的名字必须以Cell结尾"]);
     _associatedCellClass = associatedCellClass;
 }
 
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.key;
+    return self.reloadKey;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableRow *row = (WBTableRow *)object;
-    return [self.key isEqualToString:row.key];
+    return [self.reloadKey isEqualToString:row.reloadKey];
+}
+
+#pragma mark copy
+
+- (id)copyWithZone:(NSZone *)zone{
+    WBTableRow *newRow = [[[self class] alloc] init];
+    newRow.data = self.data;
+    newRow.key = self.key;
+    newRow.associatedCellClass = self.associatedCellClass;
+    newRow.indexPath = self.indexPath;
+    newRow.calculateHeight = self.calculateHeight;
+    newRow.position = self.position;
+    newRow.reloadKey = [[NSString alloc] initWithString:self.reloadKey];
+    return newRow;
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "WBSimpleListCell.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface WBSimpleListCell ()
 @property (nonatomic, strong) UILabel *label;

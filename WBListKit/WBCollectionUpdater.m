@@ -60,7 +60,8 @@
     
     if (result.deletes.count == 0 &&
         result.inserts.count == 0 &&
-        result.moves.count == 0) {
+        result.moves.count == 0 &&
+        result.updates.count == 0) {
         return;
     }
     
@@ -69,6 +70,7 @@
             for (IGListMoveIndexPath *move in result.moves) {
                 [view moveItemAtIndexPath:move.from toIndexPath:move.to];
             }
+            [view reloadItemsAtIndexPaths:result.updates];
             [view deleteItemsAtIndexPaths:result.deletes];
             [view insertItemsAtIndexPaths:result.inserts];
         } completion:^(BOOL finished) {
@@ -80,6 +82,7 @@
                 for (IGListMoveIndexPath *move in result.moves) {
                     [view moveItemAtIndexPath:move.from toIndexPath:move.to];
                 }
+                [view reloadItemsAtIndexPaths:result.updates];
                 [view deleteItemsAtIndexPaths:result.deletes];
                 [view insertItemsAtIndexPaths:result.inserts];
             } completion:^(BOOL finished) {

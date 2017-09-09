@@ -47,6 +47,11 @@
         [self.items insertObject:item atIndex:index];
     }
 }
+- (void)addNewItem:(void(^)(WBCollectionItem *item))block{
+    WBCollectionItem *item = [WBCollectionItem new];
+    [self addItem:item];
+    block(item);
+}
 
 /**
  delete
@@ -110,7 +115,7 @@
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBCollectionSection *section = (WBCollectionSection *)object;
-    return [self.key isEqualToString:section.key];
+    return [section.key isEqualToString:section.key];
 }
 
 #pragma mark private

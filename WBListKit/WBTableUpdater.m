@@ -54,7 +54,8 @@
     
     if (result.deletes.count == 0 &&
         result.inserts.count == 0 &&
-        result.moves.count == 0) {
+        result.moves.count == 0 &&
+        result.updates.count == 0) {
         return;
     }
     
@@ -65,6 +66,7 @@
         }
         [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationAutomatic];
         [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationAutomatic];
+        [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationAutomatic];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
@@ -72,8 +74,9 @@
             for (IGListMoveIndexPath *move in result.moves) {
                 [view moveRowAtIndexPath:move.from toIndexPath:move.to];
             }
-            [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationAutomatic];
-            [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationAutomatic];
+            [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationNone];
+            [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationNone];
+            [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationNone];
             [view endUpdates];
         }];
     }

@@ -44,7 +44,7 @@ WBListKit_SUBCLASSING_RESTRICTED
 - (void)addItems:(NSArray<WBCollectionItem *> *)items;
 - (void)insertItem:(WBCollectionItem *)item
            atIndex:(NSUInteger)index;
-
+- (void)addNewItem:(void(^)(WBCollectionItem *item))block;
 /**
  delete
  */

@@ -6,8 +6,9 @@
 //  Copyright © 2017年 xcoder.fang@gmail.com. All rights reserved.
 //
 
+#import <WBListKit/WBListKit.h>
 #import "WBSimpleListAutoLayoutCell.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 
 @interface WBSimpleListAutoLayoutCell ()
 
@@ -42,12 +43,12 @@
         _topConstraint = make.top.equalTo(self.contentView.mas_top);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-30);
     }];
-    _topConstraint.offset = 30.0f;
+    [_topConstraint setOffset:30.0f];
 }
 
 - (void)update{
-    self.label.text = [NSString stringWithFormat:@"SimpleList AutoLayout Cell Index : %@",[[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue]];
-    _topConstraint.offset = [[(NSDictionary *)self.row.data objectForKey:@"title"] floatValue];
+    self.label.text = [NSString stringWithFormat:@"SimpleList AutoLayout Cell Index : %@",[((NSDictionary *) self.row.data)[@"title"] stringValue]];
+    [_topConstraint setOffset:[((NSDictionary *) self.row.data)[@"title"] floatValue]];
 }
 
 

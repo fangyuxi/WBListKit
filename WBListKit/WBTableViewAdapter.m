@@ -25,11 +25,14 @@
 #import "IGListReloadIndexPath.h"
 #import "WBTableUpdater.h"
 #import "WBListReusableViewProtocol.h"
+#import "_WBTableSectionDefaultPlaceholderHeaderFooterView.h"
+
+@class _WBTableSectionDefaultPlaceholderHeaderFooterView;
 
 @interface WBTableViewAdapter ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableSet *registedCellIdentifiers;
-@property (nonatomic, strong) NSMutableSet *registedHeaderFooterIdentifiers;
+@property (nonatomic, strong) NSMutableSet *registeredCellIdentifiers;
+@property (nonatomic, strong) NSMutableSet *registeredHeaderFooterIdentifiers;
 @property (nonatomic, strong) WBTableViewDelegateProxy *delegateProxy;
 
 @end
@@ -89,11 +92,11 @@
 
 #pragma mark section operators
 
-- (WBTableSection *)sectionAtIndex:(NSUInteger)index{
+- (WBTableSection *)sectionAtIndex:(NSInteger)index{
     if (index >= self.sections.count){
         return nil;
     }
-    WBTableSection *section = [self.sections objectAtIndex:index];
+    WBTableSection *section = self.sections[index];
     return section;
 }
 
@@ -196,13 +199,13 @@
     
     WBTableSection *section = [self sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:indexPath.row];
-    WBListKitAssert(row ,@"当前列表的状态，数据同显示不付，您所操作的行，虽然在显示，但是数据中已经没有了");
+    WBListKitAssert(row ,@"当前列表的状态，数据同显示不符合，您所操作的行，虽然在显示，但是数据中已经没有了");
     Class cellClass = row.associatedCellClass;
     NSString *identifier = NSStringFromClass(cellClass);
     WBListKitAssert(!identifier || ![identifier isEqualToString:@""], @"row 相关联的 associatedCellClass 为空");
     
     //registe if needed
-    [self registeCellIfNeededUseCellClass:cellClass];
+    [self registerCellIfNeededUseCellClass:cellClass];
     
     //hook by
     UITableViewCell<WBTableCellProtocol> *cell = nil;
@@ -247,10 +250,10 @@
     WBTableSection *section = [self sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:indexPath.row];
     Class cellClass = row.associatedCellClass;
-    
+
     //registe if needed
-    [self registeCellIfNeededUseCellClass:cellClass];
-    
+    [self registerCellIfNeededUseCellClass:cellClass];
+
     // hook by
     if ([self.tableDataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         return [self.actionDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
@@ -263,7 +266,7 @@
         }
 
     }
-    
+
     CGFloat f = [tableView fd_heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
                                          cacheByIndexPath:indexPath
                                             configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
@@ -348,6 +351,11 @@
     headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
     WBListKitAssert([headerView isKindOfClass:[UITableViewHeaderFooterView class]],@"header 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([headerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"header 必须遵守 WBListHeaderFooterViewProtocal 协议");
+    //如果是框架自动设置的header，那么取section对象中的默认颜色
+    if ([headerView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView.class]){
+        headerView.backgroundColor = sectionObject.headerColor;
+        headerView.contentView.backgroundColor = sectionObject.headerColor;
+    }
     if ([headerView respondsToSelector:@selector(reset)]) {
         [headerView reset];
     }
@@ -378,6 +386,11 @@
     footerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
     WBListKitAssert([footerView isKindOfClass:[UITableViewHeaderFooterView class]],@"footer 必须是 UITableViewHeaderFooterView的子类");
     WBListKitAssert([footerView conformsToProtocol:@protocol(WBTableHeaderFooterViewProtocal)],@"footer 必须遵守 WBListHeaderFooterViewProtocal 协议");
+    //如果是框架自动设置的footer，那么取section对象中的默认颜色
+    if ([footerView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView.class]){
+        footerView.backgroundColor = sectionObject.headerColor;
+        footerView.contentView.backgroundColor = sectionObject.headerColor;
+    }
     if ([footerView respondsToSelector:@selector(reset)]) {
         [footerView reset];
     }
@@ -407,20 +420,20 @@
 
 #pragma mark getters
 
-- (NSMutableSet *)registedCellIdentifier
+- (NSMutableSet *)registeredCellIdentifier
 {
-    if (!_registedCellIdentifiers) {
-        _registedCellIdentifiers = [NSMutableSet set];
+    if (!_registeredCellIdentifiers) {
+        _registeredCellIdentifiers = [NSMutableSet set];
     }
-    return _registedCellIdentifiers;
+    return _registeredCellIdentifiers;
 }
 
-- (NSMutableSet *)registedHeaderFooterIdentifiers
+- (NSMutableSet *)registeredHeaderFooterIdentifiers
 {
-    if (!_registedHeaderFooterIdentifiers) {
-        _registedHeaderFooterIdentifiers = [NSMutableSet set];
+    if (!_registeredHeaderFooterIdentifiers) {
+        _registeredHeaderFooterIdentifiers = [NSMutableSet set];
     }
-    return _registedHeaderFooterIdentifiers;
+    return _registeredHeaderFooterIdentifiers;
 }
 
 - (NSMutableArray *)sections
@@ -460,20 +473,32 @@
 - (CGFloat)heightForHeaderFooter:(WBTableSectionHeaderFooter *)headerFooter
                         inSectoin:(WBTableSection *)section{
     NSString *identifier = NSStringFromClass(headerFooter.associatedHeaderFooterClass);
+    __block _WBTableSectionDefaultPlaceholderHeaderFooterView *defaultHeaderFooter = nil;
     CGFloat height = [self.tableView fd_heightForHeaderFooterViewWithIdentifier:identifier configuration:^(id headerFooterView) {
         UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
+        if ([headerFooterView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView .class]){
+            defaultHeaderFooter = headerFooterView;
+        }
         view.headerFooter = headerFooter;
         [view update];
     }];
+    //如果是框架设置的默认header和footer，那么读取默认高度
+    if (defaultHeaderFooter){
+        if (headerFooter.displayType == WBTableHeaderFooterTypeHeader){
+            return section.headerHeight;
+        }else{
+            return section.footerHeight;
+        }
+    }
     return height;
 }
 
-- (void)registeCellIfNeededUseCellClass:(Class)cellClass{
+- (void)registerCellIfNeededUseCellClass:(Class)cellClass{
     WBListKitAssert(cellClass, @"请关联WBListRow对象的Cell");
 
     NSString *cellIdentifier = NSStringFromClass(cellClass);
     
-    if ([self.registedCellIdentifiers containsObject:cellIdentifier]) {
+    if ([self.registeredCellIdentifiers containsObject:cellIdentifier]) {
         return;
     }
     
@@ -481,19 +506,19 @@
     if (cellNibPath)
     {
         [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:cellIdentifier];
-        [self.registedCellIdentifiers addObject:cellIdentifier];
+        [self.registeredCellIdentifiers addObject:cellIdentifier];
     }
     else
     {
         [self.tableView registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
-        [self.registedCellIdentifiers addObject:cellIdentifier];
+        [self.registeredCellIdentifiers addObject:cellIdentifier];
     }
 }
 - (void)registeHeaderFooterIfNeededUseClass:(Class)headerFooterClass{
     WBListKitAssert(headerFooterClass, @"请关联Footer和Header对象的View");
     NSString *footerHeaderIdentifier = NSStringFromClass(headerFooterClass);
     
-    if ([self.registedHeaderFooterIdentifiers containsObject:footerHeaderIdentifier]) {
+    if ([self.registeredHeaderFooterIdentifiers containsObject:footerHeaderIdentifier]) {
         return;
     }
     
@@ -501,12 +526,12 @@
     if (footerHeaderNibPath)
     {
         [self.tableView registerNib:[UINib nibWithNibName:footerHeaderNibPath bundle:nil] forHeaderFooterViewReuseIdentifier:footerHeaderIdentifier];
-        [self.registedHeaderFooterIdentifiers addObject:footerHeaderIdentifier];
+        [self.registeredHeaderFooterIdentifiers addObject:footerHeaderIdentifier];
     }
     else
     {
         [self.tableView registerClass:headerFooterClass forHeaderFooterViewReuseIdentifier:footerHeaderIdentifier];
-        [self.registedHeaderFooterIdentifiers addObject:footerHeaderIdentifier];
+        [self.registeredHeaderFooterIdentifiers addObject:footerHeaderIdentifier];
     }
 }
 

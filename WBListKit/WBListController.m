@@ -13,7 +13,7 @@
 
 @interface WBListController ()<WBListRefreshControlCallbackProtocol>
 
-@property (nonatomic, strong, nullable, readwrite) UIViewController *viewController;
+@property (nonatomic, weak, nullable, readwrite) UIViewController *viewController;
 
 @end
 

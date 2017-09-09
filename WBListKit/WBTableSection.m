@@ -8,10 +8,10 @@
 
 #import "WBTableSection.h"
 #import "WBTableSectionPrivate.h"
+#import "WBTableHeaderFooterViewProtocal.h"
+#import "_WBTableSectionDefaultPlaceholderHeaderFooterView.h"
 
 @implementation WBTableSection
-
-@synthesize rowCount = _rowCount;
 
 - (instancetype)init{
     self = [super init];
@@ -23,11 +23,28 @@
 /**
  gets
  */
-- (nullable __kindof WBTableRow *)rowAtIndex:(NSUInteger)index{
+- (nullable __kindof WBTableRow *)rowAtIndex:(NSInteger)index{
     if (index < self.rowCount){
-        return [self.rows objectAtIndex:index];
+        return self.rows[(NSUInteger) index];
     }
     return nil;
+}
+
+- (nullable WBTableRow *)rowForKey:(NSString *)key{
+    __block WBTableRow *row = nil;
+    [self.rows enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        WBTableRow *tmpRow = (WBTableRow *)obj;
+        if ([tmpRow.key isEqualToString:key]){
+            row = tmpRow;
+            BOOL b = true;
+            stop = &b;
+        }
+    }];
+    if (!row) {
+        return nil;
+    }
+    return row;
 }
 
 /**
@@ -75,7 +92,7 @@
 - (void)replaceRowAtIndex:(NSUInteger)index
                   withRow:(WBTableRow *)row{
     if (row){
-        [self.rows replaceObjectAtIndex:index withObject:row];
+        self.rows[index] = row;
     }
 }
 - (void)exchangeRowAtIndex:(NSUInteger)index1
@@ -122,11 +139,51 @@
 #pragma mark private
 
 - (void)recordOldArray{
-    self.oldArray = self.rows;
+    self.oldArray = [[NSArray alloc] initWithArray:self.rows copyItems:YES];
 }
 
 - (void)resetOldArray{
-    self.oldArray = self.rows;
+    self.oldArray =  self.rows;
+}
+
+#pragma mark default header footer
+
+- (void)setHeaderColor:(UIColor *)headerColor {
+    _headerColor = headerColor;
+    [self createDefaultHeaderViewIfNeeded];
+}
+
+- (void)setHeaderHeight:(CGFloat)headerHeight {
+    _headerHeight = headerHeight;
+    [self createDefaultHeaderViewIfNeeded];
+}
+
+- (void)setFooterColor:(UIColor *)footerColor {
+    _footerColor = footerColor;
+    [self createDefaultFooterViewIfNeeded];
+}
+
+- (void)setFooterHeight:(CGFloat)footerHeight {
+    _footerHeight = footerHeight;
+    [self createDefaultFooterViewIfNeeded];
+}
+
+- (void)createDefaultHeaderViewIfNeeded{
+    if (!self.header){
+        WBTableSectionHeaderFooter *header = [WBTableSectionHeaderFooter new];
+        header.displayType = WBTableHeaderFooterTypeHeader;
+        header.associatedHeaderFooterClass = [_WBTableSectionDefaultPlaceholderHeaderFooterView class];
+        self.header = header;
+    }
+}
+
+- (void)createDefaultFooterViewIfNeeded{
+    if (!self.footer){
+        WBTableSectionHeaderFooter *footer = [WBTableSectionHeaderFooter new];
+        footer.displayType = WBTableHeaderFooterTypeFooter;
+        footer.associatedHeaderFooterClass = [_WBTableSectionDefaultPlaceholderHeaderFooterView class];
+        self.footer = footer;
+    }
 }
 
 @end

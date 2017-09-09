@@ -13,8 +13,6 @@
 #import "WBListKitMacros.h"
 #import "WBListDiffableProtocol.h"
 
-@class WBTableSectionMaker;
-
 NS_ASSUME_NONNULL_BEGIN
 
 WBListKit_SUBCLASSING_RESTRICTED
@@ -23,7 +21,8 @@ WBListKit_SUBCLASSING_RESTRICTED
 /**
  gets
  */
-- (nullable WBTableRow *)rowAtIndex:(NSUInteger)index;
+- (nullable WBTableRow *)rowAtIndex:(NSInteger)index;
+- (nullable WBTableRow *)rowForKey:(NSString *)key;
 
 /**
  行数
@@ -40,6 +39,12 @@ WBListKit_SUBCLASSING_RESTRICTED
  */
 @property (nonatomic, strong, nullable) WBTableSectionHeaderFooter *header;
 @property (nonatomic, strong, nullable) WBTableSectionHeaderFooter *footer;
+
+//如果设置了header，那么如下属性失效
+@property (nonatomic, assign) CGFloat headerHeight;
+@property (nonatomic, strong) UIColor *headerColor;
+@property (nonatomic, assign) CGFloat footerHeight;
+@property (nonatomic, strong) UIColor *footerColor;
 
 /**
  inserts
