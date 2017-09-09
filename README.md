@@ -93,6 +93,14 @@ iOS列表中数据驱动的View包括 `UITableViewCell` `UICollectionViewCell` `
 
 @end
 ```
+**注：当UITableViewCell遵守了协议:`WBTableCellProtocol`之后需要加上如下代码：**
+
+```
+@synthesize row = _row;
+@synthesize actionDelegate = _actionDelegate;
+```   
+
+来让编译器自动生成get set方法，因为该属性是放到WBTableCellProtocol中的。
 
 ### WBTableViewAdapter
 
