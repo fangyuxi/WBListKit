@@ -14,7 +14,11 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 
 - (instancetype)init{
     self = [super init];
-    [self setReloadKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    
+    self.reloadKeyGenerator = ^NSString *(__weak WBTableRow *row) {
+        return [NSString stringWithFormat:@"%lu",(unsigned long)[row hash]];
+    };
+
     return self;
 }
 
@@ -27,12 +31,14 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.reloadKey;
+    return self.reloadKeyGenerator(self);
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableRow *row = (WBTableRow *)object;
-    return [self.reloadKey isEqualToString:row.reloadKey];
+    NSString *string1 = self.reloadKeyGenerator(self);
+    NSString *string2 = row.reloadKeyGenerator(row);
+    return [string1 isEqualToString:string2];
 }
 
 #pragma mark copy
@@ -45,7 +51,7 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
     newRow.indexPath = self.indexPath;
     newRow.calculateHeight = self.calculateHeight;
     newRow.position = self.position;
-    newRow.reloadKey = [[NSString alloc] initWithString:self.reloadKey];
+    newRow.reloadKeyGenerator = [self.reloadKeyGenerator copy];
     return newRow;
 }
 

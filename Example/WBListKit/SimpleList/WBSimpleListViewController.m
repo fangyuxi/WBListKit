@@ -52,6 +52,10 @@
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = @{@"title":@(index)
                             };
+            row.reloadKeyGenerator = ^NSString *(WBTableRow *row) {
+                NSDictionary *dic = row.data;
+                return [NSString stringWithFormat:@"%@", dic[@"title"]];
+            };
             [section addRow:row];
         }
         section.key = @"FixedHeight";
@@ -76,16 +80,19 @@
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:0];
     
+    row.data = @{@"title":@(indexPath.row + 100)
+                 };
+    //[section deleteRowAtIndex:indexPath.row];
+    //[self.adapter reloadDifferWithAnimation:YES];
     [self.adapter beginAutoDiffer];
-//    row.reloadKey = @"2";
-//    row.data = @{@"title":@(1000)
+//    row.data = @{@"title":@(indexPath.row + 100)
 //                  };
 //    WBTableRow *row2 = [section rowAtIndex:1];
 //    row2.data = @{@"title":@(100)
 //                 };
-    [section deleteRowAtIndex:indexPath.row];
-    [section exchangeRowAtIndex:1 withIndex:2];
-    [self.adapter commitAutoDifferWithAnimation:YES];
+    //[section deleteRowAtIndex:indexPath.row];
+    //[section exchangeRowAtIndex:1 withIndex:2];
+    [self.adapter commitAutoDifferWithAnimation:NO];
     
     //[tableView reloadData];
     //[self.adapter reloadDiffer];
