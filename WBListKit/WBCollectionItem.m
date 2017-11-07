@@ -21,7 +21,15 @@
         _key = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
         return;
     }
-    _key = key;
+    _key = [key copy];
+}
+
+- (void)setReloadKey:(NSString *)reloadKey{
+    if (!reloadKey) {
+        _reloadKey = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
+        return;
+    }
+    _reloadKey = [reloadKey copy];
 }
 
 - (void)setAssociatedCellClass:(Class)associatedCellClass

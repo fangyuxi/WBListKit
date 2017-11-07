@@ -50,12 +50,9 @@
                 return 60.0f;
             };
             row.associatedCellClass = [WBSimpleListCell class];
-            row.data = @{@"title":@(index)
-                            };
-            row.reloadKeyGenerator = ^NSString *(WBTableRow *row) {
-                NSDictionary *dic = row.data;
-                return [NSString stringWithFormat:@"%@", dic[@"title"]];
-            };
+            row.data = [@{@"title":@(index)
+                            } mutableCopy];
+            row.reloadKey = @"1";
             [section addRow:row];
         }
         section.key = @"FixedHeight";
@@ -80,8 +77,10 @@
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:0];
     
-    row.data = @{@"title":@(indexPath.row + 100)
-                 };
+    NSMutableDictionary *data = row.data;
+    [data setObject:@(indexPath.row + 100) forKey:@"title"];
+    row.reloadKey = [NSString stringWithFormat:@"%@",@(indexPath.row + 100)];
+    
     //[section deleteRowAtIndex:indexPath.row];
     //[self.adapter reloadDifferWithAnimation:YES];
     [self.adapter beginAutoDiffer];
