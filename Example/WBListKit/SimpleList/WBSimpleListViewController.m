@@ -41,11 +41,10 @@
 - (void)loadData{
     
     [self.adapter beginAutoDiffer];
-    
     [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
-            WBTableRow *row = [[WBTableRow alloc] init];
+            WBTableRow<NSMutableDictionary *> *row = [[WBTableRow alloc] init];
             row.calculateHeight = ^CGFloat(WBTableRow *row){
                 return 60.0f;
             };

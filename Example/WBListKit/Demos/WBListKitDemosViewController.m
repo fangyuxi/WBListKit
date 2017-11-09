@@ -60,7 +60,7 @@
         NSMutableArray *rows = [NSMutableArray new];
         [[weakSelf data] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
            
-            WBTableRow *row = [[WBTableRow alloc] init];
+            WBTableRow<NSDictionary<NSString *,Class>*> *row = [[WBTableRow alloc] init];
             row.calculateHeight = ^CGFloat(WBTableRow *row){
                 return 60.0f;
             };
@@ -86,6 +86,7 @@
              @{@"title":@"CollectionView",@"class":[WBCollectionViewController class]},
              @{@"title":@"Nested",@"class":[WBNestedViewController class]},
              @{@"title":@"Nib Cell List",@"class":[WBListNibViewController class]},
+             @{@"title":@"Swift List",@"class":[WBSwiftListViewController class]},
              @{@"title":@"Custom Layout",@"class":[WBCustomLayoutViewController class]},
              @{@"title":@"WaterFall Layout",@"class":[WBWaterFallViewController class]},
              @{@"title":@"Empty Kit Swift ",@"class":[WBSwiftEmptyViewController class]},

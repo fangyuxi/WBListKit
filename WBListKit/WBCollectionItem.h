@@ -15,12 +15,12 @@
  A Model for UICollectionView Cell
  */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBCollectionItem : NSObject<WBListDiffableProtocol>
+@interface WBCollectionItem<__covariant Data> : NSObject<WBListDiffableProtocol>
 
 /**
  associated item data
  */
-@property (nonatomic, strong, nullable) id data;
+@property (nonatomic, strong, nullable) Data data;
 
 /**
  这一行的唯一标识，默认为对象内存地址

@@ -32,9 +32,9 @@ class WBSwiftListViewController: UIViewController,WBListActionToControllerProtoc
             self.adapter.addSection { (section) in
                 
                 for i in 1..<10{
-                    let row: WBTableRow = WBTableRow();
+                    let row: WBTableRow<AnyObject> = WBTableRow<AnyObject>();
                     row.associatedCellClass = WBSwiftListCell.self
-                    row.data = ["color":UIColor.clear, "index":i]
+                    row.data = ["color":UIColor.clear, "index":i] as AnyObject
                     row.calculateHeight = {row in return 100.0};
                     section.addRow(row);
                 }

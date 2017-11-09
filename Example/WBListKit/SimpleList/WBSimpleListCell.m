@@ -31,7 +31,6 @@
 }
 
 - (void)makeLayout{
-    
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.contentView);
     }];

@@ -26,14 +26,14 @@ typedef NS_ENUM(NSInteger, WBTableHeaderFooterType)
  A 'Model Object' for header & footer
  */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBTableSectionHeaderFooter : NSObject
+@interface WBTableSectionHeaderFooter<__covariant Data> : NSObject
 
 @property (nonatomic, assign) WBTableHeaderFooterType displayType;
 
 /**
  associated raw data
  */
-@property (nonatomic, strong) id data;
+@property (nonatomic, strong) Data data;
 
 /**
   class name will be used as reuseIditifier

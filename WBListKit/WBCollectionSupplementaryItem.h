@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
  A Model for Supplementary View
  */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBCollectionSupplementaryItem : NSObject
+@interface WBCollectionSupplementaryItem<__covariant Data> : NSObject
 
 /**
  associated item data
  */
-@property (nonatomic, strong, nullable) id data;
+@property (nonatomic, strong, nullable) Data data;
 
 /**
  location in list

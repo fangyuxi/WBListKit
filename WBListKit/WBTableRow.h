@@ -27,14 +27,14 @@ typedef NS_ENUM(NSInteger, WBTableRowPosition){
 
 /**
  代表一个行
- */
+*/
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBTableRow : NSObject<WBListDiffableProtocol>
+@interface WBTableRow<__covariant Data> : NSObject<WBListDiffableProtocol>
 
 /**
  row关联的数据
  */
-@property (nonatomic, strong, nullable) id data;
+@property (nonatomic, strong, nullable) Data data;
 
 /**
  这一行的唯一标识，默认为对象内存地址，可以通过section对象的rowForKey:来获取row
