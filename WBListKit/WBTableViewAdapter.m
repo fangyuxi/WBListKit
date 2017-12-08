@@ -545,51 +545,6 @@
 
 @end
 
-@implementation WBTableViewAdapter (ReloadShortcut)
-
-- (void)reloadRowAtIndex:(NSIndexPath *)indexPath
-               animation:(UITableViewRowAnimation)animationType
-              usingBlock:(void(^)(WBTableRow *row))block{
-    WBTableSection *section = [self sectionAtIndex:indexPath.section];
-    WBTableRow *row = [section rowAtIndex:indexPath.row];
-    block(row);
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animationType];
-}
-
-- (void)reloadRowAtIndex:(NSInteger )index
-           forSectionKey:(NSString *)key
-               animation:(UITableViewRowAnimation)animationType
-              usingBlock:(void(^)(WBTableRow *row))block{
-    WBTableSection *section = [self sectionForKey:key];
-    NSInteger sectionIndex = [self indexOfSection:section];
-    WBTableRow *row = [section rowAtIndex:index];
-    block(row);
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index
-                                                                inSection:sectionIndex]]
-                          withRowAnimation:animationType];
-}
-
-- (void)reloadSectionAtIndex:(NSInteger)index
-                   animation:(UITableViewRowAnimation)animationType
-                  usingBlock:(void(^)(WBTableSection *section))block{
-    WBTableSection *section = [self sectionAtIndex:index];
-    block(section);
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index]
-                  withRowAnimation:animationType];
-}
-
-- (void)reloadSectionForKey:(NSString *)key
-                         animation:(UITableViewRowAnimation)animationType
-                        usingBlock:(void(^)(WBTableSection *section))block{
-    WBTableSection *section = [self sectionForKey:key];
-    NSInteger sectionIndex = [self indexOfSection:section];
-    block(section);
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                  withRowAnimation:animationType];
-}
-
-@end
-
 @implementation WBTableViewAdapter (AutoDiffer)
 
 - (void)beginAutoDiffer{
@@ -635,6 +590,51 @@
                                               to:self.sections
                                        animation:animation];
     [self resetAllSectionsAndRowsRecords];
+}
+
+@end
+
+@implementation WBTableViewAdapter (ReloadShortcut)
+
+- (void)reloadRowAtIndex:(NSIndexPath *)indexPath
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block{
+    WBTableSection *section = [self sectionAtIndex:indexPath.section];
+    WBTableRow *row = [section rowAtIndex:indexPath.row];
+    block(row);
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:animationType];
+}
+
+- (void)reloadRowAtIndex:(NSInteger )index
+           forSectionKey:(NSString *)key
+               animation:(UITableViewRowAnimation)animationType
+              usingBlock:(void(^)(WBTableRow *row))block{
+    WBTableSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    WBTableRow *row = [section rowAtIndex:index];
+    block(row);
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index
+                                                                inSection:sectionIndex]]
+                          withRowAnimation:animationType];
+}
+
+- (void)reloadSectionAtIndex:(NSInteger)index
+                   animation:(UITableViewRowAnimation)animationType
+                  usingBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionAtIndex:index];
+    block(section);
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:index]
+                  withRowAnimation:animationType];
+}
+
+- (void)reloadSectionForKey:(NSString *)key
+                  animation:(UITableViewRowAnimation)animationType
+                 usingBlock:(void(^)(WBTableSection *section))block{
+    WBTableSection *section = [self sectionForKey:key];
+    NSInteger sectionIndex = [self indexOfSection:section];
+    block(section);
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                  withRowAnimation:animationType];
 }
 
 @end
