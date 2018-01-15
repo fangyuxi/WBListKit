@@ -29,9 +29,11 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     
-    self.adapter = [[WBTableViewAdapter alloc] init];
-    self.tableView.adapter = self.adapter;
+    WBTableViewAdapter *adapter = [[WBTableViewAdapter alloc] init];
+    self.tableView.adapter = adapter;
     self.tableView.actionDelegate = self;
+    
+    [self loadData];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];

@@ -23,7 +23,7 @@
 /**
  gets
  */
-- (nullable __kindof WBTableRow *)rowAtIndex:(NSInteger)index{
+- (nullable WBTableRow *)rowAtIndex:(NSInteger)index{
     if (index < self.rowCount){
         return self.rows[(NSUInteger) index];
     }
