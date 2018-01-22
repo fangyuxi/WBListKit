@@ -212,6 +212,8 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     WBListKitAssertMainThread();
+    [self checkDelegateAndDataSource];
+    
     if ([self.collectionViewDataSource respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
         return [self.collectionViewDataSource numberOfSectionsInCollectionView:collectionView];
     }
@@ -360,6 +362,8 @@
 
 - (void)updateCollectionDelegateProxy{
     
+    [self checkDelegateAndDataSource];
+    
     // there is a known bug with accessibility and using an NSProxy as the delegate that will cause EXC_BAD_ACCESS
     // when voiceover is enabled. it will hold an unsafe ref to the delegate
     _collectionView.delegate = nil;
@@ -408,6 +412,30 @@
         [section resetOldArray];
     }];
     self.oldSections = [self.sections copy];
+}
+
+/**
+ 检查collectionView的delegate和datasource是否合法 ，即：是否指向adapter或者proxy
+ 防止外部意外的使用了tableview.delegate= 或者 tableview.datasource=
+ */
+- (void)checkDelegateAndDataSource{
+    if (self.collectionView == nil ||
+        self.collectionView.delegate == nil ||
+        self.collectionView.dataSource == nil) {
+        return;
+    }
+    
+    if (self.collectionView.delegate != self) {
+        if (self.collectionView.delegate != self.delegateProxy) {
+            WBListKitAssert(nil, @"不能使用UICollectoinView的delegate属性，请使用actionDelegate属性替代原delegate的功能");
+        }
+    }
+    
+    if (self.collectionView.dataSource != self) {
+        if (self.collectionView.dataSource != self.delegateProxy) {
+            WBListKitAssert(nil, @"不能使用UICollectoinView的dataSource属性，请使用tableDataSource属性替代原datasource的功能");
+        }
+    }
 }
 
 @end

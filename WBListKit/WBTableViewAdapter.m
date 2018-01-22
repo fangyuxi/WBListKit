@@ -229,6 +229,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     WBListKitAssertMainThread();
+    [self checkDelegateAndDataSource];
+    
     if ([self.tableDataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         return [self.tableDataSource numberOfSectionsInTableView:tableView];
     }
@@ -455,6 +457,8 @@
 
 - (void)updateTableDelegateProxy
 {
+    [self checkDelegateAndDataSource];
+    
     // there is a known bug with accessibility and using an NSProxy as the delegate that will cause EXC_BAD_ACCESS
     // when voiceover is enabled. it will hold an unsafe ref to the delegate
     _tableView.delegate = nil;
@@ -541,6 +545,31 @@
         [section resetOldArray];
     }];
     self.oldSections = [self.sections copy];
+}
+
+
+/**
+ 检查tableview的delegate和datasource是否合法 ，即：是否指向adapter或者proxy
+ 防止外部意外的使用了tableview.delegate= 或者 tableview.datasource=
+ */
+- (void)checkDelegateAndDataSource{
+    if (self.tableView == nil ||
+        self.tableView.delegate == nil ||
+        self.tableView.dataSource == nil) {
+        return;
+    }
+    
+    if (self.tableView.delegate != self) {
+        if (self.tableView.delegate != self.delegateProxy) {
+            WBListKitAssert(nil, @"不能使用UITableView的delegate属性，请使用actionDelegate属性替代原delegate的功能");
+        }
+    }
+    
+    if (self.tableView.dataSource != self) {
+        if (self.tableView.dataSource != self.delegateProxy) {
+            WBListKitAssert(nil, @"不能使用UITableView的dataSource属性，请使用tableDataSource属性替代原datasource的功能");
+        }
+    }
 }
 
 @end
