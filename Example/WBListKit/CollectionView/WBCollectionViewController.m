@@ -29,11 +29,9 @@
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:[UICollectionViewFlowLayout new]];
     [self.view addSubview:self.collectionView];
     
-    
-    
     self.adapter = [[WBCollectionViewAdapter alloc] init];
     self.collectionView.adapter = self.adapter;
-    
+    self.collectionView.actionDelegate = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
     });
