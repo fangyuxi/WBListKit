@@ -322,6 +322,7 @@
     }else{
         height = [self heightForHeaderFooter:header inSectoin:sectionObject];
     }
+    sectionObject.headerHeight = height;
     return height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -349,6 +350,7 @@
     }else{
         height = [self heightForHeaderFooter:footer inSectoin:sectionObject];
     }
+    sectionObject.footerHeight = height;
     return height;
 }
 

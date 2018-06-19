@@ -125,6 +125,16 @@
     _key = key;
 }
 
+- (void)setHeader:(WBTableSectionHeaderFooter *)header {
+    _header = header;
+    _headerHeight = header.calculateHeight(header);
+}
+
+- (void)setFooter:(WBTableSectionHeaderFooter *)footer {
+    _footer = footer;
+    _footerHeight = footer.calculateHeight(footer);
+}
+
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
