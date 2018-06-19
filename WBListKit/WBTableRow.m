@@ -65,4 +65,9 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
     return newRow;
 }
 
+- (CGFloat)height {
+    
+    return self.calculateHeight(self);
+}
+
 @end

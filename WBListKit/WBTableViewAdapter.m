@@ -136,6 +136,25 @@
     block(section);
 }
 
+- (void)insertSection:(WBTableSection *)newSection forIndex:(NSUInteger)index {
+    
+    if (nil == newSection || [self.sections containsObject:newSection]) {
+        return;
+    }
+    if (index > self.sections.count) {
+        return;
+    }
+    [self.sections insertObject:newSection atIndex:index];
+}
+
+- (void)insertSection:(WBTableSection *)newSection {
+    
+    if (nil == newSection || [self.sections containsObject:newSection]) {
+        return;
+    }
+    [self.sections insertObject:newSection atIndex:index];
+}
+
 - (void)updateSection:(WBTableSection *)section
              useBlock:(void(^)(WBTableSection *section))block{
     block(section);

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WBCollectionSupplementaryItem.h"
-
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 @class WBCollectionSection;
 @class WBCollectionItem;

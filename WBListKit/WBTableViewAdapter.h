@@ -59,6 +59,21 @@ NS_ASSUME_NONNULL_BEGIN
               atIndex:(NSUInteger)index;
 
 /**
+ 给特定的位置插入一个新的section，**注意**要确保这个section和之前的不重复
+ 
+ @param newSection 新添加的section
+ @param index 插入的位置
+ */
+- (void)insertSection:(WBTableSection *)newSection forIndex:(NSUInteger)index;
+
+/**
+ 添加setion，如果之前有过这个section，**注意**要确保这个setion和之前的不重复
+ 
+ @param newSection 新添加的setion
+ */
+- (void)insertSection:(WBTableSection *)newSection;
+
+/**
  更新指定位置的section
 
  @param index 'index'

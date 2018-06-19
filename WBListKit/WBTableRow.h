@@ -87,4 +87,8 @@ WBListKit_SUBCLASSING_RESTRICTED
  */
 @property (nonatomic, copy, nullable) CGFloat(^calculateHeight)( WBTableRow  * __nonnull row);
 
+/**
+ 获取某一行的高度
+ */
+@property (nonatomic, assign, readonly) CGFloat height;
 @end
