@@ -564,6 +564,11 @@
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         WBTableSection *section = (WBTableSection *)obj;
         [section resetOldArray];
+        for (NSInteger i = 0, j = section.rowCount; i < j; i ++) {
+            WBTableRow *row = [section rowAtIndex:i];
+            row.indexPath = [NSIndexPath indexPathForRow:i inSection:idx];
+        }
+
     }];
     self.oldSections = [self.sections copy];
 }
