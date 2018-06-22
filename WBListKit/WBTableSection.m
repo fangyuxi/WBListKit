@@ -196,4 +196,29 @@
     }
 }
 
+- (void)updateRowPosition {
+    
+    NSUInteger rowCount = self.rows.count;
+    if (0 == rowCount) {
+        return;
+    }
+    if (1 == rowCount) {
+        WBTableRow *row = [self.rows firstObject];
+        row.position = WBTableRowPositionSingle;
+        return;
+    }
+    for (NSUInteger i = 0; i < rowCount; i ++) {
+        WBTableRow *row = self.rows[i];
+        if (0 == i) {
+            row.position = WBTableRowPositionTop;
+            continue;
+        }
+        if (rowCount - 1 == i) {
+            row.position = WBTableRowPositionBottom;
+            continue;
+        }
+        row.position = WBTableRowPositionMiddle;
+    }
+}
+
 @end

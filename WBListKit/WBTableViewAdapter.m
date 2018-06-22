@@ -561,18 +561,18 @@
 }
 
 - (void)resetAllSectionsAndRowsRecords{
+    
     [self.sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         WBTableSection *section = (WBTableSection *)obj;
+        [section updateRowPosition];
         [section resetOldArray];
         for (NSInteger i = 0, j = section.rowCount; i < j; i ++) {
             WBTableRow *row = [section rowAtIndex:i];
             row.indexPath = [NSIndexPath indexPathForRow:i inSection:idx];
         }
-
     }];
     self.oldSections = [self.sections copy];
 }
-
 
 /**
  检查tableview的delegate和datasource是否合法 ，即：是否指向adapter或者proxy
@@ -625,7 +625,7 @@
 
 - (void)commitAutoDifferWithAnimation:(BOOL)animation{
     if (!self.isInDifferring) {
-        NSException* exception = [NSException exceptionWithName:@" CommitAutoDiffer Exception"
+        NSException* exception = [NSException exceptionWithName:@"CommitAutoDiffer Exception"
                                                          reason:@"先使用beginAutoDiffer开始任务，才能提交任务"
                                                        userInfo:nil];
         @throw exception;

@@ -37,7 +37,9 @@
 }
 
 - (void)update{
-    self.label.text = [NSString stringWithFormat:@"SimpleList self manage height Cell Index : %@",[[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue]];
+    
+    NSString *indexString = [[(NSDictionary *)self.row.data objectForKey:@"title"] stringValue];
+    self.label.text = [NSString stringWithFormat:@"SimpleList self manage height Cell Index : %@",indexString];
 }
 
 

@@ -40,7 +40,7 @@
 
 - (void)loadData{
     
-    [self.adapter beginAutoDiffer];
+//    [self.adapter beginAutoDiffer];
     [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
@@ -68,12 +68,13 @@
         section.key = @"AutoLayout";
     }];
     
-    [self.adapter commitAutoDifferWithAnimation:YES];
+//    [self.adapter commitAutoDifferWithAnimation:YES];
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         return;
     }
     

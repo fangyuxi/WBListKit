@@ -71,6 +71,11 @@ WBListKit_SUBCLASSING_RESTRICTED
 - (void)exchangeRowAtIndex:(NSUInteger)index1
                  withIndex:(NSInteger)index2;
 
+/**
+ Update the row's position
+ */
+- (void)updateRowPosition;
+
 @end
 
 NS_ASSUME_NONNULL_END
