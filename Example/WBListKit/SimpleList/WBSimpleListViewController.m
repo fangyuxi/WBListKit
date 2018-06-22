@@ -24,20 +24,18 @@
     
     [super viewDidLoad];
     self.title = @"Simple List";
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     
     WBTableViewAdapter *adapter = [[WBTableViewAdapter alloc] init];
+    self.adapter = adapter;
     self.tableView.adapter = adapter;
     self.tableView.actionDelegate = self;
     
     [self loadData];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self loadData];
-    });
+
 }
 
 - (void)loadData{
@@ -51,47 +49,40 @@
                 return 60.0f;
             };
             row.associatedCellClass = [WBSimpleListCell class];
-            row.data = [@{@"title":@(index)
-                            } mutableCopy];
+            row.data = [@{@"title":@(index)} mutableCopy];
             row.reloadKey = @"1";
             [section addRow:row];
         }
         section.key = @"FixedHeight";
     }];
     
-//    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
-//        
-//        for (NSInteger index = 0; index < 5; ++index) {
-//            WBTableRow *row = [[WBTableRow alloc] init];
-//            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-//            row.data = @{@"title":@(index)
-//                            };
-//            [section addRow:row];
-//        }
-//        section.key = @"AutoLayout";
-//    }];
+    [self.adapter addSection:^(WBTableSection * _Nonnull section) {
+        
+        for (NSInteger index = 0; index < 5; ++index) {
+            WBTableRow *row = [[WBTableRow alloc] init];
+            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
+            row.data = @{@"title":@(index)
+                            };
+            [section addRow:row];
+        }
+        section.key = @"AutoLayout";
+    }];
     
     [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 2) {
+        return;
+    }
+    
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:0];
-    
     NSMutableDictionary *data = row.data;
     [data setObject:@(indexPath.row + 100) forKey:@"title"];
     row.reloadKey = [NSString stringWithFormat:@"%@",@(indexPath.row + 100)];
-    
-    //[section deleteRowAtIndex:indexPath.row];
-    //[self.adapter reloadDifferWithAnimation:YES];
     [self.adapter beginAutoDiffer];
-//    row.data = @{@"title":@(indexPath.row + 100)
-//                  };
-//    WBTableRow *row2 = [section rowAtIndex:1];
-//    row2.data = @{@"title":@(100)
-//                 };
-    //[section deleteRowAtIndex:indexPath.row];
-    //[section exchangeRowAtIndex:1 withIndex:2];
     [self.adapter commitAutoDifferWithAnimation:NO];
 }
 
