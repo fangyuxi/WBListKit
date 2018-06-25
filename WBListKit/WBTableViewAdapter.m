@@ -302,7 +302,7 @@
     WBTableSection *sectionObject = [self sectionAtIndex:section];
     WBTableSectionHeaderFooter *header = sectionObject.header;
     if (!header) {
-        return 0;
+        return CGFLOAT_MIN;
     }
 
     //registe if needed
@@ -330,7 +330,7 @@
     WBTableSection *sectionObject = [self sectionAtIndex:section];
     WBTableSectionHeaderFooter *footer = sectionObject.footer;
     if (!footer) {
-        return 0;
+        return CGFLOAT_MIN;
     }
     
     //registe if needed
