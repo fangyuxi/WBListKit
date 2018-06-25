@@ -147,12 +147,12 @@
     [self.sections insertObject:newSection atIndex:index];
 }
 
-- (void)insertSection:(WBTableSection *)newSection {
+- (void)appendSection:(WBTableSection *)newSection {
     
     if (nil == newSection || [self.sections containsObject:newSection]) {
         return;
     }
-    [self.sections insertObject:newSection atIndex:index];
+    [self.sections addObject:newSection];
 }
 
 - (void)updateSection:(WBTableSection *)section

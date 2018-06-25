@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param newSection 新添加的setion
  */
-- (void)insertSection:(WBTableSection *)newSection;
+- (void)appendSection:(WBTableSection *)newSection;
 
 /**
  更新指定位置的section
