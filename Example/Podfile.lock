@@ -2,26 +2,33 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
-  - UITableView+FDTemplateLayoutCell (1.6)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
   - WBListKit (0.4):
     - WBListKit/CollectionView (= 0.4)
     - WBListKit/DataSource (= 0.4)
     - WBListKit/Differ (= 0.4)
     - WBListKit/TableView (= 0.4)
   - WBListKit/CollectionView (0.4):
-    - UITableView+FDTemplateLayoutCell
+    - "UITableView+FDTemplateLayoutCell"
   - WBListKit/DataSource (0.4):
     - WBListKit/CollectionView
     - WBListKit/TableView
   - WBListKit/Differ (0.4)
   - WBListKit/TableView (0.4):
-    - UITableView+FDTemplateLayoutCell
+    - "UITableView+FDTemplateLayoutCell"
 
 DEPENDENCIES:
   - DZNEmptyDataSet
   - Masonry
   - MJRefresh
   - WBListKit (from `../`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - DZNEmptyDataSet
+    - Masonry
+    - MJRefresh
+    - "UITableView+FDTemplateLayoutCell"
 
 EXTERNAL SOURCES:
   WBListKit:
@@ -31,9 +38,9 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
-  WBListKit: 252a646a01183349cfa0b99963302bdb58abacc0
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  WBListKit: 52005753859eebade57f57fe2be56f0a8d08e4b3
 
 PODFILE CHECKSUM: 85c51a1f67394d8d50e9e4bce206a2be489b0158
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0
