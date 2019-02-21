@@ -28,6 +28,7 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
+    
     WBTableViewAdapter *adapter = [[WBTableViewAdapter alloc] init];
     self.adapter = adapter;
     self.tableView.adapter = adapter;
@@ -50,7 +51,6 @@
             };
             row.associatedCellClass = [WBSimpleListCell class];
             row.data = [@{@"title":@(index)} mutableCopy];
-            row.reloadKey = @"1";
             [section addRow:row];
         }
         section.key = @"FixedHeight";
@@ -69,7 +69,6 @@
     }];
     
     [self.adapter commitAutoDifferWithAnimation:YES];
-    //[self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -81,14 +80,13 @@
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:0];
     
-    //NSLog(@"perform7");
     [self.adapter beginAutoDiffer];
     [section deleteRow:row];
-    [self.adapter commitAutoDifferWithAnimation:NO];
+    [self.adapter commitAutoDifferWithAnimation:YES];
     
-    [self.adapter beginAutoDiffer];
-    [section deleteRowAtIndex:0];
-    [self.adapter commitAutoDifferWithAnimation:NO];
+//    [self.adapter beginAutoDiffer];
+//    [section deleteRowAtIndex:0];
+//    [self.adapter commitAutoDifferWithAnimation:NO];
 }
 
 - (void)actionFromReusableView:(UIView *)view

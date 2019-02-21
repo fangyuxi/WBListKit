@@ -26,20 +26,20 @@
     }
     if (animation) {
         [view beginUpdates];
-        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationFade];
+        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationAutomatic];
         for (IGListMoveIndex *move in result.moves) {
             [view moveSection:move.from toSection:move.to];
         }
-        [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationFade];
+        [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationAutomatic];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
             [view beginUpdates];
-            [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationTop];
+            [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationNone];
             for (IGListMoveIndex *move in result.moves) {
                 [view moveSection:move.from toSection:move.to];
             }
-            [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationTop];
+            [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationNone];
             [view endUpdates];
         }];
     }
@@ -54,8 +54,7 @@
     
     if (result.deletes.count == 0 &&
         result.inserts.count == 0 &&
-        result.moves.count == 0 &&
-        result.updates.count == 0) {
+        result.moves.count == 0) {
         return;
     }
     
@@ -66,7 +65,6 @@
             [view moveRowAtIndexPath:move.from toIndexPath:move.to];
         }
         [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationAutomatic];
-        [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationAutomatic];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
@@ -76,7 +74,6 @@
                 [view moveRowAtIndexPath:move.from toIndexPath:move.to];
             }
             [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationNone];
-            [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationNone];
             [view endUpdates];
         }];
     }

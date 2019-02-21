@@ -139,7 +139,7 @@
         templateCell = [self dequeueReusableCellWithIdentifier:identifier];
         NSAssert(templateCell != nil, @"Cell must be registered to table view for identifier - %@", identifier);
         templateCell.fd_isTemplateLayoutCell = YES;
-        templateCell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        templateCell.contentView.translatesAutoresizingMaskIntoConstraints = YES;
         templateCellsByIdentifiers[identifier] = templateCell;
         [self fd_debugLog:[NSString stringWithFormat:@"layout cell created - %@", identifier]];
     }
@@ -220,7 +220,7 @@
     if (!templateHeaderFooterView) {
         templateHeaderFooterView = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         NSAssert(templateHeaderFooterView != nil, @"HeaderFooterView must be registered to table view for identifier - %@", identifier);
-        templateHeaderFooterView.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        templateHeaderFooterView.contentView.translatesAutoresizingMaskIntoConstraints = YES;
         templateHeaderFooterViews[identifier] = templateHeaderFooterView;
         [self fd_debugLog:[NSString stringWithFormat:@"layout header footer view created - %@", identifier]];
     }

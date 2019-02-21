@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, WBTableRowPosition){
  代表一个行
 */
 WBListKit_SUBCLASSING_RESTRICTED
-@interface WBTableRow<__covariant Data> : NSObject<WBListDiffableProtocol>
+@interface WBTableRow<__covariant Data> : NSObject<WBListDiffableProtocol,NSCopying>
 
 /**
  row关联的数据
@@ -41,25 +41,6 @@ WBListKit_SUBCLASSING_RESTRICTED
  你需要确保此key的唯一性
  */
 @property (nonatomic, copy, nullable) NSString *key;
-
-/**
- 
-  reloadKey
- 
-  当TableView或者adapter调用如下三个方法的时候
- 
-  'beginAutoDiffer'
-  'commitAutoDifferWithAnimation:'
-  'reloadDifferWithAnimation:'
- 
-  如果发现一个cell的reloadkey和之前发生变化，则会自动reload这一行cell
- 
-  此生key可以根据row对象的数据或者其他自定义的规则来表示row是否修改过，
-  没有修改过的row不会进行刷新，减少不必要的刷新和IO操作
- 
-  此key不影响TableView的原始reload方法
- */
-@property (nonatomic, copy, nonnull) NSString *reloadKey;
 
 /**
  在列表中的物理位置
