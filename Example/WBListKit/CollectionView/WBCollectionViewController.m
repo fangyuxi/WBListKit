@@ -32,6 +32,7 @@
     self.adapter = [[WBCollectionViewAdapter alloc] init];
     self.collectionView.adapter = self.adapter;
     self.collectionView.actionDelegate = self;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self loadData];
     });
@@ -43,24 +44,12 @@
     return CGSizeMake(50, 100 );
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //cell被电击后移动的动画
-    
-    [self.adapter beginAutoDiffer];
-    [self.adapter updateSectionAtIndex:indexPath.section userBlock:^(WBCollectionSection * _Nonnull section) {
-        
-        [section deleteItemAtIndex:indexPath.item];
-    }];
-    [self.adapter commitAutoDifferWithAnimation:YES];
-}
-
 - (void)loadData{
     
     [self.adapter beginAutoDiffer];
     __weak typeof(self) weakSelf = self;
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
-        for (NSInteger index = 0; index < 100; ++index) {
+        for (NSInteger index = 0; index < 1000; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
@@ -69,12 +58,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
             section.key = @"FixedHeight";
         }
         
-        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
-        header.associatedViewClass = [WBCollectionHeaderView class];
-        header.elementKind = UICollectionElementKindSectionHeader;
-        [weakSelf.adapter addSupplementaryItem:header
-                                     indexPath:[NSIndexPath indexPathForItem:0
-                                                                   inSection:0]];
+//        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
+//        header.associatedViewClass = [WBCollectionHeaderView class];
+//        header.elementKind = UICollectionElementKindSectionHeader;
+//        [weakSelf.adapter addSupplementaryItem:header
+//                                     indexPath:[NSIndexPath indexPathForItem:0
+//                                                                   inSection:0]];
     }];
     
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
@@ -86,28 +75,79 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
             [section addItem:item];
             section.key = @"FixedHeight";
         }
-        
-        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
-        header.associatedViewClass = [WBCollectionHeaderView class];
-        header.elementKind = UICollectionElementKindSectionHeader;
-        [weakSelf.adapter addSupplementaryItem:header
-                                     indexPath:[NSIndexPath indexPathForItem:0
-                                                                   inSection:1]];
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.adapter commitAutoDifferWithAnimation:YES];
-    });
-    
-    //[self.collectionView reloadData];
+    [self.adapter commitAutoDifferWithAnimation:YES];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-referenceSizeForHeaderInSection:(NSInteger)section{
+
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(320, 20);
+    
+    for (NSInteger index = 0; index < 100; ++index) {
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.adapter beginAutoDiffer];
+            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+            [section deleteItemAtIndex:0];
+            [self.adapter commitAutoDifferWithAnimation:YES];
+        });
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.adapter beginAutoDiffer];
+            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+            item.associatedCellClass = [WBCollectionViewCell class];
+            item.data = @{@"title":@(index)
+                          };
+            [section addItem:item];
+            section.key = @"FixedHeight";
+            [section insertItem:item atIndex:8];
+            [self.adapter commitAutoDifferWithAnimation:YES];
+        });
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+            [section deleteItemAtIndex:1];
+        });
+        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.adapter beginAutoDiffer];
+//            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+//            [section exchangeItemAtIndex:100 withIndex:4];
+//            [self.adapter commitAutoDifferWithAnimation:YES];
+//        });
+
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+//
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self.adapter beginAutoDiffer];
+//                    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
+//                        for (NSInteger index = 0; index < 100; ++index) {
+//                            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+//                            item.associatedCellClass = [WBCollectionViewCell class];
+//                            item.data = @{@"title":@(index)
+//                                          };
+//                            [section addItem:item];
+//                            section.key = @"FixedHeight";
+//                        }
+//                    }];
+//
+//                    [self.adapter commitAutoDifferWithAnimation:YES];
+//                });
+//            });
+//        });
+    }
 }
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView
+//                  layout:(UICollectionViewLayout *)collectionViewLayout
+//referenceSizeForHeaderInSection:(NSInteger)section{
+//
+//    return CGSizeMake(320, 20);
+//}
 
 
 @end

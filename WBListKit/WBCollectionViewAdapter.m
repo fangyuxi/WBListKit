@@ -18,6 +18,10 @@
 #import "WBCollectionUpdater.h"
 #import "WBCollectionSectionPrivate.h"
 
+#import "WBCollectionItem.h"
+
+
+
 #ifndef StringForIndexPath
 #define StringForIndexPath(v) [NSString stringWithFormat:@"%ld-,%ld", (long)v.item, (long)v.section]
 #endif

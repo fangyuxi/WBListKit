@@ -26,19 +26,19 @@
     }
     if (animation) {
         [view beginUpdates];
+        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationFade];
         for (IGListMoveIndex *move in result.moves) {
             [view moveSection:move.from toSection:move.to];
         }
-        [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationFade];
         [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationFade];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
             [view beginUpdates];
+            [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationTop];
             for (IGListMoveIndex *move in result.moves) {
                 [view moveSection:move.from toSection:move.to];
             }
-            [view deleteSections:result.deletes withRowAnimation:UITableViewRowAnimationTop];
             [view insertSections:result.inserts withRowAnimation:UITableViewRowAnimationTop];
             [view endUpdates];
         }];
@@ -61,20 +61,20 @@
     
     if (animation) {
         [view beginUpdates];
+        [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationAutomatic];
         for (IGListMoveIndexPath *move in result.moves) {
             [view moveRowAtIndexPath:move.from toIndexPath:move.to];
         }
-        [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationAutomatic];
         [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationAutomatic];
         [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationAutomatic];
         [view endUpdates];
     }else{
         [UIView performWithoutAnimation:^{
             [view beginUpdates];
+            [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationNone];
             for (IGListMoveIndexPath *move in result.moves) {
                 [view moveRowAtIndexPath:move.from toIndexPath:move.to];
             }
-            [view deleteRowsAtIndexPaths:result.deletes withRowAnimation:UITableViewRowAnimationNone];
             [view insertRowsAtIndexPaths:result.inserts withRowAnimation:UITableViewRowAnimationNone];
             [view reloadRowsAtIndexPaths:result.updates withRowAnimation:UITableViewRowAnimationNone];
             [view endUpdates];

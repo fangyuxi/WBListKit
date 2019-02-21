@@ -33,13 +33,14 @@
     self.tableView.adapter = adapter;
     self.tableView.actionDelegate = self;
     
-    [self loadData];
-
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self loadData];
+    });
 }
 
 - (void)loadData{
     
-//    [self.adapter beginAutoDiffer];
+    [self.adapter beginAutoDiffer];
     [self.adapter addSection:^(WBTableSection * _Nonnull section) {
         
         for (NSInteger index = 0; index < 5; ++index) {
@@ -67,8 +68,8 @@
         section.key = @"AutoLayout";
     }];
     
-//    [self.adapter commitAutoDifferWithAnimation:YES];
-    [self.tableView reloadData];
+    [self.adapter commitAutoDifferWithAnimation:YES];
+    //[self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,10 +80,14 @@
     
     WBTableSection *section = [self.adapter sectionAtIndex:indexPath.section];
     WBTableRow *row = [section rowAtIndex:0];
-    NSMutableDictionary *data = row.data;
-    [data setObject:@(indexPath.row + 100) forKey:@"title"];
-    row.reloadKey = [NSString stringWithFormat:@"%@",@(indexPath.row + 100)];
+    
+    //NSLog(@"perform7");
     [self.adapter beginAutoDiffer];
+    [section deleteRow:row];
+    [self.adapter commitAutoDifferWithAnimation:NO];
+    
+    [self.adapter beginAutoDiffer];
+    [section deleteRowAtIndex:0];
     [self.adapter commitAutoDifferWithAnimation:NO];
 }
 

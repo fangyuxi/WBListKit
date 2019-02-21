@@ -26,10 +26,10 @@
     }
     if (animation) {
         [view performBatchUpdates:^{
+            [view deleteSections:result.deletes];
             for (IGListMoveIndex *move in result.moves) {
                 [view moveSection:move.from toSection:move.to];
             }
-            [view deleteSections:result.deletes];
             [view insertSections:result.inserts];
         } completion:^(BOOL finished) {
             
@@ -37,10 +37,10 @@
     }else{
         [UIView performWithoutAnimation:^{
             [view performBatchUpdates:^{
+                [view deleteSections:result.deletes];
                 for (IGListMoveIndex *move in result.moves) {
                     [view moveSection:move.from toSection:move.to];
                 }
-                [view deleteSections:result.deletes];
                 [view insertSections:result.inserts];
             } completion:^(BOOL finished) {
                 
@@ -67,11 +67,11 @@
     
     if (animation) {
         [view performBatchUpdates:^{
+            [view deleteItemsAtIndexPaths:result.deletes];
             for (IGListMoveIndexPath *move in result.moves) {
                 [view moveItemAtIndexPath:move.from toIndexPath:move.to];
             }
             [view reloadItemsAtIndexPaths:result.updates];
-            [view deleteItemsAtIndexPaths:result.deletes];
             [view insertItemsAtIndexPaths:result.inserts];
         } completion:^(BOOL finished) {
             
@@ -79,11 +79,11 @@
     }else{
         [UIView performWithoutAnimation:^{
             [view performBatchUpdates:^{
+                [view deleteItemsAtIndexPaths:result.deletes];
                 for (IGListMoveIndexPath *move in result.moves) {
                     [view moveItemAtIndexPath:move.from toIndexPath:move.to];
                 }
                 [view reloadItemsAtIndexPaths:result.updates];
-                [view deleteItemsAtIndexPaths:result.deletes];
                 [view insertItemsAtIndexPaths:result.inserts];
             } completion:^(BOOL finished) {
                 

@@ -24,7 +24,7 @@ DEPENDENCIES:
   - WBListKit (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - DZNEmptyDataSet
     - Masonry
     - MJRefresh
@@ -43,4 +43,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 85c51a1f67394d8d50e9e4bce206a2be489b0158
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
