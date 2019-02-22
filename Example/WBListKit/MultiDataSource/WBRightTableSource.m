@@ -17,30 +17,25 @@
     
     //此处可以是网络层代码,也可是本地数据
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            //刷新需要清空数据
-            [self.tableViewAdapter beginAutoDiffer];
-            [self.tableViewAdapter deleteAllSections];
-            
-            [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
-                
-                section.key = @"fangyuxi";
-                for (NSInteger index = 0; index < 5; ++index) {
-                    WBTableRow *row = [[WBTableRow alloc] init];
-                    row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
-                    row.data = @{@"title":@(index)
-                                 };
-                    [section addRow:row];
-                }
-            }];
-            
-            self.canLoadMore = YES;
-            [self notifyDidFinishLoad];
-            [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
-        });
-    });
+    //刷新需要清空数据
+    [self.tableViewAdapter beginAutoDiffer];
+    [self.tableViewAdapter deleteAllSections];
+    
+    [self.tableViewAdapter addSection:^(WBTableSection * _Nonnull section) {
+        
+        section.key = @"fangyuxi";
+        for (NSInteger index = 0; index < 5; ++index) {
+            WBTableRow *row = [[WBTableRow alloc] init];
+            row.associatedCellClass = [WBSimpleListAutoLayoutCell class];
+            row.data = @{@"title":@(index)
+                         };
+            [section addRow:row];
+        }
+    }];
+    
+    self.canLoadMore = YES;
+    [self notifyDidFinishLoad];
+    [self.tableViewAdapter commitAutoDifferWithAnimation:YES];
 }
 
 @end

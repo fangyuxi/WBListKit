@@ -10,6 +10,7 @@
 #import "WBListKit.h"
 #import "WBSimpleListCell.h"
 #import "WBSimpleListAutoLayoutCell.h"
+#import "WBTableSectionPrivate.h"
 
 @interface WBSimpleListViewController ()<WBListActionToControllerProtocol>
 
@@ -84,9 +85,8 @@
     [section deleteRow:row];
     [self.adapter commitAutoDifferWithAnimation:YES];
     
-//    [self.adapter beginAutoDiffer];
-//    [section deleteRowAtIndex:0];
-//    [self.adapter commitAutoDifferWithAnimation:NO];
+    [section deleteRow:[section rowAtIndex:1]];
+    [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)actionFromReusableView:(UIView *)view

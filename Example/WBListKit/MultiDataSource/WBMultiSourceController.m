@@ -50,10 +50,10 @@
 
 - (void)changeTableVieSource{
     if (self.list.tableDataSource == self.leftSource) {
-        [self.leftSource.tableViewAdapter deleteAllSections];
+        //[self.leftSource.tableViewAdapter deleteAllSections];
         self.list.tableDataSource = self.rightSource;
     }else if (self.list.tableDataSource == self.rightSource){
-        [self.rightSource.tableViewAdapter deleteAllSections];
+        //[self.rightSource.tableViewAdapter deleteAllSections];
         self.list.tableDataSource = self.leftSource;
     }else{
         self.list.tableDataSource = self.leftSource;

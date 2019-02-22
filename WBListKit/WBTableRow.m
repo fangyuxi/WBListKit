@@ -35,12 +35,12 @@ const CGFloat WBListCellHeightAutoLayout = -1.0f;
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.key;
+    return [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableRow *row = (WBTableRow *)object;
-    return [self.key isEqualToString:row.key];
+    return [self hash] == [row hash];
 }
 
 #pragma mark copy

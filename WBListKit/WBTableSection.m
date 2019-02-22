@@ -138,12 +138,12 @@
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.key;
+    return [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBTableSection *section = (WBTableSection *)object;
-    return [self.key isEqualToString:section.key];
+    return [self hash] == [section hash];
 }
 
 #pragma mark private
