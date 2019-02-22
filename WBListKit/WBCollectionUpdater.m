@@ -18,7 +18,7 @@
                                   to:(NSArray<id<WBListDiffableProtocol>> *)to
                            animation:(BOOL)animation{
     
-    IGListIndexSetResult *result = IGListDiffExperiment(from, to, IGListDiffEquality, IGListExperimentNone);
+    IGListIndexSetResult *result = IGListDiffExperiment(from, to, IGListDiffPointerPersonality, IGListExperimentNone);
     if (result.deletes.count == 0 &&
         result.inserts.count == 0 &&
         result.moves.count == 0) {
@@ -56,7 +56,7 @@
                               to:(NSArray<id<WBListDiffableProtocol>> *)to
                        animation:(BOOL)animation{
     
-    IGListIndexPathResult *result = IGListDiffPathsExperiment(section, section, from, to, IGListDiffEquality, IGListExperimentNone);
+    IGListIndexPathResult *result = IGListDiffPathsExperiment(section, section, from, to, IGListDiffPointerPersonality, IGListExperimentNone);
     
     if (result.deletes.count == 0 &&
         result.inserts.count == 0 &&

@@ -47,7 +47,6 @@
 - (void)loadData{
     
     [self.adapter beginAutoDiffer];
-    __weak typeof(self) weakSelf = self;
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
         for (NSInteger index = 0; index < 1000; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
@@ -55,15 +54,13 @@
             item.data = @{@"title":@(index)
                          };
             [section addItem:item];
-            section.key = @"FixedHeight";
         }
-        
-//        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
-//        header.associatedViewClass = [WBCollectionHeaderView class];
-//        header.elementKind = UICollectionElementKindSectionHeader;
-//        [weakSelf.adapter addSupplementaryItem:header
-//                                     indexPath:[NSIndexPath indexPathForItem:0
-//                                                                   inSection:0]];
+        WBCollectionSupplementaryItem *header = [WBCollectionSupplementaryItem new];
+        header.associatedViewClass = [WBCollectionHeaderView class];
+        header.elementKind = UICollectionElementKindSectionHeader;
+        [self.adapter addSupplementaryItem:header
+                                     indexPath:[NSIndexPath indexPathForItem:0
+                                                                   inSection:0]];
     }];
     
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
@@ -73,7 +70,6 @@
             item.data = @{@"title":@(index)
                           };
             [section addItem:item];
-            section.key = @"FixedHeight";
         }
     }];
     
@@ -87,30 +83,30 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     for (NSInteger index = 0; index < 100; ++index) {
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.adapter beginAutoDiffer];
-            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
-            [section deleteItemAtIndex:0];
-            [self.adapter commitAutoDifferWithAnimation:YES];
-        });
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.adapter beginAutoDiffer];
-            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
-            WBCollectionItem *item = [[WBCollectionItem alloc] init];
-            item.associatedCellClass = [WBCollectionViewCell class];
-            item.data = @{@"title":@(index)
-                          };
-            [section addItem:item];
-            section.key = @"FixedHeight";
-            [section insertItem:item atIndex:8];
-            [self.adapter commitAutoDifferWithAnimation:YES];
-        });
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
-            [section deleteItemAtIndex:1];
-        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.adapter beginAutoDiffer];
+//            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+//            [section deleteItemAtIndex:0];
+//            [self.adapter commitAutoDifferWithAnimation:YES];
+//        });
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.adapter beginAutoDiffer];
+//            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+//            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+//            item.associatedCellClass = [WBCollectionViewCell class];
+//            item.data = @{@"title":@(index)
+//                          };
+//            [section addItem:item];
+//            section.key = @"FixedHeight";
+//            [section insertItem:item atIndex:8];
+//            [self.adapter commitAutoDifferWithAnimation:YES];
+//        });
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            WBCollectionSection *section = [self.adapter sectionAtIndex:0];
+//            [section deleteItemAtIndex:1];
+//        });
         
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            [self.adapter beginAutoDiffer];
@@ -142,12 +138,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     }
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView
-//                  layout:(UICollectionViewLayout *)collectionViewLayout
-//referenceSizeForHeaderInSection:(NSInteger)section{
-//
-//    return CGSizeMake(320, 20);
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+referenceSizeForHeaderInSection:(NSInteger)section{
+
+    return CGSizeMake(320, 20);
+}
 
 
 @end
