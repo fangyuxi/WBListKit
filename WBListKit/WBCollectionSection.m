@@ -121,11 +121,11 @@
 #pragma mark private
 
 - (void)recordOldArray{
-    self.oldArray = self.items;
+    self.oldArray = [self.items copy];
 }
 
 - (void)resetOldArray{
-    self.oldArray = self.items;
+    self.oldArray = [self.items copy];
 }
 
 @end

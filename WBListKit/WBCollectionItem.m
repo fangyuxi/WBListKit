@@ -12,7 +12,7 @@
 
 - (instancetype)init{
     self = [super init];
-    [self setReloadKey:[NSString stringWithFormat:@"%lu",(unsigned long)[self hash]]];
+    _key = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
     return self;
 }
 
@@ -22,14 +22,6 @@
         return;
     }
     _key = [key copy];
-}
-
-- (void)setReloadKey:(NSString *)reloadKey{
-    if (!reloadKey) {
-        _reloadKey = [NSString stringWithFormat:@"%lu",(unsigned long)[self hash]];
-        return;
-    }
-    _reloadKey = [reloadKey copy];
 }
 
 - (void)setAssociatedCellClass:(Class)associatedCellClass
@@ -42,23 +34,17 @@
 #pragma mark differ protocol
 
 - (nonnull id<NSObject>)diffIdentifier{
-    return self.reloadKey;
+    return self.key;
 }
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object{
     WBCollectionItem *row = (WBCollectionItem *)object;
-    return [self.reloadKey isEqualToString:row.reloadKey];
+    return [self.key isEqualToString:row.key];
 }
 
 #pragma mark copy
 
 - (id)copyWithZone:(NSZone *)zone{
-    WBCollectionItem *newItem = [[[self class] alloc] init];
-    newItem.data = self.data;
-    newItem.key = self.key;
-    newItem.associatedCellClass = self.associatedCellClass;
-    newItem.indexPath = self.indexPath;
-    newItem.reloadKey = [[NSString alloc] initWithString:self.reloadKey];
-    return newItem;
+    return self;
 }
 @end

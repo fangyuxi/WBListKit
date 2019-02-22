@@ -28,25 +28,6 @@ WBListKit_SUBCLASSING_RESTRICTED
 @property (nonatomic, copy, nullable) NSString *key;
 
 /**
- 
- reloadKey
- 
- 当TableView或者adapter调用如下三个方法的时候
- 
- 'beginAutoDiffer'
- 'commitAutoDifferWithAnimation:'
- 'reloadDifferWithAnimation:'
- 
- 如果发现一个cell的reloadkey和之前发生变化，则会自动reload这一行cell
- 
- 此生key可以根据row对象的数据或者其他自定义的规则来表示row是否修改过，
- 没有修改过的row不会进行刷新，减少不必要的刷新和IO操作
- 
- 此key不影响TableView的原始reload方法
- */
-@property (nonatomic, copy, nonnull) NSString *reloadKey;
-
-/**
  location in list
  */
 @property (nonatomic, strong, nonnull) NSIndexPath *indexPath;
