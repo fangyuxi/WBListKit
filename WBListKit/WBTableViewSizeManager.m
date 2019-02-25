@@ -50,6 +50,28 @@ static WBTableViewSizeManager *instance = nil;
     return templateCell;
 }
 
+- (__kindof UITableViewHeaderFooterView *)templateHeaderFooterViewForReuseIdentifier:(NSString *)identifier
+                                                                 registeredTableView:(UITableView *)tableView{
+    NSAssert(identifier.length > 0, @"Expect a valid identifier - %@", identifier);
+    
+    NSMutableDictionary<NSString *, UITableViewHeaderFooterView *> *templateHeaderFooterViews = objc_getAssociatedObject(self, _cmd);
+    if (!templateHeaderFooterViews) {
+        templateHeaderFooterViews = @{}.mutableCopy;
+        objc_setAssociatedObject(self, _cmd, templateHeaderFooterViews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    UITableViewHeaderFooterView *templateHeaderFooterView = templateHeaderFooterViews[identifier];
+    
+    if (!templateHeaderFooterView) {
+        templateHeaderFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        NSAssert(templateHeaderFooterView != nil, @"HeaderFooterView must be registered to table view for identifier - %@", identifier);
+        templateHeaderFooterView.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        templateHeaderFooterViews[identifier] = templateHeaderFooterView;
+    }
+    
+    return templateHeaderFooterView;
+}
+
 - (CGFloat)systemFittingHeightForConfiguratedCell:(UITableViewCell *)cell
                               registeredTableView:(UITableView *)tableView{
     CGFloat contentViewWidth = CGRectGetWidth(tableView.frame);
@@ -185,6 +207,24 @@ static WBTableViewSizeManager *instance = nil;
     [tableView.wb_indexPathHeightCache cacheHeight:height byIndexPath:indexPath];
     
     return height;
+}
+
+- (CGFloat)heightForHeaderFooterViewWithIdentifier:(NSString *)identifier
+                               registeredTableView:(UITableView *)tableView
+                                     configuration:(void (^)(id))configuration {
+    UITableViewHeaderFooterView *templateHeaderFooterView = [self templateHeaderFooterViewForReuseIdentifier:identifier registeredTableView:tableView];
+    
+    NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint constraintWithItem:templateHeaderFooterView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:CGRectGetWidth(tableView.frame)];
+    [templateHeaderFooterView addConstraint:widthFenceConstraint];
+    configuration(templateHeaderFooterView);
+    CGFloat fittingHeight = [templateHeaderFooterView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    [templateHeaderFooterView removeConstraint:widthFenceConstraint];
+    
+    if (fittingHeight == 0) {
+        fittingHeight = [templateHeaderFooterView sizeThatFits:CGSizeMake(CGRectGetWidth(tableView.frame), 0)].height;
+    }
+    
+    return fittingHeight;
 }
 
 @end

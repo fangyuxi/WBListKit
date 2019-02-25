@@ -506,14 +506,17 @@
                         inSectoin:(WBTableSection *)section{
     NSString *identifier = NSStringFromClass(headerFooter.associatedHeaderFooterClass);
     __block _WBTableSectionDefaultPlaceholderHeaderFooterView *defaultHeaderFooter = nil;
-//    CGFloat height = [self.tableView fd_heightForHeaderFooterViewWithIdentifier:identifier configuration:^(id headerFooterView) {
-//        UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
-//        if ([headerFooterView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView .class]){
-//            defaultHeaderFooter = headerFooterView;
-//        }
-//        view.headerFooter = headerFooter;
-//        [view update];
-//    }];
+    
+    CGFloat height = [[WBTableViewSizeManager sharedManager] heightForHeaderFooterViewWithIdentifier:identifier
+                                                                                 registeredTableView:self.tableView
+                                                                                       configuration:^(id headerFooterView) {
+            UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
+            if ([headerFooterView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView .class]){
+                defaultHeaderFooter = headerFooterView;
+            }
+            view.headerFooter = headerFooter;
+            [view update];
+    }];
     //如果是框架设置的默认header和footer，那么读取默认高度
     if (defaultHeaderFooter){
         if (headerFooter.displayType == WBTableHeaderFooterTypeHeader){
@@ -522,7 +525,7 @@
             return section.footerHeight;
         }
     }
-    return 0;
+    return height;
 }
 
 - (void)registerCellIfNeededUseCellClass:(Class)cellClass{

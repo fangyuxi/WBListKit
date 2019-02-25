@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
                       cacheByIndexPath:(NSIndexPath *)indexPath
                          configuration:(void (^)(id cell))configuration;
 
+- (CGFloat)heightForHeaderFooterViewWithIdentifier:(NSString *)identifier
+                               registeredTableView:(UITableView *)tableView
+                                     configuration:(void (^)(id))configuration;
 @end
 
 NS_ASSUME_NONNULL_END
