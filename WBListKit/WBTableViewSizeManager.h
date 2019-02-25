@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedManager;
 
+- (CGFloat)heightForCellWithIdentifier:(NSString *)identifier
+                   registeredTableView:(UITableView *)tableView
+                      cacheByIndexPath:(NSIndexPath *)indexPath
+                         configuration:(void (^)(id cell))configuration;
+
 @end
 
 NS_ASSUME_NONNULL_END

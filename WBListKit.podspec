@@ -42,7 +42,6 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'TableView' do |t|
-        t.dependency 'UITableView+FDTemplateLayoutCell'
         t.source_files = 'WBListKit/WBTableRow.{h,m}',
         'WBListKit/UITableView+WBListKitPrivate.{h,m}',
         'WBListKit/UITableView+WBListKit.{h,m}',
@@ -57,6 +56,7 @@ Pod::Spec.new do |s|
         'WBListKit/WBTableHeaderFooterViewProtocal.h',
         'WBListKit/WBTableViewAdapterPrivate.h'
         t.public_header_files = 'WBListKit/{WBTableRow,UITableView+WBListKitPrivate,UITableView+WBListKit,WBTableSection,WBTableSectionHeaderFooter,WBTableViewAdapter,WBTableViewDelegateProxy,WBTableCellProtocal,WBTableHeaderFooterViewProtocal,WBTableViewAdapterPrivate,WBTableSectionPrivate}.h'
+        t.dependency 'WBListKit/SizeManager'
     end
 
     s.subspec 'CollectionView' do |c|
@@ -73,7 +73,6 @@ Pod::Spec.new do |s|
                             'WBListKit/WBCollectionSupplementaryViewProtocol.h',
                             'WBListKit/WBCollectionSectionPrivate.h'
         c.public_header_files = 'WBListKit/{WBCollectionItem,UICollectionView+WBListKitPrivate,WBCollectionViewAdapterPrivate,UICollectionView+WBListKit,WBCollectionSection,WBCollectionViewAdapter,WBCollectionViewDelegateProxy,WBCollectionSupplementaryItem,WBCollectionCellProtocol,WBCollectionSupplementaryViewProtocol,WBCollectionSectionPrivate}.h'
-        c.dependency 'UITableView+FDTemplateLayoutCell'
     end
 
     s.subspec 'DataSource' do |d|
@@ -89,5 +88,12 @@ Pod::Spec.new do |s|
         d.public_header_files = 'WBListKit/{WBListDataSource,WBTableViewDataSource,WBCollectionViewDataSource,WBListController,UIViewController+WBList,WBListDataSourceDelegate,WBTableViewDataSourcePrivate,WBCollectionViewDataSourcePrivate}.h'
         d.dependency 'WBListKit/CollectionView'
         d.dependency 'WBListKit/TableView'
+    end
+    
+    s.subspec 'SizeManager' do |s|
+        s.source_files = 'WBListKit/WBTableViewSizeManager.{h,m}',
+        'WBListKit/WBTableViewHeightCache.{h,m}',
+        'WBListKit/UITableView+WBHeightCache.{h,m}',
+        s.public_header_files = 'WBListKit/{WBTableViewSizeManager,WBTableViewHeightCache,UITableView+WBHeightCache}.h'
     end
 end

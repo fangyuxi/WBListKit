@@ -7,7 +7,6 @@
 //
 
 #import "WBTableViewAdapter.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "WBTableViewDelegateProxy.h"
 #import "WBTableHeaderFooterViewProtocal.h"
 #import "WBTableCellProtocal.h"
@@ -26,6 +25,7 @@
 #import "WBTableUpdater.h"
 #import "WBListReusableViewProtocol.h"
 #import "_WBTableSectionDefaultPlaceholderHeaderFooterView.h"
+#import "WBTableViewSizeManager.h"
 
 @class _WBTableSectionDefaultPlaceholderHeaderFooterView;
 
@@ -287,13 +287,20 @@
         }
 
     }
+    
+    CGFloat f = [[WBTableViewSizeManager sharedManager] heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
+                                                                registeredTableView:self.tableView
+                                                                   cacheByIndexPath:indexPath configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
+        cell.row = row;
+        [cell update];
+    }];
 
-    CGFloat f = [tableView fd_heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
-                                         cacheByIndexPath:indexPath
-                                            configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
-                                                cell.row = row;
-                                                [cell update];
-                                            }];
+//    CGFloat f = [tableView fd_heightForCellWithIdentifier:NSStringFromClass(row.associatedCellClass)
+//                                         cacheByIndexPath:indexPath
+//                                            configuration:^(UITableViewCell<WBTableCellProtocol> *cell) {
+//                                                cell.row = row;
+//                                                [cell update];
+//                                            }];
     return f;
 }
 
@@ -499,14 +506,14 @@
                         inSectoin:(WBTableSection *)section{
     NSString *identifier = NSStringFromClass(headerFooter.associatedHeaderFooterClass);
     __block _WBTableSectionDefaultPlaceholderHeaderFooterView *defaultHeaderFooter = nil;
-    CGFloat height = [self.tableView fd_heightForHeaderFooterViewWithIdentifier:identifier configuration:^(id headerFooterView) {
-        UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
-        if ([headerFooterView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView .class]){
-            defaultHeaderFooter = headerFooterView;
-        }
-        view.headerFooter = headerFooter;
-        [view update];
-    }];
+//    CGFloat height = [self.tableView fd_heightForHeaderFooterViewWithIdentifier:identifier configuration:^(id headerFooterView) {
+//        UIView<WBTableHeaderFooterViewProtocal> *view = headerFooterView;
+//        if ([headerFooterView isKindOfClass:_WBTableSectionDefaultPlaceholderHeaderFooterView .class]){
+//            defaultHeaderFooter = headerFooterView;
+//        }
+//        view.headerFooter = headerFooter;
+//        [view update];
+//    }];
     //如果是框架设置的默认header和footer，那么读取默认高度
     if (defaultHeaderFooter){
         if (headerFooter.displayType == WBTableHeaderFooterTypeHeader){
@@ -515,7 +522,7 @@
             return section.footerHeight;
         }
     }
-    return height;
+    return 0;
 }
 
 - (void)registerCellIfNeededUseCellClass:(Class)cellClass{
