@@ -15,14 +15,6 @@
 
 static int SourceKey;
 
-// We just forward primary call, in crash report, top most method in stack maybe WBLIST's,
-// but it's really not our bug, you should check whether your table view's data source and
-// displaying cells are not matched when reloading.
-static void __WBLIST_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (^callout)(void)) {
-    callout();
-}
-#define WBLISTPrimaryCall(...) do {__WBLIST_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(^{__VA_ARGS__});} while(0)
-
 @implementation UITableView (WBListKitPrivate)
 
 + (void)load {
