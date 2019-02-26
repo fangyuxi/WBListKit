@@ -48,7 +48,7 @@
     
     [self.adapter beginAutoDiffer];
     [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
-        for (NSInteger index = 0; index < 1000; ++index) {
+        for (NSInteger index = 0; index < 10; ++index) {
             WBCollectionItem *item = [[WBCollectionItem alloc] init];
             item.associatedCellClass = [WBCollectionViewCell class];
             item.data = @{@"title":@(index)
@@ -63,15 +63,15 @@
                                                                    inSection:0]];
     }];
     
-    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
-        for (NSInteger index = 0; index < 100; ++index) {
-            WBCollectionItem *item = [[WBCollectionItem alloc] init];
-            item.associatedCellClass = [WBCollectionViewCell class];
-            item.data = @{@"title":@(index)
-                          };
-            [section addItem:item];
-        }
-    }];
+//    [self.adapter addSection:^(WBCollectionSection * _Nonnull section) {
+//        for (NSInteger index = 0; index < 100; ++index) {
+//            WBCollectionItem *item = [[WBCollectionItem alloc] init];
+//            item.associatedCellClass = [WBCollectionViewCell class];
+//            item.data = @{@"title":@(index)
+//                          };
+//            [section addItem:item];
+//        }
+//    }];
     
     [self.adapter commitAutoDifferWithAnimation:YES];
 }
@@ -80,6 +80,12 @@
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    WBCollectionSection *section = [self.adapter sectionAtIndex:indexPath.section];
+    WBCollectionItem *item = [section itemAtIndex:0];
+    
+    [self.adapter beginAutoDiffer];
+    [section deleteItem:item];
+    [self.adapter commitAutoDifferWithAnimation:YES];
     
     for (NSInteger index = 0; index < 100; ++index) {
 

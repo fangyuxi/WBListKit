@@ -431,13 +431,13 @@
     
     if (self.collectionView.delegate != self) {
         if (self.collectionView.delegate != self.delegateProxy) {
-            WBListKitAssert(nil, @"不能使用UICollectoinView的delegate属性，请使用actionDelegate属性替代原delegate的功能");
+            WBListKitAssert(nil, @"不能使用UICollectoinView的delegate属性，请使用actionDelegate属性替代原delegate的属性");
         }
     }
     
     if (self.collectionView.dataSource != self) {
         if (self.collectionView.dataSource != self.delegateProxy) {
-            WBListKitAssert(nil, @"不能使用UICollectoinView的dataSource属性，请使用tableDataSource属性替代原datasource的功能");
+            WBListKitAssert(nil, @"不能使用UICollectoinView的dataSource属性，请使用collectionViewDataSource属性替代原dataSource的属性");
         }
     }
 }

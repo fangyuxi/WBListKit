@@ -20,7 +20,14 @@ static int SourceKey;
 + (void)load {
     SEL selectors[] = {
         @selector(reloadData),
-        @selector(reloadSections:)
+        @selector(reloadSections:),
+        @selector(insertSections:),
+        @selector(deleteSections:),
+        @selector(moveSection:toSection:),
+        @selector(insertItemsAtIndexPaths:),
+        @selector(deleteItemsAtIndexPaths:),
+        @selector(reloadItemsAtIndexPaths:),
+        @selector(moveItemAtIndexPath:toIndexPath:)
     };
     
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -38,12 +45,46 @@ static int SourceKey;
 }
 
 - (void)wblist_reloadSections:(NSIndexSet *)sections {
-    
     [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
         WBCollectionSection *sectionObject = [self.adapter sectionAtIndex:idx];
         [sectionObject resetOldArray];
     }];
     WBLISTPrimaryCall([self wblist_reloadSections:sections];);
+}
+
+- (void)wblist_insertSections:(NSIndexSet *)sections{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_insertSections:sections];);
+}
+
+- (void)wblist_deleteSections:(NSIndexSet *)sections{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_deleteSections:sections];);
+}
+
+- (void)wblist_moveSection:(NSInteger)section toSection:(NSInteger)newSection{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_moveSection:section toSection:newSection];);
+}
+
+- (void)wblist_insertItemsAtIndexPaths:(NSIndexSet *)indexPaths{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_insertItemsAtIndexPaths:indexPaths];);
+}
+
+- (void)wblist_deleteItemsAtIndexPaths:(NSIndexSet *)indexPaths{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_deleteItemsAtIndexPaths:indexPaths];);
+}
+
+- (void)wblist_reloadItemsAtIndexPaths:(NSIndexSet *)indexPaths{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_reloadItemsAtIndexPaths:indexPaths];);
+}
+
+- (void)wblist_moveItemAtIndexPath:(NSIndexSet *)indexPaths toIndexPath:(NSIndexPath *)newIndexPath{
+    [self.adapter resetAllSectionsAndRowsRecords];
+    WBLISTPrimaryCall([self wblist_moveItemAtIndexPath:indexPaths toIndexPath:newIndexPath];);
 }
 
 - (void)setSource:(WBCollectionViewDataSource *)source{
