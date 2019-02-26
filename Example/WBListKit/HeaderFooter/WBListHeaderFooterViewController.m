@@ -7,7 +7,7 @@
 //
 
 #import "WBListHeaderFooterViewController.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBHeaderFooterCell.h"
 #import "WBDemoHeaderView.h"
 #import "WBDemoFooterView.h"

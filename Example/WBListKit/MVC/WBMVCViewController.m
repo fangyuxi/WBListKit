@@ -7,7 +7,7 @@
 //
 
 #import "WBMVCViewController.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBMVCTableListDataSource.h"
 #import "WBMVCRefreshHeader.h"
 #import "WBMVCRefreshFooter.h"

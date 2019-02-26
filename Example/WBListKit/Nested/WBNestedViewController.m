@@ -8,7 +8,7 @@
 
 #import "WBNestedViewController.h"
 #import "WBNestedTableViewCell.h"
-#import "WBListKit.h"
+@import WBListKit;
 
 
 @interface WBNestedViewController ()<WBListActionToControllerProtocol>

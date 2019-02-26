@@ -10,9 +10,9 @@
 #import "JKSeparatorLayout.h"
 #import "WBCollectionViewCell.h"
 #import "WBCustomSeparatorView.h"
-#import "WBListKit.h"
+@import WBListKit;
 
-@interface WBCustomLayoutViewController ()<WBListActionToControllerProtocol, JKSeparatorLayoutDelegate, UICollectionViewDataSource>
+@interface WBCustomLayoutViewController ()<WBListActionToControllerProtocol, JKSeparatorLayoutDelegate>
 
 @property (nonatomic, strong) WBCollectionViewAdapter *adapter;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -34,7 +34,6 @@
     [self.view addSubview:self.collectionView];
     
     self.adapter = [[WBCollectionViewAdapter alloc] init];
-    self.collectionView.collectionViewDataSource = self;
     self.collectionView.adapter = self.adapter;
     
     dispatch_async(dispatch_get_main_queue(), ^{

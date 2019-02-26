@@ -6,7 +6,7 @@
 //  Copyright © 2017年 xcoder.fang@gmail.com. All rights reserved.
 //
 
-#import "WBListKit.h"
+@import WBListKit;
 
 @interface WBDemosCell : UITableViewCell<WBTableCellProtocol>
 

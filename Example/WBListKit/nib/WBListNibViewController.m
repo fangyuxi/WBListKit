@@ -7,7 +7,7 @@
 //
 
 #import "WBListNibViewController.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBListNibCell.h"
 
 @interface WBListNibViewController ()

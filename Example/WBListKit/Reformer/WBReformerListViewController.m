@@ -7,7 +7,7 @@
 //
 
 #import "WBReformerListViewController.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBReformerListCell.h"
 #import "WBReformerListCellReformer.h"
 

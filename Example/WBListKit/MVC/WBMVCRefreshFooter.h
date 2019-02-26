@@ -7,7 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
-#import "WBListRefreshFooterViewProtocol.h"
+@import WBListKit;
 
 @interface WBMVCRefreshFooter : MJRefreshAutoFooter<WBListRefreshFooterViewProtocol>
 

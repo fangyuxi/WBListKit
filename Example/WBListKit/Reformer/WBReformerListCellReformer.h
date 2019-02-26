@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WBListKit.h"
+@import WBListKit;
 
 @interface WBReformerListCellReformer : NSObject<WBListDataReformerProtocol>
 

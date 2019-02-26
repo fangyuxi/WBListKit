@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WBListKit/WBListKit.h>
+@import WBListKit;
 
 @interface WBSimpleListCell : UITableViewCell<WBTableCellProtocol>
 

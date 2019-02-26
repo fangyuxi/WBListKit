@@ -9,7 +9,7 @@
 #import "WBListKitDemosViewController.h"
 #import "OCAndSwift-Swift.h"
 
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBDemosCell.h"
 
 #import "WBSimpleListViewController.h"

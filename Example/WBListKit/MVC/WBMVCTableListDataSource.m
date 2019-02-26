@@ -9,7 +9,7 @@
 #import "WBMVCTableListDataSource.h"
 #import "WBReformerListCell.h"
 #import "WBReformerListCellReformer.h"
-#import "WBListKit.h"
+@import WBListKit;
 
 @implementation WBMVCTableListDataSource
 

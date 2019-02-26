@@ -7,7 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
-#import "WBListRefreshHeaderViewProtocol.h"
+@import WBListKit;
 
 @interface WBMVCRefreshHeader : MJRefreshStateHeader<WBListRefreshHeaderViewProtocol>
 

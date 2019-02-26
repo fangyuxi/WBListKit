@@ -8,7 +8,7 @@
 
 #import "WBWaterFallViewController.h"
 #import "OCAndSwift-Swift.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBCollectionViewCell.h"
 
 @interface WBWaterFallViewController ()<WBListActionToControllerProtocol,WaterFallLayoutDelegate>

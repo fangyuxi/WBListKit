@@ -9,7 +9,7 @@
 #import "WBExpandingCellViewController.h"
 #import "WBExpandingCellReformer.h"
 #import "WBExpandingCell.h"
-#import "WBListKit.h"
+@import WBListKit;
 
 @interface WBExpandingCellViewController ()<WBListActionToControllerProtocol>
 

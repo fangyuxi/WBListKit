@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WBListKit.h"
+@import WBListKit;
 @interface WBSimpleListAutoLayoutCell : UITableViewCell<WBTableCellProtocol>
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "WBSimpleListViewController.h"
-#import "WBListKit.h"
+@import WBListKit;
 #import "WBSimpleListCell.h"
 #import "WBSimpleListAutoLayoutCell.h"
 #import "WBTableSectionPrivate.h"
