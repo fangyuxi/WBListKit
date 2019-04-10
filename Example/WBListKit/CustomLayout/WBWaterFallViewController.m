@@ -27,8 +27,8 @@
     self.view.backgroundColor = [UIColor redColor];
     
     WaterFallLayout *layout = [[WaterFallLayout alloc] init];
-    layout.numberOfColums = 3;
-    layout.delegate = self;
+    //layout.numberOfColums = 3;
+    //layout.delegate = self;
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:layout];
     [self.view addSubview:self.collectionView];

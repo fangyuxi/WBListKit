@@ -17,7 +17,7 @@ class WBSwiftListCell: UITableViewCell,WBTableCellProtocol {
 
     let label:UILabel
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         label = UILabel()
         label.backgroundColor = UIColor.clear
         label.textColor = UIColor.black

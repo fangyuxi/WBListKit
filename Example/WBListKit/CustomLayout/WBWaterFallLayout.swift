@@ -16,7 +16,7 @@ import UIKit
 class WaterFallLayout: UICollectionViewLayout {
     
     /// 共有多少列
-    var numberOfColums = 0 {
+    public var numberOfColums = 0 {
         didSet {
             // 初始化为0
             for _ in 0..<numberOfColums {
@@ -27,7 +27,7 @@ class WaterFallLayout: UICollectionViewLayout {
     /// cell之间的间隙 默认为5.0
     var itemSpace: CGFloat = 5.0
     
-    weak var delegate: WaterFallLayoutDelegate?
+    public weak var delegate: WaterFallLayoutDelegate?
     // 当item比较少(几百个)的时候建议缓存
     // 当有成千个item的时候建议其他方式计算
     private var layoutAttributes: [UICollectionViewLayoutAttributes] = []

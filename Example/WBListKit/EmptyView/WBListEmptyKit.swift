@@ -17,7 +17,7 @@ fileprivate struct AssociatedKeys{
 
 public extension UIScrollView{
 
-    public var empty: WBListEmptyKitNameSpace<UIScrollView>{
+    var empty: WBListEmptyKitNameSpace<UIScrollView>{
         get{
             var nameSpace: WBListEmptyKitNameSpace? = objc_getAssociatedObject(self, &AssociatedKeys.nameSpaceKey) as? WBListEmptyKitNameSpace<UIScrollView>
             if nameSpace == nil {
@@ -32,7 +32,7 @@ public extension UIScrollView{
 public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
     
     // MARK: - EmptyDataSource
-    public weak var dataSource: WBListEmptyKitDataSource?{
+    weak var dataSource: WBListEmptyKitDataSource?{
         get{
             return objc_getAssociatedObject(self, &AssociatedKeys.dataSourceKey) as? WBListEmptyKitDataSource
         }
@@ -42,7 +42,7 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
     }
     
     // MARK: - EmptyDelegate
-    public weak var delegate: WBListEmptyKitDelegate?{
+    weak var delegate: WBListEmptyKitDelegate?{
         get{
             return objc_getAssociatedObject(self, &AssociatedKeys.delegateKey) as? WBListEmptyKitDelegate
         }
@@ -78,8 +78,8 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
             parent.addConstraint(NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: parent, attribute: .height, multiplier: 1, constant: 0))
             
             /// vertical horizontal could flexable extend
-            view.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: UILayoutConstraintAxis.horizontal)
-            view.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: UILayoutConstraintAxis.vertical)
+            view.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.horizontal)
+            view.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
         }
         
         view.hide()
@@ -123,7 +123,7 @@ public extension WBListEmptyKitNameSpace where Parent: UIScrollView{
                     
                     self.delegate?.emptyViewWillAppear(in: parent)
                     self.emptyView.show()
-                    parent.bringSubview(toFront: self.emptyView)
+                    parent.bringSubviewToFront(self.emptyView)
                     self.delegate?.emptyViewDidAppear(in: parent)
                 }
             }

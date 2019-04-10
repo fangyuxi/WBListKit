@@ -26,8 +26,8 @@ class WBSwiftEmptyViewController: UIViewController {
         
         tableView.adapter = adapter;
         
-        let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItemStyle.plain, target: self, action: #selector(add))
-        let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItemStyle.plain, target: self, action: #selector(clear))
+        let leftItem: UIBarButtonItem = UIBarButtonItem(title: "增加", style: UIBarButtonItem.Style.plain, target: self, action: #selector(add))
+        let rightItem: UIBarButtonItem = UIBarButtonItem(title: "清空", style: UIBarButtonItem.Style.plain, target: self, action: #selector(clear))
             
         self.navigationItem.rightBarButtonItems = [leftItem, rightItem]
             
@@ -45,7 +45,7 @@ class WBSwiftEmptyViewController: UIViewController {
         })
     }
     
-    func add(){
+    @objc func add(){
         
         self.adapter.addSection { (section) in
             
@@ -62,7 +62,7 @@ class WBSwiftEmptyViewController: UIViewController {
         
     }
     
-    func clear(){
+    @objc func clear(){
         adapter.deleteAllSections()
         reloadLater()
     }
@@ -95,7 +95,7 @@ extension WBSwiftEmptyViewController : WBListEmptyKitDataSource{
     
     func emptyButton(for emptyView: UIView, in view: UIView) -> UIButton? {
         let button = UIButton()
-        button.setTitle("空页面按钮演示，点击事件", for: UIControlState.normal)
+        button.setTitle("空页面按钮演示，点击事件", for: UIControl.State.normal)
         button.setTitleColor(UIColor.red, for: .normal)
         button.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100))
         button.layer.borderWidth = 1
