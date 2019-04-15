@@ -16,7 +16,7 @@ import UIKit
 class WaterFallLayout: UICollectionViewLayout {
     
     /// 共有多少列
-    public var numberOfColums = 0 {
+    public var numberOfColums = 3 {
         didSet {
             // 初始化为0
             for _ in 0..<numberOfColums {
@@ -32,7 +32,7 @@ class WaterFallLayout: UICollectionViewLayout {
     // 当有成千个item的时候建议其他方式计算
     private var layoutAttributes: [UICollectionViewLayoutAttributes] = []
     // 初始都设置为0
-    private var maxYOfColums: [CGFloat] = []
+    private var maxYOfColums: [CGFloat] = [0,0,0]
     /// 用于记录之前屏幕的宽度 便于在旋转的时候刷新视图
     private var oldScreenWidth: CGFloat = 0.0
     
@@ -93,10 +93,10 @@ class WaterFallLayout: UICollectionViewLayout {
         var indexPath: IndexPath
         var attributesArr: [UICollectionViewLayoutAttributes] = []
         
-        guard let unwapDelegate = delegate else {
-            assert(false, "需要设置代理")
-            return attributesArr
-        }
+//        guard let unwapDelegate = delegate else {
+//            assert(false, "需要设置代理")
+//            return attributesArr
+//        }
         
         for index in 0..<numberOfColums {
             self.maxYOfColums[index] = 0
@@ -104,7 +104,8 @@ class WaterFallLayout: UICollectionViewLayout {
         for currentIndex in 0..<totalNums {
             indexPath = IndexPath(item: currentIndex, section: 0)
             
-            height = unwapDelegate.heightForItemAtIndexPath(indexPath: indexPath)
+            //height = unwapDelegate.heightForItemAtIndexPath(indexPath: indexPath)
+            height = CGFloat((arc4random() % 200) + 50);
             
             if currentIndex < numberOfColums {// 第一行直接添加到当前的列
                 currentColum = currentIndex
@@ -119,11 +120,12 @@ class WaterFallLayout: UICollectionViewLayout {
             // 每个cell的y
             y = itemSpace + maxYOfColums[currentColum]
             // 记录每一列的最后一个cell的最大Y
-            maxYOfColums[currentColum] = y + height
+            maxYOfColums[currentColum] = CGFloat(y + height)
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             // 设置用于瀑布流效果的attributes的frame
-            attributes.frame = CGRect(x: x, y: y, width: width, height: height)
+            
+            attributes.frame = CGRect.init(x: x, y: y, width: width, height: height)
             
             attributesArr.append(attributes)
         }
