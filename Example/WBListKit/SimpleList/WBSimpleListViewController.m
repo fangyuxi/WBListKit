@@ -84,9 +84,6 @@
     [self.adapter beginAutoDiffer];
     [section deleteRow:row];
     [self.adapter commitAutoDifferWithAnimation:YES];
-    
-    [section deleteRow:[section rowAtIndex:1]];
-    [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)actionFromReusableView:(UIView *)view
