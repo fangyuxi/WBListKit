@@ -48,7 +48,10 @@ static int WBListActionToControllerProtocolKey;
 }
 
 - (WBTableViewAdapter *)adapter{
-    return objc_getAssociatedObject(self, &AdapterKey);
+    
+    WBTableViewAdapter *adapter = objc_getAssociatedObject(self, &AdapterKey);
+    NSAssert(adapter, @"WBListKit: You should set adapter for your tableView");
+    return adapter;
 }
 
 #pragma mark appear disappear
